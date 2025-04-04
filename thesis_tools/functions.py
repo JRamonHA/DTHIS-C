@@ -1,11 +1,13 @@
 import pandas as pd
 import numpy as np
+import math
 import plotly.graph_objects as go
-import plotly.express as px
 import plotly.io as pio
+from plotly.subplots import make_subplots
 from sklearn.linear_model import LinearRegression
 
-def scatter_plot(filepath, columns, x_label=None, y_label=None, legend_labels=None):
+
+def scatter_plot(filepath, columns, traces_colors=None, x_label=None, y_label=None, legend_labels=None):
     """
     Genera un scatter plot a partir de un archivo, utilizando las columnas 
     especificadas en función del índice temporal del conjunto de datos.
@@ -13,6 +15,7 @@ def scatter_plot(filepath, columns, x_label=None, y_label=None, legend_labels=No
     Parámetros:
     - filepath (str): Ruta al archivo Parquet.
     - columns (list): Lista de nombres de columnas a graficar en el eje Y.
+    - traces_colors (list, opcional): Lista de colores en formato hexadecimal para cada traza.
     - x_label (str, opcional): Etiqueta para el eje X.
     - y_label (str, opcional): Etiqueta para el eje Y.
     - legend_labels (list, opcional): Lista de nombres personalizados para la leyenda.
@@ -21,32 +24,96 @@ def scatter_plot(filepath, columns, x_label=None, y_label=None, legend_labels=No
     - None: Muestra el scatter plot interactivo.
     """
     data = pd.read_parquet(filepath)
-
     pio.renderers.default = "iframe"
 
     # Si no se proporcionan etiquetas de la leyenda, se usan los nombres de las columnas
     if legend_labels is None or len(legend_labels) != len(columns):
         legend_labels = columns
 
-    fig = px.scatter(data, x=data.index, y=columns)
+    # Lista de colores por defecto si no se proporciona una lista de colores
+    colors = ["#636EFA", "#EF553B", "#00CC96", "#AB63FA", "#FFA15A",
+              "#19D3F3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"]
 
-    # Renombrar las trazas con los nombres personalizados de la leyenda
-    for trace, legend_name in zip(fig.data, legend_labels):
-        trace.name = legend_name
+    if traces_colors is None or len(traces_colors) != len(columns):
+        traces_colors = colors[:len(columns)]
 
-    fig.update_layout(hovermode='x unified')
+    fig = go.Figure()
 
-    if x_label is None:
-        x_label = 'Índice'
-    if y_label is None:
-        y_label = ', '.join(columns) if isinstance(columns, list) else columns
+    # Agregar cada traza con su respectivo color y etiqueta
+    for i, col in enumerate(columns):
+        fig.add_trace(go.Scatter(
+            x=data.index,
+            y=data[col],
+            mode='markers',
+            marker=dict(color=traces_colors[i]),
+            name=legend_labels[i]
+        ))
 
-    fig.update_layout(xaxis_title=x_label, yaxis_title=y_label)
+    fig.update_layout(
+        xaxis_title=x_label if x_label else 'Índice',
+        yaxis_title=y_label if y_label else ', '.join(columns),
+        hovermode='x unified'
+    )
+
+    return fig
+
+
+def scatter_subplots(filepath, subplot_configs):
+    """
+    Genera subplots de gráficos scatter a partir de un archivo, permitiendo definir en cada subplot
+    las columnas a graficar y sus respectivas opciones.
     
-    return fig 
+    Parámetros:
+    - filepath (str): Ruta al archivo Parquet.
+    - subplot_configs (list of dict): Lista de diccionarios, donde cada diccionario contiene:
+        - 'columns' (list): Lista de nombres de columnas a graficar en el subplot.
+        - 'traces_colors' (list, opcional): Lista de colores en formato hexadecimal para cada traza.
+        - 'x_label' (str, opcional): Etiqueta para el eje X.
+        - 'y_label' (str, opcional): Etiqueta para el eje Y.
+        - 'legend_labels' (list, opcional): Lista de nombres personalizados para la leyenda.
+    
+    Retorna:
+    - None: Muestra los scatter subplots interactivos.
+    """
+    # Cargar datos
+    data = pd.read_parquet(filepath)
+    pio.renderers.default = "iframe"
+    
+    num_subplots = len(subplot_configs)
+    # Crear subplots en una sola columna, compartiendo eje x
+    fig = make_subplots(rows=num_subplots, cols=1, shared_xaxes=True)
+    
+    # Colores por defecto
+    colors = ["#636EFA", "#EF553B", "#00CC96", "#AB63FA", "#FFA15A",
+                      "#19D3F3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"]
+    
+    for i, config in enumerate(subplot_configs, start=1):
+        cols = config.get('columns', [])
+        traces_colors = config.get('traces_colors', colors[:len(cols)])
+        x_label = config.get('x_label', 'Índice')
+        y_label = config.get('y_label', ', '.join(cols))
+        legend_labels = config.get('legend_labels', cols)
+        
+        for j, col in enumerate(cols):
+            fig.add_trace(go.Scatter(
+                x=data.index,
+                y=data[col],
+                mode='markers',
+                marker=dict(color=traces_colors[j]),
+                name=legend_labels[j]
+            ), row=i, col=1)
+        
+        # Actualiza la etiqueta del eje Y para este subplot
+        fig.update_yaxes(title_text=y_label, row=i, col=1)
+    
+    # Actualiza la etiqueta del eje X solo en el último subplot (compartido)
+    fig.update_xaxes(title_text=x_label, row=num_subplots, col=1)
+    fig.update_layout(hovermode='x unified')
+    
+    return fig
 
 
-def columns_plot(filepath, x_col, y_col):
+def columns_plot(filepath, x_col, y_col, x_label, y_label, trace_color=None, legend_name=None):
     """
     Genera un scatter plot usando las columnas especificadas para los ejes X e Y.
 
@@ -54,17 +121,85 @@ def columns_plot(filepath, x_col, y_col):
     - filepath (str): Ruta al archivo Parquet.
     - x_col (str): Nombre de la columna a graficar en el eje X.
     - y_col (str): Nombre de la columna a graficar en el eje Y.
+    - x_label (str): Etiqueta para el eje X.
+    - y_label (str): Etiqueta para el eje Y.
+    - trace_color (str, opcional): Color de la traza en formato hexadecimal.
+    - legend_name (str, opcional): Texto que se visualizará en la leyenda para la traza.
 
     Retorna:
     - None: Muestra el scatter plot interactivo.
     """
     data = pd.read_parquet(filepath)
-        
     pio.renderers.default = "iframe"
     
-    fig = px.scatter(data, x=x_col, y=y_col)
-    fig.update_layout(hovermode='x unified')
+    fig = go.Figure()
     
+    # Usar legend_name si se proporciona
+    display_name = legend_name if legend_name is not None else None
+    
+    fig.add_trace(go.Scatter(
+        x=data[x_col],
+        y=data[y_col],
+        mode='markers',
+        marker=dict(color=trace_color if trace_color else '#636EFA'),
+        name=display_name
+    ))
+    
+    fig.update_layout(
+        xaxis_title=x_label,
+        yaxis_title=y_label,
+        showlegend=True 
+    )
+    
+    return fig
+
+
+def columns_subplots(filepath, subplot_configs):
+    """
+    Genera subplots de gráficos scatter utilizando columnas específicas para los ejes X e Y.
+    
+    Parámetros:
+    - filepath (str): Ruta al archivo Parquet.
+    - subplot_configs (list of dict): Lista de diccionarios, donde cada uno debe contener:
+        - 'x_col' (str): Nombre de la columna para el eje X.
+        - 'y_col' (str): Nombre de la columna para el eje Y.
+        - 'x_label' (str): Etiqueta para el eje X.
+        - 'y_label' (str): Etiqueta para el eje Y.
+        - 'trace_color' (str, opcional): Color de la traza en formato hexadecimal.
+        - 'legend_name' (str, opcional): Texto que se visualizará en la leyenda para la traza.
+    
+    Retorna:
+    - None: Muestra los scatter subplots interactivos.
+    """
+    # Cargar los datos
+    data = pd.read_parquet(filepath)
+    pio.renderers.default = "iframe"
+    
+    num_subplots = len(subplot_configs)
+    # Crear subplots en una sola columna (cada uno con ejes independientes)
+    fig = make_subplots(rows=num_subplots, cols=1, shared_xaxes=False)
+    
+    # Iterar sobre cada configuración y agregar la traza correspondiente
+    for i, config in enumerate(subplot_configs, start=1):
+        x_col = config.get('x_col')
+        y_col = config.get('y_col')
+        x_label = config.get('x_label', x_col)
+        y_label = config.get('y_label', y_col)
+        trace_color = config.get('trace_color', '#636EFA')
+        legend_name = config.get('legend_name', y_col)
+        
+        fig.add_trace(go.Scatter(
+            x=data[x_col],
+            y=data[y_col],
+            mode='markers',
+            marker=dict(color=trace_color),
+            name=legend_name
+        ), row=i, col=1)
+        
+        fig.update_xaxes(title_text=x_label, row=i, col=1)
+        fig.update_yaxes(title_text=y_label, row=i, col=1)
+    
+    fig.update_layout(hovermode='closest')
     return fig
 
 
@@ -236,6 +371,108 @@ def compare_plot(filepath, group_dict, x_label="Tiempo", y_label=None, legend_la
         yaxis_title=y_label.get(group_labels[0], group_labels[0])  # Título inicial del eje Y
     )
 
+    return fig
+
+
+def linear_reg_subplots(filepath, columns, time_intervals, titles):
+    """
+    Genera subplots con gráficos de dispersión y líneas de regresión para cada columna.
+
+    Parámetros:
+        - filepath (str): Ruta al archivo Parquet.
+        - columns (list): Lista de nombres de columnas para la regresión.
+        - time_intervals (list): Lista de tuplas (inicio, fin, valor_Tref).
+        - titles (list): Lista de títulos para cada subplot (debe coincidir en longitud con 'columns').
+
+    Retorna:
+    - None: Muestra los gráficos interactivos en subplots.
+    """
+    # Configurar renderizador
+    pio.renderers.default = "iframe"
+    
+    # Validar longitud de títulos
+    if len(columns) != len(titles):
+        raise ValueError("La cantidad de títulos debe ser igual a la cantidad de columnas.")
+
+    # Cargar datos y verificar el índice
+    data = pd.read_parquet(filepath)
+    if not isinstance(data.index, pd.DatetimeIndex):
+        raise ValueError('El índice del DataFrame debe ser de tipo DatetimeIndex.')
+
+    # Crear columna Tref y asignar valores según intervalos de tiempo
+    data['Tref'] = np.nan
+    for start, end, tref_value in time_intervals:
+        indices = data.between_time(start, end).index
+        data.loc[indices, 'Tref'] = tref_value
+
+    # Filtrar datos con Tref definido
+    data_all = data.dropna(subset=['Tref'])
+    
+    # Determinar distribución de subplots
+    n = len(columns)
+    n_rows = math.ceil(math.sqrt(n))
+    n_cols = math.ceil(n / n_rows)
+    
+    fig = make_subplots(
+        rows=n_rows, cols=n_cols, shared_xaxes=True, shared_yaxes=True,
+        subplot_titles=titles  # Asignar los títulos personalizados
+    )
+
+    # Paleta de colores para las líneas de regresión
+    colors = ["#636EFA", "#EF553B", "#00CC96", "#AB63FA", "#FFA15A",
+              "#19D3F3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"]
+
+    # Iterar sobre cada columna para ajustar el modelo y agregar trazas
+    for idx, col in enumerate(columns):
+        temp = data_all[[col, 'Tref']].dropna()
+        if temp.empty:
+            continue
+        X = temp[col].values.reshape(-1, 1)
+        y = temp['Tref'].values
+        
+        model = LinearRegression()
+        model.fit(X, y)
+        coef = model.coef_[0]
+        intercept = model.intercept_
+        y_pred = coef * X.flatten() + intercept
+
+        # Determinar posición del subplot
+        row = idx // n_cols + 1
+        col_subplot = idx % n_cols + 1
+
+        # Agregar gráfico de dispersión con leyenda en tooltip
+        fig.add_trace(go.Scatter(
+            x=X.flatten(),
+            y=y,
+            mode='markers',
+            marker=dict(color='#0D2A63'),
+            name=f'Datos {col}',  # Se muestra solo en tooltip
+            hoverinfo='x+y+name'  # Mostrar información en tooltip
+        ), row=row, col=col_subplot)
+
+        # Agregar línea de regresión con color asignado y leyenda en tooltip
+        fig.add_trace(go.Scatter(
+            x=X.flatten(),
+            y=y_pred,
+            mode='lines',
+            line=dict(color=colors[idx % len(colors)], width=2),
+            name=f'Ajuste {col}',  # Se muestra solo en tooltip
+            hoverinfo='x+y+name'
+        ), row=row, col=col_subplot)
+
+    # Actualizar ejes de todos los subplots
+    fig.update_xaxes(tickmode='linear', dtick=10)
+    fig.update_yaxes(tickmode='linear', dtick=10)
+
+    # Asignar títulos a ejes en la parte inferior y en la izquierda
+    for j in range(1, n_cols+1):
+        fig.update_xaxes(title_text="Temperatura de termopar (°C)", row=n_rows, col=j)
+    for i in range(1, n_rows+1):
+        fig.update_yaxes(title_text="Temperatura de referencia (°C)", row=i, col=1)
+
+    # Ocultar cuadro de leyendas, pero mantenerlas en el tooltip
+    fig.update_layout(showlegend=False)
+    
     return fig
 
 
