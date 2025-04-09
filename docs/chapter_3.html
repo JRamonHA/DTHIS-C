@@ -95,6 +95,9 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -250,25 +253,49 @@ window.Quarto = {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#sec-especificaciones" id="toc-sec-especificaciones" class="nav-link active" data-scroll-target="#sec-especificaciones"><span class="header-section-number">3.1</span> Especificaciones del DTHIS-C</a></li>
-  <li><a href="#sec-diseno" id="toc-sec-diseno" class="nav-link" data-scroll-target="#sec-diseno"><span class="header-section-number">3.2</span> Diseño del DTHIS-C</a>
+  <li><a href="#sec-diseno" id="toc-sec-diseno" class="nav-link active" data-scroll-target="#sec-diseno"><span class="header-section-number">3.1</span> Diseño</a></li>
+  <li><a href="#sec-especificaciones" id="toc-sec-especificaciones" class="nav-link" data-scroll-target="#sec-especificaciones"><span class="header-section-number">3.2</span> Especificaciones</a>
   <ul>
-  <li><a href="#arduino-uno-wifi-rev2" id="toc-arduino-uno-wifi-rev2" class="nav-link" data-scroll-target="#arduino-uno-wifi-rev2"><span class="header-section-number">3.2.1</span> Arduino UNO WiFi Rev2</a>
-  <ul class="collapse">
+  <li><a href="#componentes" id="toc-componentes" class="nav-link" data-scroll-target="#componentes">Componentes</a></li>
+  </ul></li>
+  <li><a href="#sec-taire-a" id="toc-sec-taire-a" class="nav-link" data-scroll-target="#sec-taire-a"><span class="header-section-number">3.3</span> Temperatura del aire</a>
+  <ul>
   <li><a href="#termopar-tipo-t" id="toc-termopar-tipo-t" class="nav-link" data-scroll-target="#termopar-tipo-t">Termopar Tipo T</a></li>
   <li><a href="#pwfusion-max31856-sen-30007" id="toc-pwfusion-max31856-sen-30007" class="nav-link" data-scroll-target="#pwfusion-max31856-sen-30007">PWFusion MAX31856 SEN-30007</a></li>
+  </ul></li>
+  <li><a href="#sec-trad-a" id="toc-sec-trad-a" class="nav-link" data-scroll-target="#sec-trad-a"><span class="header-section-number">3.4</span> Temperatura radiante</a>
+  <ul>
   <li><a href="#fuehler-systeme-tpf1e-20-pt1000" id="toc-fuehler-systeme-tpf1e-20-pt1000" class="nav-link" data-scroll-target="#fuehler-systeme-tpf1e-20-pt1000">Fuehler Systeme TPF1/E-20 PT1000</a></li>
   <li><a href="#adafruit-pt1000-rtd-max31865" id="toc-adafruit-pt1000-rtd-max31865" class="nav-link" data-scroll-target="#adafruit-pt1000-rtd-max31865">Adafruit PT1000 RTD-MAX31865</a></li>
+  </ul></li>
+  <li><a href="#sec-viento-a" id="toc-sec-viento-a" class="nav-link" data-scroll-target="#sec-viento-a"><span class="header-section-number">3.5</span> Velocidad del viento</a>
+  <ul>
   <li><a href="#modern-device-wind-sensor-rev.-p6" id="toc-modern-device-wind-sensor-rev.-p6" class="nav-link" data-scroll-target="#modern-device-wind-sensor-rev.-p6">Modern Device Wind Sensor Rev.&nbsp;P6</a></li>
   </ul></li>
-  <li><a href="#raspberry-pi-4-model-b" id="toc-raspberry-pi-4-model-b" class="nav-link" data-scroll-target="#raspberry-pi-4-model-b"><span class="header-section-number">3.2.2</span> Raspberry Pi 4 Model B</a>
-  <ul class="collapse">
+  <li><a href="#sec-hrco-a" id="toc-sec-hrco-a" class="nav-link" data-scroll-target="#sec-hrco-a"><span class="header-section-number">3.6</span> Humedad relativa y CO<sub>2</sub></a>
+  <ul>
   <li><a href="#sensirion-scd30" id="toc-sensirion-scd30" class="nav-link" data-scroll-target="#sensirion-scd30">Sensirion SCD30</a></li>
-  <li><a href="#arducam-5mp-ov5647-ultra-wide-angle" id="toc-arducam-5mp-ov5647-ultra-wide-angle" class="nav-link" data-scroll-target="#arducam-5mp-ov5647-ultra-wide-angle">Arducam 5MP OV5647 Ultra Wide Angle</a></li>
+  </ul></li>
+  <li><a href="#sec-sonido-a" id="toc-sec-sonido-a" class="nav-link" data-scroll-target="#sec-sonido-a"><span class="header-section-number">3.7</span> Sonido</a>
+  <ul>
   <li><a href="#micrófono-ambiental-usb" id="toc-micrófono-ambiental-usb" class="nav-link" data-scroll-target="#micrófono-ambiental-usb">Micrófono ambiental USB</a></li>
   </ul></li>
+  <li><a href="#sec-ilum-a" id="toc-sec-ilum-a" class="nav-link" data-scroll-target="#sec-ilum-a"><span class="header-section-number">3.8</span> Iluminancia</a>
+  <ul>
+  <li><a href="#arducam-5mp-ov5647-ultra-wide-angle" id="toc-arducam-5mp-ov5647-ultra-wide-angle" class="nav-link" data-scroll-target="#arducam-5mp-ov5647-ultra-wide-angle">Arducam 5MP OV5647 Ultra Wide Angle</a></li>
   </ul></li>
-  <li><a href="#sec-materiales" id="toc-sec-materiales" class="nav-link" data-scroll-target="#sec-materiales"><span class="header-section-number">3.3</span> Lista de materiales</a></li>
+  <li><a href="#sec-codigos" id="toc-sec-codigos" class="nav-link" data-scroll-target="#sec-codigos"><span class="header-section-number">3.9</span> Scripts</a>
+  <ul>
+  <li><a href="#arduino" id="toc-arduino" class="nav-link" data-scroll-target="#arduino">Arduino</a></li>
+  <li><a href="#max31856-sen-30007" id="toc-max31856-sen-30007" class="nav-link" data-scroll-target="#max31856-sen-30007">MAX31856 SEN-30007</a></li>
+  <li><a href="#pt1000-rtd-max31865" id="toc-pt1000-rtd-max31865" class="nav-link" data-scroll-target="#pt1000-rtd-max31865">PT1000 RTD-MAX31865</a></li>
+  <li><a href="#wind-sensor-rev.-p6" id="toc-wind-sensor-rev.-p6" class="nav-link" data-scroll-target="#wind-sensor-rev.-p6">Wind Sensor Rev.&nbsp;P6</a></li>
+  <li><a href="#raspberry" id="toc-raspberry" class="nav-link" data-scroll-target="#raspberry">Raspberry</a></li>
+  <li><a href="#scd30" id="toc-scd30" class="nav-link" data-scroll-target="#scd30">SCD30</a></li>
+  <li><a href="#micrófono-ambiental-usb-1" id="toc-micrófono-ambiental-usb-1" class="nav-link" data-scroll-target="#micrófono-ambiental-usb-1">Micrófono ambiental USB</a></li>
+  <li><a href="#ov5647-ultra-wide-angle" id="toc-ov5647-ultra-wide-angle" class="nav-link" data-scroll-target="#ov5647-ultra-wide-angle">OV5647 Ultra Wide Angle</a></li>
+  </ul></li>
+  <li><a href="#sec-materiales" id="toc-sec-materiales" class="nav-link" data-scroll-target="#sec-materiales"><span class="header-section-number">3.10</span> Lista de materiales</a></li>
   </ul>
 </nav>
     </div>
@@ -295,9 +322,33 @@ window.Quarto = {
 
 
 <p>En este capítulo se presenta una descripción detallada del DTHIS-C, incluyendo sus componentes y especificaciones técnicas. Además, se proporcionan los diagramas de conexión y los códigos necesarios para la configuración de cada sensor, facilitando tanto la reproducción completa del DTHIS-C como la implementación individual de sus sensores.</p>
-<section id="sec-especificaciones" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="sec-especificaciones"><span class="header-section-number">3.1</span> Especificaciones del DTHIS-C</h2>
-<p>En la <a href="#tbl-componentes" class="quarto-xref">Tabla&nbsp;<span>3.1</span></a> se muestran los sensores y componentes electrónicos que conforman al DTHIS-C.</p>
+<section id="sec-diseno" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-diseno"><span class="header-section-number">3.1</span> Diseño</h2>
+<p>La arquitectura del DTHIS-C se ha fundamentado en el uso combinado de la Raspberry Pi 4 y el Arduino Uno WiFi Rev2, microcontroladores seleccionados por las siguientes características y ventajas:</p>
+<ol type="1">
+<li><p><strong>Versatilidad y capacidad de procesamiento:</strong><br>
+La Raspberry Pi 4, proporciona una plataforma robusta para el procesamiento avanzado de datos y la ejecución de algoritmos complejos. Su flexibilidad, junto con la facilidad de integración de diversas funcionalidades, permite adaptar el sistema a requerimientos específicos y configurar el rendimiento según las demandas del entorno.</p></li>
+<li><p><strong>Conectividad:</strong><br>
+Ambos dispositivos cuentan con conectividad a Internet, lo que posibilita la transmisión en tiempo real de datos hacia una base de datos remota alojada en el servidor ThingsBoard.</p></li>
+<li><p><strong>Compatibilidad y ecosistema abierto:</strong><br>
+La adopción de tecnologías abiertas facilita la integración y reproducibilidad del sistema. La amplia comunidad de desarrolladores que respalda tanto la Raspberry Pi como el Arduino asegura soporte continuo, actualizaciones regulares y una extensa variedad de recursos y librerías, lo que se traduce en mayor flexibilidad para adaptar el sistema a diversas necesidades y entornos.</p></li>
+<li><p><strong>Accesibilidad:</strong> Frente a equipos especializados, la utilización de estos microcontroladores constituye una solución rentable sin comprometer el rendimiento ni la fiabilidad del sistema. Además, el Arduino UNO WiFi Rev2 y el Raspberry Pi 4 Model B son fáciles de conseguir en México, disponibles en tiendas como AG Electrónica y 330ohms, con precios aproximados de $1,300.00 MXN y $2,000.00 MXN, respectivamente. Esto facilita la replicación y el escalado del proyecto.</p></li>
+</ol>
+</section>
+<section id="sec-especificaciones" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-especificaciones"><span class="header-section-number">3.2</span> Especificaciones</h2>
+<p>El DTHIS-C se ha diseñado para medir temperatura del aire, temperatura radiante, velocidad del viento, humedad relativa, niveles de CO<sub>2</sub>, iluminancia y niveles de presión sonora. El dispositivo está compuesto por seis sensores, dos microcontroladores y dos acondicionadores de señal.</p>
+<ul>
+<li><p><strong>Sensor:</strong> Un sensor es un dispositivo que detecta una señal o estímulo del entorno y responde generando una señal eléctrica proporcional, generalmente en forma de corriente o voltaje. Su función principal es convertir señales físicas, químicas o biológicas en señales eléctricas que puedan ser interpretadas por sistemas electrónicos. <span class="citation" data-cites="sensors">(Patel, Dr.&nbsp;et al.&nbsp;, <a href="references.html#ref-sensors" role="doc-biblioref">2020</a>)</span></p>
+<p>En el caso del DTHIS-C, los sensores utilizados permiten medir variables físicas específicas del ambiente, y sus señales son acondicionadas y digitalizadas para su procesamiento y transmisión.</p></li>
+<li><p><strong>Microcontrolador:</strong> Un microcontrolador es una pequeña computadora integrada en un solo chip, se usa en sistemas integrados como sensores de temperatura. Incluye una CPU, memoria RAM, memorias de solo lectura, múltiples puertos de entrada/salida y y periféricos como convertidores analógico-digital (ADC), convertidores digital-analógico (DAC), temporizadores e interfaces seriales (USB, Ethernet, etc.). Su bajo consumo energético lo hace ideal para dispositivos alimentados por batería y aplicaciones específicas. <span class="citation" data-cites="hodgson">(Hodgson, D. , <a href="references.html#ref-hodgson" role="doc-biblioref">2021</a>)</span></p>
+<p>En el DTHIS-C, el microcontrolador es fundamental para gestionar y procesar las señales de los sensores, convirtiendo las salidas analógicas en datos digitales precisos mediante el ADC. Estos datos se utilizan para evaluar las condiciones ambientales y se transmiten a una plataforma IoT para su visualización en tiempo real.</p></li>
+<li><p><strong>Acondicionador de señal:</strong> Un acondicionador de señal es un dispositivo diseñado para transformar una señal electrónica de un formato a otro, facilitando su lectura y procesamiento mediante instrumentación convencional. Entre sus funciones se destacan la amplificación (aumentar la magnitud de señales débiles), la linealización (corregir respuestas no lineales, como ocurre comúnmente en señales de termopar), la compensación de unión fría (ajustar la señal de un termopar para corregir variaciones de temperatura ambiente), la excitación (proporcionar la energía necesaria para el funcionamiento de ciertos sensores, por ejemplo los RTD). Estas funciones combinadas permiten que la señal analógica, que puede ser difícil de interpretar directamente, se convierta en una forma adecuada para su procesamiento <span class="citation" data-cites="omega-2">(Omega, <a href="references.html#ref-omega-2" role="doc-biblioref">s.&nbsp;f.a</a>)</span>.</p>
+<p>En el caso del DTHIS-C, el acondicionador de señal se utiliza para preparar la salida analógica de sensores como los termopares o el sensor de temperatura radiante, asegurando que la señal se encuentre en un rango adecuado y libre de interferencias. Una vez acondicionada, la señal es convertida a digital mediante el convertidor analógico-digital (ADC) integrado en el microcontrolador.</p></li>
+</ul>
+<section id="componentes" class="level4">
+<h4 class="anchored" data-anchor-id="componentes">Componentes</h4>
+<p>En la tabla <a href="#tbl-componentes" class="quarto-xref">Tabla&nbsp;<span>3.1</span></a> se presentan los sensores y componentes electrónicos que conforman el DTHIS-C, detallándose la variable que mide cada sensor, el modo de comunicación, la conexión al microcontrolador correspondiente y si requieren acondicionadores de señal.</p>
 <div id="tbl-componentes" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-componentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -351,16 +402,16 @@ Tabla&nbsp;3.1: Sensores y componentes electrónicos que constituyen al DTHIS-C.
 <td></td>
 </tr>
 <tr class="odd">
-<td>5MP OV5647 Wide Angle Fisheye Camera</td>
-<td>Luminancia</td>
-<td>CSI</td>
+<td>Micrófono ambiental USB</td>
+<td>Sonido</td>
+<td>USB</td>
 <td>Raspberry Pi 4 Model B</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Micrófono ambiental USB</td>
-<td>Sonido</td>
-<td>USB</td>
+<td>5MP OV5647 Wide Angle Fisheye Camera</td>
+<td>Iluminancia</td>
+<td>CSI</td>
 <td>Raspberry Pi 4 Model B</td>
 <td></td>
 </tr>
@@ -369,25 +420,9 @@ Tabla&nbsp;3.1: Sensores y componentes electrónicos que constituyen al DTHIS-C.
 </div>
 </figure>
 </div>
-</section>
-<section id="sec-diseno" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="sec-diseno"><span class="header-section-number">3.2</span> Diseño del DTHIS-C</h2>
-<p>La arquitectura del DTHIS-C se ha fundamentado en el uso combinado de la Raspberry Pi 4 y el Arduino Uno WiFi Rev2, microcontroladores seleccionados por las siguientes características y ventajas:</p>
-<ol type="1">
-<li><p><strong>Versatilidad y capacidad de procesamiento:</strong><br>
-La Raspberry Pi 4, programada mediante Python, proporciona una plataforma robusta para el procesamiento avanzado de datos y la ejecución de algoritmos complejos. Su flexibilidad, junto con la facilidad de integración de diversas funcionalidades, permite adaptar el sistema a requerimientos específicos y optimizar el rendimiento según las demandas del entorno.</p></li>
-<li><p><strong>Conectividad y eficiencia en la adquisición de datos:</strong><br>
-Ambos dispositivos cuentan con conectividad a Internet, lo que posibilita la transmisión en tiempo real de datos hacia una base de datos remota alojada en el servidor ThingsBoard. Además, el Arduino Uno WiFi Rev2 destaca por su eficiencia en la gestión de operaciones de entrada/salida, garantizando una respuesta rápida y precisa en la adquisición y control de los sensores.</p></li>
-<li><p><strong>Compatibilidad y ecosistema abierto:</strong><br>
-La adopción de tecnologías abiertas facilita la integración y reproducibilidad del sistema. La amplia comunidad de desarrolladores que respalda tanto la Raspberry Pi como el Arduino asegura soporte continuo, actualizaciones regulares y una extensa variedad de recursos y librerías, lo que se traduce en mayor flexibilidad para adaptar el sistema a diversas necesidades y entornos.</p></li>
-<li><p><strong>Accesibilidad:</strong><br>
-Frente a equipos especializados, la utilización de estos microcontroladores constituye una solución rentable sin comprometer el rendimiento ni la fiabilidad del sistema. Esta ventaja económica facilita la replicación y el escalado del proyecto en distintos contextos.</p></li>
-</ol>
-<p>A continuación, se detallan las especificaciones técnicas y el código implementado para cada sensor.</p>
-<section id="arduino-uno-wifi-rev2" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="arduino-uno-wifi-rev2"><span class="header-section-number">3.2.1</span> Arduino UNO WiFi Rev2</h3>
-<p>El Arduino UNO WiFi Rev2 es una placa de microcontrolador diseñada para proyectos de Internet de las Cosas (IoT), integrando conectividad WiFi y Bluetooth mediante el módulo u-blox NINA-W102 y un sensor IMU de 6 ejes (LSM6DS3TR) para detección de movimientos. Equipada con el microcontrolador ATmega4809, ofrece una óptima capacidad de memoria, y mantiene compatibilidad con el formato estándar UNO, facilitando su uso con shields existentes. Su diseño eficiente y versátil lo hace ideal para la adquisición de datos de sensores y la comunicación inalámbrica en tiempo real, como se requiere en el DTHIS-C. <span class="citation" data-cites="arduino">Arduino (<a href="references.html#ref-arduino" role="doc-biblioref">2023</a>)</span></p>
-<p>En la <a href="#tbl-arduino" class="quarto-xref">Tabla&nbsp;<span>3.2</span></a> se muestran sus especificaciones.</p>
+<p><strong>Arduino UNO WiFi Rev2</strong></p>
+<p>El Arduino UNO WiFi Rev2 es una placa de microcontrolador diseñada para proyectos de Internet de las Cosas (IoT), integrando conectividad WiFi y Bluetooth mediante el módulo u-blox NINA-W102 y un sensor IMU de 6 ejes (LSM6DS3TR) para detección de movimientos. Equipada con el microcontrolador ATmega4809, mantiene compatibilidad con el formato estándar UNO, facilitando su uso con shields existentes. <span class="citation" data-cites="arduino">Arduino (<a href="references.html#ref-arduino" role="doc-biblioref">2023</a>)</span></p>
+<p>En la <a href="#tbl-arduino" class="quarto-xref">Tabla&nbsp;<span>3.2</span></a> se muestran las especificaciones del Arduino UNO WiFi Rev2.</p>
 <div id="tbl-arduino" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-arduino-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -459,10 +494,291 @@ Tabla&nbsp;3.2: Especificaciones del Arduino UNO WiFi Rev2.
 </div>
 </figure>
 </div>
+<p><strong>Raspberry Pi 4 Model B</strong></p>
+<p>El Raspberry Pi 4 Model B es una computadora de placa única de alto rendimiento, diseñada para tareas de procesamiento avanzado y conectividad eficiente en un formato compacto. Equipada con un procesador de 64 bits de cuatro núcleos y opciones de RAM de hasta 8 GB, ofrece soporte para salida de video dual 4K y conectividad avanzada mediante Wi-Fi de doble banda, Bluetooth 5.0, Ethernet Gigabit y puertos USB 3.0, con capacidad para Power over Ethernet (PoE) mediante un accesorio adicional. Su diseño versátil y eficiente la hace ideal para la integración y gestión de datos en el sistema DTHIS-C. <span class="citation" data-cites="raspberry">Raspberry (<a href="references.html#ref-raspberry" role="doc-biblioref">2019</a>)</span></p>
+<p>En la <a href="#tbl-raspberry" class="quarto-xref">Tabla&nbsp;<span>3.3</span></a> se muestran las especificaciones de la Raspberry Pi 4 Model B.</p>
+<div id="tbl-raspberry" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-raspberry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.3: Especificaciones del Raspberry Pi 4 Model B.
+</figcaption>
+<div aria-describedby="tbl-raspberry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-hover table-sm small caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Parámetro</strong></th>
+<th><strong>Detalle</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Procesador</td>
+<td>Broadcom BCM2711, 4 núcleos Cortex-A72, 1.5 GHz</td>
+</tr>
+<tr class="even">
+<td>Memoria RAM</td>
+<td>8 GB (LPDDR4-3200)</td>
+</tr>
+<tr class="odd">
+<td>Conectividad Wi-Fi</td>
+<td>Sí, dual-band 2.4 GHz y 5 GHz, 802.11ac</td>
+</tr>
+<tr class="even">
+<td>Bluetooth</td>
+<td>Sí, Bluetooth 5.0</td>
+</tr>
+<tr class="odd">
+<td>Puertos USB</td>
+<td>2 USB 3.0, 2 USB 2.0</td>
+</tr>
+<tr class="even">
+<td>Salida de video</td>
+<td>2 micro HDMI, soporte dual 4K 60 fps</td>
+</tr>
+<tr class="odd">
+<td>Ethernet</td>
+<td>Gigabit</td>
+</tr>
+<tr class="even">
+<td>Almacenamiento</td>
+<td>Tarjeta microSD</td>
+</tr>
+<tr class="odd">
+<td>Voltaje de operación</td>
+<td>5V</td>
+</tr>
+<tr class="even">
+<td>Consumo energético</td>
+<td>Eficiente, sin ventilador (~3A recomendado)</td>
+</tr>
+<tr class="odd">
+<td>Dimensiones</td>
+<td>85.6 mm x 56.5 mm x 17 mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-taire-a" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-taire-a"><span class="header-section-number">3.3</span> Temperatura del aire</h2>
+<section id="termopar-tipo-t" class="level4">
+<h4 class="anchored" data-anchor-id="termopar-tipo-t">Termopar Tipo T</h4>
+<p>En la construcción del DTHIS se emplea un termopar tipo T, un sensor de temperatura compuesto por la unión de cobre y cobre-níquel. Su uso es ideal para entornos con humedad.</p>
+<p>A continuación, se presentan sus especificaciones según <span class="citation" data-cites="omega">OMEGA (<a href="references.html#ref-omega" role="doc-biblioref">s.&nbsp;f.b</a>)</span>:</p>
+<p><strong>Rangos de Temperatura</strong><br>
+- <strong>Grado de termopar:</strong> -200 a 350 °C (-328 a 662 °F).<br>
+- <strong>Grado de extensión:</strong> -60 a 100 °C (-76 a 212 °F).</p>
+<p><strong>Límites de Error</strong><br>
+- <strong>Estándar:</strong><br>
+- ±1.0 °C o ±0.75% por encima de 0 °C.<br>
+- ±1.0 °C o ±1.5% por debajo de 0 °C.<br>
+- <strong>Especial:</strong><br>
+- ±0.5 °C o ±0.4%.</p>
+</section>
+<section id="pwfusion-max31856-sen-30007" class="level4">
+<h4 class="anchored" data-anchor-id="pwfusion-max31856-sen-30007">PWFusion MAX31856 SEN-30007</h4>
+<p>El PWFusion MAX31856 SEN-30007 (<a href="#fig-MAX31856" class="quarto-xref">Figura&nbsp;<span>3.1</span></a>) es un shield de termopares de cuatro canales diseñado para integrarse con la plataforma Arduino. Este dispositivo se conecta directamente a la placa de desarrollo. El módulo acondiciona la señal proveniente de termopares, realizando el procesamiento necesario para adaptar y amplificar la señal eléctrica, la cual se caracteriza por su baja amplitud.</p>
+<div id="fig-MAX31856" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-MAX31856-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href=".\images/sen30007_bb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;3.1: Imagen demostrativa de conexión para el shield MAX31856 SEN-30007."><img src=".\images/sen30007_bb.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MAX31856-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: Imagen demostrativa de conexión para el shield MAX31856 SEN-30007.
+</figcaption>
+</figure>
+</div>
+<p>Acorde a <span class="citation" data-cites="pwf">PWFusion (<a href="references.html#ref-pwf" role="doc-biblioref">s.&nbsp;f.</a>)</span> sus específicaciones son las siguientes:</p>
+<ul>
+<li>Conversión de señal analógica a digital con resolución de 19 bits.</li>
+<li>Interfaz ICSP de 4 hilos.</li>
+<li>Rango de voltaje de alimentación: 3.3 V a 5.0 V.</li>
+</ul>
+</section>
+</section>
+<section id="sec-trad-a" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-trad-a"><span class="header-section-number">3.4</span> Temperatura radiante</h2>
+<section id="fuehler-systeme-tpf1e-20-pt1000" class="level4">
+<h4 class="anchored" data-anchor-id="fuehler-systeme-tpf1e-20-pt1000">Fuehler Systeme TPF1/E-20 PT1000</h4>
+<p>Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30 °C a +75 °C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones precisas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. <span class="citation" data-cites="fuehler">FuehlerSysteme (<a href="references.html#ref-fuehler" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
+<p><strong>Especificaciones</strong></p>
+<ul>
+<li>Tipo de circuito: Conexión de 2 hilos.</li>
+<li>Corriente de medición: Aproximadamente 1 mA.</li>
+<li>Conexión eléctrica: Extremos pelados con terminales.</li>
+<li>Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105 °C) con extremos de cable núcleo disponibles en diferentes longitudes.</li>
+<li>Resistencia de fuga: Mayor a 100 M<span class="math inline">\(\Omega\)</span> a +20 °C (500 V DC).</li>
+<li>Material del globo: Aluminio (negro).</li>
+<li>Dimensiones del globo: Diámetro de 70 mm.</li>
+</ul>
+</section>
+<section id="adafruit-pt1000-rtd-max31865" class="level4">
+<h4 class="anchored" data-anchor-id="adafruit-pt1000-rtd-max31865">Adafruit PT1000 RTD-MAX31865</h4>
+<p>El PT1000 RTD-MAX31865 es un convertidor de resistencia a digital. La <a href="#fig-MAX31865" class="quarto-xref">Figura&nbsp;<span>3.2</span></a> muestra el diagrama de conexión.</p>
+<div id="fig-MAX31865" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-MAX31865-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href=".\images/pt1000_bb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;3.2: Diagrama de conexión para el PT1000 RTD-MAX31865."><img src=".\images/pt1000_bb.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MAX31865-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.2: Diagrama de conexión para el PT1000 RTD-MAX31865.
+</figcaption>
+</figure>
+</div>
+<p><span class="citation" data-cites="adafruit">Adafruit (<a href="references.html#ref-adafruit" role="doc-biblioref">s.&nbsp;f.</a>)</span> describe las siguientes características:</p>
+<ul>
+<li>Realiza la conversión de la resistencia de sensores RTD de platino a un valor digital de forma sencilla.</li>
+<li>Soporte con RTD de platino con valores de 100 <span class="math inline">\(\Omega\)</span> a 1 k<span class="math inline">\(\Omega\)</span> (a 0 °C), abarcando desde PT100 hasta PT1000.</li>
+<li>Compatible con configuraciones de 2, 3 y 4 hilos para la conexión de sensores.</li>
+<li>Incorpora una interfaz ICSP, facilitando su integración en sistemas basados en microcontroladores.</li>
+<li>Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125 °C (valor variable debido a la no linealidad del RTD) y una precisión total de hasta 0.5 °C (0.05% de la escala completa) en todas las condiciones operativas.</li>
+<li>Tiempo máximo de conversión es de 21 ms.</li>
+</ul>
+</section>
+</section>
+<section id="sec-viento-a" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-viento-a"><span class="header-section-number">3.5</span> Velocidad del viento</h2>
+<section id="modern-device-wind-sensor-rev.-p6" class="level4">
+<h4 class="anchored" data-anchor-id="modern-device-wind-sensor-rev.-p6">Modern Device Wind Sensor Rev.&nbsp;P6</h4>
+<p>El Wind Sensor Rev.&nbsp;P6 (<a href="#fig-WindSensor" class="quarto-xref">Figura&nbsp;<span>3.3</span></a>) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12 V (idealmente 12 V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3 V y una señal de viento ajustada a un máximo de 3.3 V mediante resistencias de alta precisión. <span class="citation" data-cites="modern">ModernDevice (<a href="references.html#ref-modern" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
+<div id="fig-WindSensor" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-WindSensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href=".\images/windsensor_bb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;3.3: Diagrama de conexión para el Wind Sensor Rev.&nbsp;P6."><img src=".\images/windsensor_bb.png" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-WindSensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.3: Diagrama de conexión para el Wind Sensor Rev.&nbsp;P6.
+</figcaption>
+</figure>
+</div>
+<p><strong>Especificaciones</strong></p>
+<ul>
+<li>Voltaje de alimentación: 10–12 V.</li>
+<li>Corriente: Aproximadamente 40 mA.</li>
+<li>Velocidades de viento medidas: 0–150 mph.</li>
+<li>Compensación de temperatura ambiente.</li>
+</ul>
+</section>
+</section>
+<section id="sec-hrco-a" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-hrco-a"><span class="header-section-number">3.6</span> Humedad relativa y CO<sub>2</sub></h2>
+<section id="sensirion-scd30" class="level4">
+<h4 class="anchored" data-anchor-id="sensirion-scd30">Sensirion SCD30</h4>
+<p>El SCD30 (<a href="#fig-SCD30" class="quarto-xref">Figura&nbsp;<span>3.4</span></a>) es un sensor de CO<sub>2</sub> basado en tecnología de detección por infrarrojos. Incorpora un sensor de humedad y temperatura. Cuenta con un diseño de doble canal. <span class="citation" data-cites="scd30">Sensirion (<a href="references.html#ref-scd30" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
+<div id="fig-SCD30" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-SCD30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href=".\images/scd30_bb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;3.4: Diagrama de conexión para el SCD30."><img src=".\images/scd30_bb.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-SCD30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.4: Diagrama de conexión para el SCD30.
+</figcaption>
+</figure>
+</div>
+<p><strong>Especificaciones</strong></p>
+<p><strong>Humedad</strong></p>
+<ul>
+<li>Precisión típica: ±3 %RH</li>
+<li>Rango de operación: 0 – 95 %RH</li>
+<li>Tiempo de respuesta (τ63%): 8 s</li>
+<li>Calibrado de fábrica</li>
+</ul>
+<p><strong>CO<sub>2</sub></strong></p>
+<ul>
+<li>Rango de medición: 400 – 10,000 ppm</li>
+<li>Precisión: ±30 ppm ±3% del valor medido</li>
+<li>Tiempo de respuesta (τ63%): 20 s</li>
+<li>Estabilidad térmica: 2.5 ppm/°C</li>
+</ul>
+<p><strong>Temperatura</strong></p>
+<ul>
+<li>Precisión típica: ±0.4 °C</li>
+<li>Tiempo de respuesta (τ63%): 10 s</li>
+</ul>
+<p><strong>Características generales</strong></p>
+<ul>
+<li>Voltaje de alimentación: 3.3 – 5.5 V</li>
+<li>Corriente promedio: 19 mA</li>
+<li>Corriente máxima: 75 mA</li>
+<li>Rango de temperatura de operación: 0 – 50 °C</li>
+<li>Interfaces: I2C, ModBus, PWM</li>
+<li>Dimensiones: 35 × 23 × 7 mm</li>
+</ul>
+</section>
+</section>
+<section id="sec-sonido-a" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sec-sonido-a"><span class="header-section-number">3.7</span> Sonido</h2>
+<section id="micrófono-ambiental-usb" class="level4">
+<h4 class="anchored" data-anchor-id="micrófono-ambiental-usb">Micrófono ambiental USB</h4>
+<p>El micrófono (<a href="#fig-Microfono" class="quarto-xref">Figura&nbsp;<span>3.5</span></a>) incorpora un filtro que atenúa eficazmente los ruidos producidos por el viento o la respiración. Su patrón de captación direccional optimiza la focalización de la fuente sonora. <span class="citation" data-cites="steren">Steren (<a href="references.html#ref-steren" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
+<div id="fig-Microfono" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Microfono-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href=".\images/micro_bb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;3.5: Diagrama de conexión para el micrófono."><img src=".\images/micro_bb.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Microfono-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.5: Diagrama de conexión para el micrófono.
+</figcaption>
+</figure>
+</div>
+<p><strong>Especificaciones</strong></p>
+<ul>
+<li>Respuesta en frecuencia: 50 a 10,000 Hz</li>
+<li>Impedancia 2,200 <span class="math inline">\(\Omega\)</span></li>
+<li>Sensibilidad: -32 dB ±3 dB</li>
+</ul>
+</section>
+</section>
+<section id="sec-ilum-a" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="sec-ilum-a"><span class="header-section-number">3.8</span> Iluminancia</h2>
+<section id="arducam-5mp-ov5647-ultra-wide-angle" class="level4">
+<h4 class="anchored" data-anchor-id="arducam-5mp-ov5647-ultra-wide-angle">Arducam 5MP OV5647 Ultra Wide Angle</h4>
+<p>La cámara Arducam Ultra Wide Angle (<a href="#fig-Camara" class="quarto-xref">Figura&nbsp;<span>3.6</span></a>) cuenta con un objetivo ojo de pez M12 que ofrece un campo de visión horizontal de 220°. <span class="citation" data-cites="arducam">Arducam (<a href="references.html#ref-arducam" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
+<div id="fig-Camara" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Camara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href=".\images/camera_bb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647."><img src=".\images/camera_bb.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Camara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
+</figcaption>
+</figure>
+</div>
+<p><strong>Especificaciones</strong></p>
+<ul>
+<li>Sensor: Omnivision OV5647</li>
+<li>Tamaño del sensor: 1/4″ (OV5647)</li>
+<li>Resolución: 5 MP (2592×1944)</li>
+<li>Video:
+<ul>
+<li>1080p a 30 fps</li>
+<li>720p a 60 fps</li>
+<li>480p a 90 fps</li>
+</ul></li>
+<li>Sensibilidad IR: Filtro IR-cut integrado (solo luz visible)</li>
+<li>Campo de visión horizontal (HFOV): 220°</li>
+<li>Distancia focal efectiva: 0.76 mm</li>
+<li>Distancia focal equivalente en 35 mm: 8.2 mm</li>
+<li>Tipo de enfoque: Manual</li>
+<li>Montura del objetivo: M12</li>
+<li>Dimensiones: 36 mm × 36 mm</li>
+<li>Corriente pico: 300 mA</li>
+</ul>
+</section>
+</section>
+<section id="sec-codigos" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="sec-codigos"><span class="header-section-number">3.9</span> Scripts</h2>
+<section id="arduino" class="level4">
+<h4 class="anchored" data-anchor-id="arduino">Arduino</h4>
 <p>El siguiente código constituye el programa principal del Arduino UNO WiFi Rev2 en el DTHIS-C, encargado de gestionar la conexión WiFi, la comunicación con ThingsBoard mediante el protocolo MQTT, y el envío de datos provenientes de sensores como termopares, temperatura radiante y velocidad del viento:</p>
-<div id="b59f51b1" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Código</summary>
+<div id="66f5726b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;WiFiNINA.h&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;PubSubClient.h&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -587,45 +903,12 @@ Tabla&nbsp;3.2: Especificaciones del Arduino UNO WiFi Rev2.
 <span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>                   <span class="st">", </span><span class="ch">\"</span><span class="st">TEMP</span><span class="ch">\"</span><span class="st">:"</span> <span class="op">+</span> String(windspeed[<span class="dv">1</span>]) <span class="op">+</span> <span class="st">"}"</span><span class="op">;</span></span>
 <span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>  mqttClient.publish(topic.c_str(), payload.c_str())<span class="op">;</span></span>
 <span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
-<section id="termopar-tipo-t" class="level4">
-<h4 class="anchored" data-anchor-id="termopar-tipo-t">Termopar Tipo T</h4>
-<p>En la construcción del DTHIS se emplea un termopar tipo T, un sensor de temperatura compuesto por la unión de cobre y cobre-níquel. Su uso es ideal para entornos con humedad.</p>
-<p>A continuación, se presentan sus especificaciones según <span class="citation" data-cites="omega">OMEGA (<a href="references.html#ref-omega" role="doc-biblioref">s.&nbsp;f.</a>)</span>:</p>
-<p><strong>Rangos de Temperatura</strong><br>
-- <strong>Grado de termopar:</strong> -200 a 350 °C (-328 a 662 °F).<br>
-- <strong>Grado de extensión:</strong> -60 a 100 °C (-76 a 212 °F).</p>
-<p><strong>Límites de Error</strong><br>
-- <strong>Estándar:</strong><br>
-- ±1.0 °C o ±0.75% por encima de 0 °C.<br>
-- ±1.0 °C o ±1.5% por debajo de 0 °C.<br>
-- <strong>Especial:</strong><br>
-- ±0.5 °C o ±0.4%.</p>
 </section>
-<section id="pwfusion-max31856-sen-30007" class="level4">
-<h4 class="anchored" data-anchor-id="pwfusion-max31856-sen-30007">PWFusion MAX31856 SEN-30007</h4>
-<p>El PWFusion MAX31856 SEN-30007 es un shield de termopares de cuatro canales diseñado para integrarse con la plataforma Arduino. Este dispositivo se conecta directamente a la placa de desarrollo. El módulo acondiciona la señal proveniente de termopares, realizando el procesamiento necesario para adaptar y amplificar la señal eléctrica, la cual se caracteriza por su baja amplitud.</p>
-<div id="fig-MAX31856" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-MAX31856-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src=".\images/sen30007_bb.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MAX31856-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.1: Diagrama de conexión para el shield MAX31856 SEN-30007.
-</figcaption>
-</figure>
-</div>
-<p>Acorde a <span class="citation" data-cites="pwf">PWFusion (<a href="references.html#ref-pwf" role="doc-biblioref">s.&nbsp;f.</a>)</span> sus específicaciones son las siguientes:</p>
-<ul>
-<li>Conversión de señal analógica a digital con resolución de 19 bits.</li>
-<li>Interfaz ICSP de 4 hilos.</li>
-<li>Rango de voltaje de alimentación: 3.3 V a 5.0 V.</li>
-</ul>
-<p>Igualmente se proporciona el código de Arduino empleado:</p>
-<div id="b6e606ff" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Código</summary>
+<section id="max31856-sen-30007" class="level4">
+<h4 class="anchored" data-anchor-id="max31856-sen-30007">MAX31856 SEN-30007</h4>
+<p>Este código pertenece al shield de PWFusion, este se encarga de recopilar las mediciones de temperatura del aire que realizan los termopares tipo T:</p>
+<div id="761a158d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;PWFusion_MAX31856.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">//</span> Definición de los pines chip select para cada termopar</span>
@@ -679,49 +962,12 @@ Figura&nbsp;3.1: Diagrama de conexión para el shield MAX31856 SEN-30007.
 <span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> tc_temps<span class="op">;</span></span>
 <span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
-<section id="fuehler-systeme-tpf1e-20-pt1000" class="level4">
-<h4 class="anchored" data-anchor-id="fuehler-systeme-tpf1e-20-pt1000">Fuehler Systeme TPF1/E-20 PT1000</h4>
-<p>Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30 °C a +75 °C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones precisas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. <span class="citation" data-cites="fuehler">FuehlerSysteme (<a href="references.html#ref-fuehler" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
-<p><strong>Especificaciones</strong></p>
-<ul>
-<li>Tipo de circuito: Conexión de 2 hilos.</li>
-<li>Corriente de medición: Aproximadamente 1 mA.</li>
-<li>Conexión eléctrica: Extremos pelados con terminales.</li>
-<li>Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105 °C) con extremos de cable núcleo disponibles en diferentes longitudes.</li>
-<li>Resistencia de fuga: Mayor a 100 M<span class="math inline">\(\Omega\)</span> a +20 °C (500 V DC).</li>
-<li>Material del globo: Aluminio (negro).</li>
-<li>Dimensiones del globo: Diámetro de 70 mm.</li>
-</ul>
-</section>
-<section id="adafruit-pt1000-rtd-max31865" class="level4">
-<h4 class="anchored" data-anchor-id="adafruit-pt1000-rtd-max31865">Adafruit PT1000 RTD-MAX31865</h4>
-<p>El PT1000 RTD-MAX31865 es un convertidor de resistencia a digital.</p>
-<div id="fig-MAX31865" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-MAX31865-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src=".\images/pt1000_bb.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MAX31865-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.2: Diagrama de conexión para el PT1000 RTD-MAX31865.
-</figcaption>
-</figure>
-</div>
-<p><span class="citation" data-cites="adafruit">Adafruit (<a href="references.html#ref-adafruit" role="doc-biblioref">s.&nbsp;f.</a>)</span> describe las siguientes características:</p>
-<ul>
-<li>Realiza la conversión de la resistencia de sensores RTD de platino a un valor digital de forma sencilla.</li>
-<li>Soporte con RTD de platino con valores de 100 <span class="math inline">\(\Omega\)</span> a 1 k<span class="math inline">\(\Omega\)</span> (a 0 °C), abarcando desde PT100 hasta PT1000.</li>
-<li>Compatible con configuraciones de 2, 3 y 4 hilos para la conexión de sensores.</li>
-<li>Incorpora una interfaz ICSP, facilitando su integración en sistemas basados en microcontroladores.</li>
-<li>Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125 °C (valor variable debido a la no linealidad del RTD) y una precisión total de hasta 0.5 °C (0.05% de la escala completa) en todas las condiciones operativas.</li>
-<li>Tiempo máximo de conversión es de 21 ms.</li>
-</ul>
-<p>A continuación se muestra el código de Arduino:</p>
-<div id="234d595e" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Código</summary>
+<section id="pt1000-rtd-max31865" class="level4">
+<h4 class="anchored" data-anchor-id="pt1000-rtd-max31865">PT1000 RTD-MAX31865</h4>
+<p>El siguiente script gestiona el Adafruit PT1000 RTD-MAX31865, encargado de convertir las señales analógicas del TPF1/E-20 PT1000 a valores digitales, permitiendo obtener las mediciones de la temperatura radiante:</p>
+<div id="b9e3633b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;Adafruit_MAX31865.h&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">//</span> Usamos software SPI: CS, DI, DO, CLK</span>
@@ -756,32 +1002,12 @@ Figura&nbsp;3.2: Diagrama de conexión para el PT1000 RTD-MAX31865.
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> radiant_temp<span class="op">;</span></span>
 <span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
-<section id="modern-device-wind-sensor-rev.-p6" class="level4">
-<h4 class="anchored" data-anchor-id="modern-device-wind-sensor-rev.-p6">Modern Device Wind Sensor Rev.&nbsp;P6</h4>
-<p>El sensor de viento Rev.&nbsp;P6 es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12 V (idealmente 12 V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3 V y una señal de viento ajustada a un máximo de 3.3 V mediante resistencias de alta precisión. <span class="citation" data-cites="modern">ModernDevice (<a href="references.html#ref-modern" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
-<div id="fig-WindSensor" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-WindSensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src=".\images/windsensor_bb.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-WindSensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.3: Diagrama de conexión para el Wind Sensor Rev.&nbsp;P6.
-</figcaption>
-</figure>
-</div>
-<p><strong>Especificaciones</strong></p>
-<ul>
-<li>Voltaje de alimentación: 10–12 V.</li>
-<li>Corriente: Aproximadamente 40 mA.</li>
-<li>Velocidades de viento medidas: 0–150 mph.</li>
-<li>Compensación de temperatura ambiente.</li>
-</ul>
-<div id="85f58c7f" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Código</summary>
+<section id="wind-sensor-rev.-p6" class="level4">
+<h4 class="anchored" data-anchor-id="wind-sensor-rev.-p6">Wind Sensor Rev.&nbsp;P6</h4>
+<p>El siguiente código se encarga de gestionar el Wind Sensor Rev.&nbsp;P6, permitiendo obtener las mediciones de la velocidad del viento:</p>
+<div id="b8642b18" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;math.h&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>const <span class="bu">int</span> OutPin  <span class="op">=</span> A0<span class="op">;</span>   <span class="op">//</span> Pin analógico para el sensor de viento (<span class="st">"OUT"</span>)</span>
@@ -813,179 +1039,72 @@ Figura&nbsp;3.3: Diagrama de conexión para el Wind Sensor Rev.&nbsp;P6.
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ws<span class="op">;</span></span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
-</section>
-<section id="raspberry-pi-4-model-b" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="raspberry-pi-4-model-b"><span class="header-section-number">3.2.2</span> Raspberry Pi 4 Model B</h3>
-<p>El Raspberry Pi 4 Model B es una computadora de placa única de alto rendimiento, diseñada para tareas de procesamiento avanzado y conectividad eficiente en un formato compacto. Equipada con un procesador de 64 bits de cuatro núcleos y opciones de RAM de hasta 8 GB, ofrece soporte para salida de video dual 4K y conectividad avanzada mediante Wi-Fi de doble banda, Bluetooth 5.0, Ethernet Gigabit y puertos USB 3.0, con capacidad para Power over Ethernet (PoE) mediante un accesorio adicional. Su diseño versátil y eficiente la hace ideal para la integración y gestión de datos en el sistema DTHIS-C. <span class="citation" data-cites="raspberry">Raspberry (<a href="references.html#ref-raspberry" role="doc-biblioref">2019</a>)</span></p>
-<p>En la <a href="#tbl-raspberry" class="quarto-xref">Tabla&nbsp;<span>3.3</span></a> se muestran sus especificaciones.</p>
-<div id="tbl-raspberry" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-raspberry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;3.3: Especificaciones del Raspberry Pi 4 Model B.
-</figcaption>
-<div aria-describedby="tbl-raspberry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-hover table-sm small caption-top table">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 63%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parámetro</strong></th>
-<th><strong>Detalle</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Procesador</td>
-<td>Broadcom BCM2711, 4 núcleos Cortex-A72, 1.5 GHz</td>
-</tr>
-<tr class="even">
-<td>Memoria RAM</td>
-<td>8 GB (LPDDR4-3200)</td>
-</tr>
-<tr class="odd">
-<td>Conectividad Wi-Fi</td>
-<td>Sí, dual-band 2.4 GHz y 5 GHz, 802.11ac</td>
-</tr>
-<tr class="even">
-<td>Bluetooth</td>
-<td>Sí, Bluetooth 5.0</td>
-</tr>
-<tr class="odd">
-<td>Puertos USB</td>
-<td>2 USB 3.0, 2 USB 2.0</td>
-</tr>
-<tr class="even">
-<td>Salida de video</td>
-<td>2 micro HDMI, soporte dual 4K 60 fps</td>
-</tr>
-<tr class="odd">
-<td>Ethernet</td>
-<td>Gigabit</td>
-</tr>
-<tr class="even">
-<td>Almacenamiento</td>
-<td>Tarjeta microSD</td>
-</tr>
-<tr class="odd">
-<td>Voltaje de operación</td>
-<td>5V</td>
-</tr>
-<tr class="even">
-<td>Consumo energético</td>
-<td>Eficiente, sin ventilador (~3A recomendado)</td>
-</tr>
-<tr class="odd">
-<td>Dimensiones</td>
-<td>85.6 mm x 56.5 mm x 17 mm</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>El siguiente código constituye el programa principal del Raspberry Pi 4 Model B en el DTHIS-C, encargado de gestionar la conexión al servidor ThingsBoard mediante el protocolo MQTT y el envío de datos provenientes de sensores como el SCD30 (CO2, temperatura y humedad relativa). Escrito en Python, utiliza la librería <code>paho-mqtt</code> para la comunicación y está diseñado para operar de manera continua:</p>
-<div id="2c0f386e" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Código</summary>
+<section id="raspberry" class="level4">
+<h4 class="anchored" data-anchor-id="raspberry">Raspberry</h4>
+<p>El siguiente código constituye el programa principal del Raspberry Pi 4 Model B en el DTHIS-C, encargado de gestionar la conexión al servidor ThingsBoard mediante el protocolo MQTT y el envío de datos provenientes de sensores como el SCD30 (CO2, temperatura y humedad relativa), valores de iluminancia y presión sonora capturados por la cámara y el micrófono respectivamente:</p>
+<div id="b575cfce" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> mqtt</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> thingsboard_credentials <span class="im">import</span> thingsboard_data</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scd30 <span class="im">import</span> scd30_measurements</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sound <span class="im">import</span> sound_data</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtiene los datos de conexión para ThingsBoard</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>unique_id, token, thingsboard_host <span class="op">=</span> thingsboard_data()</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Diccionario para almacenar las lecturas del sensor</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>sensor_data <span class="op">=</span> {<span class="st">'CO2'</span>: <span class="dv">0</span>, <span class="st">'T'</span>: <span class="dv">0</span>, <span class="st">'HR'</span>: <span class="dv">0</span>}</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Diccionario para datos de sonido</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># micro_data = {'RMS': 0, 'dBmax': 0, 'dBmin': 0}  </span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Configura el cliente MQTT</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> mqtt.Client(unique_id, <span class="va">False</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>client.username_pw_set(token, password<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>client.<span class="ex">connect</span>(thingsboard_host, <span class="dv">1883</span>, <span class="dv">60</span>, <span class="st">''</span>)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>client.loop_start()</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Obtiene las mediciones del sensor SCD30</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        CO2, T, HR <span class="op">=</span> scd30_measurements()</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualiza el diccionario con las lecturas actuales</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        sensor_data[<span class="st">'CO2'</span>] <span class="op">=</span> CO2</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        sensor_data[<span class="st">'T'</span>] <span class="op">=</span> T</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        sensor_data[<span class="st">'HR'</span>] <span class="op">=</span> HR</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Publica los datos del SCD30 en ThingsBoard</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        client.publish(<span class="st">'v1/devices/me/telemetry'</span>, json.dumps(sensor_data), <span class="dv">1</span>)</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Obtiene los datos de sonido</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># micro_data = sound_data() </span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Publica los datos de sonido en ThingsBoard</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        <span class="co"># client.publish('v1/devices/me/telemetry', json.dumps(micro_data), 1)</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">2</span>)  <span class="co"># Ajusta el intervalo de tiempo entre lecturas</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Detiene el loop del cliente MQTT y desconecta del servidor</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>client.loop_stop()</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>client.disconnect()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> illuminance <span class="im">import</span> illuminance_data</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtiene los datos de conexión para ThingsBoard</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>unique_id, token, thingsboard_host <span class="op">=</span> thingsboard_data()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Diccionario para almacenar las lecturas del SCD30</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>sensor_data <span class="op">=</span> {<span class="st">'CO2'</span>: <span class="dv">0</span>, <span class="st">'T'</span>: <span class="dv">0</span>, <span class="st">'HR'</span>: <span class="dv">0</span>}</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Diccionario para datos de sonido</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>micro_data <span class="op">=</span> {<span class="st">'RMS'</span>: <span class="dv">0</span>, <span class="st">'dBmax'</span>: <span class="dv">0</span>, <span class="st">'dBmin'</span>: <span class="dv">0</span>}</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Diccionario para datos de iluminancia</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>camera_data <span class="op">=</span> {<span class="st">'Iluminancia'</span>: <span class="dv">0</span>}   </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Configura el cliente MQTT</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> mqtt.Client(unique_id, <span class="va">False</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>client.username_pw_set(token, password<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>client.<span class="ex">connect</span>(thingsboard_host, <span class="dv">1883</span>, <span class="dv">60</span>, <span class="st">''</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>client.loop_start()</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Obtiene las mediciones del SCD30</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        CO2, T, HR <span class="op">=</span> scd30_measurements()</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualiza el diccionario con las lecturas actuales</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        sensor_data[<span class="st">'CO2'</span>] <span class="op">=</span> CO2</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        sensor_data[<span class="st">'T'</span>] <span class="op">=</span> T</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        sensor_data[<span class="st">'HR'</span>] <span class="op">=</span> HR</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Publica los datos del SCD30 en ThingsBoard</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        client.publish(<span class="st">'v1/devices/me/telemetry'</span>, json.dumps(sensor_data), <span class="dv">1</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Obtiene los datos de sonido</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        micro_data <span class="op">=</span> sound_data() </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Publica los datos de sonido en ThingsBoard</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        client.publish(<span class="st">'v1/devices/me/telemetry'</span>, json.dumps(micro_data), <span class="dv">1</span>)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Obtiene el valor de iluminancia</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        camera_data <span class="op">=</span> illuminance_data()</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Publica el valor de iluminancia en ThingsBoard</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>        client.publish(<span class="st">'v1/devices/me/telemetry'</span>, json.dumps(camera_data), <span class="dv">1</span>)</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">2</span>)  <span class="co"># Ajusta el intervalo de tiempo entre lecturas</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Detiene el loop del cliente MQTT y desconecta del servidor</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>client.loop_stop()</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>client.disconnect()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="sensirion-scd30" class="level4">
-<h4 class="anchored" data-anchor-id="sensirion-scd30">Sensirion SCD30</h4>
-<p>El SCD30 es un sensor de CO<sub>2</sub> basado en tecnología de detección por infrarrojos. Incorpora un sensor de humedad y temperatura. Cuenta con un diseño de doble canal. Además, ofrece una precisión de ±(30 ppm + 3% de la lectura) en un rango de 400 a 10,000 ppm. <span class="citation" data-cites="scd30">Sensirion (<a href="references.html#ref-scd30" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
-<div id="fig-SCD30" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-SCD30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src=".\images/scd30_bb.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-SCD30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.4: Diagrama de conexión para el SCD30.
-</figcaption>
-</figure>
-</div>
-<p><strong>Especificaciones</strong></p>
-<p><strong>CO<sub>2</sub></strong></p>
-<ul>
-<li>Rango de medición: 400 – 10,000 ppm</li>
-<li>Precisión: ±30 ppm ±3% del valor medido</li>
-<li>Tiempo de respuesta (τ63%): 20 s</li>
-<li>Estabilidad térmica: 2.5 ppm/°C</li>
-</ul>
-<p><strong>Humedad</strong></p>
-<ul>
-<li>Precisión típica: ±3 %RH</li>
-<li>Rango de operación: 0 – 95 %RH</li>
-<li>Tiempo de respuesta (τ63%): 8 s</li>
-<li>Certificación de calibración: Calibrado de fábrica</li>
-<li>Temperatura</li>
-<li>Precisión típica: ±0.4 °C</li>
-<li>Tiempo de respuesta (τ63%): 10 s</li>
-</ul>
-<p><strong>Características generales</strong></p>
-<ul>
-<li>Voltaje de alimentación: 3.3 – 5.5 V</li>
-<li>Corriente promedio: 19 mA</li>
-<li>Corriente máxima: 75 mA</li>
-<li>Rango de temperatura de operación: 0 – 50 °C</li>
-<li>Interfaces: I²C, ModBus, PWM</li>
-<li>Dimensiones: 35 × 23 × 7 mm</li>
-</ul>
-<p>A continuación se muestra el código de Python empleado para su incorpación al DTHIS-C:</p>
-<div id="ca90c6ca" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Código</summary>
+</section>
+<section id="scd30" class="level4">
+<h4 class="anchored" data-anchor-id="scd30">SCD30</h4>
+<p>Este script se encarga de capturar y almacenar las mediciones de humedad relativa, concentración de CO<sub>2</sub> y temperatura ambiente proporcionadas por el sensor SCD30:</p>
+<div id="20fd5299" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> board</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> busio</span>
@@ -1015,205 +1134,154 @@ Figura&nbsp;3.4: Diagrama de conexión para el SCD30.
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        T <span class="op">=</span> <span class="bu">round</span>(T, <span class="dv">2</span>)</span>
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        HR <span class="op">=</span> <span class="bu">round</span>(HR, <span class="dv">2</span>)</span>
 <span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> CO2, T, HR</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
-<section id="arducam-5mp-ov5647-ultra-wide-angle" class="level4">
-<h4 class="anchored" data-anchor-id="arducam-5mp-ov5647-ultra-wide-angle">Arducam 5MP OV5647 Ultra Wide Angle</h4>
-<p>La cámara Arducam Ultra Wide Angle cuenta con un objetivo ojo de pez M12 que ofrece un campo de visión horizontal de 220°. <span class="citation" data-cites="arducam">Arducam (<a href="references.html#ref-arducam" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
-<div id="fig-Camara" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-Camara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src=".\images/camera_bb.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Camara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.5: Diagrama de conexión para la cámara OV5647.
-</figcaption>
-</figure>
-</div>
-<p><strong>Especificaciones</strong></p>
-<ul>
-<li>Sensor: Omnivision OV5647</li>
-<li>Tamaño del sensor: 1/4″ (OV5647)</li>
-<li>Resolución: 5 MP (2592×1944)</li>
-<li>Video:
-<ul>
-<li>1080p a 30 fps</li>
-<li>720p a 60 fps</li>
-<li>480p a 90 fps</li>
-</ul></li>
-<li>Sensibilidad IR: Filtro IR-cut integrado (solo luz visible)</li>
-<li>Campo de visión horizontal (HFOV): 220°</li>
-<li>Distancia focal efectiva: 0.76 mm</li>
-<li>Distancia focal equivalente en 35 mm: 8.2 mm</li>
-<li>Tipo de enfoque: Manual</li>
-<li>Montura del objetivo: M12</li>
-<li>Dimensiones: 36 mm × 36 mm</li>
-<li>Corriente pico: 300 mA</li>
-</ul>
-<p>A continuación, se muestra el código escrito en Bash/Shell que accede a la cámara y, posteriormente, genera los mapas de luminancia:</p>
-<div id="8f66f314" class="cell" data-execution_count="7">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>DATE<span class="op">=</span>$(date <span class="op">+</span><span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">_%H%M"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>IMG_DIR<span class="op">=</span><span class="st">"/home/hdeza/Luminance/images"</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>HDR_IMG<span class="op">=</span><span class="st">"/home/hdeza/Luminance/HDR_images"</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>MAPS_DIR<span class="op">=</span><span class="st">"/home/hdeza/Luminance/maps"</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>OUTPUT_DIR<span class="op">=</span><span class="st">"/home/hdeza/Luminance"</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Loop through shutter speeds and capture images</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>SHUTTERS<span class="op">=</span>(<span class="dv">100</span> <span class="dv">500</span> <span class="dv">1000</span> <span class="dv">5000</span> <span class="dv">10000</span> <span class="dv">50000</span> <span class="dv">100000</span> <span class="dv">500000</span> <span class="dv">1000000</span> <span class="dv">2000000</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="st">"${!SHUTTERS[@]}"</span><span class="op">;</span> do</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  rpicam<span class="op">-</span>still <span class="op">--</span>raw <span class="op">-</span>n <span class="op">--</span>gain <span class="dv">1</span> <span class="op">-</span>t <span class="dv">500</span> <span class="op">--</span>shutter <span class="st">"$</span><span class="sc">{SHUTTERS[$i]}</span><span class="st">"</span> <span class="op">-</span>o <span class="st">"$IMG_DIR/$(printf "</span><span class="op">%</span><span class="dv">0</span><span class="er">2d</span><span class="st">" $((i+1))).jpg"</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>done</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Run raw2hdr with the path to the images and save as image.hdr</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>raw2hdr <span class="op">-</span>a <span class="op">-</span>e <span class="op">-</span>g <span class="op">-</span>f <span class="op">-</span>h <span class="op">-</span>w <span class="op">-</span>o <span class="st">"$HDR_IMG/image_$DATE.hdr"</span> <span class="st">"$IMG_DIR"</span><span class="op">/*</span>dng</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Get info about the final HDR</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>getinfo <span class="st">"$HDR_IMG/image_$DATE.hdr"</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Nullify exposure value</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>ra_xyze <span class="op">-</span>r <span class="op">-</span>o <span class="st">"$HDR_IMG/image_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$OUTPUT_DIR/image_nullEV_$DATE.hdr"</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Resize image</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>pfilt <span class="op">-</span><span class="dv">1</span> <span class="op">-</span>x <span class="dv">1000</span> <span class="op">-</span>y <span class="dv">1000</span> <span class="st">"$OUTPUT_DIR/image_nullEV_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$OUTPUT_DIR/image_resize_$DATE.hdr"</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co">#Make photometric adjustment</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>pcomb <span class="op">-</span>s <span class="fl">1.8</span> <span class="st">"$OUTPUT_DIR/image_resize_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$OUTPUT_DIR/image_photometric_$DATE.hdr"</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co">#Change view angle for fisheye</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>getinfo <span class="op">-</span>a <span class="st">"VIEW= -vta -vv 160 -vh 160"</span> <span class="op">&lt;</span> <span class="st">"$OUTPUT_DIR/image_photometric_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$IMG_DIR/image_final_$DATE.hdr"</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">#Print illuminance value</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"Total illuminance is: "</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>evalglare <span class="op">-</span>V <span class="st">"$IMG_DIR/image_final_$DATE.hdr"</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>evalglare <span class="op">-</span>V <span class="st">"$IMG_DIR/image_final_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$OUTPUT_DIR/illuminance_$DATE.txt"</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Move final HDR image to HDR_images</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>mv <span class="st">"$IMG_DIR/image_final_$DATE.hdr"</span> <span class="st">"$HDR_IMG/image_final_$DATE.hdr"</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Crop to a 160</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>pcomb <span class="op">-</span>e <span class="st">'Cx:xmax/2;Cy:ymax/2;R:444.44;sq(x):x*x'</span> <span class="op">-</span>e <span class="st">'inC=sq(R)-sq(x-Cx)-sq(y-Cy)'</span> <span class="op">-</span>e <span class="st">'ro=if(inC,ri(1),0);go=if(inC,gi(1),0);bo=if(inC,bi(1),0)'</span> <span class="st">"$HDR_IMG/image_final_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$HDR_IMG/image_crop_$DATE.hdr"</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="co">#Make the luminance map with configurations and save it</span></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>falsecolor <span class="op">-</span>s <span class="dv">5000</span> <span class="op">-</span>d <span class="dv">1</span> <span class="op">-</span>i <span class="st">"$HDR_IMG/image_crop_$DATE.hdr"</span> <span class="op">--</span>log <span class="dv">3</span> <span class="op">&gt;</span> <span class="st">"$MAPS_DIR/image_map_$DATE.hdr"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="micrófono-ambiental-usb" class="level4">
-<h4 class="anchored" data-anchor-id="micrófono-ambiental-usb">Micrófono ambiental USB</h4>
-<p>El micrófono incorpora un filtro que atenúa eficazmente los ruidos producidos por el viento o la respiración. Su patrón de captación direccional optimiza la focalización de la fuente sonora. <span class="citation" data-cites="steren">Steren (<a href="references.html#ref-steren" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
-<div id="fig-Microfono" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-Microfono-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src=".\images/micro_bb.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Microfono-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.6: Diagrama de conexión para el micrófono.
-</figcaption>
-</figure>
-</div>
-<p><strong>Especificaciones</strong></p>
-<ul>
-<li>Respuesta en frecuencia: 50 a 10,000 Hz</li>
-<li>Impedancia 2,200 <span class="math inline">\(\Omega\)</span></li>
-<li>Sensibilidad: -32 dB ±3 dB</li>
-</ul>
+<section id="micrófono-ambiental-usb-1" class="level4">
+<h4 class="anchored" data-anchor-id="micrófono-ambiental-usb-1">Micrófono ambiental USB</h4>
 <p>A continuación, se presentan los códigos utilizados para la captura y análisis de sonido. Estos scripts permiten grabar el audio, extraer parámetros clave de la señal y convertirlos a valores en decibeles (dB).</p>
 <p>El siguiente script graba un archivo de audio en formato WAV durante 15 segundos a una frecuencia de muestreo de 44.1 kHz:</p>
-<div id="5483dd55" class="cell" data-execution_count="8">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>grabar<span class="op">=</span><span class="st">"/home/hdeza/Sonido/audio.wav"</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>arecord <span class="op">-</span>D plughw:<span class="dv">3</span>,<span class="dv">0</span> <span class="op">-</span>f cd <span class="op">-</span>t wav <span class="op">-</span>d <span class="dv">15</span> <span class="op">-</span>r <span class="dv">44100</span> $grabar</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div id="03663762" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>grabar<span class="op">=</span><span class="st">"/home/hdeza/Sonido/audio.wav"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>arecord <span class="op">-</span>D plughw:<span class="dv">3</span>,<span class="dv">0</span> <span class="op">-</span>f cd <span class="op">-</span>t wav <span class="op">-</span>d <span class="dv">15</span> <span class="op">-</span>r <span class="dv">44100</span> $grabar</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Posteriormente este script analiza el archivo de audio y extrae la amplitud máxima de la señal, almacenándola en un archivo de texto:</p>
-<div id="6d6bc1f4" class="cell" data-execution_count="9">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>maximo<span class="op">=</span><span class="st">"/home/hdeza/Sonido/dBmax.txt"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>sox <span class="op">/</span>home<span class="op">/</span>hdeza<span class="op">/</span>Sonido<span class="op">/</span>audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>grep <span class="st">"Maximum amplitude:"</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>awk <span class="st">'{print $3}'</span>  <span class="op">&gt;</span> $maximo</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div id="e942224e" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>maximo<span class="op">=</span><span class="st">"/home/hdeza/Sonido/dBmax.txt"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>sox <span class="op">/</span>home<span class="op">/</span>hdeza<span class="op">/</span>Sonido<span class="op">/</span>audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>grep <span class="st">"Maximum amplitude:"</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>awk <span class="st">'{print $3}'</span>  <span class="op">&gt;</span> $maximo</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Similar al anterior, este script obtiene la amplitud mínima del audio y la guarda en un archivo de texto:</p>
-<div id="af96f7d8" class="cell" data-execution_count="10">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>minimo<span class="op">=</span><span class="st">"/home/hdeza/Sonido/dBmin.txt"</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>sox <span class="op">/</span>home<span class="op">/</span>hdeza<span class="op">/</span>Sonido<span class="op">/</span>audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>grep <span class="st">"Minimum amplitude:"</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>awk <span class="st">'{print $3}'</span> <span class="op">&gt;</span> $minimo</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div id="49b15e47" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>minimo<span class="op">=</span><span class="st">"/home/hdeza/Sonido/dBmin.txt"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>sox <span class="op">/</span>home<span class="op">/</span>hdeza<span class="op">/</span>Sonido<span class="op">/</span>audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>grep <span class="st">"Minimum amplitude:"</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>awk <span class="st">'{print $3}'</span> <span class="op">&gt;</span> $minimo</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Este código calcula la amplitud RMS (Root Mean Square) del audio, un indicador de la potencia promedio de la señal sonora:</p>
-<div id="64746e1f" class="cell" data-execution_count="11">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>media<span class="op">=</span><span class="st">"/home/hdeza/Sonido/rms.txt"</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>sox <span class="op">/</span>home<span class="op">/</span>hdeza<span class="op">/</span>Sonido<span class="op">/</span>audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>grep <span class="st">"RMS     amplitude:"</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>awk <span class="st">'{print $3}'</span> <span class="op">&gt;</span> $media</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div id="6bdb76e2" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>media<span class="op">=</span><span class="st">"/home/hdeza/Sonido/rms.txt"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>sox <span class="op">/</span>home<span class="op">/</span>hdeza<span class="op">/</span>Sonido<span class="op">/</span>audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>grep <span class="st">"RMS     amplitude:"</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>awk <span class="st">'{print $3}'</span> <span class="op">&gt;</span> $media</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>El código en Python lee los valores extraídos previamente (RMS, amplitud máxima y mínima) y los convierte a decibeles utilizando la fórmula:</p>
 <p><span class="math display">\[dB = 20 \log_{10}(\text{amplitud}) + 120\]</span></p>
 <p>Los valores resultantes son almacenados en un diccionario para su posterior uso:</p>
-<div id="682c10f8" class="cell" data-execution_count="12">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div id="b2008f28" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sound_data():</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Función para obtener los datos de sonido desde archivos y calcular sus valores en dB.</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna:</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">        dict: Datos de sonido en dB (RMS_dB, dBmax_dB, dBmin_dB).</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    archivos <span class="op">=</span> [</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'/home/dthisc/dthis-c/sound/rms.txt'</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'/home/dthisc/dthis-c/sound/dBmax.txt'</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'/home/dthisc/dthis-c/sound/dBmin.txt'</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    rms_x <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    dBmax_x <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    dBmin_x <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> archivo <span class="kw">in</span> archivos:</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(archivo, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> archivo <span class="op">==</span> <span class="st">'/home/dthisc/dthis-c/sound/rms.txt'</span>:</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>                rms_x <span class="op">=</span> f.read().strip()</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> archivo <span class="op">==</span> <span class="st">'/home/dthisc/dthis-c/sound/dBmax.txt'</span>:</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>                dBmax_x <span class="op">=</span> f.read().strip()</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> archivo <span class="op">==</span> <span class="st">'/home/dthisc/dthis-c/sound/dBmin.txt'</span>:</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>                dBmin_x <span class="op">=</span> f.read().strip()</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    rms_db <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span> <span class="op">*</span> np.log10(<span class="bu">float</span>(rms_x)) <span class="op">+</span> <span class="dv">120</span>, <span class="dv">4</span>)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    dBmax_db <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span> <span class="op">*</span> np.log10(<span class="bu">float</span>(dBmax_x)) <span class="op">+</span> <span class="dv">120</span>, <span class="dv">4</span>)</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    dBmin_db <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span> <span class="op">*</span> np.log10(<span class="bu">abs</span>(<span class="bu">float</span>(dBmin_x))) <span class="op">+</span> <span class="dv">120</span>, <span class="dv">4</span>)</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">'RMS'</span>: rms_db, <span class="st">'dBmax'</span>: dBmax_db, <span class="st">'dBmin'</span>: dBmin_db}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ov5647-ultra-wide-angle" class="level4">
+<h4 class="anchored" data-anchor-id="ov5647-ultra-wide-angle">OV5647 Ultra Wide Angle</h4>
+<p>El siguiente script se encarga de obtener el valor total de iluminancia mediante la generación de un mapa de iluminancia. En primer lugar, el script captura múltiples fotografías a diferentes velocidades de obturación, lo que permite cubrir un amplio rango de exposiciones. Posteriormente, se fusionan estas imágenes para crear una imagen HDR, que contiene la mayor cantidad de información luminosa posible. A continuación, a la imagen HDR se le aplica un false color para resaltar la distribución de la iluminancia en las distintas superficies de la escena. Utilizando herramientas del software Radiance, se realiza un cálculo de integral sobre los valores de luminancia de la imagen, lo que permite determinar el valor total de iluminancia. Finalmente, este valor se almacena en un archivo .txt para su posterior análisis:</p>
+<div id="0f050963" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sound_data():</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Función para obtener los datos de sonido desde archivos y calcular sus valores en dB.</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna:</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">        dict: Datos de sonido en dB (RMS_dB, dBmax_dB, dBmin_dB).</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    archivos <span class="op">=</span> [</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'/home/dthisc/dthis-c/sound/rms.txt'</span>,</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'/home/dthisc/dthis-c/sound/dBmax.txt'</span>,</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'/home/dthisc/dthis-c/sound/dBmin.txt'</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    rms_x <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    dBmax_x <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    dBmin_x <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> archivo <span class="kw">in</span> archivos:</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(archivo, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> archivo <span class="op">==</span> <span class="st">'/home/dthisc/dthis-c/sound/rms.txt'</span>:</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                rms_x <span class="op">=</span> <span class="bu">round</span>(<span class="bu">float</span>(f.read().strip()), <span class="dv">4</span>)</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> archivo <span class="op">==</span> <span class="st">'/home/dthisc/dthis-c/sound/dBmax.txt'</span>:</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>                dBmax_x <span class="op">=</span> <span class="bu">round</span>(<span class="bu">float</span>(f.read().strip()), <span class="dv">4</span>)</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> archivo <span class="op">==</span> <span class="st">'/home/dthisc/dthis-c/sound/dBmin.txt'</span>:</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>                dBmin_x <span class="op">=</span> <span class="bu">round</span>(<span class="bu">float</span>(f.read().strip()), <span class="dv">4</span>)</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    rms_db <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span> <span class="op">*</span> np.log10(<span class="bu">float</span>(rms_x)) <span class="op">+</span> <span class="dv">120</span>, <span class="dv">4</span>)</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    dBmax_db <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span> <span class="op">*</span> np.log10(<span class="bu">float</span>(dBmax_x)) <span class="op">+</span> <span class="dv">120</span>, <span class="dv">4</span>)</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    dBmin_db <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span> <span class="op">*</span> np.log10(<span class="bu">abs</span>(<span class="bu">float</span>(dBmin_x))) <span class="op">+</span> <span class="dv">120</span>, <span class="dv">4</span>)</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">'RMS'</span>: rms_db, <span class="st">'dBmax'</span>: dBmax_db, <span class="st">'dBmin'</span>: dBmin_db}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>DATE<span class="op">=</span>$(date <span class="op">+</span><span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">_%H%M"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>IMG_DIR<span class="op">=</span><span class="st">"/home/hdeza/Luminance/images"</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>HDR_IMG<span class="op">=</span><span class="st">"/home/hdeza/Luminance/HDR_images"</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>MAPS_DIR<span class="op">=</span><span class="st">"/home/hdeza/Luminance/maps"</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>OUTPUT_DIR<span class="op">=</span><span class="st">"/home/hdeza/Luminance"</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Loop through shutter speeds and capture images</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>SHUTTERS<span class="op">=</span>(<span class="dv">100</span> <span class="dv">500</span> <span class="dv">1000</span> <span class="dv">5000</span> <span class="dv">10000</span> <span class="dv">50000</span> <span class="dv">100000</span> <span class="dv">500000</span> <span class="dv">1000000</span> <span class="dv">2000000</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="st">"${!SHUTTERS[@]}"</span><span class="op">;</span> do</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  rpicam<span class="op">-</span>still <span class="op">--</span>raw <span class="op">-</span>n <span class="op">--</span>gain <span class="dv">1</span> <span class="op">-</span>t <span class="dv">500</span> <span class="op">--</span>shutter <span class="st">"$</span><span class="sc">{SHUTTERS[$i]}</span><span class="st">"</span> <span class="op">-</span>o <span class="st">"$IMG_DIR/$(printf "</span><span class="op">%</span><span class="dv">0</span><span class="er">2d</span><span class="st">" $((i+1))).jpg"</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>done</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Run raw2hdr with the path to the images and save as image.hdr</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>raw2hdr <span class="op">-</span>a <span class="op">-</span>e <span class="op">-</span>g <span class="op">-</span>f <span class="op">-</span>h <span class="op">-</span>w <span class="op">-</span>o <span class="st">"$HDR_IMG/image_$DATE.hdr"</span> <span class="st">"$IMG_DIR"</span><span class="op">/*</span>dng</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Get info about the final HDR</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>getinfo <span class="st">"$HDR_IMG/image_$DATE.hdr"</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Nullify exposure value</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>ra_xyze <span class="op">-</span>r <span class="op">-</span>o <span class="st">"$HDR_IMG/image_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$OUTPUT_DIR/image_nullEV_$DATE.hdr"</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Resize image</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>pfilt <span class="op">-</span><span class="dv">1</span> <span class="op">-</span>x <span class="dv">1000</span> <span class="op">-</span>y <span class="dv">1000</span> <span class="st">"$OUTPUT_DIR/image_nullEV_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$OUTPUT_DIR/image_resize_$DATE.hdr"</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co">#Make photometric adjustment</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>pcomb <span class="op">-</span>s <span class="fl">1.8</span> <span class="st">"$OUTPUT_DIR/image_resize_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$OUTPUT_DIR/image_photometric_$DATE.hdr"</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="co">#Change view angle for fisheye</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>getinfo <span class="op">-</span>a <span class="st">"VIEW= -vta -vv 160 -vh 160"</span> <span class="op">&lt;</span> <span class="st">"$OUTPUT_DIR/image_photometric_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$IMG_DIR/image_final_$DATE.hdr"</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="co">#Print illuminance value</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"Total illuminance is: "</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>evalglare <span class="op">-</span>V <span class="st">"$IMG_DIR/image_final_$DATE.hdr"</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>evalglare <span class="op">-</span>V <span class="st">"$IMG_DIR/image_final_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$OUTPUT_DIR/illuminance.txt"</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Move final HDR image to HDR_images</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>mv <span class="st">"$IMG_DIR/image_final_$DATE.hdr"</span> <span class="st">"$HDR_IMG/image_final_$DATE.hdr"</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Crop to a 160</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>pcomb <span class="op">-</span>e <span class="st">'Cx:xmax/2;Cy:ymax/2;R:444.44;sq(x):x*x'</span> <span class="op">-</span>e <span class="st">'inC=sq(R)-sq(x-Cx)-sq(y-Cy)'</span> <span class="op">-</span>e <span class="st">'ro=if(inC,ri(1),0);go=if(inC,gi(1),0);bo=if(inC,bi(1),0)'</span> <span class="st">"$HDR_IMG/image_final_$DATE.hdr"</span> <span class="op">&gt;</span> <span class="st">"$HDR_IMG/image_crop_$DATE.hdr"</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="co">#Make the luminance map with configurations and save it</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>falsecolor <span class="op">-</span>s <span class="dv">5000</span> <span class="op">-</span>d <span class="dv">1</span> <span class="op">-</span>i <span class="st">"$HDR_IMG/image_crop_$DATE.hdr"</span> <span class="op">--</span>log <span class="dv">3</span> <span class="op">&gt;</span> <span class="st">"$MAPS_DIR/image_map_$DATE.hdr"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Posteriormente este código define una función que se encarga de leer el valor total de iluminancia a partir de un archivo .txt previamente generado por el proceso de creación del mapa de iluminancia. La función abre el archivo ubicado en la ruta especificada, extrae el valor numérico contenido en él, lo convierte a tipo float y lo retorna:</p>
+<div id="9fc1234e" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> illuminance_data():</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Función para obtener el valor total de iluminancia desde el archivo .txt generado por el proceso de generación del mapa de iluminancia.</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna:</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">        float: Valor total de iluminancia.</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    file_path <span class="op">=</span> <span class="st">'/home/hdeza/Luminance/illuminance.txt'</span> </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(file_path, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        value_str <span class="op">=</span> f.read().strip()</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    illum_value <span class="op">=</span> <span class="bu">float</span>(value_str)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> illum_value</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-</section>
-<section id="sec-materiales" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="sec-materiales"><span class="header-section-number">3.3</span> Lista de materiales</h2>
+<section id="sec-materiales" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="sec-materiales"><span class="header-section-number">3.10</span> Lista de materiales</h2>
 <p>La <a href="#tbl-materiales" class="quarto-xref">Tabla&nbsp;<span>3.4</span></a> muestra la lista de materiales necesarios para la construcción del DTHIS-C, detallando la cantidad de cada componente, los costos y la fuente de venta.</p>
 <div id="tbl-materiales" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1398,11 +1466,20 @@ Arduino. 2023. <span>«Arduino UNO WiFi Rev2»</span>. <a href="https://store.ar
 <div id="ref-fuehler" class="csl-entry" role="listitem">
 FuehlerSysteme. s.&nbsp;f. <span>«Radiation Pendulum Temperature Sensor»</span>. <a href="https://www.fuehlersysteme.de/Radiation-Pendulum-Temperature-Sensor_1#70bd/embedded/">https://www.fuehlersysteme.de/Radiation-Pendulum-Temperature-Sensor_1#70bd/embedded/</a>.
 </div>
+<div id="ref-hodgson" class="csl-entry" role="listitem">
+Hodgson, David. 2021. <span>«Chapter 20 - Mechatronics and Physical Computing»</span>. En <em>Exploring Engineering (Fifth Edition)</em>, editado por Philip Kosky, Robert Balmer, William Keat, y George Wise, Fifth Edition, 453-77. Academic Press. <a href="https://doi.org/10.1016/B978-0-12-815073-3.00020-X">https://doi.org/10.1016/B978-0-12-815073-3.00020-X</a>.
+</div>
 <div id="ref-modern" class="csl-entry" role="listitem">
 ModernDevice. s.&nbsp;f. <span>«Wind Sensor Rev. P»</span>. <a href="https://moderndevice.com/products/wind-sensor-rev-p">https://moderndevice.com/products/wind-sensor-rev-p</a>.
 </div>
+<div id="ref-omega-2" class="csl-entry" role="listitem">
+OMEGA. s.&nbsp;f.a. <span>«Introducción a los acondicionadores de señales»</span>. <a href="https://mx.omega.com/prodinfo/acondicionadores-de-senales.html">https://mx.omega.com/prodinfo/acondicionadores-de-senales.html</a>.
+</div>
 <div id="ref-omega" class="csl-entry" role="listitem">
-OMEGA. s.&nbsp;f. <span>«¿Qué es un sensor termopar?»</span> <a href="https://es.omega.com/prodinfo/termopares.html#">https://es.omega.com/prodinfo/termopares.html#</a>.
+———. s.&nbsp;f.b. <span>«¿Qué es un sensor termopar?»</span> <a href="https://es.omega.com/prodinfo/termopares.html#">https://es.omega.com/prodinfo/termopares.html#</a>.
+</div>
+<div id="ref-sensors" class="csl-entry" role="listitem">
+Patel, Dr. Bhagwati, Professor G Sinha, y Naveen Goel. 2020. <span>«Introduction to sensors»</span>. En. <a href="https://doi.org/10.1088/978-0-7503-2707-7ch1">https://doi.org/10.1088/978-0-7503-2707-7ch1</a>.
 </div>
 <div id="ref-pwf" class="csl-entry" role="listitem">
 PWFusion. s.&nbsp;f. <span>«4-Channel T-Type Thermocouple MAX31856 SPI Digital Arduino Shield»</span>. <a href="https://www.playingwithfusion.com/productview.php?pdid=71&amp;catid=1008">https://www.playingwithfusion.com/productview.php?pdid=71&amp;catid=1008</a>.
@@ -1850,6 +1927,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

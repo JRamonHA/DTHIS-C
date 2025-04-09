@@ -112,7 +112,7 @@ Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente
 data.to_csv("ruta/de/su/preferencia.csv")
 ```
 
-## Temperatura del aire {#sec-taire}
+## Temperatura del aire {#sec-taire-b}
 
 #### Termopar
 
@@ -228,7 +228,7 @@ tt.columns_plot('data/scd30.parquet',
                    legend_name='Temperatura (°C)')
 ```
 
-## Temperatura radiante {#sec-trad}
+## Temperatura radiante {#sec-trad-b}
 
 #### TPF1
 
@@ -276,7 +276,7 @@ En la tabla @tbl-error-rad se observa que, antes de calibrar, el sensor TPF1/E-2
 | Después de calibrar | 4.8948e-15   | 0.0344               |
 : Error medio y error medio absoluto antes y después de la calibración. {#tbl-error-rad .hover .sm}
 
-## Velocidad del viento {#sec-viento}
+## Velocidad del viento {#sec-viento-b}
 
 #### Wind Sensor
 
@@ -347,11 +347,11 @@ tt.scatter_plot('data/cal_ws.parquet',
                 legend_labels=['WindMaster', 'Wind Sensor'])
 ```
 
-## Humedad relativa y CO<sub>2</sub> {#sec-hrco}
+## Humedad relativa y CO<sub>2</sub> {#sec-hrco-b}
 
 #### SCD30
 
-Al igual que en el caso de la temperatura del aire, el SCD30 se utilizó para obtener mediciones de humedad relativa y concentraciones de CO<sub>2</sub>, empleándose nuevamente el Fluke 975 AirMeter (@fig-fluke) como instrumento de referencia. La recolección de datos se realizó durante la misma campaña, por lo que las condiciones ambientales y los procedimientos fueron idénticos a las descritas en la @sec-taire. Los resultados obtenidos se muestran en la @fig-scd30.
+Al igual que en el caso de la temperatura del aire, el SCD30 se utilizó para obtener mediciones de humedad relativa y concentraciones de CO<sub>2</sub>, empleándose nuevamente el Fluke 975 AirMeter (@fig-fluke) como instrumento de referencia. La recolección de datos se realizó durante la misma campaña, por lo que las condiciones ambientales y los procedimientos fueron idénticos a las descritas en la @sec-taire-b. Los resultados obtenidos se muestran en la @fig-scd30.
 
 ```{python}
 #| echo: false
@@ -413,17 +413,17 @@ subplot_configs = [
 tt.columns_subplots('data/scd30.parquet', subplot_configs)
 ```
 
-## Sonido
+## Sonido {#sec-sonido-b} 
 
-#### Micrófono {#sec-micro} 
+#### Micrófono 
 
 Pendiente a la documentación de Jorge.
 
 ![TES-1356 Sound Level Calibrator.](/images/tes.jpg){.lightbox #fig-tes width="30%"}
 
-## Luminancia
+## Iluminancia {#sec-ilum-b}
 
-#### Fisheye {#sec-camara}
+#### Fisheye 
 
 En el caso de la luminancia, no se realizó ningún proceso de calibración o referenciación. Se empleó la cámara Arducam 5MP OV5647 Ultra Wide Angle en conjunto con el software `Radiance`. Se desarrolló un script, descrito en la sección @sec-diseno, que calcula la iluminancia total mediante la integración del mapa de iluminancia (@fig-ilum) generado a partir de las imágenes capturadas. El proceso inicia con la creación de una imagen HDR a partir de la fusión de fotografías tomadas a diferentes exposiciones, lo que permite capturar la mayor cantidad de información posible sobre la intensidad luminosa. Posteriormente, a esta imagen HDR se le aplica una escala de *false color* para identificar los valores de iluminancia en cada punto de la imagen. El cálculo de la integral para el mapa generado facilita la determinación de la iluminancia total del espacio interior en el momento de la captura. Además, el mismo script se encarga de enviar el valor de la iluminancia total a `ThingsBoard`, conforme se detalla en la sección @sec-obtencion.
 

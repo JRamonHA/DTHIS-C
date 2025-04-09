@@ -2,9 +2,44 @@
 
 En este capítulo se presenta una descripción detallada del DTHIS-C, incluyendo sus componentes y especificaciones técnicas. Además, se proporcionan los diagramas de conexión y los códigos necesarios para la configuración de cada sensor, facilitando tanto la reproducción completa del DTHIS-C como la implementación individual de sus sensores.
 
-## Especificaciones del DTHIS-C {#sec-especificaciones}
+## Diseño {#sec-diseno}
 
-En la @tbl-componentes se muestran los sensores y componentes electrónicos que conforman al DTHIS-C.
+La arquitectura del DTHIS-C se ha fundamentado en el uso combinado de la Raspberry Pi 4 y el Arduino Uno WiFi Rev2, microcontroladores seleccionados por las siguientes características y ventajas:
+
+1. **Versatilidad y capacidad de procesamiento:**  
+   La Raspberry Pi 4, proporciona una plataforma robusta para el procesamiento avanzado de datos y la ejecución de algoritmos complejos. Su flexibilidad, junto con la facilidad de integración de diversas funcionalidades, permite adaptar el sistema a requerimientos específicos y configurar el rendimiento según las demandas del entorno.
+
+2. **Conectividad:**  
+   Ambos dispositivos cuentan con conectividad a Internet, lo que posibilita la transmisión en tiempo real de datos hacia una base de datos remota alojada en el servidor ThingsBoard.
+
+3. **Compatibilidad y ecosistema abierto:**  
+   La adopción de tecnologías abiertas facilita la integración y reproducibilidad del sistema. La amplia comunidad de desarrolladores que respalda tanto la Raspberry Pi como el Arduino asegura soporte continuo, actualizaciones regulares y una extensa variedad de recursos y librerías, lo que se traduce en mayor flexibilidad para adaptar el sistema a diversas necesidades y entornos.
+
+4. **Accesibilidad:**
+   Frente a equipos especializados, la utilización de estos microcontroladores constituye una solución rentable sin comprometer el rendimiento ni la fiabilidad del sistema. Además, el Arduino UNO WiFi Rev2 y el Raspberry Pi 4 Model B son fáciles de conseguir en México, disponibles en tiendas como AG Electrónica y 330ohms, con precios aproximados de $1,300.00 MXN y $2,000.00 MXN, respectivamente. Esto facilita la replicación y el escalado del proyecto.
+
+## Especificaciones {#sec-especificaciones}
+
+El DTHIS-C se ha diseñado para medir temperatura del aire, temperatura radiante, velocidad del viento, humedad relativa, niveles de CO<sub>2</sub>, iluminancia y niveles de presión sonora. El dispositivo está compuesto por seis sensores, dos microcontroladores y dos acondicionadores de señal. 
+
+- **Sensor:**
+    Un sensor es un dispositivo que detecta una señal o estímulo del entorno y responde generando una señal eléctrica proporcional, generalmente en forma de corriente o voltaje. Su función principal es convertir señales físicas, químicas o biológicas en señales eléctricas que puedan ser interpretadas por sistemas electrónicos. [Patel, Dr. et al. , -@sensors]
+
+    En el caso del DTHIS-C, los sensores utilizados permiten medir variables físicas específicas del ambiente, y sus señales son acondicionadas y digitalizadas para su procesamiento y transmisión.
+
+- **Microcontrolador:**
+    Un microcontrolador es una pequeña computadora integrada en un solo chip, se usa en sistemas integrados como sensores de temperatura. Incluye una CPU, memoria RAM, memorias de solo lectura, múltiples puertos de entrada/salida y y periféricos como convertidores analógico-digital (ADC), convertidores digital-analógico (DAC), temporizadores e interfaces seriales (USB, Ethernet, etc.). Su bajo consumo energético lo hace ideal para dispositivos alimentados por batería y aplicaciones específicas. [Hodgson, D. , -@hodgson]
+
+    En el DTHIS-C, el microcontrolador es fundamental para gestionar y procesar las señales de los sensores, convirtiendo las salidas analógicas en datos digitales precisos mediante el ADC. Estos datos se utilizan para evaluar las condiciones ambientales y se transmiten a una plataforma IoT para su visualización en tiempo real.
+
+- **Acondicionador de señal:**
+    Un acondicionador de señal es un dispositivo diseñado para transformar una señal electrónica de un formato a otro, facilitando su lectura y procesamiento mediante instrumentación convencional. Entre sus funciones se destacan la amplificación (aumentar la magnitud de señales débiles), la linealización (corregir respuestas no lineales, como ocurre comúnmente en señales de termopar), la compensación de unión fría (ajustar la señal de un termopar para corregir variaciones de temperatura ambiente), la excitación (proporcionar la energía necesaria para el funcionamiento de ciertos sensores, por ejemplo los RTD). Estas funciones combinadas permiten que la señal analógica, que puede ser difícil de interpretar directamente, se convierta en una forma adecuada para su procesamiento [Omega, -@omega-2].
+
+    En el caso del DTHIS-C, el acondicionador de señal se utiliza para preparar la salida analógica de sensores como los termopares o el sensor de temperatura radiante, asegurando que la señal se encuentre en un rango adecuado y libre de interferencias. Una vez acondicionada, la señal es convertida a digital mediante el convertidor analógico-digital (ADC) integrado en el microcontrolador.
+
+#### Componentes
+
+En la tabla @tbl-componentes se presentan los sensores y componentes electrónicos que conforman el DTHIS-C, detallándose la variable que mide cada sensor, el modo de comunicación, la conexión al microcontrolador correspondiente y si requieren acondicionadores de señal.
 
 | **Sensor**                                    | **Variable**                       | **Comunicación** | **Microcontrolador**     | **Acondicionador de señal**  |
 |-----------------------------------------------|------------------------------------|------------------|--------------------------|------------------------------|
@@ -12,33 +47,15 @@ En la @tbl-componentes se muestran los sensores y componentes electrónicos que 
 | TPF1/E-20 PT1000                              | Temperatura radiante               | ICSP             | Arduino UNO WiFi Rev2    | Adafruit PT1000 RTD-MAX31865 |
 | Wind Sensor Rev P6                            | Velocidad del viento		           | ADC              | Arduino UNO WiFi Rev2    |				                      |
 | SCD30 Sensirion                               | CO<sub>2</sub> y humedad relativa  | I2C              | Raspberry Pi 4 Model B   |				                      |
-| 5MP OV5647 Wide Angle Fisheye Camera          | Luminancia                         | CSI              | Raspberry Pi 4 Model B   |				                      |
 | Micrófono ambiental USB                       | Sonido                             | USB              | Raspberry Pi 4 Model B   |                              |
+| 5MP OV5647 Wide Angle Fisheye Camera          | Iluminancia                        | CSI              | Raspberry Pi 4 Model B   |				                      |
 : Sensores y componentes electrónicos que constituyen al DTHIS-C. {#tbl-componentes .hover .sm}
 
-## Diseño del DTHIS-C {#sec-diseno}
+**Arduino UNO WiFi Rev2**
 
-La arquitectura del DTHIS-C se ha fundamentado en el uso combinado de la Raspberry Pi 4 y el Arduino Uno WiFi Rev2, microcontroladores seleccionados por las siguientes características y ventajas:
+El Arduino UNO WiFi Rev2 es una placa de microcontrolador diseñada para proyectos de Internet de las Cosas (IoT), integrando conectividad WiFi y Bluetooth mediante el módulo u-blox NINA-W102 y un sensor IMU de 6 ejes (LSM6DS3TR) para detección de movimientos. Equipada con el microcontrolador ATmega4809, mantiene compatibilidad con el formato estándar UNO, facilitando su uso con shields existentes. @arduino
 
-1. **Versatilidad y capacidad de procesamiento:**  
-   La Raspberry Pi 4, programada mediante Python, proporciona una plataforma robusta para el procesamiento avanzado de datos y la ejecución de algoritmos complejos. Su flexibilidad, junto con la facilidad de integración de diversas funcionalidades, permite adaptar el sistema a requerimientos específicos y optimizar el rendimiento según las demandas del entorno.
-
-2. **Conectividad y eficiencia en la adquisición de datos:**  
-   Ambos dispositivos cuentan con conectividad a Internet, lo que posibilita la transmisión en tiempo real de datos hacia una base de datos remota alojada en el servidor ThingsBoard. Además, el Arduino Uno WiFi Rev2 destaca por su eficiencia en la gestión de operaciones de entrada/salida, garantizando una respuesta rápida y precisa en la adquisición y control de los sensores.
-
-3. **Compatibilidad y ecosistema abierto:**  
-   La adopción de tecnologías abiertas facilita la integración y reproducibilidad del sistema. La amplia comunidad de desarrolladores que respalda tanto la Raspberry Pi como el Arduino asegura soporte continuo, actualizaciones regulares y una extensa variedad de recursos y librerías, lo que se traduce en mayor flexibilidad para adaptar el sistema a diversas necesidades y entornos.
-
-4. **Accesibilidad:**  
-   Frente a equipos especializados, la utilización de estos microcontroladores constituye una solución rentable sin comprometer el rendimiento ni la fiabilidad del sistema. Esta ventaja económica facilita la replicación y el escalado del proyecto en distintos contextos.
-
-A continuación, se detallan las especificaciones técnicas y el código implementado para cada sensor.
-
-### Arduino UNO WiFi Rev2
-
-El Arduino UNO WiFi Rev2 es una placa de microcontrolador diseñada para proyectos de Internet de las Cosas (IoT), integrando conectividad WiFi y Bluetooth mediante el módulo u-blox NINA-W102 y un sensor IMU de 6 ejes (LSM6DS3TR) para detección de movimientos. Equipada con el microcontrolador ATmega4809, ofrece una óptima capacidad de memoria, y mantiene compatibilidad con el formato estándar UNO, facilitando su uso con shields existentes. Su diseño eficiente y versátil lo hace ideal para la adquisición de datos de sensores y la comunicación inalámbrica en tiempo real, como se requiere en el DTHIS-C. @arduino
-
-En la @tbl-arduino se muestran sus especificaciones.
+En la @tbl-arduino se muestran las especificaciones del Arduino UNO WiFi Rev2.
 
 | **Parámetro**              | **Detalle**                                   |
 |----------------------------|-----------------------------------------------|
@@ -56,12 +73,189 @@ En la @tbl-arduino se muestran sus especificaciones.
 | Dimensiones                | 68.6 mm x 53.4 mm                             |
 : Especificaciones del Arduino UNO WiFi Rev2. {#tbl-arduino .hover .sm}
 
-El siguiente código constituye el programa principal del Arduino UNO WiFi Rev2 en el DTHIS-C, encargado de gestionar la conexión WiFi, la comunicación con ThingsBoard mediante el protocolo MQTT, y el envío de datos provenientes de sensores como termopares, temperatura radiante y velocidad del viento:
+**Raspberry Pi 4 Model B**
 
+El Raspberry Pi 4 Model B es una computadora de placa única de alto rendimiento, diseñada para tareas de procesamiento avanzado y conectividad eficiente en un formato compacto. Equipada con un procesador de 64 bits de cuatro núcleos y opciones de RAM de hasta 8 GB, ofrece soporte para salida de video dual 4K y conectividad avanzada mediante Wi-Fi de doble banda, Bluetooth 5.0, Ethernet Gigabit y puertos USB 3.0, con capacidad para Power over Ethernet (PoE) mediante un accesorio adicional. Su diseño versátil y eficiente la hace ideal para la integración y gestión de datos en el sistema DTHIS-C. @raspberry
+
+En la @tbl-raspberry se muestran las especificaciones de la Raspberry Pi 4 Model B.
+
+| **Parámetro**              | **Detalle**                                     |
+|----------------------------|-------------------------------------------------|
+| Procesador                 | Broadcom BCM2711, 4 núcleos Cortex-A72, 1.5 GHz |
+| Memoria RAM                | 8 GB (LPDDR4-3200)                              |
+| Conectividad Wi-Fi         | Sí, dual-band 2.4 GHz y 5 GHz, 802.11ac         |
+| Bluetooth                  | Sí, Bluetooth 5.0                               |
+| Puertos USB                | 2 USB 3.0, 2 USB 2.0                            |
+| Salida de video            | 2 micro HDMI, soporte dual 4K 60 fps            |
+| Ethernet                   | Gigabit                                         |
+| Almacenamiento             | Tarjeta microSD                                 |
+| Voltaje de operación       | 5V                                              |
+| Consumo energético         | Eficiente, sin ventilador (~3A recomendado)     |
+| Dimensiones                | 85.6 mm x 56.5 mm x 17 mm                       |
+: Especificaciones del Raspberry Pi 4 Model B. {#tbl-raspberry .hover .sm}
+
+## Temperatura del aire {#sec-taire-a}
+
+#### Termopar Tipo T 
+
+En la construcción del DTHIS se emplea un termopar tipo T, un sensor de temperatura compuesto por la unión de cobre y cobre-níquel. Su uso es ideal para entornos con humedad.  
+
+A continuación, se presentan sus especificaciones según @omega:  
+
+**Rangos de Temperatura**  
+- **Grado de termopar:** -200 a 350 °C (-328 a 662 °F).  
+- **Grado de extensión:** -60 a 100 °C (-76 a 212 °F).  
+
+**Límites de Error**  
+- **Estándar:**  
+  - ±1.0 °C o ±0.75% por encima de 0 °C.  
+  - ±1.0 °C o ±1.5% por debajo de 0 °C.  
+- **Especial:**  
+  - ±0.5 °C o ±0.4%.
+
+#### PWFusion MAX31856 SEN-30007
+
+El PWFusion MAX31856 SEN-30007 (@fig-MAX31856) es un shield de termopares de cuatro canales diseñado para integrarse con la plataforma Arduino. Este dispositivo se conecta directamente a la placa de desarrollo. El módulo acondiciona la señal proveniente de termopares, realizando el procesamiento necesario para adaptar y amplificar la señal eléctrica, la cual se caracteriza por su baja amplitud.
+
+![Imagen demostrativa de conexión para el shield MAX31856 SEN-30007.](/images/sen30007_bb.png){.lightbox #fig-MAX31856 width=70%}
+
+Acorde a @pwf sus específicaciones son las siguientes:
+
+- Conversión de señal analógica a digital con resolución de 19 bits.
+- Interfaz ICSP de 4 hilos.
+- Rango de voltaje de alimentación: 3.3 V a 5.0 V.  
+
+## Temperatura radiante {#sec-trad-a}
+
+#### Fuehler Systeme TPF1/E-20 PT1000
+Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30 °C a +75 °C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones precisas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. @fuehler
+
+**Especificaciones**
+
+- Tipo de circuito: Conexión de 2 hilos.
+- Corriente de medición: Aproximadamente 1 mA.
+- Conexión eléctrica: Extremos pelados con terminales.
+- Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105 °C) con extremos de cable núcleo disponibles en diferentes longitudes.
+- Resistencia de fuga: Mayor a 100 M$\Omega$ a +20 °C (500 V DC).
+- Material del globo: Aluminio (negro).
+- Dimensiones del globo: Diámetro de 70 mm.
+
+#### Adafruit PT1000 RTD-MAX31865
+
+El PT1000 RTD-MAX31865 es un convertidor de resistencia a digital. La @fig-MAX31865 muestra el diagrama de conexión.
+
+![Diagrama de conexión para el PT1000 RTD-MAX31865.](/images/pt1000_bb.png){.lightbox #fig-MAX31865 width=70%}
+
+@adafruit describe las siguientes características:
+
+- Realiza la conversión de la resistencia de sensores RTD de platino a un valor digital de forma sencilla.
+- Soporte con RTD de platino con valores de 100 $\Omega$ a 1 k$\Omega$ (a 0 °C), abarcando desde PT100 hasta PT1000.
+- Compatible con configuraciones de 2, 3 y 4 hilos para la conexión de sensores.
+- Incorpora una interfaz ICSP, facilitando su integración en sistemas basados en microcontroladores.
+- Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125 °C (valor variable debido a la no linealidad del RTD) y una precisión total de hasta 0.5 °C (0.05% de la escala completa) en todas las condiciones operativas.
+- Tiempo máximo de conversión es de 21 ms.
+
+## Velocidad del viento {#sec-viento-a}
+
+#### Modern Device Wind Sensor Rev. P6
+
+El Wind Sensor Rev. P6 (@fig-WindSensor) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12 V (idealmente 12 V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3 V y una señal de viento ajustada a un máximo de 3.3 V mediante resistencias de alta precisión. @modern
+
+![Diagrama de conexión para el Wind Sensor Rev. P6.](/images/windsensor_bb.png){.lightbox #fig-WindSensor width=50%}
+
+**Especificaciones**
+
+- Voltaje de alimentación: 10–12 V.
+- Corriente: Aproximadamente 40 mA.
+- Velocidades de viento medidas: 0–150 mph.
+- Compensación de temperatura ambiente.
+
+## Humedad relativa y CO<sub>2</sub> {#sec-hrco-a}
+
+#### Sensirion SCD30
+
+El SCD30 (@fig-SCD30) es un sensor de CO<sub>2</sub> basado en tecnología de detección por infrarrojos. Incorpora un sensor de humedad y temperatura. Cuenta con un diseño de doble canal. @scd30
+
+![Diagrama de conexión para el SCD30.](/images/scd30_bb.png){.lightbox #fig-SCD30 width=70%}
+
+**Especificaciones**
+
+**Humedad**
+
+- Precisión típica: ±3 %RH
+- Rango de operación: 0 – 95 %RH
+- Tiempo de respuesta (τ63%): 8 s
+- Calibrado de fábrica
+
+**CO<sub>2</sub>**
+
+- Rango de medición: 400 – 10,000 ppm
+- Precisión: ±30 ppm ±3% del valor medido
+- Tiempo de respuesta (τ63%): 20 s
+- Estabilidad térmica: 2.5 ppm/°C
+
+**Temperatura**
+
+- Precisión típica: ±0.4 °C
+- Tiempo de respuesta (τ63%): 10 s
+
+**Características generales**
+
+- Voltaje de alimentación: 3.3 – 5.5 V
+- Corriente promedio: 19 mA
+- Corriente máxima: 75 mA
+- Rango de temperatura de operación: 0 – 50 °C
+- Interfaces: I2C, ModBus, PWM
+- Dimensiones: 35 × 23 × 7 mm
+
+## Sonido {#sec-sonido-a}
+
+#### Micrófono ambiental USB
+
+El micrófono (@fig-Microfono) incorpora un filtro que atenúa eficazmente los ruidos producidos por el viento o la respiración. Su patrón de captación direccional optimiza la focalización de la fuente sonora. @steren
+
+![Diagrama de conexión para el micrófono.](/images/micro_bb.png){.lightbox #fig-Microfono width=70%}
+
+**Especificaciones**
+
+- Respuesta en frecuencia: 50 a 10,000 Hz
+- Impedancia 2,200 $\Omega$
+- Sensibilidad: -32 dB ±3 dB
+
+## Iluminancia {#sec-ilum-a}
+
+#### Arducam 5MP OV5647 Ultra Wide Angle
+
+La cámara Arducam Ultra Wide Angle (@fig-Camara) cuenta con un objetivo ojo de pez M12 que ofrece un campo de visión horizontal de 220°. @arducam
+
+![Diagrama de conexión para la cámara OV5647.](/images/camera_bb.png){.lightbox #fig-Camara width=70%}
+
+**Especificaciones**
+
+- Sensor: Omnivision OV5647
+- Tamaño del sensor: 1/4″ (OV5647)
+- Resolución: 5 MP (2592×1944)
+- Video:
+  - 1080p a 30 fps
+  - 720p a 60 fps
+  - 480p a 90 fps
+- Sensibilidad IR: Filtro IR-cut integrado (solo luz visible)
+- Campo de visión horizontal (HFOV): 220°
+- Distancia focal efectiva: 0.76 mm
+- Distancia focal equivalente en 35 mm: 8.2 mm
+- Tipo de enfoque: Manual
+- Montura del objetivo: M12
+- Dimensiones: 36 mm × 36 mm
+- Corriente pico: 300 mA
+
+## Scripts {#sec-codigos}
+
+#### Arduino
+
+El siguiente código constituye el programa principal del Arduino UNO WiFi Rev2 en el DTHIS-C, encargado de gestionar la conexión WiFi, la comunicación con ThingsBoard mediante el protocolo MQTT, y el envío de datos provenientes de sensores como termopares, temperatura radiante y velocidad del viento:
 ```{python}
 #| eval: false
 #| code-overflow: wrap
-#| code-fold: true
 
 #include <WiFiNINA.h>
 #include <PubSubClient.h>
@@ -189,42 +383,13 @@ void sendWS(float* windspeed) {
 }
 ```
 
-#### Termopar Tipo T 
+#### MAX31856 SEN-30007
 
-En la construcción del DTHIS se emplea un termopar tipo T, un sensor de temperatura compuesto por la unión de cobre y cobre-níquel. Su uso es ideal para entornos con humedad.  
-
-A continuación, se presentan sus especificaciones según @omega:  
-
-**Rangos de Temperatura**  
-- **Grado de termopar:** -200 a 350 °C (-328 a 662 °F).  
-- **Grado de extensión:** -60 a 100 °C (-76 a 212 °F).  
-
-**Límites de Error**  
-- **Estándar:**  
-  - ±1.0 °C o ±0.75% por encima de 0 °C.  
-  - ±1.0 °C o ±1.5% por debajo de 0 °C.  
-- **Especial:**  
-  - ±0.5 °C o ±0.4%.  
-
-#### PWFusion MAX31856 SEN-30007
-
-El PWFusion MAX31856 SEN-30007 es un shield de termopares de cuatro canales diseñado para integrarse con la plataforma Arduino. Este dispositivo se conecta directamente a la placa de desarrollo. El módulo acondiciona la señal proveniente de termopares, realizando el procesamiento necesario para adaptar y amplificar la señal eléctrica, la cual se caracteriza por su baja amplitud.
-
-![Diagrama de conexión para el shield MAX31856 SEN-30007.](/images/sen30007_bb.png){#fig-MAX31856 width=70%}
-
-Acorde a @pwf sus específicaciones son las siguientes:
-
-- Conversión de señal analógica a digital con resolución de 19 bits.
-- Interfaz ICSP de 4 hilos.
-- Rango de voltaje de alimentación: 3.3 V a 5.0 V.
-
-Igualmente se proporciona el código de Arduino empleado:
+Este código pertenece al shield de PWFusion, este se encarga de recopilar las mediciones de temperatura del aire que realizan los termopares tipo T:
 
 ```{python}
 #| eval: false
 #| code-overflow: wrap
-#| code-fold: true
-#| 
 #include <PWFusion_MAX31856.h>
 
 // Definición de los pines chip select para cada termopar
@@ -280,41 +445,13 @@ float* ThermocoupleTemp() {
 }
 ```
 
-#### Fuehler Systeme TPF1/E-20 PT1000
-Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30 °C a +75 °C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones precisas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. @fuehler
+#### PT1000 RTD-MAX31865
 
-**Especificaciones**
-
-- Tipo de circuito: Conexión de 2 hilos.
-- Corriente de medición: Aproximadamente 1 mA.
-- Conexión eléctrica: Extremos pelados con terminales.
-- Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105 °C) con extremos de cable núcleo disponibles en diferentes longitudes.
-- Resistencia de fuga: Mayor a 100 M$\Omega$ a +20 °C (500 V DC).
-- Material del globo: Aluminio (negro).
-- Dimensiones del globo: Diámetro de 70 mm.
-
-#### Adafruit PT1000 RTD-MAX31865
-
-El PT1000 RTD-MAX31865 es un convertidor de resistencia a digital. 
-
-![Diagrama de conexión para el PT1000 RTD-MAX31865.](/images/pt1000_bb.png){#fig-MAX31865 width=70%}
-
-@adafruit describe las siguientes características:
-
-- Realiza la conversión de la resistencia de sensores RTD de platino a un valor digital de forma sencilla.
-- Soporte con RTD de platino con valores de 100 $\Omega$ a 1 k$\Omega$ (a 0 °C), abarcando desde PT100 hasta PT1000.
-- Compatible con configuraciones de 2, 3 y 4 hilos para la conexión de sensores.
-- Incorpora una interfaz ICSP, facilitando su integración en sistemas basados en microcontroladores.
-- Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125 °C (valor variable debido a la no linealidad del RTD) y una precisión total de hasta 0.5 °C (0.05% de la escala completa) en todas las condiciones operativas.
-- Tiempo máximo de conversión es de 21 ms.
-
-A continuación se muestra el código de Arduino:
+El siguiente script gestiona el Adafruit PT1000 RTD-MAX31865, encargado de convertir las señales analógicas del TPF1/E-20 PT1000 a valores digitales, permitiendo obtener las mediciones de la temperatura radiante:
 
 ```{python}
 #| eval: false
 #| code-overflow: wrap
-#| code-fold: true
-
 #include <Adafruit_MAX31865.h>
 
 // Usamos software SPI: CS, DI, DO, CLK
@@ -351,24 +488,13 @@ float TPF1Temp() {
 }
 ```
 
-#### Modern Device Wind Sensor Rev. P6
+#### Wind Sensor Rev. P6
 
-El sensor de viento Rev. P6 es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12 V (idealmente 12 V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3 V y una señal de viento ajustada a un máximo de 3.3 V mediante resistencias de alta precisión. @modern
-
-![Diagrama de conexión para el Wind Sensor Rev. P6.](/images/windsensor_bb.png){#fig-WindSensor width=70%}
-
-**Especificaciones**
-
-- Voltaje de alimentación: 10–12 V.
-- Corriente: Aproximadamente 40 mA.
-- Velocidades de viento medidas: 0–150 mph.
-- Compensación de temperatura ambiente.
+El siguiente código se encarga de gestionar el Wind Sensor Rev. P6, permitiendo obtener las mediciones de la velocidad del viento:
 
 ```{python}
 #| eval: false
 #| code-overflow: wrap
-#| code-fold: true
-#| 
 #include <math.h>
 
 const int OutPin  = A0;   // Pin analógico para el sensor de viento ("OUT")
@@ -402,49 +528,29 @@ float* WindSensor() {
 }
 ```
 
+#### Raspberry
 
-### Raspberry Pi 4 Model B
-
-El Raspberry Pi 4 Model B es una computadora de placa única de alto rendimiento, diseñada para tareas de procesamiento avanzado y conectividad eficiente en un formato compacto. Equipada con un procesador de 64 bits de cuatro núcleos y opciones de RAM de hasta 8 GB, ofrece soporte para salida de video dual 4K y conectividad avanzada mediante Wi-Fi de doble banda, Bluetooth 5.0, Ethernet Gigabit y puertos USB 3.0, con capacidad para Power over Ethernet (PoE) mediante un accesorio adicional. Su diseño versátil y eficiente la hace ideal para la integración y gestión de datos en el sistema DTHIS-C. @raspberry
-
-En la @tbl-raspberry se muestran sus especificaciones.
-
-| **Parámetro**              | **Detalle**                                     |
-|----------------------------|-------------------------------------------------|
-| Procesador                 | Broadcom BCM2711, 4 núcleos Cortex-A72, 1.5 GHz |
-| Memoria RAM                | 8 GB (LPDDR4-3200)                              |
-| Conectividad Wi-Fi         | Sí, dual-band 2.4 GHz y 5 GHz, 802.11ac         |
-| Bluetooth                  | Sí, Bluetooth 5.0                               |
-| Puertos USB                | 2 USB 3.0, 2 USB 2.0                            |
-| Salida de video            | 2 micro HDMI, soporte dual 4K 60 fps            |
-| Ethernet                   | Gigabit                                         |
-| Almacenamiento             | Tarjeta microSD                                 |
-| Voltaje de operación       | 5V                                              |
-| Consumo energético         | Eficiente, sin ventilador (~3A recomendado)     |
-| Dimensiones                | 85.6 mm x 56.5 mm x 17 mm                       |
-: Especificaciones del Raspberry Pi 4 Model B. {#tbl-raspberry .hover .sm}
-
-El siguiente código constituye el programa principal del Raspberry Pi 4 Model B en el DTHIS-C, encargado de gestionar la conexión al servidor ThingsBoard mediante el protocolo MQTT y el envío de datos provenientes de sensores como el SCD30 (CO2, temperatura y humedad relativa). Escrito en Python, utiliza la librería `paho-mqtt` para la comunicación y está diseñado para operar de manera continua:
-
+El siguiente código constituye el programa principal del Raspberry Pi 4 Model B en el DTHIS-C, encargado de gestionar la conexión al servidor ThingsBoard mediante el protocolo MQTT y el envío de datos provenientes de sensores como el SCD30 (CO2, temperatura y humedad relativa), valores de iluminancia y presión sonora capturados por la cámara y el micrófono respectivamente: 
 ```{python}
 #| eval: false
 #| code-overflow: wrap
-#| code-fold: true
-
 import paho.mqtt.client as mqtt
 import json
 import time
 from thingsboard_credentials import thingsboard_data
 from scd30 import scd30_measurements
 from sound import sound_data
+from illuminance import illuminance_data
 
 # Obtiene los datos de conexión para ThingsBoard
 unique_id, token, thingsboard_host = thingsboard_data()
 
-# Diccionario para almacenar las lecturas del sensor
+# Diccionario para almacenar las lecturas del SCD30
 sensor_data = {'CO2': 0, 'T': 0, 'HR': 0}
 # Diccionario para datos de sonido
-# micro_data = {'RMS': 0, 'dBmax': 0, 'dBmin': 0}  
+micro_data = {'RMS': 0, 'dBmax': 0, 'dBmin': 0}
+# Diccionario para datos de iluminancia
+camera_data = {'Iluminancia': 0}   
 
 # Configura el cliente MQTT
 client = mqtt.Client(unique_id, False)
@@ -454,22 +560,25 @@ client.loop_start()
 
 try:
     while True:
-        # Obtiene las mediciones del sensor SCD30
+        # Obtiene las mediciones del SCD30
         CO2, T, HR = scd30_measurements()
 
         # Actualiza el diccionario con las lecturas actuales
         sensor_data['CO2'] = CO2
         sensor_data['T'] = T
         sensor_data['HR'] = HR
-
         # Publica los datos del SCD30 en ThingsBoard
         client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
 
         # Obtiene los datos de sonido
-        # micro_data = sound_data() 
-
+        micro_data = sound_data() 
         # Publica los datos de sonido en ThingsBoard
-        # client.publish('v1/devices/me/telemetry', json.dumps(micro_data), 1)
+        client.publish('v1/devices/me/telemetry', json.dumps(micro_data), 1)
+
+        # Obtiene el valor de iluminancia
+        camera_data = illuminance_data()
+        # Publica el valor de iluminancia en ThingsBoard
+        client.publish('v1/devices/me/telemetry', json.dumps(camera_data), 1)
 
         time.sleep(2)  # Ajusta el intervalo de tiempo entre lecturas
 
@@ -481,47 +590,12 @@ client.loop_stop()
 client.disconnect()
 ```
 
-#### Sensirion SCD30
+#### SCD30
 
-El SCD30 es un sensor de CO<sub>2</sub> basado en tecnología de detección por infrarrojos. Incorpora un sensor de humedad y temperatura. Cuenta con un diseño de doble canal. Además, ofrece una precisión de ±(30 ppm + 3% de la lectura) en un rango de 400 a 10,000 ppm. @scd30
-
-![Diagrama de conexión para el SCD30.](/images/scd30_bb.png){#fig-SCD30 width=70%}
-
-**Especificaciones**
-
-**CO<sub>2</sub>**
-
-- Rango de medición: 400 – 10,000 ppm
-- Precisión: ±30 ppm ±3% del valor medido
-- Tiempo de respuesta (τ63%): 20 s
-- Estabilidad térmica: 2.5 ppm/°C
-
-**Humedad**
-
-- Precisión típica: ±3 %RH
-- Rango de operación: 0 – 95 %RH
-- Tiempo de respuesta (τ63%): 8 s
-- Certificación de calibración: Calibrado de fábrica
-- Temperatura
-- Precisión típica: ±0.4 °C
-- Tiempo de respuesta (τ63%): 10 s
-
-**Características generales**
-
-- Voltaje de alimentación: 3.3 – 5.5 V
-- Corriente promedio: 19 mA
-- Corriente máxima: 75 mA
-- Rango de temperatura de operación: 0 – 50 °C
-- Interfaces: I²C, ModBus, PWM
-- Dimensiones: 35 × 23 × 7 mm
-
-A continuación se muestra el código de Python empleado para su incorpación al DTHIS-C:
-
+Este script se encarga de capturar y almacenar las mediciones de humedad relativa, concentración de CO<sub>2</sub> y temperatura ambiente proporcionadas por el sensor SCD30:
 ```{python}
 #| eval: false
 #| code-overflow: wrap
-#| code-fold: true
-
 import time
 import board
 import busio
@@ -553,37 +627,108 @@ def scd30_measurements():
         return CO2, T, HR
 ```
 
-#### Arducam 5MP OV5647 Ultra Wide Angle
+#### Micrófono ambiental USB
 
-La cámara Arducam Ultra Wide Angle cuenta con un objetivo ojo de pez M12 que ofrece un campo de visión horizontal de 220°. @arducam
+A continuación, se presentan los códigos utilizados para la captura y análisis de sonido. Estos scripts permiten grabar el audio, extraer parámetros clave de la señal y convertirlos a valores en decibeles (dB).
 
-![Diagrama de conexión para la cámara OV5647.](/images/camera_bb.png){#fig-Camara width=70%}
-
-**Especificaciones**
-
-- Sensor: Omnivision OV5647
-- Tamaño del sensor: 1/4″ (OV5647)
-- Resolución: 5 MP (2592×1944)
-- Video:
-  - 1080p a 30 fps
-  - 720p a 60 fps
-  - 480p a 90 fps
-- Sensibilidad IR: Filtro IR-cut integrado (solo luz visible)
-- Campo de visión horizontal (HFOV): 220°
-- Distancia focal efectiva: 0.76 mm
-- Distancia focal equivalente en 35 mm: 8.2 mm
-- Tipo de enfoque: Manual
-- Montura del objetivo: M12
-- Dimensiones: 36 mm × 36 mm
-- Corriente pico: 300 mA
-
-A continuación, se muestra el código escrito en Bash/Shell que accede a la cámara y, posteriormente, genera los mapas de luminancia:
+El siguiente script graba un archivo de audio en formato WAV durante 15 segundos a una frecuencia de muestreo de 44.1 kHz:
 
 ```{python}
 #| eval: false
 #| code-overflow: wrap
-#| code-fold: true
+#!/bin/bash
 
+grabar="/home/hdeza/Sonido/audio.wav"
+
+arecord -D plughw:3,0 -f cd -t wav -d 15 -r 44100 $grabar
+```
+
+Posteriormente este script analiza el archivo de audio y extrae la amplitud máxima de la señal, almacenándola en un archivo de texto:
+
+```{python}
+#| eval: false
+#| code-overflow: wrap
+#!/bin/bash
+
+maximo="/home/hdeza/Sonido/dBmax.txt"
+
+/usr/bin/sox /home/hdeza/Sonido/audio.wav -n stat 2>&1 | /usr/bin/grep "Maximum amplitude:" | /usr/bin/awk '{print $3}'  > $maximo
+```
+
+Similar al anterior, este script obtiene la amplitud mínima del audio y la guarda en un archivo de texto:
+
+```{python}
+#| eval: false
+#| code-overflow: wrap
+#!/bin/bash
+
+minimo="/home/hdeza/Sonido/dBmin.txt"
+
+/usr/bin/sox /home/hdeza/Sonido/audio.wav -n stat 2>&1 | /usr/bin/grep "Minimum amplitude:" | /usr/bin/awk '{print $3}' > $minimo
+```
+
+Este código calcula la amplitud RMS (Root Mean Square) del audio, un indicador de la potencia promedio de la señal sonora:
+
+```{python}
+#| eval: false
+#| code-overflow: wrap
+#!/bin/bash
+
+media="/home/hdeza/Sonido/rms.txt"
+
+/usr/bin/sox /home/hdeza/Sonido/audio.wav -n stat 2>&1 | /usr/bin/grep "RMS     amplitude:" | /usr/bin/awk '{print $3}' > $media
+```
+
+El código en Python lee los valores extraídos previamente (RMS, amplitud máxima y mínima) y los convierte a decibeles utilizando la fórmula:
+
+$$dB = 20 \log_{10}(\text{amplitud}) + 120$$
+
+Los valores resultantes son almacenados en un diccionario para su posterior uso:
+
+```{python}
+#| eval: false
+#| code-overflow: wrap
+import numpy as np
+
+def sound_data():
+    """
+    Función para obtener los datos de sonido desde archivos y calcular sus valores en dB.
+
+    Retorna:
+        dict: Datos de sonido en dB (RMS_dB, dBmax_dB, dBmin_dB).
+    """
+    archivos = [
+        '/home/dthisc/dthis-c/sound/rms.txt',
+        '/home/dthisc/dthis-c/sound/dBmax.txt',
+        '/home/dthisc/dthis-c/sound/dBmin.txt'
+    ]
+    
+    rms_x = ""
+    dBmax_x = ""
+    dBmin_x = ""
+
+    for archivo in archivos:
+        with open(archivo, 'r', encoding='utf-8') as f:
+            if archivo == '/home/dthisc/dthis-c/sound/rms.txt':
+                rms_x = f.read().strip()
+            elif archivo == '/home/dthisc/dthis-c/sound/dBmax.txt':
+                dBmax_x = f.read().strip()
+            elif archivo == '/home/dthisc/dthis-c/sound/dBmin.txt':
+                dBmin_x = f.read().strip()
+
+    rms_db = round(20 * np.log10(float(rms_x)) + 120, 4)
+    dBmax_db = round(20 * np.log10(float(dBmax_x)) + 120, 4)
+    dBmin_db = round(20 * np.log10(abs(float(dBmin_x))) + 120, 4)
+
+    return {'RMS': rms_db, 'dBmax': dBmax_db, 'dBmin': dBmin_db}
+```
+
+#### OV5647 Ultra Wide Angle
+
+El siguiente script se encarga de obtener el valor total de iluminancia mediante la generación de un mapa de iluminancia. En primer lugar, el script captura múltiples fotografías a diferentes velocidades de obturación, lo que permite cubrir un amplio rango de exposiciones. Posteriormente, se fusionan estas imágenes para crear una imagen HDR, que contiene la mayor cantidad de información luminosa posible. A continuación, a la imagen HDR se le aplica un false color para resaltar la distribución de la iluminancia en las distintas superficies de la escena. Utilizando herramientas del software Radiance, se realiza un cálculo de integral sobre los valores de luminancia de la imagen, lo que permite determinar el valor total de iluminancia. Finalmente, este valor se almacena en un archivo .txt para su posterior análisis:
+```{python}
+#| eval: false
+#| code-overflow: wrap
 #!/bin/bash
 
 DATE=$(date +"%Y-%m-%d_%H%M")
@@ -620,7 +765,7 @@ getinfo -a "VIEW= -vta -vv 160 -vh 160" < "$OUTPUT_DIR/image_photometric_$DATE.h
 #Print illuminance value
 echo "Total illuminance is: "
 evalglare -V "$IMG_DIR/image_final_$DATE.hdr"
-evalglare -V "$IMG_DIR/image_final_$DATE.hdr" > "$OUTPUT_DIR/illuminance_$DATE.txt"
+evalglare -V "$IMG_DIR/image_final_$DATE.hdr" > "$OUTPUT_DIR/illuminance.txt"
 
 #Move final HDR image to HDR_images
 mv "$IMG_DIR/image_final_$DATE.hdr" "$HDR_IMG/image_final_$DATE.hdr"
@@ -632,119 +777,25 @@ pcomb -e 'Cx:xmax/2;Cy:ymax/2;R:444.44;sq(x):x*x' -e 'inC=sq(R)-sq(x-Cx)-sq(y-Cy
 falsecolor -s 5000 -d 1 -i "$HDR_IMG/image_crop_$DATE.hdr" --log 3 > "$MAPS_DIR/image_map_$DATE.hdr"
 ```
 
-#### Micrófono ambiental USB
 
-El micrófono incorpora un filtro que atenúa eficazmente los ruidos producidos por el viento o la respiración. Su patrón de captación direccional optimiza la focalización de la fuente sonora. @steren
-
-![Diagrama de conexión para el micrófono.](/images/micro_bb.png){#fig-Microfono width=70%}
-
-**Especificaciones**
-
-- Respuesta en frecuencia: 50 a 10,000 Hz
-- Impedancia 2,200 $\Omega$
-- Sensibilidad: -32 dB ±3 dB
-
-A continuación, se presentan los códigos utilizados para la captura y análisis de sonido. Estos scripts permiten grabar el audio, extraer parámetros clave de la señal y convertirlos a valores en decibeles (dB).
-
-El siguiente script graba un archivo de audio en formato WAV durante 15 segundos a una frecuencia de muestreo de 44.1 kHz:
-
+Posteriormente este código define una función que se encarga de leer el valor total de iluminancia a partir de un archivo .txt previamente generado por el proceso de creación del mapa de iluminancia. La función abre el archivo ubicado en la ruta especificada, extrae el valor numérico contenido en él, lo convierte a tipo float y lo retorna:
 ```{python}
 #| eval: false
 #| code-overflow: wrap
-#| code-fold: true
-
-#!/bin/bash
-
-grabar="/home/hdeza/Sonido/audio.wav"
-
-arecord -D plughw:3,0 -f cd -t wav -d 15 -r 44100 $grabar
-```
-Posteriormente este script analiza el archivo de audio y extrae la amplitud máxima de la señal, almacenándola en un archivo de texto:
-
-```{python}
-#| eval: false
-#| code-overflow: wrap
-#| code-fold: true
-
-#!/bin/bash
-
-maximo="/home/hdeza/Sonido/dBmax.txt"
-
-/usr/bin/sox /home/hdeza/Sonido/audio.wav -n stat 2>&1 | /usr/bin/grep "Maximum amplitude:" | /usr/bin/awk '{print $3}'  > $maximo
-```
-
-Similar al anterior, este script obtiene la amplitud mínima del audio y la guarda en un archivo de texto:
-
-```{python}
-#| eval: false
-#| code-overflow: wrap
-#| code-fold: true
-
-#!/bin/bash
-
-minimo="/home/hdeza/Sonido/dBmin.txt"
-
-/usr/bin/sox /home/hdeza/Sonido/audio.wav -n stat 2>&1 | /usr/bin/grep "Minimum amplitude:" | /usr/bin/awk '{print $3}' > $minimo
-```
-
-Este código calcula la amplitud RMS (Root Mean Square) del audio, un indicador de la potencia promedio de la señal sonora:
-
-```{python}
-#| eval: false
-#| code-overflow: wrap
-#| code-fold: true
-
-#!/bin/bash
-
-media="/home/hdeza/Sonido/rms.txt"
-
-/usr/bin/sox /home/hdeza/Sonido/audio.wav -n stat 2>&1 | /usr/bin/grep "RMS     amplitude:" | /usr/bin/awk '{print $3}' > $media
-```
-
-El código en Python lee los valores extraídos previamente (RMS, amplitud máxima y mínima) y los convierte a decibeles utilizando la fórmula:
-
-$$dB = 20 \log_{10}(\text{amplitud}) + 120$$
-
-Los valores resultantes son almacenados en un diccionario para su posterior uso:
-
-```{python}
-#| eval: false
-#| code-overflow: wrap
-#| code-fold: true
-
 import numpy as np
 
-def sound_data():
+def illuminance_data():
     """
-    Función para obtener los datos de sonido desde archivos y calcular sus valores en dB.
-
-    Retorna:
-        dict: Datos de sonido en dB (RMS_dB, dBmax_dB, dBmin_dB).
-    """
-    archivos = [
-        '/home/dthisc/dthis-c/sound/rms.txt',
-        '/home/dthisc/dthis-c/sound/dBmax.txt',
-        '/home/dthisc/dthis-c/sound/dBmin.txt'
-    ]
+    Función para obtener el valor total de iluminancia desde el archivo .txt generado por el proceso de generación del mapa de iluminancia.
     
-    rms_x = ""
-    dBmax_x = ""
-    dBmin_x = ""
-
-    for archivo in archivos:
-        with open(archivo, 'r', encoding='utf-8') as f:
-            if archivo == '/home/dthisc/dthis-c/sound/rms.txt':
-                rms_x = round(float(f.read().strip()), 4)
-            elif archivo == '/home/dthisc/dthis-c/sound/dBmax.txt':
-                dBmax_x = round(float(f.read().strip()), 4)
-            elif archivo == '/home/dthisc/dthis-c/sound/dBmin.txt':
-                dBmin_x = round(float(f.read().strip()), 4)
-
-    rms_db = round(20 * np.log10(float(rms_x)) + 120, 4)
-    dBmax_db = round(20 * np.log10(float(dBmax_x)) + 120, 4)
-    dBmin_db = round(20 * np.log10(abs(float(dBmin_x))) + 120, 4)
-
-    return {'RMS': rms_db, 'dBmax': dBmax_db, 'dBmin': dBmin_db}
+    Retorna:
+        float: Valor total de iluminancia.
+    """
+    file_path = '/home/hdeza/Luminance/illuminance.txt' 
+    with open(file_path, 'r', encoding='utf-8') as f:
+        value_str = f.read().strip()
+    illum_value = float(value_str)
+    return illum_value
 ```
 
 ## Lista de materiales {#sec-materiales}
@@ -774,3 +825,5 @@ La @tbl-materiales muestra la lista de materiales necesarios para la construcci�
 : Lista de materiales para la construcción del DTHIS-C. {#tbl-materiales .hover .sm}
 
 *Nota: Los precios no incluyen envío y pueden estar sujetos a cambios según el destino del producto.*
+
+

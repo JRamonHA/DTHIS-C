@@ -261,30 +261,30 @@ window.Quarto = {
   <ul>
   <li><a href="#thingsboard" id="toc-thingsboard" class="nav-link" data-scroll-target="#thingsboard">ThingsBoard</a></li>
   </ul></li>
-  <li><a href="#sec-taire" id="toc-sec-taire" class="nav-link" data-scroll-target="#sec-taire"><span class="header-section-number">4.3</span> Temperatura del aire</a>
+  <li><a href="#sec-taire-b" id="toc-sec-taire-b" class="nav-link" data-scroll-target="#sec-taire-b"><span class="header-section-number">4.3</span> Temperatura del aire</a>
   <ul>
   <li><a href="#termopar" id="toc-termopar" class="nav-link" data-scroll-target="#termopar">Termopar</a></li>
   <li><a href="#scd30" id="toc-scd30" class="nav-link" data-scroll-target="#scd30">SCD30</a></li>
   </ul></li>
-  <li><a href="#sec-trad" id="toc-sec-trad" class="nav-link" data-scroll-target="#sec-trad"><span class="header-section-number">4.4</span> Temperatura radiante</a>
+  <li><a href="#sec-trad-b" id="toc-sec-trad-b" class="nav-link" data-scroll-target="#sec-trad-b"><span class="header-section-number">4.4</span> Temperatura radiante</a>
   <ul>
   <li><a href="#tpf1" id="toc-tpf1" class="nav-link" data-scroll-target="#tpf1">TPF1</a></li>
   </ul></li>
-  <li><a href="#sec-viento" id="toc-sec-viento" class="nav-link" data-scroll-target="#sec-viento"><span class="header-section-number">4.5</span> Velocidad del viento</a>
+  <li><a href="#sec-viento-b" id="toc-sec-viento-b" class="nav-link" data-scroll-target="#sec-viento-b"><span class="header-section-number">4.5</span> Velocidad del viento</a>
   <ul>
   <li><a href="#wind-sensor" id="toc-wind-sensor" class="nav-link" data-scroll-target="#wind-sensor">Wind Sensor</a></li>
   </ul></li>
-  <li><a href="#sec-hrco" id="toc-sec-hrco" class="nav-link" data-scroll-target="#sec-hrco"><span class="header-section-number">4.6</span> Humedad relativa y CO<sub>2</sub></a>
+  <li><a href="#sec-hrco-b" id="toc-sec-hrco-b" class="nav-link" data-scroll-target="#sec-hrco-b"><span class="header-section-number">4.6</span> Humedad relativa y CO<sub>2</sub></a>
   <ul>
   <li><a href="#scd30-1" id="toc-scd30-1" class="nav-link" data-scroll-target="#scd30-1">SCD30</a></li>
   </ul></li>
-  <li><a href="#sonido" id="toc-sonido" class="nav-link" data-scroll-target="#sonido"><span class="header-section-number">4.7</span> Sonido</a>
+  <li><a href="#sec-sonido-b" id="toc-sec-sonido-b" class="nav-link" data-scroll-target="#sec-sonido-b"><span class="header-section-number">4.7</span> Sonido</a>
   <ul>
-  <li><a href="#sec-micro" id="toc-sec-micro" class="nav-link" data-scroll-target="#sec-micro">Micrófono</a></li>
+  <li><a href="#micrófono" id="toc-micrófono" class="nav-link" data-scroll-target="#micrófono">Micrófono</a></li>
   </ul></li>
-  <li><a href="#luminancia" id="toc-luminancia" class="nav-link" data-scroll-target="#luminancia"><span class="header-section-number">4.8</span> Luminancia</a>
+  <li><a href="#sec-ilum-b" id="toc-sec-ilum-b" class="nav-link" data-scroll-target="#sec-ilum-b"><span class="header-section-number">4.8</span> Iluminancia</a>
   <ul>
-  <li><a href="#sec-camara" id="toc-sec-camara" class="nav-link" data-scroll-target="#sec-camara">Fisheye</a></li>
+  <li><a href="#fisheye" id="toc-fisheye" class="nav-link" data-scroll-target="#fisheye">Fisheye</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -408,12 +408,12 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <p>ThingsBoard es una plataforma IoT de código abierto diseñada para la recopilación, procesamiento, visualización y gestión de dispositivos, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="references.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En el contexto de esta tesis, se utiliza para transmitir en tiempo real las mediciones obtenidas de los distintos sensores del DTHIS-C hacia un servidor central, donde se alojan y resguardan los datos en una base de datos dedicada a Internet de las Cosas.</p>
 <p>Según la documentación oficial de ThingsBoard, la plataforma admite la conectividad mediante protocolos estándares como MQTT, CoAP y HTTP, lo que facilita la integración de diversos dispositivos y sensores, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="references.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En este caso, las mediciones de los sensores se envían desde el DTHIS-C a ThingsBoard, que actúa como una base de datos. La plataforma no solo almacena la información, sino que también permite la creación de dashboards interactivos y personalizables que posibilitan la visualización en tiempo real de las mediciones. Esto es fundamental durante las campañas de medición, ya que permite monitorear de forma inmediata el funcionamiento de los sensores, identificar tendencias y detectar posibles anomalías en los datos.</p>
 <p>Para obtener datos directamente desde ThingsBoard, se desarrolló una función en el paquete instalable de Python denominado <code>iertools</code>, creado por el Grupo de Energía en Edificaciones. Este paquete se puede instalar desde la consola de su ordenador (previamente contando con una distribución de Python instalada) mediante el siguiente comando:</p>
-<div id="b101e418" class="cell" data-execution_count="2">
+<div id="a5966f01" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>AltamarMx<span class="op">/</span>iertools.git</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Es importante señalar que, antes de proceder a la obtención y descarga de datos desde ThingsBoard, es necesario crear un archivo de configuración con extensión <code>.ini</code>. Un archivo .ini es un documento de texto plano que almacena parámetros y opciones en formato clave-valor, y se utiliza para definir la configuración necesaria (como la URL del servidor y el token de acceso) que el paquete <code>iertools</code> requiere para conectarse a ThingsBoard.</p>
 <p>A continuación, se presenta un ejemplo de cómo estructurar dicho archivo:</p>
-<div id="f079091b" class="cell" data-execution_count="3">
+<div id="02eada17" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[dthisc]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>token     <span class="op">=</span> token</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>device_id <span class="op">=</span> device_id</span>
@@ -423,7 +423,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>port      <span class="op">=</span> <span class="dv">8080</span> </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez instalado <code>iertools</code>, es posible recuperar datos desde un script o notebook. El siguiente fragmento de código ilustra cómo obtener los datos de medición de los termopares del DTHIS-C a partir de ThingsBoard; este ejemplo puede ser ajustado según las necesidades específicas, permitiendo extraer distintos conjuntos de datos conforme a los requerimientos del estudio:</p>
-<div id="73f8a9cd" class="cell" data-execution_count="4">
+<div id="f5233e01" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> iertools.tb <span class="im">import</span> <span class="op">*</span></span>
@@ -545,13 +545,13 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 </div>
 </div>
 <p>Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente comando para exportarlos a un archivo CSV:</p>
-<div id="b0930d40" class="cell" data-execution_count="5">
+<div id="301a0250" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"ruta/de/su/preferencia.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="sec-taire" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sec-taire"><span class="header-section-number">4.3</span> Temperatura del aire</h2>
+<section id="sec-taire-b" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-taire-b"><span class="header-section-number">4.3</span> Temperatura del aire</h2>
 <section id="termopar" class="level4">
 <h4 class="anchored" data-anchor-id="termopar">Termopar</h4>
 <p>En esta campaña de calibración se utilizó el AMETEK Jofra PTC-155 (<a href="#fig-AMETEK" class="quarto-xref">Figura&nbsp;<span>4.1</span></a>), un calibrador de temperatura que permite evaluar sensores en un rango de -25°C a 155°C.</p>
@@ -721,8 +721,8 @@ Figura&nbsp;4.6: Correlación de las mediciones de temperatura entre el Fluke y 
 </div>
 </section>
 </section>
-<section id="sec-trad" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="sec-trad"><span class="header-section-number">4.4</span> Temperatura radiante</h2>
+<section id="sec-trad-b" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-trad-b"><span class="header-section-number">4.4</span> Temperatura radiante</h2>
 <section id="tpf1" class="level4">
 <h4 class="anchored" data-anchor-id="tpf1">TPF1</h4>
 <p>Para la medición de la temperatura radiante se empleó el QUESTemp 36 (<a href="#fig-quest" class="quarto-xref">Figura&nbsp;<span>4.7</span></a>), un confortímetro diseñado para evaluar el estrés térmico en el ambiente, ya que permite medir la temperatura radiante, la temperatura del aire y la humedad relativa.</p>
@@ -799,8 +799,8 @@ Tabla&nbsp;4.4: Error medio y error medio absoluto antes y después de la calibr
 </div>
 </section>
 </section>
-<section id="sec-viento" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="sec-viento"><span class="header-section-number">4.5</span> Velocidad del viento</h2>
+<section id="sec-viento-b" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sec-viento-b"><span class="header-section-number">4.5</span> Velocidad del viento</h2>
 <section id="wind-sensor" class="level4">
 <h4 class="anchored" data-anchor-id="wind-sensor">Wind Sensor</h4>
 <p>El WindMaster de Gill Instruments (<a href="#fig-wind" class="quarto-xref">Figura&nbsp;<span>4.10</span></a>) es un anemómetro ultrasónico de alta precisión diseñado para medir la velocidad y dirección del viento en tres direcciones (u, v, w). En esta campaña se utilizó como instrumento de referencia para la calibración del Wind Sensor.</p>
@@ -890,11 +890,11 @@ Figura&nbsp;4.12: Comparación de las mediciones de velocidad del viento registr
 </div>
 </section>
 </section>
-<section id="sec-hrco" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="sec-hrco"><span class="header-section-number">4.6</span> Humedad relativa y CO<sub>2</sub></h2>
+<section id="sec-hrco-b" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="sec-hrco-b"><span class="header-section-number">4.6</span> Humedad relativa y CO<sub>2</sub></h2>
 <section id="scd30-1" class="level4">
 <h4 class="anchored" data-anchor-id="scd30-1">SCD30</h4>
-<p>Al igual que en el caso de la temperatura del aire, el SCD30 se utilizó para obtener mediciones de humedad relativa y concentraciones de CO<sub>2</sub>, empleándose nuevamente el Fluke 975 AirMeter (<a href="#fig-fluke" class="quarto-xref">Figura&nbsp;<span>4.4</span></a>) como instrumento de referencia. La recolección de datos se realizó durante la misma campaña, por lo que las condiciones ambientales y los procedimientos fueron idénticos a las descritas en la <a href="#sec-taire" class="quarto-xref"><span>Sección 4.3</span></a>. Los resultados obtenidos se muestran en la <a href="#fig-scd30" class="quarto-xref">Figura&nbsp;<span>4.13</span></a>.</p>
+<p>Al igual que en el caso de la temperatura del aire, el SCD30 se utilizó para obtener mediciones de humedad relativa y concentraciones de CO<sub>2</sub>, empleándose nuevamente el Fluke 975 AirMeter (<a href="#fig-fluke" class="quarto-xref">Figura&nbsp;<span>4.4</span></a>) como instrumento de referencia. La recolección de datos se realizó durante la misma campaña, por lo que las condiciones ambientales y los procedimientos fueron idénticos a las descritas en la <a href="#sec-taire-b" class="quarto-xref"><span>Sección 4.3</span></a>. Los resultados obtenidos se muestran en la <a href="#fig-scd30" class="quarto-xref">Figura&nbsp;<span>4.13</span></a>.</p>
 <div id="cell-fig-scd30" class="cell" data-execution_count="14">
 <div id="fig-scd30" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -953,10 +953,10 @@ Figura&nbsp;4.14: Correlación de las mediciones de humedad relativa y CO<sub>2<
 </div>
 </section>
 </section>
-<section id="sonido" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="sonido"><span class="header-section-number">4.7</span> Sonido</h2>
-<section id="sec-micro" class="level4">
-<h4 class="anchored" data-anchor-id="sec-micro">Micrófono</h4>
+<section id="sec-sonido-b" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="sec-sonido-b"><span class="header-section-number">4.7</span> Sonido</h2>
+<section id="micrófono" class="level4">
+<h4 class="anchored" data-anchor-id="micrófono">Micrófono</h4>
 <p>Pendiente a la documentación de Jorge.</p>
 <div id="fig-tes" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -970,11 +970,11 @@ Figura&nbsp;4.15: TES-1356 Sound Level Calibrator.
 </div>
 </section>
 </section>
-<section id="luminancia" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="luminancia"><span class="header-section-number">4.8</span> Luminancia</h2>
-<section id="sec-camara" class="level4">
-<h4 class="anchored" data-anchor-id="sec-camara">Fisheye</h4>
-<p>En el caso de la luminancia, no se realizó ningún proceso de calibración o referenciación. Se empleó la cámara Arducam 5MP OV5647 Ultra Wide Angle en conjunto con el software <code>Radiance</code>. Se desarrolló un script, descrito en la sección <a href="chapter_3.html#sec-diseno" class="quarto-xref"><span>Sección 3.2</span></a>, que calcula la iluminancia total mediante la integración del mapa de iluminancia (<a href="#fig-ilum" class="quarto-xref">Figura&nbsp;<span>4.16</span></a>) generado a partir de las imágenes capturadas. El proceso inicia con la creación de una imagen HDR a partir de la fusión de fotografías tomadas a diferentes exposiciones, lo que permite capturar la mayor cantidad de información posible sobre la intensidad luminosa. Posteriormente, a esta imagen HDR se le aplica una escala de <em>false color</em> para identificar los valores de iluminancia en cada punto de la imagen. El cálculo de la integral para el mapa generado facilita la determinación de la iluminancia total del espacio interior en el momento de la captura. Además, el mismo script se encarga de enviar el valor de la iluminancia total a <code>ThingsBoard</code>, conforme se detalla en la sección <a href="#sec-obtencion" class="quarto-xref"><span>Sección 4.2</span></a>.</p>
+<section id="sec-ilum-b" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="sec-ilum-b"><span class="header-section-number">4.8</span> Iluminancia</h2>
+<section id="fisheye" class="level4">
+<h4 class="anchored" data-anchor-id="fisheye">Fisheye</h4>
+<p>En el caso de la luminancia, no se realizó ningún proceso de calibración o referenciación. Se empleó la cámara Arducam 5MP OV5647 Ultra Wide Angle en conjunto con el software <code>Radiance</code>. Se desarrolló un script, descrito en la sección <a href="chapter_3.html#sec-diseno" class="quarto-xref"><span>Sección 3.1</span></a>, que calcula la iluminancia total mediante la integración del mapa de iluminancia (<a href="#fig-ilum" class="quarto-xref">Figura&nbsp;<span>4.16</span></a>) generado a partir de las imágenes capturadas. El proceso inicia con la creación de una imagen HDR a partir de la fusión de fotografías tomadas a diferentes exposiciones, lo que permite capturar la mayor cantidad de información posible sobre la intensidad luminosa. Posteriormente, a esta imagen HDR se le aplica una escala de <em>false color</em> para identificar los valores de iluminancia en cada punto de la imagen. El cálculo de la integral para el mapa generado facilita la determinación de la iluminancia total del espacio interior en el momento de la captura. Además, el mismo script se encarga de enviar el valor de la iluminancia total a <code>ThingsBoard</code>, conforme se detalla en la sección <a href="#sec-obtencion" class="quarto-xref"><span>Sección 4.2</span></a>.</p>
 <div id="fig-ilum" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ilum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
