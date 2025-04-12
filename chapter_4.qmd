@@ -43,7 +43,7 @@ Para evaluar las desviaciones/sesgos, se emplearon dos métricas clave:
     EM = \frac{1}{n} \sum_{i=1}^{n} (X_{s,i} - X_{r,i})
     $$ {#eq-em}
 
-    donde $X_{s,i}$ y  $X_{r,i}$ son las mediciones del sensor y de la referencia, respectivamente, y n es el total de muestras.
+    donde $X_{s,i}$ y  $X_{r,i}$ son las mediciones del sensor y de la referencia, respectivamente, y $n$ es el total de muestras.
 
 - Error Absoluto Medio (EAM): Calcula el promedio de las diferencias absolutas entre las mediciones del sensor y las de la referencia, sin considerar el signo. Esta métrica proporciona una medida de la magnitud del error, independientemente de su dirección, y se define como:
 
