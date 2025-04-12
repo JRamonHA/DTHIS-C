@@ -28,7 +28,7 @@ Acorde a @ashrae55, dichas variables se definen de la siguiente manera:
 
 ## Confort acústico {#sec-acustico}
 
-El confort acústico se define como un estado de satisfacción con las condiciones acústicas, representa el bienestar y la percepción positiva de un entorno en términos sonoros. Sin embargo, este confort es altamente subjetivo, ya que fuentes de ruido con características físicas similares pueden percibirse de manera distinta dependiendo de la persona [@antoniadou][@azar]. 
+El confort acústico se define como un estado de satisfacción con las condiciones acústicas, representa el bienestar y la percepción positiva de un entorno en términos sonoros. Sin embargo, este confort es altamente subjetivo, ya que fuentes de ruido con características físicas similares pueden percibirse de manera distinta dependiendo de la persona [@antoniadou] [@azar]. 
 
 #### Variables físicas del confort acústico
 

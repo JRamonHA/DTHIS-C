@@ -98,20 +98,27 @@ En la @tbl-raspberry se muestran las especificaciones de la Raspberry Pi 4 Model
 
 #### Termopar Tipo T 
 
-En la construcción del DTHIS se emplea un termopar tipo T, un sensor de temperatura compuesto por la unión de cobre y cobre-níquel. Su uso es ideal para entornos con humedad.  
+En la construcción del DTHIS se emplea un termopar tipo T, un sensor de temperatura compuesto por la unión de cobre y cobre-níquel (constantán). Su uso es ideal para entornos con humedad.  
 
 A continuación, se presentan sus especificaciones según @omega:  
 
-**Rangos de Temperatura**  
-- **Grado de termopar:** -200 a 350 °C (-328 a 662 °F).  
-- **Grado de extensión:** -60 a 100 °C (-76 a 212 °F).  
+**Rangos de Temperatura** 
 
-**Límites de Error**  
-- **Estándar:**  
-  - ±1.0 °C o ±0.75% por encima de 0 °C.  
-  - ±1.0 °C o ±1.5% por debajo de 0 °C.  
-- **Especial:**  
-  - ±0.5 °C o ±0.4%.
+- **Grado de termopar:** -200 a 350 °C (-328 a 662 °F).
+
+  Este es el rango operativo del sensor principal. Dentro de estos límites, el termopar puede medir temperaturas con exactitud.
+
+- **Grado de extensión:** -60 a 100 °C (-76 a 212 °F).
+  
+  Este rango se refiere al cable de extensión, que conecta el termopar al instrumento de medición. Estos cables están diseñados para mantener la integridad de la señal dentro de este rango de temperatura.
+
+**Límites de Error** 
+
+- ±1.0 °C o ±0.75% por encima de 0 °C.  
+
+- ±1.0 °C o ±1.5% por debajo de 0 °C.  
+
+  Esto significa que la lectura del termopar puede variar en ±1.0 °C o en un porcentaje del valor medido, dependiendo de cuál sea mayor.
 
 #### PWFusion MAX31856 SEN-30007
 

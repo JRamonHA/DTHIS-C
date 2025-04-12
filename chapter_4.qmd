@@ -21,37 +21,35 @@ En este capítulo se detalla el proceso de calibración y referenciación del DT
 
 La calibración consiste en verificar o ajustar la exactitud de un sensor, comparándolo con un estándar de referencia, de modo que sus mediciones reflejen correctamente el valor real bajo condiciones controladas. En contraste, la referenciación implica comparar directamente las lecturas del sensor con las de un instrumento de referencia en condiciones reales, evaluando su desempeño en situaciones prácticas.
 
-Cada sensor empleado en este estudio mide variables físicas distintas utilizando métodos de medición específicos. Por ello, se diseñaron campañas de calibración y referenciación adaptadas a las características únicas de cada instrumento, procesos fundamentales para asegurar tanto la exactitud como la confiabilidad de los datos recopilados, y para detectar y corregir posibles desviaciones.
+Cada sensor empleado en este estudio mide variables físicas distintas utilizando métodos de medición específicos. Por ello, se diseñaron campañas de calibración y referenciación adaptadas a las características únicas de cada instrumento, procesos fundamentales para asegurar tanto la exactitud como la confiabilidad de los datos recopilados, para detectar y corregir posibles desviaciones.
 
-La metodología experimental se centró en obtener que las mediciones de los sensores del DTHIS-C fueran lo más exactas posible, contrastándolas con los valores proporcionados por los instrumentos de referencia, reconocidos por su exactitud y confiabilidad en sus respectivos campos. Esto se realizó mediante campañas en las que ambos sistemas medían de manera simultánea, permitiendo así identificar tanto errores sistemáticos como variaciones en las mediciones.
+En la @tbl-instrumentos se presenta la lista de los sensores y sus respectivos instrumentos de referencia utilizados en los procesos de calibración y referenciación.
 
-Para evaluar y ajustar estos errores, se emplearon dos métricas clave:
+| **Variable**                          | **Sensor**                            | **Instrumento/Procedimiento**               |
+|---------------------------------------|---------------------------------------|---------------------------------------------|
+| Temperatura ambiente                  | Termopar tipo T                       | AMETEK Jofra PTC-155/Calibración            |
+| Temperatura radiante                  | TPF1/E-20 PT1000                      | Quest Technologies QUESTemp 36/Calibración  |
+| Velocidad del viento                  | Wind Sensor Rev P6                    | Gill Instruments WindMaster/Calibración     |
+| CO<sub>2</sub> y humedad relativa     | SCD30 Sensirion                       | Fluke 975 AirMeter/Referenciación           |
+| Sonido                                | Micrófono ambiental USB               | TES-1356 Sound Level Calibrator/Calibración |
+| Luminancia                            | 5MP OV5647 Wide Angle Fisheye Camera  | No aplica/No aplica                         |
+: Instrumentos de calibración y referenciación para los sensores que consituyen al DTHIS-C. {#tbl-instrumentos .hover .sm}
 
-- Error Medio (EM): Mide la desviación promedio de las mediciones del sensor respecto al instrumento de referencia. Un valor positivo indica que el sensor tiende a sobreestimar, mientras que un valor negativo revela una subestimación. Se calcula mediante la @eq-em:
+Para evaluar las desviaciones/sesgos, se emplearon dos métricas clave:
+
+- Error Medio (EM): Mide la desviación promedio de las mediciones del sensor respecto al instrumento de referencia. Un valor positivo indica que el sensor tiende a sobreestimar, mientras que un valor negativo revela una subestimación. Se evalúa con:
 
     $$
     EM = \frac{1}{n} \sum_{i=1}^{n} (X_{s,i} - X_{r,i})
     $$ {#eq-em}
 
-    donde $X_{s,i}$ y  $X_{r,i}$ son las mediciones del sensor y de la referencia, respectivamente, para la i-ésima observación.
+    donde $X_{s,i}$ y  $X_{r,i}$ son las mediciones del sensor y de la referencia, respectivamente, y n es el total de muestras.
 
-- Error Absoluto Medio (EAM): Calcula el promedio de las diferencias absolutas entre las mediciones del sensor y las de la referencia, sin considerar el signo. Esta métrica proporciona una medida de la magnitud del error, independientemente de su dirección, y se expresa en la @eq-eam:
+- Error Absoluto Medio (EAM): Calcula el promedio de las diferencias absolutas entre las mediciones del sensor y las de la referencia, sin considerar el signo. Esta métrica proporciona una medida de la magnitud del error, independientemente de su dirección, y se define como:
 
     $$
     EAM = \frac{1}{n} \sum_{i=1}^{n} |X_{s,i} - X_{r,i}|
     $$ {#eq-eam}
-
-Finalmente, en la @tbl-instrumentos se presenta la lista de los sensores y sus respectivos instrumentos de referencia utilizados en los procesos de calibración y referenciación.
-
-| **Variable**                          | **Sensor**                            | **Instrumento**                 | **Procedimiento**     |
-|---------------------------------------|---------------------------------------|---------------------------------|-----------------------|
-| Temperatura ambiente                  | Termopar tipo T                       | AMETEK Jofra PTC-155            | Calibración           |
-| Temperatura radiante                  | TPF1/E-20 PT1000                      | Quest Technologies QUESTemp 36  | Calibración           |
-| Velocidad del viento                  | Wind Sensor Rev P6                    | Gill Instruments WindMaster     | Calibración           |
-| CO<sub>2</sub> y humedad relativa     | SCD30 Sensirion                       | Fluke 975 AirMeter              | Referenciación        |
-| Sonido                                | Micrófono ambiental USB               | TES-1356 Sound Level Calibrator | Calibración           |
-| Luminancia                            | 5MP OV5647 Wide Angle Fisheye Camera  | No aplica                       | No aplica             |
-: Instrumentos de calibración y referenciación para los sensores que consitutyen al DTHIS-C. {#tbl-instrumentos .hover .sm}
 
 ## Obtención de los datos {#sec-obtencion}
 
@@ -103,7 +101,7 @@ hora_fin = "2024-11-22 17:09"
 data = data[(data.index >= hora_inicio) & (data.index <= hora_fin)]
 data.sort_index(inplace=True)
 
-data.head(10)
+data.head(5)
 ```
 
 Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente comando para exportarlos a un archivo CSV:
@@ -135,24 +133,24 @@ tt.scatter_plot('data/temp.parquet',
                 legend_labels=['Termopar 1', 'Termopar 2', 'Termopar 3', 'Termopar 4'])
 ```
 
-Para la calibración de los termopares, se utilizó Python junto con la librería `scikit-learn`, una herramienta utilizada para el análisis y modelado de datos. En particular, se aplicó un ajuste por regresión lineal a los datos obtenidos durante la campaña, utilizando los siguientes rangos de tiempo y sus respectivas temperaturas de referencia (@tbl-temperaturas).
+Para la calibración de los termopares, se utilizó Python junto con la librería `scikit-learn`, una herramienta utilizada para el análisis y modelado de datos. En particular, se aplicó un ajuste por regresión lineal a los datos obtenidos durante la campaña, utilizando los siguientes rangos de tiempo y sus respectivas temperaturas de referencia ($T_{ref}$) (@tbl-temperaturas).
 
-| Temperatura (°C)| Inicio    | Final     |
-|-----------------|-----------|-----------|
-| 10              | 15:44:01  | 15:52:31  |
-| 20              | 16:02:06  | 16:11:52  |
-| 30              | 16:20:44  | 16:28:58  |
-| 40              | 16:39:23  | 16:49:57  |
-| 50              | 16:58:24  | 17:08:25  |
+| T<sub>ref</sub> (°C)| Inicio    | Final     |
+|---------------------|-----------|-----------|
+| 10                  | 15:44:01  | 15:52:31  |
+| 20                  | 16:02:06  | 16:11:52  |
+| 30                  | 16:20:44  | 16:28:58  |
+| 40                  | 16:39:23  | 16:49:57  |
+| 50                  | 16:58:24  | 17:08:25  |
 :Temperaturas de referencia y rangos de tiempo. {#tbl-temperaturas .hover .sm}
 
-El ajuste por regresión lineal es una técnica estadística utilizada para modelar la relación entre una variable dependiente y una o más variables independientes. En este caso, la variable dependiente es la temperatura de referencia ($T_{ref}$), mientras que las variables independientes corresponden a las lecturas obtenidas por cada termopar. El modelo lineal (@eq-lineal) se expresa de la forma:
+El ajuste por regresión lineal es una técnica estadística utilizada para modelar la relación entre una variable dependiente y una o más variables independientes. En este caso, la variable dependiente es la temperatura de referencia ($T_{ref}$), mientras que las variables independientes corresponden a las lecturas obtenidas por cada termopar. El modelo lineal se expresa de la forma:
 
 $$
 T_{ref} = m \cdot T_{sensor} + b
 $${#eq-lineal}
 
-donde $m$ es la pendiente y $b$ es la ordenada al origen. La regresión lineal permite minimizar el error entre las mediciones del sensor y los valores de referencia, obteniendo ecuaciones de calibración (@eq-cal-termopares) que corrigen las lecturas de cada termopar.
+donde $m$ es la pendiente y $b$ es la ordenada al origen. La regresión lineal permite minimizar el error entre las mediciones del sensor y los valores de referencia, obteniendo las siguientes ecuaciones de calibración:
 
 $$
 \begin{align}
@@ -163,7 +161,7 @@ T_{ref} &= 1.0554 \cdot TEMP4 - 3.9348
 \end{align}
 $${#eq-cal-termopares}
 
-Al aplicar estas ecuaciones a los datos obtenidos en la campaña, se obtienen los valores corregidos de temperatura para cada termopar. Los resultados de la calibración pueden observarse en la @fig-ctermopares.
+Al aplicar estas ecuaciones a los datos obtenidos en la campaña, se obtienen los valores corregidos de temperatura para cada termopar. Los ajustes lineales pueden observarse en la @fig-ctermopares.
 
 ```{python}
 #| echo: false
@@ -181,6 +179,16 @@ titles = ['Termopar 1', 'Termopar 2', 'Termopar 3', 'Termopar 4']
 
 tt.linear_reg_subplots('data/temp.parquet', columns, time_intervals, titles)
 ```
+
+En la tabla @tbl-error-taire se observa que, antes de la calibración, los cuatro termopares presentaban errores medios positivos significativos, con valores que oscilaban entre 0.9501 y 2.1093. Esto indica un sesgo sistemático consistente que tendía a sobrestimar la temperatura respecto a los valores de referencia. Tras aplicar la calibración, los errores medios se reducen drásticamente hasta valores cercanos a cero, entre -0.0014 y 0.0012, lo que evidencia la eliminación del sesgo sistemático. Asimismo, el error medio absoluto disminuye considerablemente en todos los casos, pasando de un rango de 0.9879 a 2.1093 a un nuevo rango de 0.0759 a 0.0969. Esta reducción refleja una mejora en la exactitud de las mediciones.
+
+| Termopar   | Error medio (Antes) | Error medio absoluto (Antes) | Error medio (Después) | Error medio absoluto (Después) |
+|------------|---------------------|------------------------------|-----------------------|--------------------------------|
+| Termopar 1 | 0.9991              | 0.9991                       | -0.0005               | 0.0800                         |
+| Termopar 2 | 0.9501              | 0.9879                       | 0.0012                | 0.0759                         |
+| Termopar 3 | 1.7746              | 1.7746                       | -0.0014               | 0.0969                         |
+| Termopar 4 | 2.1093              | 2.1093                       | 0.0004                | 0.0821                         |
+: Error medio y error medio absoluto de cada termopar antes y después de la calibración. {#tbl-error-taire .hover .sm}
 
 #### SCD30
 
@@ -249,7 +257,7 @@ tt.scatter_plot('data/trad.parquet',
                 legend_labels=['TPF1', 'QUESTemp 36'])
 ```
 
-Para la calibración del TPF1/E-20, se aplicó un ajuste por regresión lineal utilizando la librería `scikit-learn` de Python, a partir de los datos de temperatura registrados simultáneamente por el QUESTemp 36 y el sensor TPF1/E-20. Empleando el mismo modelo lineal descrito en la @eq-lineal, se derivó la siguiente ecuación de calibración (@eq-cal-radiante):
+Para la calibración del TPF1/E-20, se aplicó un ajuste por regresión lineal utilizando la librería `scikit-learn` de Python, a partir de los datos de temperatura registrados simultáneamente por el QUESTemp 36 y el sensor TPF1/E-20. Empleando el mismo modelo lineal descrito en la @eq-lineal, se derivó la siguiente ecuación de calibración:
 
 $$
 T_{ref} = 1.0582 \cdot temp - 1.5553
@@ -274,7 +282,7 @@ En la tabla @tbl-error-rad se observa que, antes de calibrar, el sensor TPF1/E-2
 |---------------------|--------------|----------------------|
 | Antes de calibrar   | -0.1124      | 0.1518               |
 | Después de calibrar | 4.8948e-15   | 0.0344               |
-: Error medio y error medio absoluto antes y después de la calibración. {#tbl-error-rad .hover .sm}
+: Error medio y error medio absoluto del TPF1 antes y después de la calibración. {#tbl-error-rad .hover .sm}
 
 ## Velocidad del viento {#sec-viento-b}
 
@@ -298,7 +306,7 @@ tt.scatter_plot('data/ws.parquet',
                 legend_labels=['WindMaster', 'Wind Sensor'])
 ```
 
-Durante la calibración del Wind Sensor se siguió la metodología proporcionada por el fabricante @windsensor en su blog oficial. Según esta fuente, la relación entre la velocidad del viento (WS), el voltaje corregido y la temperatura sigue una ley de potencia descrita por la siguiente ecuación (@eq-potencia):
+Durante la calibración del Wind Sensor se siguió la metodología proporcionada por el fabricante @windsensor en su blog oficial. Según esta fuente, la relación entre la velocidad del viento (WS), el voltaje corregido y la temperatura sigue una ley de potencia descrita por la siguiente ecuación:
 
 $$
 WS = a \cdot \text{voltaje}^b \cdot \text{temp}^c
@@ -306,7 +314,7 @@ $${#eq-potencia}
 
 Adicionalmente, se identificó un error sistemático en las lecturas de voltaje: en condiciones de viento nulo (0 m/s), el Wind Sensor registraba un desfase de 1.1621 V. Este error se corrigió restando 1.1621 V a cada medición, de modo que el voltaje empleado en el análisis reflejara únicamente la contribución del viento.
 
-Para facilitar el ajuste mediante técnicas de regresión, se aplicó una transformación logarítmica a ambos lados de la ecuación, lo que permitió convertir el modelo en una forma lineal (@eq-potencia-ln):
+Para facilitar el ajuste mediante técnicas de regresión, se aplicó una transformación logarítmica a ambos lados de la ecuación, lo que permitió convertir el modelo en una forma lineal:
 
 $$
 \ln(WS) = \ln(a) + b \cdot \ln(\text{voltaje}) + c \cdot \ln(\text{temp})
@@ -316,7 +324,7 @@ Esta transformación es crucial, ya que permite emplear técnicas de regresión 
 
 Adicionalmente, se identificó un error sistemático en las lecturas de voltaje: en condiciones de viento nulo (0 m/s), el Wind Sensor registraba un desfase de 1.1621 V. Este error se corrigió restando 1.1621 V a cada medición, de modo que el voltaje empleado en el análisis reflejara únicamente la contribución del viento.
 
-Para el caso elegido, correspondiente a un remuestreo de 10 segundos, el proceso de regresión lineal en el dominio logarítmico produjo la siguiente ecuación de calibración (@eq-cal-viento):
+Para el caso elegido, correspondiente a un remuestreo de 10 segundos, el proceso de regresión lineal en el dominio logarítmico produjo la siguiente ecuación de calibración:
 
 $$
 WS = 26.3431 \cdot \text{voltage}^{1.4273} \cdot \text{temp}^{-0.7631}
@@ -346,6 +354,14 @@ tt.scatter_plot('data/cal_ws.parquet',
                 y_label='Velocidad de viento (m/s)',
                 legend_labels=['WindMaster', 'Wind Sensor'])
 ```
+
+En la tabla @tbl-error-wind se observa que, antes de calibrar, el Wind Sensor Rev. P6 presentaba un error medio de -0.0129, indicando un sesgo sistemático que subestimaba la velocidad del viento frente al WindMaster. Tras aplicar la ecuación de calibración, el error se reduce a -0.0004, eliminando prácticamente el sesgo. Además, el error medio absoluto baja de 0.0562 a 0.0547, mejorando la exactitud de las mediciones. Estos resultados demuestran que la calibración ha corregido eficazmente tanto el sesgo como la dispersión de los datos, asegurando mediciones con mayor exactitud respecto al WindMaster.
+
+| Fase                | Error medio  | Error medio absoluto |
+|---------------------|--------------|----------------------|
+| Antes de calibrar   | -0.0129      | 0.0562               |
+| Después de calibrar | -0.0004      | 0.0547               |
+: Error medio y error medio absoluto del Wind Sensor antes y después de la calibración. {#tbl-error-wind .hover .sm}
 
 ## Humedad relativa y CO<sub>2</sub> {#sec-hrco-b}
 

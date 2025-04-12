@@ -468,7 +468,7 @@ def linear_reg_subplots(filepath, columns, time_intervals, titles):
     for j in range(1, n_cols+1):
         fig.update_xaxes(title_text="Temperatura de termopar (°C)", row=n_rows, col=j)
     for i in range(1, n_rows+1):
-        fig.update_yaxes(title_text="Temperatura de referencia (°C)", row=i, col=1)
+        fig.update_yaxes(title_text="T<sub>ref</sub> (°C)", row=i, col=1)
 
     # Ocultar cuadro de leyendas, pero mantenerlas en el tooltip
     fig.update_layout(showlegend=False)
