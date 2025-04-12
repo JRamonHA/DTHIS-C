@@ -213,13 +213,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al confort en espacios interiores y el desarrollo del DTHIS-C</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al confort en espacios interiores</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico y calidad del aire</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico, calidad del aire e implementación del DTHIS-C</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -326,17 +326,17 @@ window.Quarto = {
 <p>La metodología experimental se centró en obtener que las mediciones de los sensores del DTHIS-C fueran lo más exactas posible, contrastándolas con los valores proporcionados por los instrumentos de referencia, reconocidos por su exactitud y confiabilidad en sus respectivos campos. Esto se realizó mediante campañas en las que ambos sistemas medían de manera simultánea, permitiendo así identificar tanto errores sistemáticos como variaciones en las mediciones.</p>
 <p>Para evaluar y ajustar estos errores, se emplearon dos métricas clave:</p>
 <ul>
-<li><p>Error Medio (EM): Mide la desviación promedio de las mediciones del sensor respecto al instrumento de referencia. Un valor positivo indica que el sensor tiende a sobreestimar, mientras que un valor negativo revela una subestimación. Se calcula mediante la <a href="#eq-em" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>:</p>
+<li><p>Error Medio (EM): Mide la desviación promedio de las mediciones del sensor respecto al instrumento de referencia. Un valor positivo indica que el sensor tiende a sobreestimar, mientras que un valor negativo revela una subestimación. Se calcula mediante la <a href="#eq-em" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-em</span></a>:</p>
 <p><span id="eq-em"><span class="math display">\[
   EM = \frac{1}{n} \sum_{i=1}^{n} (X_{s,i} - X_{r,i})
    \tag{4.1}\]</span></span></p>
 <p>donde <span class="math inline">\(X_{s,i}\)</span> y <span class="math inline">\(X_{r,i}\)</span> son las mediciones del sensor y de la referencia, respectivamente, para la i-ésima observación.</p></li>
-<li><p>Error Absoluto Medio (EAM): Calcula el promedio de las diferencias absolutas entre las mediciones del sensor y las de la referencia, sin considerar el signo. Esta métrica proporciona una medida de la magnitud del error, independientemente de su dirección, y se expresa en la <a href="#eq-eam" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>:</p>
+<li><p>Error Absoluto Medio (EAM): Calcula el promedio de las diferencias absolutas entre las mediciones del sensor y las de la referencia, sin considerar el signo. Esta métrica proporciona una medida de la magnitud del error, independientemente de su dirección, y se expresa en la <a href="#eq-eam" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-eam</span></a>:</p>
 <p><span id="eq-eam"><span class="math display">\[
   EAM = \frac{1}{n} \sum_{i=1}^{n} |X_{s,i} - X_{r,i}|
    \tag{4.2}\]</span></span></p></li>
 </ul>
-<p>Finalmente, en la <a href="#tbl-instrumentos" class="quarto-xref">Tabla&nbsp;<span>4.1</span></a> se presenta la lista de los sensores y sus respectivos instrumentos de referencia utilizados en los procesos de calibración y referenciación.</p>
+<p>Finalmente, en la <a href="#tbl-instrumentos" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-instrumentos</span></a> se presenta la lista de los sensores y sus respectivos instrumentos de referencia utilizados en los procesos de calibración y referenciación.</p>
 <div id="tbl-instrumentos" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-instrumentos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -408,12 +408,12 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <p>ThingsBoard es una plataforma IoT de código abierto diseñada para la recopilación, procesamiento, visualización y gestión de dispositivos, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="references.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En el contexto de esta tesis, se utiliza para transmitir en tiempo real las mediciones obtenidas de los distintos sensores del DTHIS-C hacia un servidor central, donde se alojan y resguardan los datos en una base de datos dedicada a Internet de las Cosas.</p>
 <p>Según la documentación oficial de ThingsBoard, la plataforma admite la conectividad mediante protocolos estándares como MQTT, CoAP y HTTP, lo que facilita la integración de diversos dispositivos y sensores, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="references.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En este caso, las mediciones de los sensores se envían desde el DTHIS-C a ThingsBoard, que actúa como una base de datos. La plataforma no solo almacena la información, sino que también permite la creación de dashboards interactivos y personalizables que posibilitan la visualización en tiempo real de las mediciones. Esto es fundamental durante las campañas de medición, ya que permite monitorear de forma inmediata el funcionamiento de los sensores, identificar tendencias y detectar posibles anomalías en los datos.</p>
 <p>Para obtener datos directamente desde ThingsBoard, se desarrolló una función en el paquete instalable de Python denominado <code>iertools</code>, creado por el Grupo de Energía en Edificaciones. Este paquete se puede instalar desde la consola de su ordenador (previamente contando con una distribución de Python instalada) mediante el siguiente comando:</p>
-<div id="a5966f01" class="cell" data-execution_count="2">
+<div id="2dc16688" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>AltamarMx<span class="op">/</span>iertools.git</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Es importante señalar que, antes de proceder a la obtención y descarga de datos desde ThingsBoard, es necesario crear un archivo de configuración con extensión <code>.ini</code>. Un archivo .ini es un documento de texto plano que almacena parámetros y opciones en formato clave-valor, y se utiliza para definir la configuración necesaria (como la URL del servidor y el token de acceso) que el paquete <code>iertools</code> requiere para conectarse a ThingsBoard.</p>
 <p>A continuación, se presenta un ejemplo de cómo estructurar dicho archivo:</p>
-<div id="02eada17" class="cell" data-execution_count="3">
+<div id="6fb497ee" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[dthisc]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>token     <span class="op">=</span> token</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>device_id <span class="op">=</span> device_id</span>
@@ -423,7 +423,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>port      <span class="op">=</span> <span class="dv">8080</span> </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez instalado <code>iertools</code>, es posible recuperar datos desde un script o notebook. El siguiente fragmento de código ilustra cómo obtener los datos de medición de los termopares del DTHIS-C a partir de ThingsBoard; este ejemplo puede ser ajustado según las necesidades específicas, permitiendo extraer distintos conjuntos de datos conforme a los requerimientos del estudio:</p>
-<div id="f5233e01" class="cell" data-execution_count="4">
+<div id="3d1c3368" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> iertools.tb <span class="im">import</span> <span class="op">*</span></span>
@@ -545,7 +545,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 </div>
 </div>
 <p>Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente comando para exportarlos a un archivo CSV:</p>
-<div id="301a0250" class="cell" data-execution_count="5">
+<div id="8bf7ba3d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"ruta/de/su/preferencia.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -554,7 +554,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <h2 data-number="4.3" class="anchored" data-anchor-id="sec-taire-b"><span class="header-section-number">4.3</span> Temperatura del aire</h2>
 <section id="termopar" class="level4">
 <h4 class="anchored" data-anchor-id="termopar">Termopar</h4>
-<p>En esta campaña de calibración se utilizó el AMETEK Jofra PTC-155 (<a href="#fig-AMETEK" class="quarto-xref">Figura&nbsp;<span>4.1</span></a>), un calibrador de temperatura que permite evaluar sensores en un rango de -25°C a 155°C.</p>
+<p>En esta campaña de calibración se utilizó el AMETEK Jofra PTC-155 (<a href="#fig-AMETEK" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-AMETEK</span></a>), un calibrador de temperatura que permite evaluar sensores en un rango de -25°C a 155°C.</p>
 <div id="fig-AMETEK" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-AMETEK-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -566,7 +566,7 @@ Figura&nbsp;4.1: AMETEK Jofra PTC-155.
 </figure>
 </div>
 <p>El instrumento mencionado se utilizó junto a cuatro termopares tipo T, estableciendo cinco puntos de referencia de temperatura en el intervalo de 10°C a 50°C.</p>
-<p>Para cada punto de calibración, se esperó aproximadamente 5 minutos para que el calibrador alcanzara y estabilizara la temperatura deseada. Una vez estabilizada, se registraron los datos durante 10 minutos antes de proceder al siguiente punto. Los resultados obtenidos en esta campaña se pueden observar en la <a href="#fig-termopares" class="quarto-xref">Figura&nbsp;<span>4.2</span></a>.</p>
+<p>Para cada punto de calibración, se esperó aproximadamente 5 minutos para que el calibrador alcanzara y estabilizara la temperatura deseada. Una vez estabilizada, se registraron los datos durante 10 minutos antes de proceder al siguiente punto. Los resultados obtenidos en esta campaña se pueden observar en la <a href="#fig-termopares" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-termopares</span></a>.</p>
 <div id="cell-fig-termopares" class="cell" data-execution_count="6">
 <div id="fig-termopares" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -579,7 +579,7 @@ Figura&nbsp;4.2: Rangos de temperatura utilizados para la calibración de los te
 </figure>
 </div>
 </div>
-<p>Para la calibración de los termopares, se utilizó Python junto con la librería <code>scikit-learn</code>, una herramienta utilizada para el análisis y modelado de datos. En particular, se aplicó un ajuste por regresión lineal a los datos obtenidos durante la campaña, utilizando los siguientes rangos de tiempo y sus respectivas temperaturas de referencia (<a href="#tbl-temperaturas" class="quarto-xref">Tabla&nbsp;<span>4.2</span></a>).</p>
+<p>Para la calibración de los termopares, se utilizó Python junto con la librería <code>scikit-learn</code>, una herramienta utilizada para el análisis y modelado de datos. En particular, se aplicó un ajuste por regresión lineal a los datos obtenidos durante la campaña, utilizando los siguientes rangos de tiempo y sus respectivas temperaturas de referencia (<a href="#tbl-temperaturas" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-temperaturas</span></a>).</p>
 <div id="tbl-temperaturas" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-temperaturas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -625,11 +625,11 @@ Tabla&nbsp;4.2: Temperaturas de referencia y rangos de tiempo.
 </div>
 </figure>
 </div>
-<p>El ajuste por regresión lineal es una técnica estadística utilizada para modelar la relación entre una variable dependiente y una o más variables independientes. En este caso, la variable dependiente es la temperatura de referencia (<span class="math inline">\(T_{ref}\)</span>), mientras que las variables independientes corresponden a las lecturas obtenidas por cada termopar. El modelo lineal (<a href="#eq-lineal" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>) se expresa de la forma:</p>
+<p>El ajuste por regresión lineal es una técnica estadística utilizada para modelar la relación entre una variable dependiente y una o más variables independientes. En este caso, la variable dependiente es la temperatura de referencia (<span class="math inline">\(T_{ref}\)</span>), mientras que las variables independientes corresponden a las lecturas obtenidas por cada termopar. El modelo lineal (<a href="#eq-lineal" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-lineal</span></a>) se expresa de la forma:</p>
 <p><span id="eq-lineal"><span class="math display">\[
 T_{ref} = m \cdot T_{sensor} + b
 \tag{4.3}\]</span></span></p>
-<p>donde <span class="math inline">\(m\)</span> es la pendiente y <span class="math inline">\(b\)</span> es la ordenada al origen. La regresión lineal permite minimizar el error entre las mediciones del sensor y los valores de referencia, obteniendo ecuaciones de calibración (<a href="#eq-cal-termopares" class="quarto-xref">Ecuación&nbsp;<span>4.4</span></a>) que corrigen las lecturas de cada termopar.</p>
+<p>donde <span class="math inline">\(m\)</span> es la pendiente y <span class="math inline">\(b\)</span> es la ordenada al origen. La regresión lineal permite minimizar el error entre las mediciones del sensor y los valores de referencia, obteniendo ecuaciones de calibración (<a href="#eq-cal-termopares" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-cal-termopares</span></a>) que corrigen las lecturas de cada termopar.</p>
 <p><span id="eq-cal-termopares"><span class="math display">\[
 \begin{align}
 T_{ref} &amp;= 1.0450 \cdot TEMP1 - 2.4327 \\
@@ -638,7 +638,7 @@ T_{ref} &amp;= 1.0814 \cdot TEMP3 - 4.4316 \\
 T_{ref} &amp;= 1.0554 \cdot TEMP4 - 3.9348
 \end{align}
 \tag{4.4}\]</span></span></p>
-<p>Al aplicar estas ecuaciones a los datos obtenidos en la campaña, se obtienen los valores corregidos de temperatura para cada termopar. Los resultados de la calibración pueden observarse en la <a href="#fig-ctermopares" class="quarto-xref">Figura&nbsp;<span>4.3</span></a>.</p>
+<p>Al aplicar estas ecuaciones a los datos obtenidos en la campaña, se obtienen los valores corregidos de temperatura para cada termopar. Los resultados de la calibración pueden observarse en la <a href="#fig-ctermopares" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-ctermopares</span></a>.</p>
 <div id="cell-fig-ctermopares" class="cell" data-execution_count="7">
 <div id="fig-ctermopares" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -654,7 +654,7 @@ Figura&nbsp;4.3: Resultados de las mediciones de temperatura después de aplicar
 </section>
 <section id="scd30" class="level4">
 <h4 class="anchored" data-anchor-id="scd30">SCD30</h4>
-<p>Para la campaña de referenciación del SCD30, el instrumento utilizado fue el Fluke 975 AirMeter (<a href="#fig-fluke" class="quarto-xref">Figura&nbsp;<span>4.4</span></a>), este es un instrumento portátil de diagnóstico de la calidad del aire interior. Este dispositivo mide simultáneamente temperatura, humedad relativa, dióxido de carbono (CO<sub>2</sub>) y monóxido de carbono (CO).</p>
+<p>Para la campaña de referenciación del SCD30, el instrumento utilizado fue el Fluke 975 AirMeter (<a href="#fig-fluke" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fluke</span></a>), este es un instrumento portátil de diagnóstico de la calidad del aire interior. Este dispositivo mide simultáneamente temperatura, humedad relativa, dióxido de carbono (CO<sub>2</sub>) y monóxido de carbono (CO).</p>
 <div id="fig-fluke" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fluke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -665,7 +665,7 @@ Figura&nbsp;4.4: Fluke 975 AirMeter.
 </figcaption>
 </figure>
 </div>
-<p>La campaña consistió en realizar mediciones simultáneas del Fluke 975 AirMeter y del SCD30 durante un período total de 7 horas y 45 minutos, registrando una muestra cada minuto. Para minimizar posibles interferencias, ambos dispositivos se ubicaron lo más próximos posible y se instalaron en una zona aislada del espacio interior donde se llevo a cabo la prueba, de modo que la presencia humana no afectara los resultados. Los datos obtenidos se muestran en la <a href="#fig-scd30-t" class="quarto-xref">Figura&nbsp;<span>4.5</span></a>.</p>
+<p>La campaña consistió en realizar mediciones simultáneas del Fluke 975 AirMeter y del SCD30 durante un período total de 7 horas y 45 minutos, registrando una muestra cada minuto. Para minimizar posibles interferencias, ambos dispositivos se ubicaron lo más próximos posible y se instalaron en una zona aislada del espacio interior donde se llevo a cabo la prueba, de modo que la presencia humana no afectara los resultados. Los datos obtenidos se muestran en la <a href="#fig-scd30-t" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-scd30-t</span></a>.</p>
 <div id="cell-fig-scd30-t" class="cell" data-execution_count="8">
 <div id="fig-scd30-t" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -679,7 +679,7 @@ Figura&nbsp;4.5: Comparación de las mediciones de temperatura del Fluke y el SC
 </div>
 </div>
 <p>Para esta campaña de referenciación, se compararon directamente los datos de medición obtenidos por el SCD30 y el Fluke 975 AirMeter, dado que el SCD30 se adquiere ya calibrado. Se realizó el cálculo de errores, en particular el error medio y el error medio absoluto, para evaluar la discrepancia entre las mediciones de ambos instrumentos.</p>
-<p>La <a href="#tbl-scd30-t" class="quarto-xref">Tabla&nbsp;<span>4.3</span></a> presenta los resultados de temperatura del aire obtenidos para cada instrumento:</p>
+<p>La <a href="#tbl-scd30-t" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-scd30-t</span></a> presenta los resultados de temperatura del aire obtenidos para cada instrumento:</p>
 <div id="tbl-scd30-t" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-scd30-t-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -706,7 +706,7 @@ Tabla&nbsp;4.3: Error medio y error medio absoluto para cada variable del SCD30 
 </figure>
 </div>
 <p>La tabla presenta el error medio y el error medio absoluto en la medición de temperatura del sensor SCD30 en comparación con el Fluke. Se observa que el SCD30 tiende a sobreestimar la temperatura en un promedio de 0.8853 unidades. Sin embargo, esta diferencia es mínima y no representa una desviación significativa, lo que indica que el sensor mantiene una buena exactitud en sus mediciones. La similitud entre el error medio y el error medio absoluto sugiere que las desviaciones no presentan grandes variaciones y se distribuyen de manera uniforme..</p>
-<p>La correlación entre las mediciones de ambos instrumentos se visualiza en la <a href="#fig-cscd30-t" class="quarto-xref">Figura&nbsp;<span>4.6</span></a>, lo que respalda la evaluación de precisión y consistencia. Un coeficiente de correlación elevado indicaría que, a pesar de los errores sistemáticos, la tendencia de las mediciones del SCD30 sigue de cerca la del Fluke.</p>
+<p>La correlación entre las mediciones de ambos instrumentos se visualiza en la <a href="#fig-cscd30-t" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-cscd30-t</span></a>, lo que respalda la evaluación de precisión y consistencia. Un coeficiente de correlación elevado indicaría que, a pesar de los errores sistemáticos, la tendencia de las mediciones del SCD30 sigue de cerca la del Fluke.</p>
 <div id="cell-fig-cscd30-t" class="cell" data-execution_count="9">
 <div id="fig-cscd30-t" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -725,7 +725,7 @@ Figura&nbsp;4.6: Correlación de las mediciones de temperatura entre el Fluke y 
 <h2 data-number="4.4" class="anchored" data-anchor-id="sec-trad-b"><span class="header-section-number">4.4</span> Temperatura radiante</h2>
 <section id="tpf1" class="level4">
 <h4 class="anchored" data-anchor-id="tpf1">TPF1</h4>
-<p>Para la medición de la temperatura radiante se empleó el QUESTemp 36 (<a href="#fig-quest" class="quarto-xref">Figura&nbsp;<span>4.7</span></a>), un confortímetro diseñado para evaluar el estrés térmico en el ambiente, ya que permite medir la temperatura radiante, la temperatura del aire y la humedad relativa.</p>
+<p>Para la medición de la temperatura radiante se empleó el QUESTemp 36 (<a href="#fig-quest" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-quest</span></a>), un confortímetro diseñado para evaluar el estrés térmico en el ambiente, ya que permite medir la temperatura radiante, la temperatura del aire y la humedad relativa.</p>
 <div id="fig-quest" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-quest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -736,7 +736,7 @@ Figura&nbsp;4.7: Quest Technologies QUESTemp 36.
 </figcaption>
 </figure>
 </div>
-<p>El experimento consistió en ubicar el QUESTemp 36 dentro de una caja diseñada para limitar la incidencia directa de la radiación solar, lo que minimizó la influencia de la radiación externa y redujo el efecto de la convección forzada del viento, permitiendo así que la medición se centrara en la radiación térmica del entorno inmediato. Paralelamente, se colocó el sensor TPF1 en condiciones similares para garantizar que ambos dispositivos registraran la temperatura con la menor perturbación posible. Se tomaron datos cada minuto durante 23 horas. Los datos obtenidos se pueden observar en la <a href="#fig-radiante" class="quarto-xref">Figura&nbsp;<span>4.8</span></a>.</p>
+<p>El experimento consistió en ubicar el QUESTemp 36 dentro de una caja diseñada para limitar la incidencia directa de la radiación solar, lo que minimizó la influencia de la radiación externa y redujo el efecto de la convección forzada del viento, permitiendo así que la medición se centrara en la radiación térmica del entorno inmediato. Paralelamente, se colocó el sensor TPF1 en condiciones similares para garantizar que ambos dispositivos registraran la temperatura con la menor perturbación posible. Se tomaron datos cada minuto durante 23 horas. Los datos obtenidos se pueden observar en la <a href="#fig-radiante" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-radiante</span></a>.</p>
 <div id="cell-fig-radiante" class="cell" data-execution_count="10">
 <div id="fig-radiante" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -749,11 +749,11 @@ Figura&nbsp;4.8: Intervalo de medición del QUESTemp 36 y el TPF1 para su calibr
 </figure>
 </div>
 </div>
-<p>Para la calibración del TPF1/E-20, se aplicó un ajuste por regresión lineal utilizando la librería <code>scikit-learn</code> de Python, a partir de los datos de temperatura registrados simultáneamente por el QUESTemp 36 y el sensor TPF1/E-20. Empleando el mismo modelo lineal descrito en la <a href="#eq-lineal" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>, se derivó la siguiente ecuación de calibración (<a href="#eq-cal-radiante" class="quarto-xref">Ecuación&nbsp;<span>4.5</span></a>):</p>
+<p>Para la calibración del TPF1/E-20, se aplicó un ajuste por regresión lineal utilizando la librería <code>scikit-learn</code> de Python, a partir de los datos de temperatura registrados simultáneamente por el QUESTemp 36 y el sensor TPF1/E-20. Empleando el mismo modelo lineal descrito en la <a href="#eq-lineal" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-lineal</span></a>, se derivó la siguiente ecuación de calibración (<a href="#eq-cal-radiante" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-cal-radiante</span></a>):</p>
 <p><span id="eq-cal-radiante"><span class="math display">\[
 T_{ref} = 1.0582 \cdot temp - 1.5553
 \tag{4.5}\]</span></span></p>
-<p>Al aplicar esta ecuación a los datos obtenidos durante la campaña, se calcularon los valores corregidos para el TPF1/E-20. Los resultados de esta calibración se pueden observar en la <a href="#fig-cradiante" class="quarto-xref">Figura&nbsp;<span>4.9</span></a>.</p>
+<p>Al aplicar esta ecuación a los datos obtenidos durante la campaña, se calcularon los valores corregidos para el TPF1/E-20. Los resultados de esta calibración se pueden observar en la <a href="#fig-cradiante" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-cradiante</span></a>.</p>
 <div id="cell-fig-cradiante" class="cell" data-execution_count="11">
 <div id="fig-cradiante" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -766,7 +766,7 @@ Figura&nbsp;4.9: Comparación de las mediciones del QUESTemp 36, el TPF1/E-20 y 
 </figure>
 </div>
 </div>
-<p>En la tabla <a href="#tbl-error-rad" class="quarto-xref">Tabla&nbsp;<span>4.4</span></a> se observa que, antes de calibrar, el sensor TPF1/E-20 presentaba un error medio de -0.1124, lo que indica un sesgo sistemático que tendía a subestimar la temperatura en comparación con el QUESTemp 36. Tras la aplicación de la ecuación de calibración, el error medio se reduce drásticamente a 4.8948e-15, un valor prácticamente nulo que evidencia la eliminación casi total del sesgo sistemático. Paralelamente, el error medio absoluto disminuye de 0.1518 a 0.0344, lo que implica una mejora significativa en la (¿precisión o exactitud?) de las mediciones. Estos resultados confirman que el proceso de calibración ha corregido eficazmente tanto el sesgo como la dispersión de los datos, permitiendo obtener mediciones de temperatura de alta fiabilidad y precisión, estrechamente alineadas con los valores de referencia del QUESTemp 36.</p>
+<p>En la tabla <a href="#tbl-error-rad" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-error-rad</span></a> se observa que, antes de calibrar, el sensor TPF1/E-20 presentaba un error medio de -0.1124, lo que indica un sesgo sistemático que tendía a subestimar la temperatura en comparación con el QUESTemp 36. Tras la aplicación de la ecuación de calibración, el error medio se reduce drásticamente a 4.8948e-15, un valor prácticamente nulo que evidencia la eliminación casi total del sesgo sistemático. Paralelamente, el error medio absoluto disminuye de 0.1518 a 0.0344, lo que implica una mejora significativa en la (¿precisión o exactitud?) de las mediciones. Estos resultados confirman que el proceso de calibración ha corregido eficazmente tanto el sesgo como la dispersión de los datos, permitiendo obtener mediciones de temperatura de alta fiabilidad y precisión, estrechamente alineadas con los valores de referencia del QUESTemp 36.</p>
 <div id="tbl-error-rad" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-error-rad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -803,7 +803,7 @@ Tabla&nbsp;4.4: Error medio y error medio absoluto antes y después de la calibr
 <h2 data-number="4.5" class="anchored" data-anchor-id="sec-viento-b"><span class="header-section-number">4.5</span> Velocidad del viento</h2>
 <section id="wind-sensor" class="level4">
 <h4 class="anchored" data-anchor-id="wind-sensor">Wind Sensor</h4>
-<p>El WindMaster de Gill Instruments (<a href="#fig-wind" class="quarto-xref">Figura&nbsp;<span>4.10</span></a>) es un anemómetro ultrasónico de alta precisión diseñado para medir la velocidad y dirección del viento en tres direcciones (u, v, w). En esta campaña se utilizó como instrumento de referencia para la calibración del Wind Sensor.</p>
+<p>El WindMaster de Gill Instruments (<a href="#fig-wind" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-wind</span></a>) es un anemómetro ultrasónico de alta precisión diseñado para medir la velocidad y dirección del viento en tres direcciones (u, v, w). En esta campaña se utilizó como instrumento de referencia para la calibración del Wind Sensor.</p>
 <div id="fig-wind" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -814,7 +814,7 @@ Figura&nbsp;4.10: Gill Instruments WindMaster.
 </figcaption>
 </figure>
 </div>
-<p>La campaña de calibración tuvo una duración de 1 hora, durante la cual se capturaron datos a una frecuencia de 1 Hz. Aprovechando las dimensiones del WindSensor (2230 x 680 mm), se posicionó estratégicamente en la parte superior central del WindMaster, previa verificación de que su presencia no interfiriera con las mediciones del anemómetro. En un entorno abierto, el WindSensor registró datos de voltaje, los cuales se utilizaron junto con los datos de velocidad del viento obtenidos del WindMaster para desarrollar una ecuación de calibración que permitiera convertir el voltaje medido a m/s. Los resultados de la campaña se pueden visualizar en la <a href="#fig-viento" class="quarto-xref">Figura&nbsp;<span>4.11</span></a>.</p>
+<p>La campaña de calibración tuvo una duración de 1 hora, durante la cual se capturaron datos a una frecuencia de 1 Hz. Aprovechando las dimensiones del WindSensor (2230 x 680 mm), se posicionó estratégicamente en la parte superior central del WindMaster, previa verificación de que su presencia no interfiriera con las mediciones del anemómetro. En un entorno abierto, el WindSensor registró datos de voltaje, los cuales se utilizaron junto con los datos de velocidad del viento obtenidos del WindMaster para desarrollar una ecuación de calibración que permitiera convertir el voltaje medido a m/s. Los resultados de la campaña se pueden visualizar en la <a href="#fig-viento" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-viento</span></a>.</p>
 <div id="cell-fig-viento" class="cell" data-execution_count="12">
 <div id="fig-viento" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -827,23 +827,23 @@ Figura&nbsp;4.11: Comparación de la velocidad del viento registrada por el Wind
 </figure>
 </div>
 </div>
-<p>Durante la calibración del Wind Sensor se siguió la metodología proporcionada por el fabricante <span class="citation" data-cites="windsensor">Device (<a href="references.html#ref-windsensor" role="doc-biblioref">2017</a>)</span> en su blog oficial. Según esta fuente, la relación entre la velocidad del viento (WS), el voltaje corregido y la temperatura sigue una ley de potencia descrita por la siguiente ecuación (<a href="#eq-potencia" class="quarto-xref">Ecuación&nbsp;<span>4.6</span></a>):</p>
+<p>Durante la calibración del Wind Sensor se siguió la metodología proporcionada por el fabricante <span class="citation" data-cites="windsensor">Device (<a href="references.html#ref-windsensor" role="doc-biblioref">2017</a>)</span> en su blog oficial. Según esta fuente, la relación entre la velocidad del viento (WS), el voltaje corregido y la temperatura sigue una ley de potencia descrita por la siguiente ecuación (<a href="#eq-potencia" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-potencia</span></a>):</p>
 <p><span id="eq-potencia"><span class="math display">\[
 WS = a \cdot \text{voltaje}^b \cdot \text{temp}^c
 \tag{4.6}\]</span></span></p>
 <p>Adicionalmente, se identificó un error sistemático en las lecturas de voltaje: en condiciones de viento nulo (0 m/s), el Wind Sensor registraba un desfase de 1.1621 V. Este error se corrigió restando 1.1621 V a cada medición, de modo que el voltaje empleado en el análisis reflejara únicamente la contribución del viento.</p>
-<p>Para facilitar el ajuste mediante técnicas de regresión, se aplicó una transformación logarítmica a ambos lados de la ecuación, lo que permitió convertir el modelo en una forma lineal (<a href="#eq-potencia-ln" class="quarto-xref">Ecuación&nbsp;<span>4.7</span></a>):</p>
+<p>Para facilitar el ajuste mediante técnicas de regresión, se aplicó una transformación logarítmica a ambos lados de la ecuación, lo que permitió convertir el modelo en una forma lineal (<a href="#eq-potencia-ln" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-potencia-ln</span></a>):</p>
 <p><span id="eq-potencia-ln"><span class="math display">\[
 \ln(WS) = \ln(a) + b \cdot \ln(\text{voltaje}) + c \cdot \ln(\text{temp})
 \tag{4.7}\]</span></span></p>
 <p>Esta transformación es crucial, ya que permite emplear técnicas de regresión lineal para estimar los parámetros <span class="math inline">\(ln(a)\)</span>, <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span> a partir de los datos experimentales. Una vez obtenidos, se recupera el parámetro <span class="math inline">\(a\)</span> mediante la función exponencial <span class="math inline">\((a = exp(ln(a)))\)</span> y se formula la ecuación de calibración en su forma original. En este dominio lineal, se utilizó la librería <code>scikit-learn</code> de Python para estimar los parámetros del modelo.</p>
 <p>Adicionalmente, se identificó un error sistemático en las lecturas de voltaje: en condiciones de viento nulo (0 m/s), el Wind Sensor registraba un desfase de 1.1621 V. Este error se corrigió restando 1.1621 V a cada medición, de modo que el voltaje empleado en el análisis reflejara únicamente la contribución del viento.</p>
-<p>Para el caso elegido, correspondiente a un remuestreo de 10 segundos, el proceso de regresión lineal en el dominio logarítmico produjo la siguiente ecuación de calibración (<a href="#eq-cal-viento" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a>):</p>
+<p>Para el caso elegido, correspondiente a un remuestreo de 10 segundos, el proceso de regresión lineal en el dominio logarítmico produjo la siguiente ecuación de calibración (<a href="#eq-cal-viento" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-cal-viento</span></a>):</p>
 <p><span id="eq-cal-viento"><span class="math display">\[
 WS = 26.3431 \cdot \text{voltage}^{1.4273} \cdot \text{temp}^{-0.7631}
 \tag{4.8}\]</span></span></p>
 <p>Esta ecuación se emplea para convertir las mediciones de voltaje (tras aplicar la corrección) y de temperatura en valores precisos de velocidad del viento (m/s).</p>
-<p>El coeficiente de correlación obtenido tras aplicar el modelo es un indicador de la calidad del ajuste. Valores de correlación cercanos a 1 implican una excelente concordancia entre las mediciones del Wind Sensor (tras la calibración) y las obtenidas con el WindMaster, lo que confirma que el modelo captura de manera adecuada la variabilidad de los datos. En la <a href="#tbl-corr-viento" class="quarto-xref">Tabla&nbsp;<span>4.5</span></a> se resumen los coeficientes de correlación para los diferentes intervalos de remuestreo.</p>
+<p>El coeficiente de correlación obtenido tras aplicar el modelo es un indicador de la calidad del ajuste. Valores de correlación cercanos a 1 implican una excelente concordancia entre las mediciones del Wind Sensor (tras la calibración) y las obtenidas con el WindMaster, lo que confirma que el modelo captura de manera adecuada la variabilidad de los datos. En la <a href="#tbl-corr-viento" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-corr-viento</span></a> se resumen los coeficientes de correlación para los diferentes intervalos de remuestreo.</p>
 <div id="tbl-corr-viento" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-corr-viento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -875,7 +875,7 @@ Tabla&nbsp;4.5: Coeficientes de correlación para los distinto remuestreos.
 </div>
 </figure>
 </div>
-<p>El aumento progresivo en el coeficiente de correlación, alcanzando 0.8637 para un remuestreo de 10 segundos, indica que el modelo de calibración y la corrección del desfase mejoran significativamente la consistencia de las mediciones del Wind Sensor con respecto al WindMaster. Estos hallazgos validan la eficacia del procedimiento de calibración y pueden observarse en la <a href="#fig-cviento" class="quarto-xref">Figura&nbsp;<span>4.12</span></a>.</p>
+<p>El aumento progresivo en el coeficiente de correlación, alcanzando 0.8637 para un remuestreo de 10 segundos, indica que el modelo de calibración y la corrección del desfase mejoran significativamente la consistencia de las mediciones del Wind Sensor con respecto al WindMaster. Estos hallazgos validan la eficacia del procedimiento de calibración y pueden observarse en la <a href="#fig-cviento" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-cviento</span></a>.</p>
 <div id="cell-fig-cviento" class="cell" data-execution_count="13">
 <div id="fig-cviento" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -894,7 +894,7 @@ Figura&nbsp;4.12: Comparación de las mediciones de velocidad del viento registr
 <h2 data-number="4.6" class="anchored" data-anchor-id="sec-hrco-b"><span class="header-section-number">4.6</span> Humedad relativa y CO<sub>2</sub></h2>
 <section id="scd30-1" class="level4">
 <h4 class="anchored" data-anchor-id="scd30-1">SCD30</h4>
-<p>Al igual que en el caso de la temperatura del aire, el SCD30 se utilizó para obtener mediciones de humedad relativa y concentraciones de CO<sub>2</sub>, empleándose nuevamente el Fluke 975 AirMeter (<a href="#fig-fluke" class="quarto-xref">Figura&nbsp;<span>4.4</span></a>) como instrumento de referencia. La recolección de datos se realizó durante la misma campaña, por lo que las condiciones ambientales y los procedimientos fueron idénticos a las descritas en la <a href="#sec-taire-b" class="quarto-xref"><span>Sección 4.3</span></a>. Los resultados obtenidos se muestran en la <a href="#fig-scd30" class="quarto-xref">Figura&nbsp;<span>4.13</span></a>.</p>
+<p>Al igual que en el caso de la temperatura del aire, el SCD30 se utilizó para obtener mediciones de humedad relativa y concentraciones de CO<sub>2</sub>, empleándose nuevamente el Fluke 975 AirMeter (<a href="#fig-fluke" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fluke</span></a>) como instrumento de referencia. La recolección de datos se realizó durante la misma campaña, por lo que las condiciones ambientales y los procedimientos fueron idénticos a las descritas en la <a href="#sec-taire-b" class="quarto-xref"><span class="quarto-unresolved-ref">sec-taire-b</span></a>. Los resultados obtenidos se muestran en la <a href="#fig-scd30" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-scd30</span></a>.</p>
 <div id="cell-fig-scd30" class="cell" data-execution_count="14">
 <div id="fig-scd30" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -907,7 +907,7 @@ Figura&nbsp;4.13: Comparación de las mediciones de humedad relativa y CO<sub>2<
 </figure>
 </div>
 </div>
-<p>Se obtuvieron el Error Medio (EM) y el Error Absoluto Medio (EAM) para evaluar la discrepancia entre las mediciones del SCD30 y el Fluke. La tabla <a href="#tbl-error-scd30" class="quarto-xref">Tabla&nbsp;<span>4.6</span></a> muestra que, en el caso de la humedad relativa, el SCD30 subestima en promedio 2.1681 unidades respecto al Fluke. En contraste, para la concentración de CO₂ se observa una sobreestimación promedio de 9.6543 unidades. Además, el hecho de que el EAM para el CO<sub>2</sub> sea mayor que el EM indica una mayor dispersión en las mediciones de este parámetro.</p>
+<p>Se obtuvieron el Error Medio (EM) y el Error Absoluto Medio (EAM) para evaluar la discrepancia entre las mediciones del SCD30 y el Fluke. La tabla <a href="#tbl-error-scd30" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-error-scd30</span></a> muestra que, en el caso de la humedad relativa, el SCD30 subestima en promedio 2.1681 unidades respecto al Fluke. En contraste, para la concentración de CO₂ se observa una sobreestimación promedio de 9.6543 unidades. Además, el hecho de que el EAM para el CO<sub>2</sub> sea mayor que el EM indica una mayor dispersión en las mediciones de este parámetro.</p>
 <div id="tbl-error-scd30" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-error-scd30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -938,7 +938,7 @@ Tabla&nbsp;4.6: Error medio y error medio absoluto para cada la humedad relativa
 </div>
 </figure>
 </div>
-<p>La correlación entre las mediciones de ambos instrumentos se visualiza en la <a href="#fig-cscd30" class="quarto-xref">Figura&nbsp;<span>4.14</span></a>.</p>
+<p>La correlación entre las mediciones de ambos instrumentos se visualiza en la <a href="#fig-cscd30" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-cscd30</span></a>.</p>
 <div id="cell-fig-cscd30" class="cell" data-execution_count="15">
 <div id="fig-cscd30" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -974,7 +974,7 @@ Figura&nbsp;4.15: TES-1356 Sound Level Calibrator.
 <h2 data-number="4.8" class="anchored" data-anchor-id="sec-ilum-b"><span class="header-section-number">4.8</span> Iluminancia</h2>
 <section id="fisheye" class="level4">
 <h4 class="anchored" data-anchor-id="fisheye">Fisheye</h4>
-<p>En el caso de la luminancia, no se realizó ningún proceso de calibración o referenciación. Se empleó la cámara Arducam 5MP OV5647 Ultra Wide Angle en conjunto con el software <code>Radiance</code>. Se desarrolló un script, descrito en la sección <a href="chapter_3.html#sec-diseno" class="quarto-xref"><span>Sección 3.1</span></a>, que calcula la iluminancia total mediante la integración del mapa de iluminancia (<a href="#fig-ilum" class="quarto-xref">Figura&nbsp;<span>4.16</span></a>) generado a partir de las imágenes capturadas. El proceso inicia con la creación de una imagen HDR a partir de la fusión de fotografías tomadas a diferentes exposiciones, lo que permite capturar la mayor cantidad de información posible sobre la intensidad luminosa. Posteriormente, a esta imagen HDR se le aplica una escala de <em>false color</em> para identificar los valores de iluminancia en cada punto de la imagen. El cálculo de la integral para el mapa generado facilita la determinación de la iluminancia total del espacio interior en el momento de la captura. Además, el mismo script se encarga de enviar el valor de la iluminancia total a <code>ThingsBoard</code>, conforme se detalla en la sección <a href="#sec-obtencion" class="quarto-xref"><span>Sección 4.2</span></a>.</p>
+<p>En el caso de la luminancia, no se realizó ningún proceso de calibración o referenciación. Se empleó la cámara Arducam 5MP OV5647 Ultra Wide Angle en conjunto con el software <code>Radiance</code>. Se desarrolló un script, descrito en la sección <a href="#sec-diseno" class="quarto-xref"><span class="quarto-unresolved-ref">sec-diseno</span></a>, que calcula la iluminancia total mediante la integración del mapa de iluminancia (<a href="#fig-ilum" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-ilum</span></a>) generado a partir de las imágenes capturadas. El proceso inicia con la creación de una imagen HDR a partir de la fusión de fotografías tomadas a diferentes exposiciones, lo que permite capturar la mayor cantidad de información posible sobre la intensidad luminosa. Posteriormente, a esta imagen HDR se le aplica una escala de <em>false color</em> para identificar los valores de iluminancia en cada punto de la imagen. El cálculo de la integral para el mapa generado facilita la determinación de la iluminancia total del espacio interior en el momento de la captura. Además, el mismo script se encarga de enviar el valor de la iluminancia total a <code>ThingsBoard</code>, conforme se detalla en la sección <a href="#sec-obtencion" class="quarto-xref"><span class="quarto-unresolved-ref">sec-obtencion</span></a>.</p>
 <div id="fig-ilum" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ilum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Confort térmico, acústico, lumínico y calidad del aire – Desarrollo e implementación con tecnologías libres de un dispositivo portátil para evaluar el confort térmico, lumínico y acústico en interiores</title>
+<title>2&nbsp; Confort térmico, acústico, lumínico, calidad del aire e implementación del DTHIS-C – Desarrollo e implementación con tecnologías libres de un dispositivo portátil para evaluar el confort térmico, lumínico y acústico en interiores</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter_2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico y calidad del aire</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter_2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico, calidad del aire e implementación del DTHIS-C</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -173,13 +173,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al confort en espacios interiores y el desarrollo del DTHIS-C</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al confort en espacios interiores</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter_2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico y calidad del aire</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico, calidad del aire e implementación del DTHIS-C</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -216,14 +216,27 @@ window.Quarto = {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#sec-termico" id="toc-sec-termico" class="nav-link active" data-scroll-target="#sec-termico"><span class="header-section-number">2.1</span> Confort térmico</a></li>
-  <li><a href="#variables-físicas-del-confort-térmico" id="toc-variables-físicas-del-confort-térmico" class="nav-link" data-scroll-target="#variables-físicas-del-confort-térmico"><span class="header-section-number">2.2</span> Variables físicas del confort térmico</a></li>
-  <li><a href="#sec-acustico" id="toc-sec-acustico" class="nav-link" data-scroll-target="#sec-acustico"><span class="header-section-number">2.3</span> Confort acústico</a></li>
-  <li><a href="#variables-físicas-del-confort-acústico" id="toc-variables-físicas-del-confort-acústico" class="nav-link" data-scroll-target="#variables-físicas-del-confort-acústico"><span class="header-section-number">2.4</span> Variables físicas del confort acústico</a></li>
-  <li><a href="#sec-luminico" id="toc-sec-luminico" class="nav-link" data-scroll-target="#sec-luminico"><span class="header-section-number">2.5</span> Confort lumínico</a></li>
-  <li><a href="#variables-físicas-del-confort-lumínico" id="toc-variables-físicas-del-confort-lumínico" class="nav-link" data-scroll-target="#variables-físicas-del-confort-lumínico"><span class="header-section-number">2.6</span> Variables físicas del confort lumínico</a></li>
-  <li><a href="#sec-calidad" id="toc-sec-calidad" class="nav-link" data-scroll-target="#sec-calidad"><span class="header-section-number">2.7</span> Calidad del aire</a></li>
-  <li><a href="#variables-físicas-de-la-calidad-del-aire" id="toc-variables-físicas-de-la-calidad-del-aire" class="nav-link" data-scroll-target="#variables-físicas-de-la-calidad-del-aire"><span class="header-section-number">2.8</span> Variables físicas de la calidad del aire</a></li>
+  <li><a href="#sec-termico" id="toc-sec-termico" class="nav-link active" data-scroll-target="#sec-termico"><span class="header-section-number">2.1</span> Confort térmico</a>
+  <ul>
+  <li><a href="#variables-físicas-del-confort-térmico" id="toc-variables-físicas-del-confort-térmico" class="nav-link" data-scroll-target="#variables-físicas-del-confort-térmico">Variables físicas del confort térmico</a></li>
+  </ul></li>
+  <li><a href="#sec-acustico" id="toc-sec-acustico" class="nav-link" data-scroll-target="#sec-acustico"><span class="header-section-number">2.2</span> Confort acústico</a>
+  <ul>
+  <li><a href="#variables-físicas-del-confort-acústico" id="toc-variables-físicas-del-confort-acústico" class="nav-link" data-scroll-target="#variables-físicas-del-confort-acústico">Variables físicas del confort acústico</a></li>
+  </ul></li>
+  <li><a href="#sec-luminico" id="toc-sec-luminico" class="nav-link" data-scroll-target="#sec-luminico"><span class="header-section-number">2.3</span> Confort lumínico</a>
+  <ul>
+  <li><a href="#variables-físicas-del-confort-lumínico" id="toc-variables-físicas-del-confort-lumínico" class="nav-link" data-scroll-target="#variables-físicas-del-confort-lumínico">Variables físicas del confort lumínico</a></li>
+  </ul></li>
+  <li><a href="#sec-calidad" id="toc-sec-calidad" class="nav-link" data-scroll-target="#sec-calidad"><span class="header-section-number">2.4</span> Calidad del aire</a>
+  <ul>
+  <li><a href="#variables-físicas-de-la-calidad-del-aire" id="toc-variables-físicas-de-la-calidad-del-aire" class="nav-link" data-scroll-target="#variables-físicas-de-la-calidad-del-aire">Variables físicas de la calidad del aire</a></li>
+  </ul></li>
+  <li><a href="#sec-dthis-c" id="toc-sec-dthis-c" class="nav-link" data-scroll-target="#sec-dthis-c"><span class="header-section-number">2.5</span> Implementación del DTHIS-C</a>
+  <ul>
+  <li><a href="#modelo-de-confort-pmv" id="toc-modelo-de-confort-pmv" class="nav-link" data-scroll-target="#modelo-de-confort-pmv">Modelo de confort PMV</a></li>
+  <li><a href="#relevancia-del-modelo-pmv-en-el-dthis-c" id="toc-relevancia-del-modelo-pmv-en-el-dthis-c" class="nav-link" data-scroll-target="#relevancia-del-modelo-pmv-en-el-dthis-c">Relevancia del modelo PMV en el DTHIS-C</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -232,7 +245,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="cap-confort" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico y calidad del aire</span></span></h1>
+<h1 class="title"><span id="cap-confort" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico, calidad del aire e implementación del DTHIS-C</span></span></h1>
 </div>
 
 
@@ -249,72 +262,305 @@ window.Quarto = {
 </header>
 
 
-<p>En este capítulo se exploran los conceptos de confort térmico, acústico, lumínico y la calidad del aire en espacios cerrados, destacando las principales variables físicas que influyen en cada uno de ellos.</p>
+<p>En este capítulo se abordan los conceptos de confort térmico, acústico, lumínico y calidad del aire en espacios cerrados, con énfasis en las principales variables físicas que inciden en cada uno de ellos. Asimismo, se introduce el Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS-C) y se analiza el modelo de confort PMV, que permite entender cómo las expectativas de los usuarios varían según el clima y el contexto, y que ha servido como marco conceptual para seleccionar los parámetros ambientales que monitorea el DTHIS-C.</p>
 <section id="sec-termico" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-termico"><span class="header-section-number">2.1</span> Confort térmico</h2>
-<p>El confort térmico se define como una condición mental que refleja la satisfacción con el entorno térmico, de acuerdo con el estándar <span class="citation" data-cites="ashrae55">ASHRAE-55 (<a href="references.html#ref-ashrae55" role="doc-biblioref">2021</a>)</span>.</p>
-<p>Según <span class="citation" data-cites="djongyang">Djongyang, Tchinda, y Njomo (<a href="references.html#ref-djongyang" role="doc-biblioref">2010</a>)</span>, el confort térmico se alcanza cuando la temperatura corporal se mantiene dentro de rangos estrechos, la humedad en la piel es baja y el esfuerzo fisiológico para regular la temperatura es mínimo. Además, el confort no solo depende de factores ambientales, sino también de diferentes aspectos, como el tipo de vestimenta, el tipo de actividad física, cambiar de postura o ubicación, abrir una ventana, etc.</p>
-</section>
-<section id="variables-físicas-del-confort-térmico" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="variables-físicas-del-confort-térmico"><span class="header-section-number">2.2</span> Variables físicas del confort térmico</h2>
+<p>De acuerdo con la Sociedad Estadounidense de Ingenieros de Calefacción, Refrigeración y Aire Acondicionado (ASHRAE, por sus iniciales en inglés <em>American Society of Heating, Refrigerating and Air-Conditioning Engineers</em>) en el estándar <span class="citation" data-cites="ashrae55">ASHRAE-55 (<a href="references.html#ref-ashrae55" role="doc-biblioref">2021</a>)</span>, el confort térmico se define como una condición mental que refleja la satisfacción con el entorno térmico. A partir de esta definición, según <span class="citation" data-cites="castilla">Castilla et&nbsp;al. (<a href="references.html#ref-castilla" role="doc-biblioref">2010</a>)</span>, se deduce que el juicio del confort es un proceso cognitivo influido tanto por factores ambientales como por aspectos personales y comportamentales.</p>
+<p>En efecto, la percepción del confort no depende únicamente de la temperatura, la humedad, la velocidad del aire y otros parámetros físicos, sino también de variables como el tipo de vestimenta, la intensidad y duración de la actividad física, y la variación en la postura o ubicación del individuo. Por ejemplo, en condiciones de frío, abrir una ventana puede resultar contraproducente, mientras que en ambientes cálidos, una ventilación adecuada puede mejorar significativamente la sensación térmica. Cada uno de estos factores influye en la percepción individual del confort y debe considerarse para lograr un entorno interior confortable <span class="citation" data-cites="ashrae55">(ASHRAE-55, <a href="references.html#ref-ashrae55" role="doc-biblioref">2021</a>)</span>.</p>
+<section id="variables-físicas-del-confort-térmico" class="level4">
+<h4 class="anchored" data-anchor-id="variables-físicas-del-confort-térmico">Variables físicas del confort térmico</h4>
 <p><span class="citation" data-cites="macpherson">Macpherson (<a href="references.html#ref-macpherson" role="doc-biblioref">1962</a>)</span> identificó seis factores determinantes que afectan la sensación térmica en los espacios cerrados. Entre ellos, cuatro son variables físicas: temperatura del aire, velocidad del aire, humedad relativa y temperatura media radiante; y dos son variables personales: el aislamiento térmico de la ropa y el nivel de actividad física, también conocido como tasa metabólica. Estos factores constituyen la base para el análisis y predicción del confort térmico.</p>
 <p>Acorde a <span class="citation" data-cites="ashrae55">ASHRAE-55 (<a href="references.html#ref-ashrae55" role="doc-biblioref">2021</a>)</span>, dichas variables se definen de la siguiente manera:</p>
 <ol type="1">
-<li><p><strong>Temperatura del aire</strong>: La temperatura medida en un punto específico del aire.</p></li>
+<li><p><strong>Temperatura del aire</strong>: La temperatura de bulbo seco medida en un punto específico del aire.</p></li>
+<li><p><strong>Temperatura media radiante</strong>: Es la temperatura uniforme de un entorno hipotético en el que el intercambio de calor por radiación entre una persona y las superficies circundantes sería igual al intercambio real de calor por radiación en el entorno actual.</p></li>
 <li><p><strong>Velocidad del aire</strong>: La magnitud del movimiento del aire en un punto determinado, sin considerar su dirección.</p></li>
-<li><p><strong>Humedad</strong>: Representa el contenido de humedad en el aire y se expresa mediante varias variables termodinámicas, como presión de vapor, temperatura de punto de rocío, temperatura de bulbo húmedo, relación de humedad y humedad relativa. Su promedio espacial y temporal se calcula de manera similar al de la temperatura del aire.</p></li>
-<li><p><strong>Temperatura media radiante (<span class="math inline">\(t_{r}\)</span>)</strong>: La temperatura de un recinto negro y uniforme que intercambia con el ocupante la misma cantidad de calor por radiación que el entorno real. Este valor único aplica a todo el cuerpo y considera tanto la temperatura radiante media de onda larga (<span class="math inline">\(t_{rlw}\)</span>) como la de onda corta (<span class="math inline">\(t_{rsw}\)</span>).</p></li>
-<li><p><strong>Aislamiento térmico de la ropa (<span class="math inline">\(I_{cl}\)</span>)</strong>: La resistencia al intercambio de calor sensible proporcionada por un conjunto de ropa, expresada en unidades de “clo”. <em>Nota informativa</em>: Esta definición incluye la transferencia de calor de todo el cuerpo, incluyendo las áreas no cubiertas, como la cabeza y las manos.</p></li>
-<li><p><strong>Tasa metabólica (<span class="math inline">\(met\)</span>)</strong>: La tasa a la que se transforma la energía química en calor y trabajo mecánico debido a las actividades metabólicas de un individuo. Se mide por unidad de área de superficie de la piel y se expresa en “met”, equivalente a 58.2 W/m<sup>2</sup>, que corresponde a la energía generada por unidad de superficie de piel de una persona promedio en reposo.</p></li>
+<li><p><strong>Humedad relativa del aire</strong>: Es la proporción entre la cantidad actual de vapor de agua en el aire y la cantidad máxima que éste puede contener a una temperatura determinada, expresada en porcentaje. Un 100% indica que el aire está saturado de vapor de agua <span class="citation" data-cites="udg">(<a href="references.html#ref-udg" role="doc-biblioref">Gómez et&nbsp;al. 2024</a>)</span>.</p></li>
+<li><p><strong>Aislamiento térmico de la ropa</strong>: Es la resistencia al intercambio de calor sensible proporcionada por un conjunto de ropa, expresada en unidades de “clo”. El valor de 1 clo es equivalente al aislamiento proporcionado por un traje típico de negocios, <span class="math inline">\(\approx\)</span> 0.155 m<sup>2</sup><span class="math inline">\(\cdot\)</span>K/W</p></li>
+<li><p><strong>Tasa metabólica</strong>: La tasa a la que se transforma la energía química en calor y trabajo mecánico debido a las actividades metabólicas de un individuo. Se mide por unidad de área de superficie de la piel y se expresa en “met”. El valor de 1 met es equivalente a 58.2 W/m<sup>2</sup>, que corresponde a la potencia generada por unidad de superficie de piel de una persona promedio en reposo.</p></li>
 </ol>
 </section>
-<section id="sec-acustico" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="sec-acustico"><span class="header-section-number">2.3</span> Confort acústico</h2>
-<p>El confort acústico se define como “un estado de satisfacción con las condiciones acústicas”, representa el bienestar y la percepción positiva de un entorno en términos sonoros. Sin embargo, este confort es altamente subjetivo, ya que fuentes de ruido con características físicas similares pueden percibirse de manera distinta dependiendo de la persona. <span class="citation" data-cites="antoniadou">Antoniadou y Papadopoulos (<a href="references.html#ref-antoniadou" role="doc-biblioref">2017</a>)</span> <span class="citation" data-cites="azar">Azar et&nbsp;al. (<a href="references.html#ref-azar" role="doc-biblioref">2020</a>)</span></p>
 </section>
-<section id="variables-físicas-del-confort-acústico" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="variables-físicas-del-confort-acústico"><span class="header-section-number">2.4</span> Variables físicas del confort acústico</h2>
+<section id="sec-acustico" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-acustico"><span class="header-section-number">2.2</span> Confort acústico</h2>
+<p>El confort acústico se define como un estado de satisfacción con las condiciones acústicas, representa el bienestar y la percepción positiva de un entorno en términos sonoros. Sin embargo, este confort es altamente subjetivo, ya que fuentes de ruido con características físicas similares pueden percibirse de manera distinta dependiendo de la persona [<span class="citation" data-cites="antoniadou">Antoniadou y Papadopoulos (<a href="references.html#ref-antoniadou" role="doc-biblioref">2017</a>)</span>]<span class="citation" data-cites="azar">(<a href="references.html#ref-azar" role="doc-biblioref">Azar et&nbsp;al. 2020</a>)</span>.</p>
+<section id="variables-físicas-del-confort-acústico" class="level4">
+<h4 class="anchored" data-anchor-id="variables-físicas-del-confort-acústico">Variables físicas del confort acústico</h4>
+<p>La principal variable utilizada para evaluar el confort acústico es el nivel de presión sonora, ya que permite cuantificar la intensidad del sonido percibido y relacionarla con los efectos que este puede generar en las personas. Esta medida permite distinguir componentes clave como el sonido y el ruido, cuya comprensión es esencial para interpretar el fenómeno acústico. A partir de ello, se consideran otros factores que también afectan la percepción del confort, como la frecuencia, duración, variación temporal y fuente del sonido.</p>
+<ul>
+<li><p><strong>Sonido</strong>: Se define como una perturbación en la presión atmosférica generada por la oscilación de partículas, a través de las cuales se propaga una onda mecánica de forma longitudinal en un medio elástico y denso. Esta onda sonora constituye el fenómeno físico, mientras que la percepción que produce en el sistema auditivo se conoce como fenómeno psicoacústico. En otras palabras, el sonido engloba tanto el evento físico, así como la experiencia auditiva que dicha vibración genera en el oyente <span class="citation" data-cites="jaramillo">(<a href="references.html#ref-jaramillo" role="doc-biblioref">Jaramillo 2007</a>)</span>.</p></li>
+<li><p><strong>Ruido</strong>: Definido como un sonido no deseado, es decir, una perturbación auditiva que resulta molesta o desagradable para el oyente. Mientras que físicamente se puede describir de manera similar al sonido, su evaluación se basa en el impacto negativo que genera en la percepción auditiva <span class="citation" data-cites="jaramillo">(<a href="references.html#ref-jaramillo" role="doc-biblioref">Jaramillo 2007</a>)</span>.</p></li>
+</ul>
 <p><span class="citation" data-cites="azar">Azar et&nbsp;al. (<a href="references.html#ref-azar" role="doc-biblioref">2020</a>)</span> nombra dos tipos principales de ruido en los edificios:</p>
 <ul>
 <li><p><strong>Ruido estructural (por impacto)</strong>: Generado por impactos físicos o vibraciones sobre un elemento de la construcción.</p></li>
 <li><p><strong>Ruido aéreo</strong>: Transmitido a través del aire.</p></li>
 </ul>
-<p>El <strong>nivel de presión sonora</strong>, definido como la vibración del aire que constituye el sonido <span class="citation" data-cites="berglund">Berglund (<a href="references.html#ref-berglund" role="doc-biblioref">1999</a>)</span>, es uno de los principales factores acústicos que influyen en el confort. Un nivel neutral de presión sonora se encuentra en un rango de 30 a 40 <span class="math inline">\(dB\)</span> <span class="citation" data-cites="antoniadou">Antoniadou y Papadopoulos (<a href="references.html#ref-antoniadou" role="doc-biblioref">2017</a>)</span>. Para predecir el confort frente al ruido de impacto, se utiliza típicamente el nivel máximo de presión sonora (<span class="math inline">\(L_{max}\)</span>), mientras que para el ruido aéreo se emplea el nivel de presión sonora equivalente durante un periodo de tiempo determinado (<span class="math inline">\(L_{eq}\)</span>). <span class="citation" data-cites="azar">Azar et&nbsp;al. (<a href="references.html#ref-azar" role="doc-biblioref">2020</a>)</span></p>
+<p>El nivel de presión sonora (SPL, por sus siglas en inglés <em>Sound Pressure Level</em>) se define como la vibración del aire que constituye el sonido, medida en decibeles (<span class="math inline">\(dB\)</span>) en una escala logarítmica. Se expresa en relación con un valor de referencia de <span class="math inline">\(2 x 10^{-5} Pa\)</span> (el umbral de audición a 1,000 Hz), lo que sitúa el rango audible aproximadamente entre 0 y 140 <span class="math inline">\(dB\)</span> <span class="citation" data-cites="jaramillo">(<a href="references.html#ref-jaramillo" role="doc-biblioref">Jaramillo 2007</a>)</span>. Este parámetro es uno de los principales factores que influyen en el confort acústico, ya que permite evaluar cómo diferentes niveles de presión sonora afectan la percepción del ruido. Para predecir el confort frente al ruido de impacto se utiliza típicamente el nivel máximo de presión sonora, mientras que para el ruido aéreo se emplea el nivel de presión sonora equivalente medido durante un periodo determinado <span class="citation" data-cites="berglund">(<a href="references.html#ref-berglund" role="doc-biblioref">Berglund 1999</a>)</span> <span class="citation" data-cites="azar">(<a href="references.html#ref-azar" role="doc-biblioref">Azar et&nbsp;al. 2020</a>)</span>.</p>
+<p>En el eje de la frecuencia el oído humano reconoce sonidos aproximadamente entre 20 y 20,000 <span class="math inline">\(Hz\)</span>, y en el eje de la amplitud aproximadamente entre 0 y 140 <span class="math inline">\(dB\)</span>. Sin embargo, la percepción del oído humano no es lineal a todas las frecuencias. El oído humano responde al sonido en forma logarítmica, existiendo así diferencias en escala de 1: 5,000,000 dentro del rango audible. Por ello se ha recurrido al uso de una unidad logarítmica: el decibel (<span class="math inline">\(dB\)</span>) <span class="citation" data-cites="jaramillo">(<a href="references.html#ref-jaramillo" role="doc-biblioref">Jaramillo 2007</a>)</span>.</p>
+<p>Para relacionar los niveles de presión sonora medidos con la percepción auditiva humana, se emplean curvas de ponderación. Estas curvas asignan un valor al SPL de cada frecuencia de acuerdo con la sonoridad que ésta produce en el oído. En particular, la red A (<a href="#tbl-ponderacion" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-ponderacion</span></a>) pondera los sonidos de forma similar a la respuesta auditiva, siendo especialmente útil para sonidos de bajo SPL al aplicar una fuerte ponderación a las frecuencias bajas. A medida que aumenta el nivel de presión sonora, la percepción de sonoridad se iguala en las distintas frecuencias; tras aplicar la ponderación, los niveles medidos se expresan en <span class="math inline">\(dBA\)</span> <span class="citation" data-cites="jaramillo">(<a href="references.html#ref-jaramillo" role="doc-biblioref">Jaramillo 2007</a>)</span>.</p>
+<div id="tbl-ponderacion" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ponderacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.1: Red de ponderación A.
+</figcaption>
+<div aria-describedby="tbl-ponderacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-hover table-sm small caption-top table">
+<thead>
+<tr class="header">
+<th>Octava de frecuencias (Hz)</th>
+<th>Ponderación (dB)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>63</td>
+<td>-26</td>
+</tr>
+<tr class="even">
+<td>125</td>
+<td>-16</td>
+</tr>
+<tr class="odd">
+<td>250</td>
+<td>-9</td>
+</tr>
+<tr class="even">
+<td>500</td>
+<td>-3</td>
+</tr>
+<tr class="odd">
+<td>1,000</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2,000</td>
+<td>+1</td>
+</tr>
+<tr class="odd">
+<td>4,000</td>
+<td>+1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Asi:</p>
+<ul>
+<li><p>90 <span class="math inline">\(dB\)</span> a 500 <span class="math inline">\(Hz\)</span> equivalen a 87 <span class="math inline">\(dBA\)</span>.</p></li>
+<li><p>57 <span class="math inline">\(dB\)</span> a 63 <span class="math inline">\(Hz\)</span>, 31 <span class="math inline">\(dBA\)</span>.</p></li>
+<li><p>68 <span class="math inline">\(dB\)</span> a 4,000 <span class="math inline">\(Hz\)</span>, 69 $dBA.</p></li>
+</ul>
+<p>De esta manera, la red de ponderación A acerca más los valores medidos físicamente a los estímulos auditivos que estos producen. Los <span class="math inline">\(dBA\)</span> son ampliamente utilizados para estudios de ruido y salud auditiva <span class="citation" data-cites="jaramillo">(<a href="references.html#ref-jaramillo" role="doc-biblioref">Jaramillo 2007</a>)</span>. La <a href="#tbl-efectos" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-efectos</span></a> y la <a href="#tbl-exposicion" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-exposicion</span></a> proporcionan una referencia clara sobre la escala de niveles sonoros y la duración de la exposición en la que estos niveles pueden resultar molestos e incluso perjudiciales para la salud.</p>
+<div id="tbl-efectos" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-efectos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.2: Efectos de los niveles sonoros en dBA.
+</figcaption>
+<div aria-describedby="tbl-efectos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-hover table-sm small caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nivel (dBA)</th>
+<th>Efecto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>150 dBA</td>
+<td>Causa pérdida inmediata de la audición</td>
+</tr>
+<tr class="even">
+<td>120 dBA</td>
+<td>Extremadamente doloroso</td>
+</tr>
+<tr class="odd">
+<td>100 dBA</td>
+<td>Cortos periodos de exposición causan pérdida temporal de la agudeza auditiva; exposición prolongada causa daño irreparable</td>
+</tr>
+<tr class="even">
+<td>90 dBA</td>
+<td>Muchos años de exposición causan pérdidas auditivas permanentes</td>
+</tr>
+<tr class="odd">
+<td>65 dBA</td>
+<td>Largos periodos de exposición causan fatiga mental y física</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="tbl-exposicion" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-exposicion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.3: Niveles máximos de exposición recomendados en dBA.
+</figcaption>
+<div aria-describedby="tbl-exposicion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-hover table-sm small caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Duración de la exposición (horas)</th>
+<th>Nivel sonoro máximo recomendado (dBA)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>8</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>92</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>97</td>
+</tr>
+<tr class="odd">
+<td>1.5</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>102</td>
+</tr>
+<tr class="odd">
+<td>0.5</td>
+<td>105</td>
+</tr>
+<tr class="even">
+<td>0.25</td>
+<td>110</td>
+</tr>
+<tr class="odd">
+<td>Menos de 0.25</td>
+<td>115</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <p>Asimismo <span class="citation" data-cites="berglund">Berglund (<a href="references.html#ref-berglund" role="doc-biblioref">1999</a>)</span>, enumera ciertos factores acústicos que impactan el confort acústico:</p>
 <ol type="1">
-<li><p><strong>Frecuencia del ruido</strong>: Su unidad de medida son los Hertz (<span class="math inline">\(Hz\)</span>) y se refiere al número de vibraciones por segundo del aire en el cual el sonido es propagado. El rango de frecuencia audible normalmente se encuentra en un rango de 20-20,000 <span class="math inline">\(Hz\)</span>.</p></li>
-<li><p><strong>Fuente del ruido</strong>: Se mencionan diferentes fuentes, las cuales pueden ser industrial, de transporte, construcción y doméstico.</p></li>
-<li><p><strong>Duración del ruido</strong></p></li>
+<li><p><strong>Frecuencia del ruido</strong>: Su unidad de medida son los hertz (<span class="math inline">\(Hz\)</span>) y se refiere al número de periodos o vibraciones de una onda sonora que se producen por segundo. El rango de frecuencia audible normalmente se encuentra en un rango de 20-20,000 <span class="math inline">\(Hz\)</span>, las frecuencias bajas se perciben como graves y las altas como agudas.</p></li>
+<li><p><strong>Fuente del ruido</strong>: Existen diferentes fuentes, las cuales pueden ser industrial, de transporte, construcción y doméstico.</p></li>
+<li><p><strong>Duración del ruido</strong>: Se refiere al periodo de tiempo durante el cual un sonido o fuente sonora está presente en el ambiente.</p></li>
 <li><p><strong>Variación en el tiempo</strong>: Existen variaciones de la presión sonora que suelen causar mayor disconfort auditivo. Por ejemplo, los ruidos que varían periódicamente para crear una sensación de pulsación pueden ser más molestos que el ruido continuo, las variaciones de aproximadamente 4 por segundo podrían ser más perturbadoras.</p></li>
 </ol>
 </section>
-<section id="sec-luminico" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="sec-luminico"><span class="header-section-number">2.5</span> Confort lumínico</h2>
-<p>El confort lumínico se refiere a la percepción de bienestar visual en un espacio, permitiendo que las personas realicen sus actividades cotidianas de manera efectiva y cómoda bajo condiciones de iluminación adecuadas. <span class="citation" data-cites="vasquez">Vásquez et&nbsp;al. (<a href="references.html#ref-vasquez" role="doc-biblioref">2019</a>)</span></p>
 </section>
-<section id="variables-físicas-del-confort-lumínico" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="variables-físicas-del-confort-lumínico"><span class="header-section-number">2.6</span> Variables físicas del confort lumínico</h2>
+<section id="sec-luminico" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-luminico"><span class="header-section-number">2.3</span> Confort lumínico</h2>
+<p>El confort lumínico se refiere a la percepción de bienestar visual en un espacio, permitiendo que las personas realicen sus actividades cotidianas de manera efectiva y cómoda bajo condiciones de iluminación adecuadas <span class="citation" data-cites="vasquez">(<a href="references.html#ref-vasquez" role="doc-biblioref">Vásquez et&nbsp;al. 2019</a>)</span>.</p>
+<section id="variables-físicas-del-confort-lumínico" class="level4">
+<h4 class="anchored" data-anchor-id="variables-físicas-del-confort-lumínico">Variables físicas del confort lumínico</h4>
+<p>La luz es una radiación electromagnética que el ojo humano puede percibir en longitudes de onda que van desde los 380 nm hasta los 760 nm. Estas longitudes de onda, o frecuencias, corresponden a los diferentes colores del espectro visible <span class="citation" data-cites="bluyssen">(<a href="references.html#ref-bluyssen" role="doc-biblioref">Bluyssen 2009</a>)</span>.</p>
 <p>Según se describe en la norma ISO EN 12464-1 <span class="citation" data-cites="light">Standard (<a href="references.html#ref-light" role="doc-biblioref">2011</a>)</span>, la evaluación del confort lumínico puede lograrse mediante la determinación de: la luminancia y la iluminancia.</p>
 <ol type="1">
-<li><p><strong>Luminancia</strong>: Su unidad de medida es la candela por metro cuadrado (<span class="math inline">\(cd/m^2\)</span>) y se define como la densidad de la intensidad luminosa en una dirección específica, por unidad de área proyectada en un punto determinado de una superficie real o imaginaria. <span class="citation" data-cites="cie_lum">CIE (<a href="references.html#ref-cie_lum" role="doc-biblioref">2020b</a>)</span></p>
-<p>Matemáticamente, se expresa como:</p>
-<p><span class="math inline">\(L_v = \frac{I_v}{A \cdot \cos(\alpha)}\)</span></p>
-<p>donde (<span class="math inline">\(L_v\)</span>) es la luminancia, (<span class="math inline">\(I_v\)</span>) representa la intensidad luminosa en la dirección especificada, (<span class="math inline">\(A\)</span>) es el área considerada, y (<span class="math inline">\(\alpha\)</span>) es el ángulo entre la normal a la superficie en el punto especificado y la dirección considerada.</p>
-<p>La luminancia cuantifica cuán brillante aparece una superficie cuando se observa desde una dirección específica, teniendo en cuenta tanto la intensidad de la luz emitida o reflejada como la geometría de la superficie.</p></li>
-<li><p><strong>Iluminancia</strong>: Su unidad de medida es el lux (<span class="math inline">\(lx\)</span>) y se define como la densidad del flujo luminoso incidente por unidad de área en un punto de una superficie real o imaginaria. <span class="citation" data-cites="cie_illum">CIE (<a href="references.html#ref-cie_illum" role="doc-biblioref">2020a</a>)</span></p>
-<p>Matemáticamente, se expresa como:</p>
-<p><span class="math inline">\(E_v = \frac{\Phi_v}{A}\)</span></p>
-<p>donde (<span class="math inline">\(E_v\)</span>) es la iluminancia, (<span class="math inline">\(\Phi_v\)</span>) representa el flujo luminoso incidente, y (<span class="math inline">\(A\)</span>) es el área sobre la cual incide el flujo luminoso.</p>
-<p>La iluminancia cuantifica la cantidad de luz que llega a una superficie específica, considerando tanto la intensidad de la luz como el área sobre la cual se distribuye.</p></li>
+<li><p><strong>Luminancia</strong>: Se define como la cantidad de luz emitida o reflejada por una superficie en una dirección específica, en relación con el área sobre la que se proyecta dicha luz. En otras palabras, es una medida que indica el nivel de brillo percibido en un punto determinado, su unidad de medida es la candela por metro cuadrado (<span class="math inline">\(cd/m^2\)</span>) <span class="citation" data-cites="cie">(<a href="references.html#ref-cie" role="doc-biblioref">Commission Internationale de l’Eclairage 2020</a>)</span>.</p></li>
+<li><p><strong>Iluminancia</strong>: Se define como la cantidad de flujo luminoso que incide sobre una superficie con relación al área sobre la que se distribuye. Esta medida cuantifica la luz recibida en un punto de una superficie, y es fundamental para evaluar el nivel de iluminación de un espacio, su unidad de medida es el lux (<span class="math inline">\(lx\)</span>) <span class="citation" data-cites="cie">(<a href="references.html#ref-cie" role="doc-biblioref">Commission Internationale de l’Eclairage 2020</a>)</span>.</p></li>
 </ol>
+<p>La <span class="citation" data-cites="nom025">Secretaría del Trabajo y Previsión Social (<a href="references.html#ref-nom025" role="doc-biblioref">2008</a>)</span> recomienda una iluminancia mínima de 300 lux en aulas y 500 lux para áreas de dibujo, laboratorios de cómputo y laboratorios.</p>
 </section>
-<section id="sec-calidad" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="sec-calidad"><span class="header-section-number">2.7</span> Calidad del aire</h2>
+</section>
+<section id="sec-calidad" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-calidad"><span class="header-section-number">2.4</span> Calidad del aire</h2>
 <p>De acuerdo con el estándar <span class="citation" data-cites="air">ASHRAE-62 (<a href="references.html#ref-air" role="doc-biblioref">2001</a>)</span>, se considera que el aire interior tiene una calidad aceptable cuando “no contiene contaminantes conocidos en concentraciones nocivas según lo establecido por las autoridades competentes y la mayoría sustancial de las personas expuestas (80% o más) no expresa insatisfacción”.</p>
+<section id="variables-físicas-de-la-calidad-del-aire" class="level4">
+<h4 class="anchored" data-anchor-id="variables-físicas-de-la-calidad-del-aire">Variables físicas de la calidad del aire</h4>
+<p>La calidad del aire interior se evalúa monitoreando la concentración de CO<sub>2</sub>, comparándola con los niveles exteriores (300-500 ppm). <span class="citation" data-cites="air">ASHRAE-62 (<a href="references.html#ref-air" role="doc-biblioref">2001</a>)</span> recomienda mantener concentraciones interiores entre 1000 y 1200 ppm para garantizar un ambiente adecuado y regular los sistemas de ventilación. Sin embargo, concentraciones superiores a 5000 ppm son peligrosas, ya que indican una ausencia total de aire fresco.</p>
+<p>Durante la pandemia de COVID-19 se evidenció que la concentración de CO<sub>2</sub> puede servir como un indicador indirecto del riesgo de transmisión aérea del virus. En espacios cerrados, niveles elevados de CO<sub>2</sub> señalan una ventilación insuficiente, lo que implica que una mayor proporción del aire inhalado ha sido exhalada por otros, y por lo tanto, puede contener aerosoles potencialmente virales. Modelos basados en la ecuación de Wells-Riley han demostrado que, a medida que aumenta la concentración de CO<sub>2</sub>, también se incrementa el riesgo de contagio, especialmente en ambientes mal ventilados y sin el uso adecuado de mascarillas. Por ello, se ha recomendado mantener los niveles de CO<sub>2</sub> por debajo de 700–800 ppm en espacios para minimizar este riesgo y asegurar una adecuada calidad del aire interior <span class="citation" data-cites="luna-gbv">(<a href="references.html#ref-luna-gbv" role="doc-biblioref">Luna Medina y Barrios del Valle 2022</a>)</span>.</p>
 </section>
-<section id="variables-físicas-de-la-calidad-del-aire" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="variables-físicas-de-la-calidad-del-aire"><span class="header-section-number">2.8</span> Variables físicas de la calidad del aire</h2>
-<p>La calidad del aire interior se evalúa monitoreando la <strong>concentración de CO<sub>2</sub></strong>, comparándola con los niveles exteriores (300-500 ppm). <span class="citation" data-cites="air">ASHRAE-62 (<a href="references.html#ref-air" role="doc-biblioref">2001</a>)</span> recomienda mantener concentraciones interiores entre 1000 y 1200 ppm para garantizar un ambiente adecuado y regular los sistemas de ventilación. Sin embargo, concentraciones superiores a 5000 ppm son peligrosas, ya que indican una ausencia total de aire fresco.</p>
+</section>
+<section id="sec-dthis-c" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="sec-dthis-c"><span class="header-section-number">2.5</span> Implementación del DTHIS-C</h2>
+<p>El Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS-C) es un equipo portátil desarrollado para medir, de forma simultánea y en tiempo real, diversas variables físicas que inciden directamente en el confort de los espacios interiores. Las variables evaluadas son las siguientes:</p>
+<ul>
+<li>Temperatura del aire</li>
+<li>Temperatura radiante</li>
+<li>Humedad relativa</li>
+<li>Velocidad del viento</li>
+<li>Concentración de CO<sub>2</sub></li>
+<li>Luminancia</li>
+<li>Niveles de sonido</li>
+</ul>
+<p>La versatilidad del DTHIS-C radica en su capacidad para integrar múltiples sensores en un solo dispositivo, lo que facilita el análisis y la monitorización continua de las variables ambientales. Su desarrollo se basa en tecnologías de bajo costo y alto rendimiento, posicionándolo como una alternativa viable a los equipos de medición tradicionales, que suelen ser más costosos y exclusivos. Esta herramienta podría contribuir a al diseño de espacios interiores confortables mediante la recopilación de datos exactos.</p>
+<section id="modelo-de-confort-pmv" class="level4">
+<h4 class="anchored" data-anchor-id="modelo-de-confort-pmv">Modelo de confort PMV</h4>
+<p>El modelo de confort térmico PMV (Predicted Mean Vote) es una herramienta predictiva ampliamente reconocida para evaluar la sensación térmica promedio de un grupo de personas en un ambiente interior. Este modelo estima la percepción térmica en una escala que va desde -3 (frío) hasta +3 (caliente), donde 0 representa una sensación térmica neutral, considerada ideal para el confort <span class="citation" data-cites="fanger">(Fanger, P. O., <a href="references.html#ref-fanger" role="doc-biblioref">1970</a>)</span>. El PMV se fundamenta en el balance de calor del cuerpo humano y toma en cuenta seis variables principales:</p>
+<ul>
+<li>Temperatura del aire: Temperatura ambiente del entorno.</li>
+<li>Temperatura radiante media: Influencia de las superficies radiantes circundantes.</li>
+<li>Velocidad del aire: Movimiento del aire en el espacio.</li>
+<li>Humedad relativa: Nivel de humedad en el ambiente.</li>
+<li>Tasa metabólica: Nivel de actividad física de los ocupantes.</li>
+<li>Aislamiento de la ropa: Capacidad térmica de la vestimenta.</li>
+</ul>
+<p>Estas variables se integran en una ecuación compleja (<a href="#eq-pmv" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-pmv</span></a>) que calcula el índice PMV, permitiendo predecir si un entorno es térmicamente confortable según las normas internacionales como ANSI/ASHRAE Standard 55 <span class="citation" data-cites="ashrae55">(<a href="references.html#ref-ashrae55" role="doc-biblioref">2021</a>)</span> e ISO 7730 <span class="citation" data-cites="iso7730">(<a href="references.html#ref-iso7730" role="doc-biblioref">2005</a>)</span>.</p>
+<p><span id="eq-pmv"><span class="math display">\[
+\begin{gather}
+\text{PMV} = \left[ 0.303 \cdot \exp(-0.036 \cdot M) + 0.028 \right] \cdot \Bigg\{ (M - W) \\
+- 3.05 \times 10^{-3} \cdot \big[ 5733 - 6.99 \cdot (M - W) - P_a \big] - 0.42 \cdot \big[ (M - W) \\
+- 58.15 \big] - 1.7 \times 10^{-5} \cdot M \cdot (5867 - P_a) - 0.0014 \cdot M \cdot (34 - t_a) \\
+- 3.96 \times 10^{-8} \cdot f_{cl} \cdot \big[ (t_{cl} + 273)^4 - (t_r + 273)^4 \big] \\
+- f_{cl} \cdot h_c \cdot (t_{cl} - t_a) \Bigg\}
+\end{gather}
+\tag{2.1}\]</span></span></p>
+<p>La determinación de las variables intermedias que describen el intercambio de calor entre el cuerpo y su entorno se realiza mediante las ecuaciones <a href="#eq-tcl" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-tcl</span></a>, <a href="#eq-hc" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-hc</span></a>, <a href="#eq-fcl" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-fcl</span></a> y <a href="#eq-var" class="quarto-xref">Ecuación&nbsp;<span class="quarto-unresolved-ref">eq-var</span></a>, las cuales proporcionan los parámetros necesarios para evaluar el balance térmico y, en consecuencia, calcular el índice PMV.</p>
+<p><span id="eq-tcl"><span class="math display">\[
+\begin{gather}
+t_{cl} = 35.7 - 0.028 \cdot (M - W) - I_{cl} \cdot \Bigg\{ 3.96 \times 10^{-8} \cdot f_{cl} \cdot \big[(t_{cl} + 273)^4 \\
+- (\bar{t}_r + 273)^4\big] + f_{cl} \cdot h_c \cdot (t_{cl} - t_a) \Bigg\}
+\end{gather}
+\tag{2.2}\]</span></span></p>
+<p><span id="eq-hc"><span class="math display">\[
+h_c =
+\begin{cases}
+{2.38 \cdot |t_{cl} - t_a|^{0.25}} &amp; \text{si } 2.38 \cdot |t_{cl} - t_a|^{0.25} &gt; 12.1 \cdot \sqrt{v_{ar}} \\
+12.1 \cdot \sqrt{v_{ar}} &amp; \text{si } 2.38 \cdot |t_{cl} - t_a|^{0.25} &lt; 12.1 \cdot \sqrt{v_{ar}}
+\end{cases}
+\tag{2.3}\]</span></span></p>
+<p><span id="eq-fcl"><span class="math display">\[
+f_{cl} =
+\begin{cases}
+1.00 + 1.290 \cdot I_{cl} &amp; \text{si } I_{cl} \leq 0.078 \\
+1.00 + 0.645 \cdot I_{cl} &amp; \text{si } I_{cl} &gt; 0.078
+\end{cases}
+\tag{2.4}\]</span></span></p>
+<p><span id="eq-var"><span class="math display">\[
+v_{ar} = v_{air} + 0.3 \cdot (M - 1)
+\tag{2.5}\]</span></span></p>
+<p>donde:</p>
+<p><span class="math inline">\(M\)</span> : Tasa metabólica (<span class="math inline">\(W/m^2\)</span>)<br>
+<span class="math inline">\(W\)</span> : Trabajo mecánico externo (<span class="math inline">\(W/m^2\)</span>)<br>
+<span class="math inline">\(I_{cl}\)</span> : Aislamiento térmico de la ropa (<span class="math inline">\(m^2 \cdot °C/W\)</span>)<br>
+<span class="math inline">\(f_{cl}\)</span> : Factor de cobertura de la ropa (sin unidad)<br>
+<span class="math inline">\(t_a\)</span> : Temperatura del aire (°C)<br>
+<span class="math inline">\(\bar{t}_r\)</span> : Temperatura media radiante (°C)<br>
+<span class="math inline">\(p_a\)</span> : Presión parcial del vapor de agua (Pa)<br>
+<span class="math inline">\(v_{ar}\)</span> : Velocidad relativa del aire (m/s)<br>
+<span class="math inline">\(v_{air}\)</span> : Velocidad del aire (m/s)<br>
+<span class="math inline">\(h_c\)</span> : Coeficiente de transferencia de calor por convección (<span class="math inline">\(W/m^2 \cdot °C\)</span>)<br>
+<span class="math inline">\(t_{cl}\)</span> : Temperatura de la superficie de la ropa (°C)</p>
+</section>
+<section id="relevancia-del-modelo-pmv-en-el-dthis-c" class="level4">
+<h4 class="anchored" data-anchor-id="relevancia-del-modelo-pmv-en-el-dthis-c">Relevancia del modelo PMV en el DTHIS-C</h4>
+<p>El modelo PMV es fundamental en el diseño de espacios interiores confortables y eficientes, ya que proporciona un marco cuantitativo para evaluar cómo las condiciones ambientales y personales afectan la percepción térmica de los ocupantes. Su adopción en estándares como ASHRAE 55 lo posiciona como una referencia clave para el diseño de sistemas de calefacción, ventilación y aire acondicionado (HVAC, por sus siglas en inglés <em>Heating, ventilation, and air conditioning</em>). En el contexto de esta tesis, el PMV sirve como base teórica para comprender cómo optimizar las condiciones térmicas en entornos habitables, alineándose con el objetivo de garantizar el bienestar y la calidad de vida de los usuarios.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -333,17 +579,35 @@ Azar, Elie, William O’Brien, Salvatore Carlucci, Tianzhen Hong, Andrew Sonta, 
 <div id="ref-berglund" class="csl-entry" role="listitem">
 Berglund, B. 1999. <span>«Guidelines for community noise»</span>. <em>World Health Organization</em>.
 </div>
-<div id="ref-cie_illum" class="csl-entry" role="listitem">
-CIE. 2020a. <span>«Illuminance (17-21-060)»</span>. <a href="https://cie.co.at/eilvterm/17-21-060">https://cie.co.at/eilvterm/17-21-060</a>.
+<div id="ref-bluyssen" class="csl-entry" role="listitem">
+Bluyssen, Philomena. 2009. <em>The Indoor Environment Handbook: How to Make Buildings Healthy and Comfortable</em>. 1st Edition. London: Routledge. <a href="https://doi.org/10.4324/9781849774611">https://doi.org/10.4324/9781849774611</a>.
 </div>
-<div id="ref-cie_lum" class="csl-entry" role="listitem">
-———. 2020b. <span>«Luminance (17-21-050)»</span>. <a href="https://cie.co.at/eilvterm/17-21-050">https://cie.co.at/eilvterm/17-21-050</a>.
+<div id="ref-castilla" class="csl-entry" role="listitem">
+Castilla, M., J. D. Álvarez, M. Berenguel, M. Pérez, F. Rodríguez, y J. L. Guzmán. 2010. <span>«Técnicas de Control del Confort en Edificios»</span>. <em>Revista Iberoamericana de Automática e Informática Industrial RIAI</em> 7 (3): 5-24. <a href="https://doi.org/10.1016/S1697-7912(10)70038-8">https://doi.org/10.1016/S1697-7912(10)70038-8</a>.
 </div>
-<div id="ref-djongyang" class="csl-entry" role="listitem">
-Djongyang, Noël, René Tchinda, y Donatien Njomo. 2010. <span>«Thermal comfort: A review paper»</span>. <em>Renewable and Sustainable Energy Reviews</em> 14 (9): 2626-40. <a href="https://doi.org/10.1016/j.rser.2010.07.040">https://doi.org/10.1016/j.rser.2010.07.040</a>.
+<div id="ref-cie" class="csl-entry" role="listitem">
+Commission Internationale de l’Eclairage. 2020. <em>International Lighting Vocabulary</em>. 2.ª ed. CIE S 017:2020. Commission Internationale de l’Eclairage. <a href="https://cie.co.at/publications/ilv-international-lighting-vocabulary-2nd-edition-0">https://cie.co.at/publications/ilv-international-lighting-vocabulary-2nd-edition-0</a>.
+</div>
+<div id="ref-fanger" class="csl-entry" role="listitem">
+Fanger, P. O. 1970. <em>Thermal Comfort: Analysis and Applications in Environmental Engineering</em>. Copenhagen: Danish Technical Press. <a href="https://archive.org/details/thermalcomfortan0000fang">https://archive.org/details/thermalcomfortan0000fang</a>.
+</div>
+<div id="ref-udg" class="csl-entry" role="listitem">
+Gómez, J. E., J. D. de Luna, A. J. Núñez, y J. G. Pérez. 2024. <span>«Elementos de Climatología»</span>. Universidad de Guadalajara. <a href="http://cucsur.udgvirtual.udg.mx/oa/2024/ElemClima/humedad.html#">http://cucsur.udgvirtual.udg.mx/oa/2024/ElemClima/humedad.html#</a>.
+</div>
+<div id="ref-iso7730" class="csl-entry" role="listitem">
+International Standardization Organization (ISO). 2005. <span>«Ergonomics of the thermal environment-analytical determination and interpretation of the thermal comfort using calculation of the PMV and PPD indices and local thermal comfort»</span>. ISO Standard 7730. Geneva.
+</div>
+<div id="ref-jaramillo" class="csl-entry" role="listitem">
+Jaramillo, Ana María Jaramillo. 2007. <em>Acústica: la ciencia del sonido</em>. Itm.
+</div>
+<div id="ref-luna-gbv" class="csl-entry" role="listitem">
+Luna Medina, Nicté, y Guillermo Barrios del Valle. 2022. <span>«Monitores de CO₂ para la evaluación de espacios ventilados en el regreso a la presencialidad»</span>. Cuernavaca, Morelos, México: Academia de Ciencias de Morelos, A.C. <a href="https://acmor.org/publicaciones/monitores-de-co2-para-la-evaluaci-n-de-espacios-ventilados-en-el-regreso-a-la-presencialidad" class="uri">https://acmor.org/publicaciones/monitores-de-co2-para-la-evaluaci-n-de-espacios-ventilados-en-el-regreso-a-la-presencialidad</a>.
 </div>
 <div id="ref-macpherson" class="csl-entry" role="listitem">
 Macpherson, R. K. 1962. <span>«The assessment of the thermal environment: A review»</span>. <em>British Journal of Industrial Medicine</em> 19 (3): 151-64. <a href="https://doi.org/10.1136/oem.19.3.151">https://doi.org/10.1136/oem.19.3.151</a>.
+</div>
+<div id="ref-nom025" class="csl-entry" role="listitem">
+Secretaría del Trabajo y Previsión Social. 2008. <span>«Norma Oficial Mexicana NOM-025-STPS-2008, Condiciones de iluminación en los centros de trabajo»</span>. Disponible en línea en <a href="http://sidofqa.segob.gob.mx/notas/5076393" class="uri">http://sidofqa.segob.gob.mx/notas/5076393</a>.
 </div>
 <div id="ref-light" class="csl-entry" role="listitem">
 Standard, British. 2011. <span>«Light and lighting: Lighting of work places: Part 1: Indoor work places»</span>. <em>NS-EN 12464-1: 2011</em>.
@@ -352,6 +616,7 @@ Standard, British. 2011. <span>«Light and lighting: Lighting of work places: Pa
 Vásquez, Natalia Giraldo, Maíra Longhinotti Felippe, Fernando O. R. Pereira, y Ariane Kuhnen. 2019. <span>«Luminous and visual preferences of young children in their classrooms: Curtain use, artificial lighting and window views»</span>. <em>Building and Environment</em> 152: 59-73. <a href="https://doi.org/10.1016/j.buildenv.2019.01.049">https://doi.org/10.1016/j.buildenv.2019.01.049</a>.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -774,8 +1039,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter_1.html" class="pagination-link" aria-label="Introducción al confort en espacios interiores y el desarrollo del DTHIS-C">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al confort en espacios interiores y el desarrollo del DTHIS-C</span></span>
+      <a href="./chapter_1.html" class="pagination-link" aria-label="Introducción al confort en espacios interiores">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al confort en espacios interiores</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

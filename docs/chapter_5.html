@@ -144,13 +144,13 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al confort en espacios interiores y el desarrollo del DTHIS-C</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción al confort en espacios interiores</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico y calidad del aire</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Confort térmico, acústico, lumínico, calidad del aire e implementación del DTHIS-C</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -220,11 +220,11 @@ div.csl-indent {
 <li><p>Selección de variables a medir: Se identificaron y definieron las variables ambientales fundamentales para evaluar el confort, tales como la temperatura (ambiental y radiante), la humedad relativa, la velocidad del viento, la concentración de CO<sub>2</sub>, la luminancia y los niveles de sonido.</p></li>
 <li><p>Identificación y selección de sensores: Se eligieron sensores de alta precisión y confiabilidad, como el TPF1/E-20, Wind Sensor, SCD30, entre otros, para garantizar mediciones precisas y consistentes.</p></li>
 <li><p>Calibración y referenciación de los sensores seleccionados: Se implementó un riguroso proceso de calibración y referenciación, utilizando instrumentos de referencia profesionales, que permitió corregir errores sistemáticos mediante técnicas de regresión lineal y obtener ecuaciones de calibración precisas para los sensores.</p></li>
-<li><p>Propuesta de un diseño de dispositivo con integración de sensores: Se desarrolló un diseño modular e integrado que consolida en un único dispositivo las múltiples mediciones ambientales, lo que facilita una evaluación integral del confort en espacios interiores.</p></li>
-<li><p>Integración del dispositivo a un sistema IoT: Se conectó el DTHIS-C a una plataforma IoT (ThingsBoard) para la gestión, almacenamiento y visualización en tiempo real de los datos, lo que permite una supervisión continua y un análisis eficiente durante las campañas de medición.</p></li>
+<li><p>Propuesta de un diseño de dispositivo con la integración de los sensores: Se desarrolló un diseño modular que consolida en un único dispositivo las múltiples mediciones ambientales, lo que facilita una evaluación del confort en espacios interiores.</p></li>
+<li><p>Integración del dispositivo a un sistema IoT: Se conectó el DTHIS-C a una plataforma IoT (ThingsBoard) para la gestión, almacenamiento y visualización en tiempo real de los datos, lo que permite una supervisión continua y un análisis de las campañas de medición.</p></li>
 </ul>
 <p>La metodología experimental se basó en campañas de calibración adaptadas a las características de cada sensor. Para ello, se emplearon instrumentos de referencia de alta precisión, tales como el AMETEK Jofra PTC-155 para la temperatura ambiente, el QUESTemp 36 para la temperatura radiante, el WindMaster para la velocidad del viento y el Fluke 975 AirMeter para la calidad del aire. Se llevaron a cabo técnicas de regresión lineal para la mayoría de los sensores y, en un caso, se utilizó la regresión lineal en el dominio logarítmico. Esto permitió obtener ecuaciones de calibración para tres sensores (termopares, TPF1-E/20 y Wind Sensor), mientras que el SCD30 se referenció directamente. Estos métodos facilitaron la estimación precisa de los parámetros del modelo y la corrección de desviaciones en las mediciones.</p>
-<p>Los resultados obtenidos evidencian que el DTHIS-C es capaz de proporcionar datos confiables y consistentes, lo que resulta esencial para el análisis del confort en espacios interiores. Por ejemplo, la calibración del Wind Sensor permitió corregir un desfase en las lecturas de voltaje (1.1621 V en condiciones de viento nulo), y las mediciones del SCD30 mostraron una buena correlación con los instrumentos de referencia para evaluar la calidad del aire. Además, la integración con ThingsBoard garantizó una gestión eficiente de los datos, posibilitando su visualización en un dashboard en tiempo real.</p>
+<p>Los resultados obtenidos evidencian que el DTHIS-C es capaz de proporcionar datos confiables y consistentes, lo que resulta esencial para el análisis del confort en espacios interiores. Por ejemplo, la calibración del Wind Sensor permitió corregir un desfase en las lecturas de voltaje (1.1621 V en condiciones de viento nulo), y las mediciones del SCD30 mostraron una buena correlación con los instrumentos de referencia para evaluar la calidad del aire. Además, la integración con ThingsBoard garantizó una gestión de los datos, posibilitando su visualización en un dashboard en tiempo real.</p>
 <section id="sec-lmitaciones" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-lmitaciones"><span class="header-section-number">5.1</span> Limitaciones técnicas del DTHIS-C</h2>
 <p>Aunque el DTHIS-C ha demostrado ser una herramienta eficaz para la evaluación del confort en espacios interiores, se han identificado algunas limitaciones técnicas que podrían afectar su operatividad en entornos de campo. Entre estas se destacan la dependencia de una fuente de alimentación directa, la necesidad de mantener actualizados los instrumentos de referenciación y la falta de una interfaz integrada para la visualización de datos en el sitio de medición. Estas limitaciones reducen la autonomía del dispositivo y complican su uso en ubicaciones remotas o en condiciones de alta movilidad.</p>

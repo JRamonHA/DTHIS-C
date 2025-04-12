@@ -43,7 +43,7 @@ En la tabla @tbl-componentes se presentan los sensores y componentes electrónic
 
 | **Sensor**                                    | **Variable**                       | **Comunicación** | **Microcontrolador**     | **Acondicionador de señal**  |
 |-----------------------------------------------|------------------------------------|------------------|--------------------------|------------------------------|
-| Termopar tipo T                               | Temperatura ambiente               | ICSP             | Arduino UNO WiFi Rev2    | PWFusion MAX31856 SEN-30007	|
+| Termopar tipo T                               | Temperatura del aire               | ICSP             | Arduino UNO WiFi Rev2    | PWFusion MAX31856 SEN-30007	|
 | TPF1/E-20 PT1000                              | Temperatura radiante               | ICSP             | Arduino UNO WiFi Rev2    | Adafruit PT1000 RTD-MAX31865 |
 | Wind Sensor Rev P6                            | Velocidad del viento		           | ADC              | Arduino UNO WiFi Rev2    |				                      |
 | SCD30 Sensirion                               | CO<sub>2</sub> y humedad relativa  | I2C              | Raspberry Pi 4 Model B   |				                      |
