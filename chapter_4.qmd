@@ -13,7 +13,7 @@ En este capítulo se detalla el proceso de calibración y referenciación del DT
 
 - Wind Sensor Rev P6: Velocidad del viento.
 
-- SCD30 Sensirion: Temperatura del aire, la humedad relativa y la concentración de CO₂.
+- SCD30 Sensirion: Temperatura del aire, la humedad relativa y la concentración de CO<sub>2</sub>.
 
 - Micrófono ambiental USB: Niveles de sonido.
 
@@ -263,7 +263,7 @@ $$
 T_{ref} = 1.0582 \cdot temp - 1.5553
 $${#eq-cal-radiante}
 
-Al aplicar esta ecuación a los datos obtenidos durante la campaña, se calcularon los valores corregidos para el TPF1/E-20. Los resultados de esta calibración se pueden observar en la @fig-cradiante.
+Al aplicar esta ecuación a los datos obtenidos durante la campaña, se calcularon los valores corregidos para el TPF1/E-20. Los ajustes lineales se pueden observar en la @fig-cradiante.
 
 ```{python}
 #| echo: false
@@ -393,7 +393,7 @@ subplot_configs = [
 tt.scatter_subplots('data/scd30.parquet', subplot_configs)
 ```
 
-Se obtuvieron el Error Medio (EM) y el Error Absoluto Medio (EAM) para evaluar la discrepancia entre las mediciones del SCD30 y el Fluke. La tabla @tbl-error-scd30 muestra que, en el caso de la humedad relativa, el SCD30 subestima en promedio 2.1681 unidades respecto al Fluke. En contraste, para la concentración de CO₂ se observa una sobreestimación promedio de 9.6543 unidades. Además, el hecho de que el EAM para el CO<sub>2</sub> sea mayor que el EM indica una mayor dispersión en las mediciones de este parámetro.
+Se obtuvieron el Error Medio (EM) y el Error Absoluto Medio (EAM) para evaluar la discrepancia entre las mediciones del SCD30 y el Fluke. La tabla @tbl-error-scd30 muestra que, en el caso de la humedad relativa, el SCD30 subestima en promedio 2.1681 unidades respecto al Fluke. En contraste, para la concentración de CO<sub>2</sub> se observa una sobreestimación promedio de 9.6543 unidades. Además, el hecho de que el EAM para el CO<sub>2</sub> sea mayor que el EM indica una mayor dispersión en las mediciones de este parámetro.
 
 | Variable            | Error medio  | Error medio absoluto |
 |---------------------|--------------|----------------------|

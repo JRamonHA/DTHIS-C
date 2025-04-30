@@ -316,7 +316,7 @@ window.Quarto = {
 <li><p>Termopar tipo T: Temperatura del aire.</p></li>
 <li><p>TPF1/E-20 PT1000: Temperatura radiante.</p></li>
 <li><p>Wind Sensor Rev P6: Velocidad del viento.</p></li>
-<li><p>SCD30 Sensirion: Temperatura del aire, la humedad relativa y la concentración de CO₂.</p></li>
+<li><p>SCD30 Sensirion: Temperatura del aire, la humedad relativa y la concentración de CO<sub>2</sub>.</p></li>
 <li><p>Micrófono ambiental USB: Niveles de sonido.</p></li>
 </ul>
 <section id="sec-metodologia" class="level2" data-number="4.1">
@@ -399,12 +399,12 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <p>ThingsBoard es una plataforma IoT de código abierto diseñada para la recopilación, procesamiento, visualización y gestión de dispositivos, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="references.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En el contexto de esta tesis, se utiliza para transmitir en tiempo real las mediciones obtenidas de los distintos sensores del DTHIS-C hacia un servidor central, donde se alojan y resguardan los datos en una base de datos dedicada a Internet de las Cosas.</p>
 <p>Según la documentación oficial de ThingsBoard, la plataforma admite la conectividad mediante protocolos estándares como MQTT, CoAP y HTTP, lo que facilita la integración de diversos dispositivos y sensores, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="references.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En este caso, las mediciones de los sensores se envían desde el DTHIS-C a ThingsBoard, que actúa como una base de datos. La plataforma no solo almacena la información, sino que también permite la creación de dashboards interactivos y personalizables que posibilitan la visualización en tiempo real de las mediciones. Esto es fundamental durante las campañas de medición, ya que permite monitorear de forma inmediata el funcionamiento de los sensores, identificar tendencias y detectar posibles anomalías en los datos.</p>
 <p>Para obtener datos directamente desde ThingsBoard, se desarrolló una función en el paquete instalable de Python denominado <code>iertools</code>, creado por el Grupo de Energía en Edificaciones. Este paquete se puede instalar desde la consola de su ordenador (previamente contando con una distribución de Python instalada) mediante el siguiente comando:</p>
-<div id="891dc6bd" class="cell" data-execution_count="2">
+<div id="43bc21db" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>AltamarMx<span class="op">/</span>iertools.git</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Es importante señalar que, antes de proceder a la obtención y descarga de datos desde ThingsBoard, es necesario crear un archivo de configuración con extensión <code>.ini</code>. Un archivo .ini es un documento de texto plano que almacena parámetros y opciones en formato clave-valor, y se utiliza para definir la configuración necesaria (como la URL del servidor y el token de acceso) que el paquete <code>iertools</code> requiere para conectarse a ThingsBoard.</p>
 <p>A continuación, se presenta un ejemplo de cómo estructurar dicho archivo:</p>
-<div id="da4fe7ff" class="cell" data-execution_count="3">
+<div id="d6f3d389" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[dthisc]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>token     <span class="op">=</span> token</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>device_id <span class="op">=</span> device_id</span>
@@ -414,7 +414,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>port      <span class="op">=</span> <span class="dv">8080</span> </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez instalado <code>iertools</code>, es posible recuperar datos desde un script o notebook. El siguiente fragmento de código ilustra cómo obtener los datos de medición de los termopares del DTHIS-C a partir de ThingsBoard; este ejemplo puede ser ajustado según las necesidades específicas, permitiendo extraer distintos conjuntos de datos conforme a los requerimientos del estudio:</p>
-<div id="fa1c57e6" class="cell" data-execution_count="4">
+<div id="a2395a19" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> iertools.tb <span class="im">import</span> <span class="op">*</span></span>
@@ -501,7 +501,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 </div>
 </div>
 <p>Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente comando para exportarlos a un archivo CSV:</p>
-<div id="533a556d" class="cell" data-execution_count="5">
+<div id="fba01029" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"ruta/de/su/preferencia.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -767,7 +767,7 @@ Figura&nbsp;4.8: Intervalo de medición del QUESTemp 36 y el TPF1 para su calibr
 <p><span id="eq-cal-radiante"><span class="math display">\[
 T_{ref} = 1.0582 \cdot temp - 1.5553
 \tag{4.5}\]</span></span></p>
-<p>Al aplicar esta ecuación a los datos obtenidos durante la campaña, se calcularon los valores corregidos para el TPF1/E-20. Los resultados de esta calibración se pueden observar en la <a href="#fig-cradiante" class="quarto-xref">Figura&nbsp;<span>4.9</span></a>.</p>
+<p>Al aplicar esta ecuación a los datos obtenidos durante la campaña, se calcularon los valores corregidos para el TPF1/E-20. Los ajustes lineales se pueden observar en la <a href="#fig-cradiante" class="quarto-xref">Figura&nbsp;<span>4.9</span></a>.</p>
 <div id="cell-fig-cradiante" class="cell" data-execution_count="11">
 <div id="fig-cradiante" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -952,7 +952,7 @@ Figura&nbsp;4.13: Comparación de las mediciones de humedad relativa y CO<sub>2<
 </figure>
 </div>
 </div>
-<p>Se obtuvieron el Error Medio (EM) y el Error Absoluto Medio (EAM) para evaluar la discrepancia entre las mediciones del SCD30 y el Fluke. La tabla <a href="#tbl-error-scd30" class="quarto-xref">Tabla&nbsp;<span>4.8</span></a> muestra que, en el caso de la humedad relativa, el SCD30 subestima en promedio 2.1681 unidades respecto al Fluke. En contraste, para la concentración de CO₂ se observa una sobreestimación promedio de 9.6543 unidades. Además, el hecho de que el EAM para el CO<sub>2</sub> sea mayor que el EM indica una mayor dispersión en las mediciones de este parámetro.</p>
+<p>Se obtuvieron el Error Medio (EM) y el Error Absoluto Medio (EAM) para evaluar la discrepancia entre las mediciones del SCD30 y el Fluke. La tabla <a href="#tbl-error-scd30" class="quarto-xref">Tabla&nbsp;<span>4.8</span></a> muestra que, en el caso de la humedad relativa, el SCD30 subestima en promedio 2.1681 unidades respecto al Fluke. En contraste, para la concentración de CO<sub>2</sub> se observa una sobreestimación promedio de 9.6543 unidades. Además, el hecho de que el EAM para el CO<sub>2</sub> sea mayor que el EM indica una mayor dispersión en las mediciones de este parámetro.</p>
 <div id="tbl-error-scd30" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-error-scd30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
