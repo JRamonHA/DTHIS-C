@@ -68,7 +68,7 @@ Así:
 
 - 57 $dB$ a 63 $Hz$, 31 $dBA$.
 
-- 68 $dB$ a 4,000 $Hz$, 69 $dBA%.
+- 68 $dB$ a 4,000 $Hz$, 69 $dBA$.
 
 Cabe señalar que los valores de la tabla son ajustes en decibelios ($dB$) aplicados a cada banda de frecuencia; una vez combinados estos desplazamientos, el nivel resultante se expresa en dBA, reflejando así la sensibilidad del oído humano.
 
