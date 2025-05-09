@@ -399,12 +399,12 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <p>ThingsBoard es una plataforma IoT de código abierto diseñada para la recopilación, procesamiento, visualización y gestión de dispositivos, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="referencias.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En el contexto de esta tesis, se utiliza para transmitir en tiempo real las mediciones obtenidas de los distintos sensores del DTHIS-C hacia un servidor central, donde se alojan y resguardan los datos en una base de datos dedicada a Internet de las Cosas.</p>
 <p>Según la documentación oficial de ThingsBoard, la plataforma admite la conectividad mediante protocolos estándares como MQTT, CoAP y HTTP, lo que facilita la integración de diversos dispositivos y sensores, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="referencias.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En este caso, las mediciones de los sensores se envían desde el DTHIS-C a ThingsBoard, que actúa como una base de datos. La plataforma no solo almacena la información, sino que también permite la creación de tableros interactivos y personalizables que posibilitan la visualización en tiempo real de las mediciones. Esto es fundamental durante las campañas de medición, ya que permite monitorear de forma inmediata el funcionamiento de los sensores, identificar tendencias y detectar posibles anomalías en los datos.</p>
 <p>Para facilitar la obtención de datos directamente desde la plataforma ThingsBoard, el Grupo de Energía en Edificaciones del IER-UNAM desarrolló el paquete instalable de Python <code>iertools</code>. Una vez configurado un entorno Python y Git instalado, puede integrarse a al sistema ejecutando en la terminal el siguiente comando:</p>
-<div id="9c21b673" class="cell" data-execution_count="2">
+<div id="6e22529a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>AltamarMx<span class="op">/</span>iertools.git</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Es importante señalar que, antes de proceder a la obtención y descarga de datos desde ThingsBoard, es necesario crear un archivo de configuración con extensión <code>.ini</code>. Un archivo .ini es un documento de texto plano que almacena parámetros y opciones en formato clave-valor, y se utiliza para definir la configuración necesaria (como la URL del servidor y el token de acceso) que el paquete <code>iertools</code> requiere para conectarse a ThingsBoard.</p>
 <p>A continuación, se presenta un ejemplo de cómo estructurar dicho archivo:</p>
-<div id="20cd5b69" class="cell" data-execution_count="3">
+<div id="807df3d7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[dthisc]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>token     <span class="op">=</span> token</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>device_id <span class="op">=</span> device_id</span>
@@ -414,7 +414,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>port      <span class="op">=</span> <span class="dv">8080</span> </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez instalado <code>iertools</code>, es posible recuperar datos desde un script o notebook. El siguiente fragmento de código ilustra cómo obtener los datos de medición de los termopares del DTHIS-C a partir de ThingsBoard; este ejemplo puede ser ajustado según las necesidades específicas, permitiendo extraer distintos conjuntos de datos conforme a los requerimientos del estudio:</p>
-<div id="82ea53b2" class="cell" data-execution_count="4">
+<div id="97965f05" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> iertools.tb <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.parser <span class="im">import</span> parse</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -499,7 +499,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 </div>
 </div>
 <p>Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente comando para exportarlos a un archivo CSV:</p>
-<div id="3c4af90a" class="cell" data-execution_count="5">
+<div id="49581734" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"ruta/de/su/preferencia.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -846,7 +846,7 @@ Figura&nbsp;4.11: Comparación de la velocidad del viento registrada por el Wind
 <li><p>Variaciones en la temperatura ambiente: Los cambios de la temperatura del aire modifican la resistencia del filamento y de otros componentes, desplazando el punto cero del sensor.</p></li>
 </ul>
 <p>Para aislar la respuesta al viento y eliminar dichas contribuciones, se restaron 1.1621 V de cada lectura de voltaje antes de ajustar el modelo de calibración. De este modo, la señal procesada refleja únicamente la influencia de la velocidad del viento sobre el filamento caliente.</p>
-<p>Durante la calibración del Wind Sensor se siguió la metodología proporcionada por el fabricante <span class="citation" data-cites="windsensor">Device (<a href="referencias.html#ref-windsensor" role="doc-biblioref">2017</a>)</span> en su blog oficial. Según esta fuente, la relación entre la velocidad del viento (WS), el voltaje corregido y la temperatura sigue una ley de potencia descrita por la siguiente ecuación:</p>
+<p>Durante la calibración del Wind Sensor se siguió la metodología proporcionada por el fabricante <span class="citation" data-cites="windsensor">Modern Device (<a href="referencias.html#ref-windsensor" role="doc-biblioref">2017</a>)</span> en su blog oficial. Según esta fuente, la relación entre la velocidad del viento (WS), el voltaje corregido y la temperatura sigue una ley de potencia descrita por la siguiente ecuación:</p>
 <p><span id="eq-potencia"><span class="math display">\[
 WS = a \times (\text{Voltaje})^b \times (\text{Temperatura})^c
 \tag{4.6}\]</span></span></p>
@@ -1022,7 +1022,6 @@ Figura&nbsp;4.15: TES-1356 Sound Level Calibrator.
 <section id="fisheye" class="level4">
 <h4 class="anchored" data-anchor-id="fisheye">Fisheye</h4>
 <p>En el caso de la iluminancia, no se realizó ningún proceso de calibración o referenciación. Se empleó la cámara Arducam 5MP OV5647 Ultra Wide Angle en conjunto con el software <code>Radiance</code>. Se desarrolló un script, descrito en la sección <a href="capitulo_3.html#sec-diseno" class="quarto-xref"><span>Sección 3.1</span></a>, que calcula la iluminancia total mediante la integración del mapa de luminancia (<a href="#fig-ilum" class="quarto-xref">Figura&nbsp;<span>4.16</span></a>) generado a partir de las imágenes capturadas. El proceso inicia con la creación de una imagen HDR a partir de la fusión de fotografías tomadas a diferentes exposiciones, lo que permite capturar la mayor cantidad de información posible sobre la intensidad luminosa. Posteriormente, a esta imagen HDR se le aplica una escala de <em>false color</em> para identificar los valores de iluminancia en cada punto de la imagen. El cálculo de la integral para el mapa generado facilita la determinación de la iluminancia total del espacio interior en el momento de la captura. Además, el mismo script se encarga de enviar el valor de la iluminancia total a <code>ThingsBoard</code>, conforme se detalla en la sección <a href="#sec-obtencion" class="quarto-xref"><span>Sección 4.2</span></a>.</p>
-<p>En este contexto, los mapas de luminancia generados son de carácter cualitativo, pues su principal objetivo es representar visualmente la distribución espacial de la intensidad luminosa, más que proporcionar valores puntuales de alta precisión. Estos mapas permiten identificar zonas de alta o baja iluminancia y comprender la uniformidad de la luz en el espacio, aunque la cuantificación detallada se basa en el cálculo de la integral de la imagen HDR.</p>
 <div id="fig-ilum" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ilum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1033,11 +1032,12 @@ Figura&nbsp;4.16: Mapa de luminancia generado con una cámara 5MP OV5647 y el so
 </figcaption>
 </figure>
 </div>
+<p>En este contexto, los mapas de luminancia generados son de carácter cualitativo, pues su principal objetivo es representar visualmente la distribución espacial de la intensidad luminosa, más que proporcionar valores puntuales de alta precisión. Estos mapas permiten identificar zonas de alta o baja iluminancia y comprender la uniformidad de la luz en el espacio, aunque la cuantificación detallada se basa en el cálculo de la integral de la imagen HDR.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-windsensor" class="csl-entry" role="listitem">
-Device, Modern. 2017. <span>«Calibrating The Rev. P Wind Sensor From A New Regression»</span>. <a href="https://moderndevice.com/blogs/documentation/calibrating-the-rev-p-wind-sensor-from-a-new-regression">https://moderndevice.com/blogs/documentation/calibrating-the-rev-p-wind-sensor-from-a-new-regression</a>.
+Modern Device. 2017. <span>«Calibrating The Rev. P Wind Sensor From A New Regression»</span>. <a href="https://moderndevice.com/blogs/documentation/calibrating-the-rev-p-wind-sensor-from-a-new-regression">https://moderndevice.com/blogs/documentation/calibrating-the-rev-p-wind-sensor-from-a-new-regression</a>.
 </div>
 <div id="ref-thingsboard" class="csl-entry" role="listitem">
 ThingsBoard. 2023. <span>«ThingsBoard: Open-source IoT platform for data collection, processing, visualization, and device management»</span>. <a href="https://thingsboard.io/">https://thingsboard.io/</a>.
