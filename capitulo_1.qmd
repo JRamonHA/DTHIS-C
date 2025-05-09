@@ -1,0 +1,41 @@
+# Introducción al confort en espacios interiores {#cap-intro}
+
+En este capítulo se examina la importancia del confort en espacios interiores, abordando los aspectos fundamentales que influyen en la calidad de vida de los ocupantes. Se analizan los conceptos de confort térmico, acústico, lumínico y calidad del aire, conforme a normativas internacionales como @ashrae55, @light y @air. Además, se presentan los objetivos generales y específicos del proyecto, que incluyen el desarrollo de un dispositivo de confort móvil basado en tecnologías de hardware y software libre, con integración a un sistema de Internet de las Cosas (IoT).
+
+## Importancia del confort en espacios interiores {#sec-importancia}
+
+El confort en espacios interiores es fundamental para garantizar el bienestar y la calidad de vida de los ocupantes, ya que entornos confortables promueven percepciones positivas, mientras que condiciones inadecuadas, como niveles elevados de ruido, temperaturas y humedad inapropiadas, iluminación insuficiente, mala calidad del aire y olores desagradables, pueden generar experiencias negativas y afectar la salud a largo plazo [Wu, Y. and Liu, Z. and Kong, Z., -@wuindoor]. 
+
+#### Confort térmico, acústico, lumínico y calidad del aire
+
+El confort térmico, acústico, lumínico y la calidad del aire son aspectos clave que influyen directamente en la calidad de vida, ya que afectan la salud, el bienestar y el desempeño de las personas en espacios interiores.
+
+El confort térmico, se define como una condición mental de satisfacción con el entorno térmico, en la cual las respuestas térmicas del cuerpo (pérdida y ganancia de calor) se encuentran equilibradas de modo que la mayoría de los ocupantes no experimentan ni frío ni calor desagradables [ASHRAE-55, -@ashrae55].
+
+El confort acústico se define como la condición en la que los niveles de presión sonora, la distribución espacial del sonido y la calidad acústica de un espacio permiten la realización adecuada de las actividades previstas, sin causar molestia, distracción o riesgo para la salud [Panagiota Antoniadou and Agis M. Papadopoulos, -@antoniadou]. Esta condición implica un control efectivo del ruido aéreo y estructural, así como una adecuada absorción, aislamiento y reverberación, conforme a parámetros establecidos por normas como ISO 3382, ISO 1996
+
+El confort lumínico, según la norma ISO EN 12464-1, se define como el grado de bienestar visual de los ocupantes de un espacio, conseguido mediante condiciones de iluminación que satisfacen las exigencias de las tareas visuales, minimizan el deslumbramiento y garantizan una uniformidad adecuada de iluminancia. En concreto, la norma establece niveles mínimos de iluminancia, criterios de uniformidad y límites de deslumbramiento para diferentes tipos de actividad, con el fin de asegurar comodidad, seguridad y eficiencia en el entorno interior [British Standard, -@light].
+
+Por último, la calidad del aire interior, se define como aquel estado en el que las concentraciones de contaminantes conocidos se mantienen por debajo de los niveles nocivos establecidos por las autoridades competentes y en el que al menos el 80 % de los ocupantes expuestos no manifiestan insatisfacción con las condiciones de ventilación y pureza del aire [ASHRAE-62, -@air]. Esto se logra mediante tasas de ventilación mínimas específicas para distintos tipos de espacios y actividades, garantizando un suministro adecuado de aire exterior fresco y el control de contaminantes generados en el interior.
+
+En las secciones @sec-termico, @sec-acustico, @sec-luminico y @sec-calidad se definen detalladamente estos conceptos y se abordan los aspectos fundamentales asociados a cada uno, junto con el análisis de su impacto en la calidad de vida y el bienestar de los ocupantes. Esta base teórica respalda la importancia de optimizar dichas condiciones en el diseño de entornos interiores saludables y habitables.
+
+## Objetivos {#sec-objetivos}
+
+#### Objetivo general
+
+- Desarrollar un dispositivo de confort móvil usando software y hardware libre.
+
+#### Objetivos específicos
+
+- Selección de variables a medir.
+
+- Identificación y selección de sensores apropiados.
+
+- Calibración y referenciación de los sensores seleccionados.
+
+- Propuesta de un diseño de dispositivo con la integración de los sensores.
+
+- Integración del dispositivo a un sistema de Internet de las Cosas (IoT).
+
+- Documentación del proyecto en un repositorio.

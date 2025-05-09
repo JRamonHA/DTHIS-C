@@ -113,7 +113,7 @@ def scatter_subplots(filepath, subplot_configs):
     return fig
 
 
-def columns_plot(filepath, x_col, y_col, x_label, y_label, trace_color=None, legend_name=None):
+def columns_plot(filepath, x_col, y_col, x_label, y_label, trace_color=None, legend_name=None, identity_line=False, x_range=None, y_range=None):
     """
     Genera un scatter plot usando las columnas especificadas para los ejes X e Y.
 
@@ -125,39 +125,69 @@ def columns_plot(filepath, x_col, y_col, x_label, y_label, trace_color=None, leg
     - y_label (str): Etiqueta para el eje Y.
     - trace_color (str, opcional): Color de la traza en formato hexadecimal.
     - legend_name (str, opcional): Texto que se visualizará en la leyenda para la traza.
+    - identity_line (bool, opcional): Si es True, añade una línea y=x con nombre "Pendiente (m=1)".
+    - x_range (tuple de float, opcional): Rango manual para el eje X (min, max).
+    - y_range (tuple de float, opcional): Rango manual para el eje Y (min, max).
 
     Retorna:
     - None: Muestra el scatter plot interactivo.
     """
     data = pd.read_parquet(filepath)
     pio.renderers.default = "iframe"
-    
+
     fig = go.Figure()
-    
-    # Usar legend_name si se proporciona
     display_name = legend_name if legend_name is not None else None
-    
+
+    # Scatter principal
     fig.add_trace(go.Scatter(
         x=data[x_col],
         y=data[y_col],
         mode='markers',
-        marker=dict(color=trace_color if trace_color else '#636EFA'),
+        marker=dict(color=trace_color or '#636EFA'),
         name=display_name
     ))
-    
+
+    # Línea identidad y ejes iguales si se solicita
+    if identity_line:
+        lo = min(data[x_col].min(), data[y_col].min())
+        hi = max(data[x_col].max(), data[y_col].max())
+        # Ajustar según rangos manuales, si existen
+        if x_range:
+            lo = min(lo, x_range[0])
+            hi = max(hi, x_range[1])
+        if y_range:
+            lo = min(lo, y_range[0])
+            hi = max(hi, y_range[1])
+
+        fig.add_trace(go.Scatter(
+            x=[lo, hi],
+            y=[lo, hi],
+            mode='lines',
+            line=dict(dash='dash'),
+            name='Pendiente (m=1)'
+        ))
+        fig.update_xaxes(range=[lo, hi])
+        fig.update_yaxes(range=[lo, hi])
+
+    # Aplicar rangos manuales si se proporcionan
+    if x_range:
+        fig.update_xaxes(range=list(x_range))
+    if y_range:
+        fig.update_yaxes(range=list(y_range))
+
     fig.update_layout(
         xaxis_title=x_label,
         yaxis_title=y_label,
-        showlegend=True 
+        showlegend=True
     )
-    
+
     return fig
 
 
-def columns_subplots(filepath, subplot_configs):
+def columns_subplots(filepath, subplot_configs, identity_line=False):
     """
     Genera subplots de gráficos scatter utilizando columnas específicas para los ejes X e Y.
-    
+
     Parámetros:
     - filepath (str): Ruta al archivo Parquet.
     - subplot_configs (list of dict): Lista de diccionarios, donde cada uno debe contener:
@@ -167,39 +197,81 @@ def columns_subplots(filepath, subplot_configs):
         - 'y_label' (str): Etiqueta para el eje Y.
         - 'trace_color' (str, opcional): Color de la traza en formato hexadecimal.
         - 'legend_name' (str, opcional): Texto que se visualizará en la leyenda para la traza.
-    
+        - 'x_range' (list of float, opcional): Rango manual para el eje X [min, max].
+        - 'y_range' (list of float, opcional): Rango manual para el eje Y [min, max].
+    - identity_line (bool, opcional): Si es True, añade línea y=x con etiqueta "Pendiente (m=1)".
+
     Retorna:
     - None: Muestra los scatter subplots interactivos.
     """
-    # Cargar los datos
     data = pd.read_parquet(filepath)
     pio.renderers.default = "iframe"
-    
+
     num_subplots = len(subplot_configs)
-    # Crear subplots en una sola columna (cada uno con ejes independientes)
     fig = make_subplots(rows=num_subplots, cols=1, shared_xaxes=False)
-    
-    # Iterar sobre cada configuración y agregar la traza correspondiente
+
     for i, config in enumerate(subplot_configs, start=1):
-        x_col = config.get('x_col')
-        y_col = config.get('y_col')
-        x_label = config.get('x_label', x_col)
-        y_label = config.get('y_label', y_col)
+        x = data[config['x_col']]
+        y = data[config['y_col']]
+        x_label = config.get('x_label', config['x_col'])
+        y_label = config.get('y_label', config['y_col'])
         trace_color = config.get('trace_color', '#636EFA')
-        legend_name = config.get('legend_name', y_col)
-        
-        fig.add_trace(go.Scatter(
-            x=data[x_col],
-            y=data[y_col],
-            mode='markers',
-            marker=dict(color=trace_color),
-            name=legend_name
-        ), row=i, col=1)
-        
+        legend_name = config.get('legend_name', config['y_col'])
+
+        # Agregar datos
+        fig.add_trace(
+            go.Scatter(
+                x=x,
+                y=y,
+                mode='markers',
+                marker=dict(color=trace_color),
+                name=legend_name
+            ),
+            row=i, col=1
+        )
+
+        # Etiquetas
         fig.update_xaxes(title_text=x_label, row=i, col=1)
         fig.update_yaxes(title_text=y_label, row=i, col=1)
-    
-    fig.update_layout(hovermode='closest')
+
+        # Rango de ejes: manual o calculado
+        x_range = config.get('x_range', None)
+        y_range = config.get('y_range', None)
+
+        if x_range:
+            fig.update_xaxes(range=x_range, row=i, col=1)
+        if y_range:
+            fig.update_yaxes(range=y_range, row=i, col=1)
+
+        # Línea identidad
+        if identity_line:
+            # Determinar rango para la línea identidad
+            x_lo = x_range[0] if x_range else x.min()
+            x_hi = x_range[1] if x_range else x.max()
+            y_lo = y_range[0] if y_range else y.min()
+            y_hi = y_range[1] if y_range else y.max()
+            line_lo = min(x_lo, y_lo)
+            line_hi = max(x_hi, y_hi)
+
+            # Color alternado
+            identity_colors = ['#EF553B', '#FFA15A']
+            identity_color = identity_colors[(i - 1) % len(identity_colors)]
+
+            fig.add_trace(
+                go.Scatter(
+                    x=[line_lo, line_hi],
+                    y=[line_lo, line_hi],
+                    mode='lines',
+                    line=dict(dash='dash', color=identity_color),
+                    name='Pendiente (m=1)'
+                ),
+                row=i, col=1
+            )
+
+    fig.update_layout(
+        showlegend=True,
+        height=400 * num_subplots
+    )
     return fig
 
 

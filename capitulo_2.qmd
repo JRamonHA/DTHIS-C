@@ -1,0 +1,217 @@
+# Confort térmico, acústico, lumínico, calidad del aire e implementación del DTHIS-C {#cap-confort}
+
+En este capítulo se abordan los conceptos de confort térmico, acústico, lumínico y calidad del aire en espacios cerrados, con énfasis en las principales variables físicas que inciden en cada uno de ellos. Asimismo, se introduce el dispositivo de temperatura, humedad, iluminación y sonido de campaña (DTHIS-C) y se analiza el modelo de confort PMV, que permite entender cómo las expectativas de los usuarios varían según el clima y el contexto, y que ha servido como marco conceptual para seleccionar los parámetros ambientales que monitorea el DTHIS-C.
+
+## Confort térmico {#sec-termico}
+
+De acuerdo con la Sociedad Estadounidense de Ingenieros de Calefacción, Refrigeración y Aire Acondicionado (ASHRAE, por sus iniciales en inglés *American Society of Heating, Refrigerating and Air-Conditioning Engineers*) en el estándar @ashrae55, el confort térmico se define como una condición mental que refleja la satisfacción con el entorno térmico. A partir de esta definición, según @castilla, se deduce que el juicio del confort es un proceso cognitivo influido tanto por factores ambientales como por aspectos personales y comportamentales. 
+
+En efecto, la percepción del confort no depende únicamente de la temperatura, la humedad, la velocidad del aire y otros parámetros físicos, sino también de variables como el tipo de vestimenta, la intensidad y duración de la actividad física, y la variación en la postura o ubicación del individuo. Por ejemplo, en condiciones de frío, abrir una ventana puede resultar contraproducente, mientras que en ambientes cálidos, una ventilación adecuada puede mejorar significativamente la sensación térmica. Cada uno de estos factores influye en la percepción individual del confort y debe considerarse para lograr un entorno interior confortable [ASHRAE-55, -@ashrae55]. 
+
+#### Variables físicas del confort térmico
+
+@macpherson identificó seis factores determinantes que afectan la sensación térmica en los espacios cerrados. Entre ellos, cuatro son variables físicas: temperatura del aire, velocidad del aire, humedad relativa y temperatura media radiante; y dos son variables personales: el aislamiento térmico de la ropa y el nivel de actividad física, también conocido como tasa metabólica. Estos factores constituyen la base para el análisis y predicción del confort térmico.  
+
+Acorde a @ashrae55, dichas variables se definen de la siguiente manera:  
+
+1. **Temperatura del aire**: La temperatura de bulbo seco medida en un punto específico del aire.
+
+2. **Temperatura media radiante**: Es la temperatura uniforme de un entorno hipotético en el que el intercambio de calor por radiación entre una persona y las superficies circundantes sería igual al intercambio real de calor por radiación en el entorno actual. 
+
+3. **Velocidad del aire**: La magnitud del movimiento del aire en un punto determinado, sin considerar su dirección.  
+
+4. **Humedad relativa del aire**: Es la proporción entre la cantidad actual de vapor de agua en el aire y la cantidad máxima que éste puede contener a una temperatura determinada, expresada en porcentaje. Un 100% indica que el aire está saturado de vapor de agua [@udg]. 
+
+5. **Aislamiento térmico de la ropa**: Es la resistencia al intercambio de calor sensible proporcionada por un conjunto de ropa, expresada en unidades de "clo". El valor de 1 clo es equivalente al aislamiento proporcionado por un traje típico de negocios, $\approx$ 0.155 m<sup>2</sup>$\cdot$K/W 
+
+6. **Tasa metabólica**: La tasa a la que se transforma la energía química en calor y trabajo mecánico debido a las actividades metabólicas de un individuo. Se mide por unidad de área de superficie de la piel y se expresa en "met". El valor de 1 met es equivalente a 58.2 W/m<sup>2</sup>, que corresponde a la potencia generada por unidad de superficie de piel de una persona promedio en reposo.  
+
+## Confort acústico {#sec-acustico}
+
+El confort acústico se define como un estado de satisfacción con las condiciones acústicas, representa el bienestar y la percepción positiva de un entorno en términos sonoros. Sin embargo, este confort es altamente subjetivo, ya que fuentes de ruido con características físicas similares pueden percibirse de manera distinta dependiendo de la persona [@antoniadou] [@azar]. 
+
+#### Variables físicas del confort acústico
+
+La principal variable utilizada para evaluar el confort acústico es el nivel de presión sonora, ya que permite cuantificar la intensidad del sonido percibido y relacionarla con los efectos que este puede generar en las personas. Esta medida permite distinguir componentes clave como el sonido y el ruido, cuya comprensión es esencial para interpretar el fenómeno acústico. A partir de ello, se consideran otros factores que también afectan la percepción del confort, como la frecuencia, duración, variación temporal y fuente del sonido.
+
+- **Sonido**: Se define como una perturbación en la presión atmosférica generada por la oscilación de partículas, a través de las cuales se propaga una onda mecánica de forma longitudinal en un medio elástico y denso. Esta onda sonora constituye el fenómeno físico, mientras que la percepción que produce en el sistema auditivo se conoce como fenómeno psicoacústico. En otras palabras, el sonido engloba tanto el evento físico, así como la experiencia auditiva que dicha vibración genera en el oyente [@jaramillo].
+
+- **Ruido**: Definido como un sonido no deseado, es decir, una perturbación auditiva que resulta molesta o desagradable para el oyente. Mientras que físicamente se puede describir de manera similar al sonido, su evaluación se basa en el impacto negativo que genera en la percepción auditiva [@jaramillo].
+
+@azar nombra dos tipos principales de ruido en los edificios:
+
+- **Ruido estructural (por impacto)**: Generado por impactos físicos o vibraciones sobre un elemento de la construcción.
+
+- **Ruido aéreo**: Transmitido a través del aire.
+
+ El nivel de presión sonora (SPL, por sus siglas en inglés *Sound Pressure Level*) cuantifica la intensidad de un sonido midiendo las variaciones de presión del aire en decibeles ($dB$). Esta escala logarítmica se basa en un valor de referencia de $2 \times 10^{-5} Pa$, lo que delimita el rango audible aproximado entre 0 dB (prácticamente inaudible) y 140 dB (extremadamente fuerte) [@jaramillo].
+Este parámetro es uno de los principales factores que influyen en el confort acústico, ya que permite evaluar cómo diferentes niveles de presión sonora afectan la percepción del ruido. Para predecir el confort frente al ruido de impacto se utiliza típicamente el nivel máximo de presión sonora, mientras que para el ruido aéreo se emplea el nivel de presión sonora equivalente medido durante un periodo determinado [@berglund] [@azar].
+
+En el eje de la frecuencia el oído humano reconoce sonidos aproximadamente entre 20 y 20,000 $Hz$, y en el eje de la amplitud aproximadamente entre 0 y 140 $dB$. Sin embargo, la percepción del oído humano no es lineal a todas las frecuencias. El oído humano responde al sonido en forma logarítmica, existiendo así diferencias en escala de 1: 5,000,000 dentro del rango audible. Por ello se ha recurrido al uso de una unidad logarítmica: el decibel ($dB$) [@jaramillo].
+
+Para relacionar los niveles de presión sonora medidos con la percepción auditiva humana, se emplean curvas de ponderación. Estas curvas asignan un valor al SPL de cada frecuencia de acuerdo con la sonoridad que ésta produce en el oído. En particular, la red A (@tbl-ponderacion) pondera los sonidos de forma similar a la respuesta auditiva, siendo especialmente útil para sonidos de bajo SPL al aplicar una fuerte ponderación a las frecuencias bajas. A medida que aumenta el nivel de presión sonora, la percepción de sonoridad se iguala en las distintas frecuencias; tras aplicar la ponderación, los niveles medidos se expresan en $dBA$ [@jaramillo].
+
+| Octava de frecuencias (Hz) | Ponderación (dB) |
+|----------------------------|------------------|
+| 63                         | -26              |
+| 125                        | -16              |
+| 250                        | -9               |
+| 500                        | -3               |
+| 1,000                      | 0                |
+| 2,000                      | +1               |
+| 4,000                      | +1               |
+: Red de ponderación A. {#tbl-ponderacion .hover .sm}
+
+Así:
+
+- 90 $dB$ a 500 $Hz$ equivalen a 87 $dBA$.
+
+- 57 $dB$ a 63 $Hz$, 31 $dBA$.
+
+- 68 $dB$ a 4,000 $Hz$, 69 $dBA%.
+
+Cabe señalar que los valores de la tabla son ajustes en decibelios ($dB$) aplicados a cada banda de frecuencia; una vez combinados estos desplazamientos, el nivel resultante se expresa en dBA, reflejando así la sensibilidad del oído humano.
+
+De esta manera, la red de ponderación A acerca más los valores medidos físicamente a los estímulos auditivos que estos producen. Los $dBA$ son ampliamente utilizados para estudios de ruido y salud auditiva [@jaramillo]. La @tbl-efectos y la @tbl-exposicion proporcionan una referencia clara sobre la escala de niveles sonoros y la duración de la exposición en la que estos niveles pueden resultar molestos e incluso perjudiciales para la salud. 
+
+| Nivel (dBA) | Efecto                                                                                                                     |
+|-------------|----------------------------------------------------------------------------------------------------------------------------|
+| 150 dBA     | Causa pérdida inmediata de la audición                                                                                     |
+| 120 dBA     | Extremadamente doloroso                                                                                                    |
+| 100 dBA     | Cortos periodos de exposición causan pérdida temporal de la agudeza auditiva; exposición prolongada causa daño irreparable |
+| 90 dBA      | Muchos años de exposición causan pérdidas auditivas permanentes                                                            |
+| 65 dBA      | Largos periodos de exposición causan fatiga mental y física                                                                |
+: Efectos de los niveles sonoros en dBA. {#tbl-efectos .hover .sm}
+
+
+| Duración de la exposición (horas) | Nivel sonoro máximo recomendado (dBA) |
+|-----------------------------------|---------------------------------------|
+| 8                                 | 90                                    |
+| 6                                 | 92                                    |
+| 4                                 | 95                                    |
+| 2                                 | 97                                    |
+| 1.5                               | 100                                   |
+| 1                                 | 102                                   |
+| 0.5                               | 105                                   |
+| 0.25                              | 110                                   |
+| Menos de 0.25                     | 115                                   |
+: Niveles máximos de exposición recomendados en dBA. {#tbl-exposicion .hover .sm}
+
+Asimismo @berglund, enumera ciertos factores acústicos que impactan el confort acústico:
+
+1. **Frecuencia del ruido**: Su unidad de medida son los hertz ($Hz$) y se refiere al número de periodos o vibraciones de una onda sonora que se producen por segundo. El rango de frecuencia audible normalmente se encuentra en un rango de 20-20,000 $Hz$, las frecuencias bajas se perciben como graves y las altas como agudas. 
+
+2. **Fuente del ruido**: Existen diferentes fuentes, las cuales pueden ser industrial, de transporte, construcción y doméstico.
+
+3. **Duración del ruido**: Se refiere al periodo de tiempo durante el cual un sonido o fuente sonora está presente en el ambiente.
+
+4. **Variación en el tiempo**: Existen variaciones de la presión sonora que suelen causar mayor disconfort auditivo. Por ejemplo, los ruidos que varían periódicamente para crear una sensación de pulsación pueden ser más molestos que el ruido continuo, las variaciones de aproximadamente 4 por segundo podrían ser más perturbadoras.
+
+## Confort lumínico {#sec-luminico}
+
+El confort lumínico se refiere a la percepción de bienestar visual en un espacio, permitiendo que las personas realicen sus actividades cotidianas de manera efectiva y cómoda bajo condiciones de iluminación adecuadas [@vasquez]. 
+
+#### Variables físicas del confort lumínico
+
+La luz es una radiación electromagnética que el ojo humano puede percibir en longitudes de onda que van desde los 380 nm hasta los 760 nm. Estas longitudes de onda, o frecuencias, corresponden a los diferentes colores del espectro visible [@bluyssen].
+
+Según se describe en la norma ISO EN 12464-1 @light, la evaluación del confort lumínico puede lograrse mediante la determinación de: la luminancia y la iluminancia.
+
+1. **Luminancia**: Se define como la cantidad de luz emitida o reflejada por una superficie en una dirección específica, en relación con el área sobre la que se proyecta dicha luz. En otras palabras, es una medida que indica el nivel de brillo percibido en un punto determinado, su unidad de medida es la candela por metro cuadrado ($cd/m^2$) [@cie].
+
+2. **Iluminancia**: Se define como la cantidad de flujo luminoso que incide sobre una superficie con relación al área sobre la que se distribuye. Esta medida cuantifica la luz recibida en un punto de una superficie, y es fundamental para evaluar el nivel de iluminación de un espacio, su unidad de medida es el lux ($lx$) [@cie].
+
+La @nom025 recomienda una iluminancia mínima de 300 lux en aulas y 500 lux para áreas de dibujo, laboratorios de cómputo y laboratorios.
+
+## Calidad del aire {#sec-calidad}
+
+De acuerdo con el estándar @air, se considera que el aire interior tiene una calidad aceptable cuando "no contiene contaminantes conocidos en concentraciones nocivas según lo establecido por las autoridades competentes y la mayoría sustancial de las personas expuestas (80% o más) no expresa insatisfacción".
+
+#### Variables físicas de la calidad del aire
+
+La calidad del aire interior se evalúa monitoreando la concentración de CO<sub>2</sub>, comparándola con los niveles exteriores (300-500 ppm). @air recomienda mantener concentraciones interiores entre 1000 y 1200 ppm para garantizar un ambiente adecuado y regular los sistemas de ventilación. Sin embargo, concentraciones superiores a 5000 ppm son peligrosas, ya que indican una ausencia total de aire fresco.
+
+Durante la pandemia de COVID-19 se evidenció que la concentración de CO<sub>2</sub> puede servir como un indicador indirecto del riesgo de transmisión aérea del virus. En espacios cerrados, niveles elevados de CO<sub>2</sub> señalan una ventilación insuficiente, lo que implica que una mayor proporción del aire inhalado ha sido exhalada por otros, y por lo tanto, puede contener aerosoles potencialmente virales. Modelos basados en la ecuación de Wells-Riley han demostrado que, a medida que aumenta la concentración de CO<sub>2</sub>, también se incrementa el riesgo de contagio, especialmente en ambientes mal ventilados y sin el uso adecuado de mascarillas. Por ello, se ha recomendado mantener los niveles de CO<sub>2</sub> por debajo de 700–800 ppm en espacios para minimizar este riesgo y asegurar una adecuada calidad del aire interior [@luna-gbv].
+
+## Implementación del DTHIS-C {#sec-dthis-c}
+ 
+El Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS-C) es un equipo portátil desarrollado para medir, de forma simultánea y en tiempo real, diversas variables físicas que inciden directamente en el confort de los espacios interiores. Las variables evaluadas son las siguientes:
+
+- Temperatura del aire
+- Temperatura radiante
+- Humedad relativa
+- Velocidad del viento
+- Concentración de CO<sub>2</sub>
+- Luminancia
+- Niveles de sonido
+
+La versatilidad del DTHIS-C radica en su capacidad para integrar múltiples sensores en un solo dispositivo, lo que facilita el análisis y el monitoreo continuo de las variables físicas involucradas. Su desarrollo se basa en tecnologías libres y de bajo costo, posicionándolo como una alternativa viable a los equipos de medición tradicionales, que suelen ser más costosos y exclusivos. Esta herramienta podría contribuir a la evaluación de espacios interiores confortables mediante la recopilación de datos.
+
+#### Modelo de confort PMV
+ 
+El modelo de confort térmico PMV (Predicted Mean Vote) es una herramienta predictiva ampliamente reconocida para evaluar la sensación térmica promedio de un grupo de personas en un ambiente interior. Este modelo estima la percepción térmica en una escala que va desde -3 (frío) hasta +3 (caliente), donde 0 representa una sensación térmica neutral, considerada ideal para el confort [Fanger, P. O., -@fanger]. El PMV se fundamenta en el balance de calor del cuerpo humano y toma en cuenta seis variables principales:
+
+- Temperatura del aire: Temperatura ambiente del entorno.
+- Temperatura radiante media: Influencia de las superficies radiantes circundantes.
+- Velocidad del aire: Movimiento del aire en el espacio.
+- Humedad relativa: Nivel de humedad en el ambiente.
+- Tasa metabólica: Nivel de actividad física de los ocupantes.
+- Aislamiento de la ropa: Capacidad térmica de la vestimenta.
+
+Estas variables se integran en una ecuación compleja (@eq-pmv) que calcula el índice PMV, permitiendo predecir si un entorno es térmicamente confortable según las normas internacionales como ANSI/ASHRAE Standard 55 [-@ashrae55] e ISO 7730 [-@iso7730].
+
+$$
+\begin{gather}
+\text{PMV} = \left[ 0.303 \cdot \exp(-0.036 \cdot M) + 0.028 \right] \cdot \Bigg\{ (M - W) \\
+- 3.05 \times 10^{-3} \cdot \big[ 5733 - 6.99 \cdot (M - W) - P_a \big] - 0.42 \cdot \big[ (M - W) \\
+- 58.15 \big] - 1.7 \times 10^{-5} \cdot M \cdot (5867 - P_a) - 0.0014 \cdot M \cdot (34 - t_a) \\
+- 3.96 \times 10^{-8} \cdot f_{cl} \cdot \big[ (t_{cl} + 273)^4 - (t_r + 273)^4 \big] \\
+- f_{cl} \cdot h_c \cdot (t_{cl} - t_a) \Bigg\} 
+\end{gather}
+$$ {#eq-pmv}
+
+La determinación de las variables intermedias que describen el intercambio de calor entre el cuerpo y su entorno se realiza mediante las ecuaciones @eq-tcl, @eq-hc, @eq-fcl y @eq-var, las cuales proporcionan los parámetros necesarios para evaluar el balance térmico y, en consecuencia, calcular el índice PMV.
+
+$$
+\begin{gather}
+t_{cl} = 35.7 - 0.028 \cdot (M - W) - I_{cl} \cdot \Bigg\{ 3.96 \times 10^{-8} \cdot f_{cl} \cdot \big[(t_{cl} + 273)^4 \\
+ - (\bar{t}_r + 273)^4\big] + f_{cl} \cdot h_c \cdot (t_{cl} - t_a) \Bigg\}
+\end{gather}
+$$ {#eq-tcl}
+
+$$
+h_c = 
+\begin{cases} 
+{2.38 \cdot |t_{cl} - t_a|^{0.25}} & \text{si } 2.38 \cdot |t_{cl} - t_a|^{0.25} > 12.1 \cdot \sqrt{v_{ar}} \\
+12.1 \cdot \sqrt{v_{ar}} & \text{si } 2.38 \cdot |t_{cl} - t_a|^{0.25} < 12.1 \cdot \sqrt{v_{ar}}
+\end{cases}
+$$ {#eq-hc}
+
+$$
+f_{cl} =
+\begin{cases} 
+1.00 + 1.290 \cdot I_{cl} & \text{si } I_{cl} \leq 0.078 \\
+1.00 + 0.645 \cdot I_{cl} & \text{si } I_{cl} > 0.078
+\end{cases}
+$$ {#eq-fcl}
+
+$$
+v_{ar} = v_{air} + 0.3 \cdot (M - 1)
+$$ {#eq-var}
+
+donde:
+
+$M$  :  Tasa metabólica ($W/m^2$)  
+$W$  :  Trabajo mecánico externo ($W/m^2$)  
+$I_{cl}$  :  Aislamiento térmico de la ropa ($m^2 \cdot °C/W$)  
+$f_{cl}$  :  Factor de cobertura de la ropa (sin unidad)  
+$t_a$  :  Temperatura del aire (°C)  
+$\bar{t}_r$  :  Temperatura media radiante (°C)  
+$p_a$  :  Presión parcial del vapor de agua (Pa)  
+$v_{ar}$  :  Velocidad relativa del aire (m/s)  
+$v_{air}$  :  Velocidad del aire (m/s)  
+$h_c$  :  Coeficiente de transferencia de calor por convección ($W/m^2 \cdot °C$)  
+$t_{cl}$  :  Temperatura de la superficie de la ropa (°C)  
+
+#### Relevancia del modelo PMV en el DTHIS-C
+El modelo PMV es fundamental en el diseño de espacios interiores confortables y eficientes, ya que proporciona un marco cuantitativo para evaluar cómo las condiciones ambientales y personales afectan la percepción térmica de los ocupantes. Su adopción en estándares como ASHRAE 55 lo posiciona como una referencia clave para el diseño de sistemas de calefacción, ventilación y aire acondicionado (HVAC, por sus siglas en inglés *Heating, ventilation, and air conditioning*). En el contexto de esta tesis, el PMV sirve como base teórica para comprender cómo optimizar las condiciones térmicas en entornos habitables, alineándose con el objetivo de garantizar el bienestar y la calidad de vida de los usuarios.

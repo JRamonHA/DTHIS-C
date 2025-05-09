@@ -15,12 +15,12 @@ book:
   date: "05/05/2025"
   chapters:
     - index.qmd
-    - chapter_1.qmd
-    - chapter_2.qmd
-    - chapter_3.qmd
-    - chapter_4.qmd
-    - chapter_5.qmd
-    - references.qmd
+    - capitulo_1.qmd
+    - capitulo_2.qmd
+    - capitulo_3.qmd
+    - capitulo_4.qmd
+    - capitulo_5.qmd
+    - referencias.qmd
 
   navbar:
     title: false
