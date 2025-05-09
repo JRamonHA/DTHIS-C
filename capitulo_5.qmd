@@ -1,6 +1,6 @@
 #  Conclusiones {#cap-final}
 
-El presente trabajo se centró en el desarrollo y validación del DTHIS-C, un dispositivo portátil diseñado para evaluar el confort térmico, acústico y lumínico, así como la calidad del aire en espacios interiores, mediante la medición de variables ambientales clave. A continuación, se resumen los logros alcanzados en función de los objetivos planteados:
+El presente trabajo se centró en el desarrollo y validación del DTHIS-C, un dispositivo portátil diseñado para evaluar el confort térmico, acústico y lumínico, así como la calidad del aire en espacios interiores, mediante la medición de variables físicas ambientales. A continuación, se resumen los logros alcanzados en función de los objetivos planteados:
 
 - Selección de variables a medir: Se identificaron y definieron las variables ambientales fundamentales para evaluar el confort, tales como la temperatura (ambiental y radiante), la humedad relativa, la velocidad del viento, la concentración de CO<sub>2</sub>, la luminancia y los niveles de sonido.
 
@@ -12,9 +12,24 @@ El presente trabajo se centró en el desarrollo y validación del DTHIS-C, un di
 
 - Integración del dispositivo a un sistema IoT: Se conectó el DTHIS-C a una plataforma IoT (ThingsBoard) para la gestión, almacenamiento y visualización en tiempo real de los datos, lo que permite una supervisión continua y un análisis de las campañas de medición.
 
-La metodología experimental se basó en campañas de calibración adaptadas a las características de cada sensor. Para ello, se emplearon instrumentos de referencia de alta precisión, tales como el AMETEK Jofra PTC-155 para la temperatura ambiente, el QUESTemp 36 para la temperatura radiante, el WindMaster para la velocidad del viento y el Fluke 975 AirMeter para la calidad del aire. Se llevaron a cabo técnicas de regresión lineal para la mayoría de los sensores y, en un caso, se utilizó la regresión lineal en el dominio logarítmico. Esto permitió obtener ecuaciones de calibración para tres sensores (termopares, TPF1-E/20 y Wind Sensor), mientras que el SCD30 se referenció directamente. Estos métodos facilitaron la estimación precisa de los parámetros del modelo y la corrección de desviaciones en las mediciones.
+- Documentación del proyecto en un repositorio: Se consolidó todo el contenido de esta tesis en un único repositorio, que alberga los archivos de diseño CAD y los modelos STL para impresión 3D, los diagramas y esquemáticos de conexión, el manual de operación, las fichas técnicas de los sensores y componentes utilizados, la lista de materiales y costos, así como todos los códigos y programas completos y debidamente documentados. Todo ello, es posible consultarlo a través del siguiente enlace:[Repositorio DTHIS-C](https://github.com/lata-mas/DTHIS-C_JoseRra).
 
-Los resultados obtenidos evidencian que el DTHIS-C es capaz de proporcionar datos confiables y consistentes, lo que resulta esencial para el análisis del confort en espacios interiores. Por ejemplo, la calibración del Wind Sensor permitió corregir un desfase en las lecturas de voltaje (1.1621 V en condiciones de viento nulo), y las mediciones del SCD30 mostraron una buena correlación con los instrumentos de referencia para evaluar la calidad del aire. Además, la integración con ThingsBoard garantizó una gestión de los datos, posibilitando su visualización en un dashboard en tiempo real.
+La metodología experimental se basó en campañas de calibración adaptadas a las características de cada sensor. Para ello, se emplearon instrumentos de referencia de alta precisión, tales como el AMETEK Jofra PTC-155 para la temperatura ambiente, el QUESTemp 36 para la temperatura radiante, el WindMaster para la velocidad del viento y el Fluke 975 AirMeter para la calidad del aire. Se llevaron a cabo técnicas de regresión lineal para la mayoría de los sensores y, en un caso, se utilizó la regresión lineal en el dominio logarítmico. Esto permitió obtener ecuaciones de calibración para tres sensores (termopares, TPF1-E/20 y Wind Sensor), mientras que el SCD30 se referenció directamente.
+
+Los resultados mostrados en la @tbl-completa evidencian que el DTHIS-C es capaz de proporcionar datos exactos, lo que resulta indispensable para el análisis del confort en espacios interiores.
+
+| Sensor               | EM (antes) | EM (después) | EAM (antes) | EAM (después) |
+| ---------------------|----------- |--------------|-------------|---------------|
+| Termopar 1           | +1.00 °C   | −0.00 °C     | 1.00 °C     | 0.08 °C       |
+| Termopar 2           | +0.95 °C   | +0.00 °C     | 0.99 °C     | 0.08 °C       |
+| Termopar 3           | +1.77 °C   | −0.00 °C     | 1.77 °C     | 0.10 °C       |
+| Termopar 4           | +2.11 °C   | +0.00 °C     | 2.11 °C     | 0.08 °C       |
+| TPF1/E-20            | −0.11 °C   | −0.00 °C     | 0.14 °C     | 0.11 °C       |
+| Wind Sensor          | −0.01 m/s  | −0.00 m/s    | 0.06 m/s    | 0.05 m/s      |
+| SCD30 T              | +0.89 °C   | —            | 0.89 °C     | —             |
+| SCD30 HR             | −2.17 %    | —            | 2.17 %      | —             |
+| SCD30 CO<sub>2</sub> | +9.65 ppm  | —            | 13.16 ppm   | —             |
+:EM y EAM de cada sensor antes y después de su calibración o referenciación. {#tbl-completa .hover .sm}
 
 ## Limitaciones técnicas del DTHIS-C {#sec-lmitaciones}
 
@@ -31,8 +46,8 @@ La Raspberry Pi es una computadora completa en formato compacto, equipada con un
 - Implementación de un sistema de alimentación autónomo mediante baterías:
 Se propone integrar un sistema de baterías de alta capacidad para que el DTHIS-C funcione de forma totalmente portátil y autónoma, eliminando la dependencia de una conexión directa a una red de alimentación eléctrica. Esta solución ampliaría significativamente el rango de aplicación del dispositivo, permitiendo su utilización en entornos remotos o en situaciones donde el acceso a la energía eléctrica sea limitado.
 
-Estas mejoras no solo optimizarán la funcionalidad y autonomía del DTHIS-C, sino que también contribuirán a su viabilidad económica y operativa en aplicaciones reales.
+Dichas propuestas no solo mejorarán la funcionalidad y autonomía del DTHIS-C, sino que también contribuirán a su viabilidad económica y operativa en aplicaciones reales.
 
 ## Conclusión general {#sec-conclusion}
 
-En conclusión, el DTHIS-C se presenta como una herramienta eficaz, versátil y económicamente accesible para la evaluación del confort en espacios interiores. Al haberse desarrollado con tecnologías abiertas, se posiciona como una alternativa viable frente a los equipos de medición tradicionales, cuyos altos costos suelen limitar su accesibilidad. La combinación de un diseño modular, procesos de calibración, y la capacidad de conectividad y visualización de datos en tiempo real confiere al dispositivo una alta fiabilidad en aplicaciones prácticas. Los resultados de este proyecto no solo validan el desempeño del DTHIS-C, sino que también establecen una base sólida para futuras mejoras y aplicaciones en el ámbito de la instrumentación para la medición de variables ambientales.
+En conclusión, el DTHIS-C se presenta como una herramienta eficaz, versátil y económicamente accesible para la evaluación del confort en espacios interiores. Al haberse desarrollado con tecnologías abiertas, se posiciona como una alternativa viable frente a los equipos de medición tradicionales, cuyos altos costos suelen limitar su accesibilidad. La combinación de un diseño modular, procesos de calibración, y la capacidad de conectividad y visualización de datos en tiempo real confiere al dispositivo una alta fiabilidad en aplicaciones prácticas. Los resultados de este proyecto no solo validan el desempeño del DTHIS-C, sino que también establecen una base sólida para futuras mejoras y aplicaciones en el ámbito de la instrumentación para la medición de variables físicas ambientales.

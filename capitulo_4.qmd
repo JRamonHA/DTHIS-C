@@ -219,7 +219,7 @@ La @tbl-scd30-t presenta los resultados de temperatura del aire obtenidos para c
 | Variable     | EM [°C] | EAM [°C] |
 |--------------|---------|----------|
 | Temperatura  | 0.89    | 0.89     |
-: EM y EAM para cada variable del SCD30 con respecto al Fluke. {#tbl-scd30-t .hover .sm}
+: EM y EAM para la temperatura del SCD30 con respecto al Fluke. {#tbl-scd30-t .hover .sm}
 
 La tabla presenta el EM y el EAM en la medición de temperatura del sensor SCD30 en comparación con el Fluke. Se observa que el SCD30 tiende a sobreestimar la temperatura en un promedio de 0.89°C. La similitud entre el EM y el EAM significa que las desviaciones no presentan grandes variaciones y se distribuyen de manera uniforme..
 
