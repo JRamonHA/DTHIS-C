@@ -20,15 +20,15 @@ Los resultados mostrados en la @tbl-completa evidencian que el DTHIS-C es capaz 
 
 | Sensor               | EM (antes) | EM (después) | EAM (antes) | EAM (después) |
 | ---------------------|----------- |--------------|-------------|---------------|
-| Termopar 1           | +1.00 °C   | −0.00 °C     | 1.00 °C     | 0.08 °C       |
-| Termopar 2           | +0.95 °C   | +0.00 °C     | 0.99 °C     | 0.08 °C       |
-| Termopar 3           | +1.77 °C   | −0.00 °C     | 1.77 °C     | 0.10 °C       |
-| Termopar 4           | +2.11 °C   | +0.00 °C     | 2.11 °C     | 0.08 °C       |
-| TPF1/E-20            | −0.11 °C   | −0.00 °C     | 0.14 °C     | 0.11 °C       |
-| Wind Sensor          | −0.01 m/s  | −0.00 m/s    | 0.06 m/s    | 0.05 m/s      |
-| SCD30 T              | +0.89 °C   | —            | 0.89 °C     | —             |
-| SCD30 HR             | −2.17 %    | —            | 2.17 %      | —             |
-| SCD30 CO<sub>2</sub> | +9.65 ppm  | —            | 13.16 ppm   | —             |
+| Termopar 1           | 1.00 °C    | -0.00 °C     | 1.00°C      | 0.08°C        |
+| Termopar 2           | 0.95 °C    | 0.00 °C      | 0.99°C      | 0.08°C        |
+| Termopar 3           | 1.77 °C    | -0.00 °C     | 1.77°C      | 0.10°C        |
+| Termopar 4           | 2.11 °C    | 0.00°C       | 2.11°C      | 0.08°C        |
+| TPF1/E-20            | -0.11 °C   | -0.00°C      | 0.14°C      | 0.11°C        |
+| Wind Sensor          | -0.01 m/s  | -0.00 m/s    | 0.06 m/s    | 0.05 m/s      |
+| SCD30 T              | 0.89 °C    | —            | 0.89°C      | —             |
+| SCD30 HR             | -2.17 %    | —            | 2.17 %      | —             |
+| SCD30 CO<sub>2</sub> | 9.65 ppm   | —            | 13.16 ppm   | —             |
 :EM y EAM de cada sensor antes y después de su calibración o referenciación. {#tbl-completa .hover .sm}
 
 ## Limitaciones técnicas del DTHIS-C {#sec-lmitaciones}
