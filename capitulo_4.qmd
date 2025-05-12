@@ -295,7 +295,7 @@ En la @tbl-error-rad se observa que, antes de calibrar, el sensor TPF1/E-20 pres
 
 El WindMaster de Gill Instruments (@fig-wind) es un anemómetro ultrasónico de alta precisión diseñado para medir la velocidad y dirección del viento en tres direcciones (u, v, w). En esta campaña se utilizó como instrumento de referencia para la calibración del Wind Sensor.
 
-![Gill Instruments WindMaster.](/images/windmaster.jpg){.lightbox #fig-wind width="35%"}
+![Gill Instruments WindMaster.](/images/windmaster.jpg){.lightbox #fig-wind width="38%"}
 
 La campaña de calibración tuvo una duración de 1 hora, durante la cual se capturaron datos a una frecuencia de 1 Hz. Aprovechando las dimensiones del WindSensor (2230 x 680 mm), se posicionó estratégicamente en la parte superior central del WindMaster, previa verificación de que su presencia no interfiriera con las mediciones del anemómetro. En un entorno abierto, el WindSensor registró datos de voltaje, los cuales se utilizaron junto con los datos de velocidad del viento obtenidos del WindMaster para desarrollar una ecuación de calibración que permitiera convertir el voltaje medido a m/s. Los resultados de la campaña se pueden visualizar en la @fig-viento.
 
@@ -458,9 +458,62 @@ tt.columns_subplots('data/scd30.parquet', subplot_configs, identity_line=True)
 
 #### Micrófono 
 
-Pendiente a la documentación de Jorge.
+El TES-1356 Sound Level Calibrator (@fig-tes) es un calibrador de nivel de sonido capaz de generar tonos de referencia estándar de 94 $dB$ y 114 $dB$ a 1,000 $Hz$, con un margen de error de ±0.5 $dB$.
 
 ![TES-1356 Sound Level Calibrator.](/images/tes.jpg){.lightbox #fig-tes width="30%"}
+
+En este caso, dicho instrumento sirvió para generar un entorno controlado de medición para la calibración del micrófono USB del DTHIS-C, pero el ajuste final se realizó empleando la siguiente ecuación empírica:
+
+$$
+dB = 20 \log_{10}(A) + 120
+$${#eq-cal-sonido}
+
+donde $A$ es la amplitud RMS de la señal digitalizada.
+
+Para obtener $A$, se procedió así:
+
+1. Grabación: Se capturó un tono constante (por ejemplo, 94 $dB$ @ 1,000 $Hz$) durante 15 segundos a 44.1 $kHz$, con el micrófono acoplado al calibrador en un entorno silencioso:
+
+```{python}
+#| eval: false
+#| code-overflow: wrap
+
+#!/bin/bash
+arecord -D plughw:3,0 -f cd -t wav -d 15 -r 44100 audio.wav
+```
+
+2. Extracción de amplitud RMS, máxima y mínima mediante el programa `sox`:
+
+```{python}
+#| eval: false
+#| code-overflow: wrap
+
+#!/bin/bash
+sox audio.wav -n stat 2>&1 \
+  | grep "RMS     amplitude:" \
+  | awk '{print $3}' > rms.txt
+
+# (análogo para dBmax.txt y dBmin.txt)
+```
+
+3. Cálculo en Python:
+
+```{python}
+#| eval: false
+#| code-overflow: wrap
+
+import numpy as np
+
+with open('rms.txt')    as f: rms_x    = float(f.read().strip())
+with open('dBmax.txt')  as f: dBmax_x  = float(f.read().strip())
+with open('dBmin.txt')  as f: dBmin_x  = float(f.read().strip())
+
+rms_db   = round(20*np.log10(rms_x)   + 120, 4)
+dBmax_db = round(20*np.log10(dBmax_x) + 120, 4)
+dBmin_db = round(20*np.log10(abs(dBmin_x)) + 120,4)
+```
+
+Con este procedimiento, la constante 120 $dB$ se aplicó directamente para ajustar la salida del ADC del micrófono a una escala de $dB$, garantizando que los valores calculados reflejen niveles de presión sonora coherentes con la referencia del calibrador.
 
 ## Iluminancia {#sec-ilum-b}
 

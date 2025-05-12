@@ -399,12 +399,12 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <p>ThingsBoard es una plataforma IoT de código abierto diseñada para la recopilación, procesamiento, visualización y gestión de dispositivos, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="referencias.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En el contexto de esta tesis, se utiliza para transmitir en tiempo real las mediciones obtenidas de los distintos sensores del DTHIS-C hacia un servidor central, donde se alojan y resguardan los datos en una base de datos dedicada a Internet de las Cosas.</p>
 <p>Según la documentación oficial de ThingsBoard, la plataforma admite la conectividad mediante protocolos estándares como MQTT, CoAP y HTTP, lo que facilita la integración de diversos dispositivos y sensores, <span class="citation" data-cites="thingsboard">ThingsBoard (<a href="referencias.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En este caso, las mediciones de los sensores se envían desde el DTHIS-C a ThingsBoard, que actúa como una base de datos. La plataforma no solo almacena la información, sino que también permite la creación de tableros interactivos y personalizables que posibilitan la visualización en tiempo real de las mediciones. Esto es fundamental durante las campañas de medición, ya que permite monitorear de forma inmediata el funcionamiento de los sensores, identificar tendencias y detectar posibles anomalías en los datos.</p>
 <p>Para facilitar la obtención de datos directamente desde la plataforma ThingsBoard, el Grupo de Energía en Edificaciones del IER-UNAM desarrolló el paquete instalable de Python <code>iertools</code>. Una vez configurado un entorno Python y Git instalado, puede integrarse a al sistema ejecutando en la terminal el siguiente comando:</p>
-<div id="2d4b6493" class="cell" data-execution_count="2">
+<div id="bc531a3f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>AltamarMx<span class="op">/</span>iertools.git</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Es importante señalar que, antes de proceder a la obtención y descarga de datos desde ThingsBoard, es necesario crear un archivo de configuración con extensión <code>.ini</code>. Un archivo .ini es un documento de texto plano que almacena parámetros y opciones en formato clave-valor, y se utiliza para definir la configuración necesaria (como la URL del servidor y el token de acceso) que el paquete <code>iertools</code> requiere para conectarse a ThingsBoard.</p>
 <p>A continuación, se presenta un ejemplo de cómo estructurar dicho archivo:</p>
-<div id="afbd3661" class="cell" data-execution_count="3">
+<div id="ec3cd5c3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[dthisc]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>token     <span class="op">=</span> token</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>device_id <span class="op">=</span> device_id</span>
@@ -414,7 +414,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>port      <span class="op">=</span> <span class="dv">8080</span> </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez instalado <code>iertools</code>, es posible recuperar datos desde un script o notebook. El siguiente fragmento de código ilustra cómo obtener los datos de medición de los termopares del DTHIS-C a partir de ThingsBoard; este ejemplo puede ser ajustado según las necesidades específicas, permitiendo extraer distintos conjuntos de datos conforme a los requerimientos del estudio:</p>
-<div id="83829f8e" class="cell" data-execution_count="4">
+<div id="cecede2d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> iertools.tb <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.parser <span class="im">import</span> parse</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -499,7 +499,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 </div>
 </div>
 <p>Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente comando para exportarlos a un archivo CSV:</p>
-<div id="2e3fef8f" class="cell" data-execution_count="5">
+<div id="502d484b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"ruta/de/su/preferencia.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -819,7 +819,7 @@ Tabla&nbsp;4.5: EM y EAM del TPF1 antes y después de la calibración.
 <div id="fig-wind" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href=".\images/windmaster.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4.10: Gill Instruments WindMaster."><img src=".\images/windmaster.jpg" class="img-fluid figure-img" style="width:35.0%"></a>
+<a href=".\images/windmaster.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4.10: Gill Instruments WindMaster."><img src=".\images/windmaster.jpg" class="img-fluid figure-img" style="width:38.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;4.10: Gill Instruments WindMaster.
@@ -1004,7 +1004,7 @@ Figura&nbsp;4.14: Correlación de las mediciones de humedad relativa y CO<sub>2<
 <h2 data-number="4.7" class="anchored" data-anchor-id="sec-sonido-b"><span class="header-section-number">4.7</span> Sonido</h2>
 <section id="micrófono" class="level4">
 <h4 class="anchored" data-anchor-id="micrófono">Micrófono</h4>
-<p>Pendiente a la documentación de Jorge.</p>
+<p>El TES-1356 Sound Level Calibrator (<a href="#fig-tes" class="quarto-xref">Figura&nbsp;<span>4.15</span></a>) es un calibrador de nivel de sonido capaz de generar tonos de referencia estándar de 94 <span class="math inline">\(dB\)</span> y 114 <span class="math inline">\(dB\)</span> a 1,000 <span class="math inline">\(Hz\)</span>, con un margen de error de ±0.5 <span class="math inline">\(dB\)</span>.</p>
 <div id="fig-tes" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1015,6 +1015,45 @@ Figura&nbsp;4.15: TES-1356 Sound Level Calibrator.
 </figcaption>
 </figure>
 </div>
+<p>En este caso, dicho instrumento sirvió para generar un entorno controlado de medición para la calibración del micrófono USB del DTHIS-C, pero el ajuste final se realizó empleando la siguiente ecuación empírica:</p>
+<p><span id="eq-cal-sonido"><span class="math display">\[
+dB = 20 \log_{10}(A) + 120
+\tag{4.9}\]</span></span></p>
+<p>donde <span class="math inline">\(A\)</span> es la amplitud RMS de la señal digitalizada.</p>
+<p>Para obtener <span class="math inline">\(A\)</span>, se procedió así:</p>
+<ol type="1">
+<li>Grabación: Se capturó un tono constante (por ejemplo, 94 <span class="math inline">\(dB\)</span> @ 1,000 <span class="math inline">\(Hz\)</span>) durante 15 segundos a 44.1 <span class="math inline">\(kHz\)</span>, con el micrófono acoplado al calibrador en un entorno silencioso:</li>
+</ol>
+<div id="a52aa09d" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>arecord <span class="op">-</span>D plughw:<span class="dv">3</span>,<span class="dv">0</span> <span class="op">-</span>f cd <span class="op">-</span>t wav <span class="op">-</span>d <span class="dv">15</span> <span class="op">-</span>r <span class="dv">44100</span> audio.wav</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Extracción de amplitud RMS, máxima y mínima mediante el programa <code>sox</code>:</li>
+</ol>
+<div id="be097052" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sox audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> grep <span class="st">"RMS     amplitude:"</span> \</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> awk <span class="st">'{print $3}'</span> <span class="op">&gt;</span> rms.txt</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># (análogo para dBmax.txt y dBmin.txt)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Cálculo en Python:</li>
+</ol>
+<div id="b48dd3fa" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'rms.txt'</span>)    <span class="im">as</span> f: rms_x    <span class="op">=</span> <span class="bu">float</span>(f.read().strip())</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'dBmax.txt'</span>)  <span class="im">as</span> f: dBmax_x  <span class="op">=</span> <span class="bu">float</span>(f.read().strip())</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'dBmin.txt'</span>)  <span class="im">as</span> f: dBmin_x  <span class="op">=</span> <span class="bu">float</span>(f.read().strip())</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>rms_db   <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span><span class="op">*</span>np.log10(rms_x)   <span class="op">+</span> <span class="dv">120</span>, <span class="dv">4</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>dBmax_db <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span><span class="op">*</span>np.log10(dBmax_x) <span class="op">+</span> <span class="dv">120</span>, <span class="dv">4</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>dBmin_db <span class="op">=</span> <span class="bu">round</span>(<span class="dv">20</span><span class="op">*</span>np.log10(<span class="bu">abs</span>(dBmin_x)) <span class="op">+</span> <span class="dv">120</span>,<span class="dv">4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Con este procedimiento, la constante 120 <span class="math inline">\(dB\)</span> se aplicó directamente para ajustar la salida del ADC del micrófono a una escala de <span class="math inline">\(dB\)</span>, garantizando que los valores calculados reflejen niveles de presión sonora coherentes con la referencia del calibrador.</p>
 </section>
 </section>
 <section id="sec-ilum-b" class="level2" data-number="4.8">
