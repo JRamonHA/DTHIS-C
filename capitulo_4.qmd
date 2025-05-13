@@ -149,17 +149,17 @@ Para la calibración de los termopares, se utilizó Python junto con la librerí
 El ajuste por regresión lineal es una técnica estadística utilizada para modelar la relación entre una variable dependiente y una o más variables independientes. En este caso, la variable dependiente es la temperatura de referencia ($T_{ref}$), mientras que las variables independientes corresponden a las lecturas obtenidas por cada termopar. El modelo lineal se expresa de la forma:
 
 $$
-T_{ref} = m \cdot T_{sensor} + b
+T_{ref} = m \times T_{sensor} + b
 $${#eq-lineal}
 
 donde $m$ es la pendiente y $b$ es la ordenada al origen. La regresión lineal permite minimizar el error entre las mediciones del sensor y los valores de referencia, obteniendo las siguientes ecuaciones de calibración:
 
 $$
 \begin{align}
-T_{ref} &= 1.0450 \cdot Termopar 1 - 2.4327 \\
-T_{ref} &= 1.0602 \cdot Termopar 2 - 2.8632 \\
-T_{ref} &= 1.0814 \cdot Termopar 3 - 4.4316 \\
-T_{ref} &= 1.0554 \cdot Termopar 4 - 3.9348
+T_{ref} &= 1.0450 \times Termopar 1 - 2.4327 \\
+T_{ref} &= 1.0602 \times Termopar 2 - 2.8632 \\
+T_{ref} &= 1.0814 \times Termopar 3 - 4.4316 \\
+T_{ref} &= 1.0554 \times Termopar 4 - 3.9348
 \end{align}
 $${#eq-cal-termopares}
 
@@ -265,7 +265,7 @@ tt.scatter_plot('data/trad.parquet',
 Para la calibración del TPF1/E-20, se aplicó un ajuste por regresión lineal utilizando la librería `scikit-learn` de Python, a partir de los datos de temperatura registrados simultáneamente por el QUESTemp 36 y el sensor TPF1/E-20. Empleando el mismo modelo lineal descrito en la @eq-lineal, se derivó la siguiente ecuación de calibración:
 
 $$
-T_{ref} = 1.0582 \cdot temp - 1.5553
+T_{ref} = 1.0582 \times Temperatura - 1.5553
 $${#eq-cal-radiante}
 
 Al aplicar esta ecuación a los datos obtenidos durante la campaña, se calcularon los valores corregidos para el TPF1/E-20. Los ajustes lineales se pueden observar en la @fig-cradiante.
