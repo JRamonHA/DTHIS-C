@@ -1,4 +1,5 @@
 /.vscode/
+/.venv/
 /.quarto/
 /thesis_tools/__pycache__
 /notebooks/

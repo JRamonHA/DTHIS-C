@@ -782,7 +782,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <section id="arduino" class="level4">
 <h4 class="anchored" data-anchor-id="arduino">Arduino</h4>
 <p>El siguiente código constituye el programa principal del Arduino UNO WiFi Rev2 en el DTHIS-C, encargado de gestionar la conexión WiFi, la comunicación con ThingsBoard mediante el protocolo MQTT, y el envío de datos provenientes de sensores como termopares, temperatura radiante y velocidad del viento:</p>
-<div id="b73e5bf4" class="cell" data-execution_count="1">
+<div id="9ba43c74" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;WiFiNINA.h&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;PubSubClient.h&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -912,7 +912,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <section id="max31856-sen-30007" class="level4">
 <h4 class="anchored" data-anchor-id="max31856-sen-30007">MAX31856 SEN-30007</h4>
 <p>Este código pertenece al shield de PWFusion, este se encarga de recopilar las mediciones de temperatura del aire que realizan los termopares tipo T:</p>
-<div id="d8f1133e" class="cell" data-execution_count="2">
+<div id="0412beb7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;PWFusion_MAX31856.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">//</span> Definición de los pines chip select para cada termopar</span>
@@ -971,7 +971,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <section id="pt1000-rtd-max31865" class="level4">
 <h4 class="anchored" data-anchor-id="pt1000-rtd-max31865">PT1000 RTD-MAX31865</h4>
 <p>El siguiente código gestiona el Adafruit PT1000 RTD-MAX31865, encargado de convertir las señales analógicas del TPF1/E-20 PT1000 a valores digitales, permitiendo obtener las mediciones de la temperatura radiante:</p>
-<div id="2566e07b" class="cell" data-execution_count="3">
+<div id="a0e01dbe" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;Adafruit_MAX31865.h&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">//</span> Usamos software SPI: CS, DI, DO, CLK</span>
@@ -1011,7 +1011,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <section id="wind-sensor-rev.-p6" class="level4">
 <h4 class="anchored" data-anchor-id="wind-sensor-rev.-p6">Wind Sensor Rev.&nbsp;P6</h4>
 <p>El siguiente código se encarga de gestionar el Wind Sensor Rev.&nbsp;P6, permitiendo obtener las mediciones de la velocidad del viento:</p>
-<div id="9884ea61" class="cell" data-execution_count="4">
+<div id="131ea6b4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include &lt;math.h&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>const <span class="bu">int</span> OutPin  <span class="op">=</span> A0<span class="op">;</span>   <span class="op">//</span> Pin analógico para el sensor de viento (<span class="st">"OUT"</span>)</span>
@@ -1048,7 +1048,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <section id="raspberry" class="level4">
 <h4 class="anchored" data-anchor-id="raspberry">Raspberry</h4>
 <p>El siguiente código constituye el programa principal del Raspberry Pi 4 Model B en el DTHIS-C, encargado de gestionar la conexión al servidor ThingsBoard mediante el protocolo MQTT y el envío de datos provenientes de sensores como el SCD30 (CO2, temperatura y humedad relativa), valores de iluminancia y presión sonora capturados por la cámara y el micrófono respectivamente:</p>
-<div id="fa4b3a2c" class="cell" data-execution_count="5">
+<div id="f58d2f4c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> mqtt</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
@@ -1108,7 +1108,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <section id="scd30" class="level4">
 <h4 class="anchored" data-anchor-id="scd30">SCD30</h4>
 <p>Este código se encarga de capturar y almacenar las mediciones de humedad relativa, concentración de CO<sub>2</sub> y temperatura ambiente proporcionadas por el sensor SCD30:</p>
-<div id="df1adee8" class="cell" data-execution_count="6">
+<div id="87beffd8" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> board</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> busio</span>
@@ -1144,7 +1144,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <h4 class="anchored" data-anchor-id="micrófono-ambiental-usb-1">Micrófono ambiental USB</h4>
 <p>A continuación, se presentan los códigos utilizados para la captura y análisis de sonido. Estos códigos permiten grabar el audio, extraer parámetros clave de la señal y convertirlos a valores en decibeles (dB).</p>
 <p>El siguiente código graba un archivo de audio en formato WAV durante 15 segundos a una frecuencia de muestreo de 44.1 kHz:</p>
-<div id="f0e1e4ff" class="cell" data-execution_count="7">
+<div id="de3c5bb3" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>grabar<span class="op">=</span><span class="st">"/home/hdeza/Sonido/audio.wav"</span></span>
@@ -1152,7 +1152,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>arecord <span class="op">-</span>D plughw:<span class="dv">3</span>,<span class="dv">0</span> <span class="op">-</span>f cd <span class="op">-</span>t wav <span class="op">-</span>d <span class="dv">15</span> <span class="op">-</span>r <span class="dv">44100</span> $grabar</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Posteriormente este código analiza el archivo de audio y extrae la amplitud máxima de la señal, almacenándola en un archivo de texto:</p>
-<div id="16e3025f" class="cell" data-execution_count="8">
+<div id="d49f6521" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>maximo<span class="op">=</span><span class="st">"/home/hdeza/Sonido/dBmax.txt"</span></span>
@@ -1160,7 +1160,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>sox <span class="op">/</span>home<span class="op">/</span>hdeza<span class="op">/</span>Sonido<span class="op">/</span>audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>grep <span class="st">"Maximum amplitude:"</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>awk <span class="st">'{print $3}'</span>  <span class="op">&gt;</span> $maximo</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Similar al anterior, este código obtiene la amplitud mínima del audio y la guarda en un archivo de texto:</p>
-<div id="89d08c10" class="cell" data-execution_count="9">
+<div id="4e0f36d3" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>minimo<span class="op">=</span><span class="st">"/home/hdeza/Sonido/dBmin.txt"</span></span>
@@ -1168,7 +1168,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>sox <span class="op">/</span>home<span class="op">/</span>hdeza<span class="op">/</span>Sonido<span class="op">/</span>audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>grep <span class="st">"Minimum amplitude:"</span> <span class="op">|</span> <span class="op">/</span>usr<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>awk <span class="st">'{print $3}'</span> <span class="op">&gt;</span> $minimo</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Este código calcula la amplitud RMS (Root Mean Square) del audio, un indicador de la potencia promedio de la señal sonora:</p>
-<div id="f5ba4608" class="cell" data-execution_count="10">
+<div id="d115fda3" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>media<span class="op">=</span><span class="st">"/home/hdeza/Sonido/rms.txt"</span></span>
@@ -1178,7 +1178,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <p>El código en Python lee los valores extraídos previamente (RMS, amplitud máxima y mínima) y los convierte a decibeles utilizando la fórmula:</p>
 <p><span class="math display">\[dB = 20 \log_{10}(\text{amplitud}) + 120\]</span></p>
 <p>Los valores resultantes son almacenados en un diccionario para su posterior uso:</p>
-<div id="f99f5bf4" class="cell" data-execution_count="11">
+<div id="10c26695" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sound_data():</span>
@@ -1217,7 +1217,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <section id="ov5647-ultra-wide-angle" class="level4">
 <h4 class="anchored" data-anchor-id="ov5647-ultra-wide-angle">OV5647 Ultra Wide Angle</h4>
 <p>El siguiente programa se encarga de obtener el valor total de iluminancia mediante la generación de un mapa de iluminancia. En primer lugar, el código captura múltiples fotografías a diferentes velocidades de obturación, lo que permite cubrir un amplio rango de exposiciones. Posteriormente, se fusionan estas imágenes para crear una imagen HDR, que contiene la mayor cantidad de información luminosa posible. A continuación, a la imagen HDR se le aplica un false color para resaltar la distribución de la iluminancia en las distintas superficies de la escena. Utilizando herramientas del software Radiance, se realiza un cálculo de integral sobre los valores de luminancia de la imagen, lo que permite determinar el valor total de iluminancia. Finalmente, este valor se almacena en un archivo .txt para su posterior análisis:</p>
-<div id="bd6cad10" class="cell" data-execution_count="12">
+<div id="6ad519ab" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>DATE<span class="op">=</span>$(date <span class="op">+</span><span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">_%H%M"</span>)</span>
@@ -1266,7 +1266,7 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 <span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>falsecolor <span class="op">-</span>s <span class="dv">5000</span> <span class="op">-</span>d <span class="dv">1</span> <span class="op">-</span>i <span class="st">"$HDR_IMG/image_crop_$DATE.hdr"</span> <span class="op">--</span>log <span class="dv">3</span> <span class="op">&gt;</span> <span class="st">"$MAPS_DIR/image_map_$DATE.hdr"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Posteriormente este código define una función que se encarga de leer el valor total de iluminancia a partir de un archivo .txt previamente generado por el proceso de creación del mapa de iluminancia. La función abre el archivo ubicado en la ruta especificada, extrae el valor numérico contenido en él, lo convierte a tipo float y lo retorna:</p>
-<div id="508e90c4" class="cell" data-execution_count="13">
+<div id="00db9539" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> illuminance_data():</span>
