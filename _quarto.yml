@@ -13,7 +13,7 @@ book:
   author: 
     name: "José Ramón Hernández Aguilar"
     email: hdezagjr@gmail.com
-  date: "05/05/2025"
+  date: "04/06/2025"
   chapters:
     - index.qmd
     - capitulo_1.qmd
