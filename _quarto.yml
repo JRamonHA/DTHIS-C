@@ -45,7 +45,5 @@ format:
       light: cosmo
     smooth-scroll: true
     code-link: true
-  # latex:
-  #   documentclass: scrbook
 
 bibliography: references.bib

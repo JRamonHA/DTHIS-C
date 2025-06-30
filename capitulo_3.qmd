@@ -104,21 +104,21 @@ A continuación, se presentan sus especificaciones según @omega:
 
 **Rangos de Temperatura** 
 
-- **Grado de termopar:** -200 a 350 °C (-328 a 662 °F).
+- **Grado de termopar:** -200 a 350°C (-328 a 662°F).
 
   Este es el rango operativo del sensor principal. Dentro de estos límites, el termopar puede medir temperaturas con exactitud.
 
-- **Grado de extensión:** -60 a 100 °C (-76 a 212 °F).
+- **Grado de extensión:** -60 a 100°C (-76 a 212°F).
   
   Este rango se refiere al cable de extensión, que conecta el termopar al instrumento de medición. Estos cables están diseñados para mantener la integridad de la señal dentro de este rango de temperatura.
 
 **Límites de Error** 
 
-- ±1.0 °C o ±0.75% por encima de 0 °C.  
+- ±1.0°C o ±0.75% por encima de 0°C.  
 
-- ±1.0 °C o ±1.5% por debajo de 0 °C.  
+- ±1.0°C o ±1.5% por debajo de 0°C.  
 
-  Esto significa que la lectura del termopar puede variar en ±1.0 °C o en un porcentaje del valor medido, dependiendo de cuál sea mayor.
+  Esto significa que la lectura del termopar puede variar en ±1.0°C o en un porcentaje del valor medido, dependiendo de cuál sea mayor.
 
 #### PWFusion MAX31856 SEN-30007
 
@@ -130,20 +130,20 @@ Acorde a @pwf sus específicaciones son las siguientes:
 
 - Conversión de señal analógica a digital con resolución de 19 bits.
 - Interfaz ICSP de 4 hilos.
-- Rango de voltaje de alimentación: 3.3 V a 5.0 V.  
+- Rango de voltaje de alimentación: 3.3V a 5.0V.  
 
 ## Temperatura radiante {#sec-trad-a}
 
 #### Fuehler Systeme TPF1/E-20 PT1000
-Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30 °C a +75 °C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones precisas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. @fuehler
+Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30°C a +75°C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones exactas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. @fuehler
 
 **Especificaciones**
 
 - Tipo de circuito: Conexión de 2 hilos.
-- Corriente de medición: Aproximadamente 1 mA.
+- Corriente de medición: Aproximadamente 1mA.
 - Conexión eléctrica: Extremos pelados con terminales.
-- Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105 °C) con extremos de cable núcleo disponibles en diferentes longitudes.
-- Resistencia de fuga: Mayor a 100 M$\Omega$ a +20 °C (500 V DC).
+- Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105°C) con extremos de cable núcleo disponibles en diferentes longitudes.
+- Resistencia de fuga: Mayor a 100 M$\Omega$ a +20°C (500V DC).
 - Material del globo: Aluminio (negro).
 - Dimensiones del globo: Diámetro de 70 mm.
 
@@ -156,24 +156,24 @@ El PT1000 RTD-MAX31865 es un convertidor de resistencia a digital. La @fig-MAX31
 @adafruit describe las siguientes características:
 
 - Realiza la conversión de la resistencia de sensores RTD de platino a un valor digital de forma sencilla.
-- Soporte con RTD de platino con valores de 100 $\Omega$ a 1 k$\Omega$ (a 0 °C), abarcando desde PT100 hasta PT1000.
+- Soporte con RTD de platino con valores de 100 $\Omega$ a 1 k$\Omega$ (a 0°C), abarcando desde PT100 hasta PT1000.
 - Compatible con configuraciones de 2, 3 y 4 hilos para la conexión de sensores.
 - Incorpora una interfaz ICSP, facilitando su integración en sistemas basados en microcontroladores.
-- Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125 °C (valor variable debido a la no linealidad del RTD) y una exactitud total de hasta 0.5 °C (0.05% de la escala completa) en todas las condiciones operativas.
+- Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125°C (valor variable debido a la no linealidad del RTD) y una exactitud total de hasta 0.5°C (0.05% de la escala completa) en todas las condiciones operativas.
 - Tiempo máximo de conversión es de 21 ms.
 
 ## Velocidad del viento {#sec-viento-a}
 
 #### Modern Device Wind Sensor Rev. P6
 
-El Wind Sensor Rev. P6 (@fig-WindSensor) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12 V (idealmente 12 V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3 V y una señal de viento ajustada a un máximo de 3.3 V mediante resistencias de alta precisión. @modern
+El Wind Sensor Rev. P6 (@fig-WindSensor) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12V (idealmente 12V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3V y una señal de viento ajustada a un máximo de 3.3V mediante resistencias de alta precisión. @modern
 
 ![Diagrama de conexión para el Wind Sensor Rev. P6.](/images/windsensor_bb.png){.lightbox #fig-WindSensor width=50%}
 
 **Especificaciones**
 
-- Voltaje de alimentación: 9–12 V.
-- Corriente: Aproximadamente 40 mA.
+- Voltaje de alimentación: 9–12V.
+- Corriente: Aproximadamente 40mA.
 - Velocidades de viento medidas: 0–150 mph.
 - Compensación de temperatura ambiente.
 
@@ -189,8 +189,8 @@ El SCD30 (@fig-SCD30) es un sensor de CO<sub>2</sub> basado en tecnología de de
 
 **Humedad**
 
-- Precisión típica: ±3 %RH
-- Rango de operación: 0 – 95 %RH
+- Precisión típica: ±3% RH
+- Rango de operación: 0 – 95% RH
 - Tiempo de respuesta (τ63%): 8 s
 - Calibrado de fábrica
 
@@ -203,15 +203,15 @@ El SCD30 (@fig-SCD30) es un sensor de CO<sub>2</sub> basado en tecnología de de
 
 **Temperatura**
 
-- Rango de error: ±0.4 °C
+- Rango de error: ±0.4°C
 - Tiempo de respuesta (τ63%): 10 s
 
 **Características generales**
 
-- Voltaje de alimentación: 3.3 – 5.5 V
+- Voltaje de alimentación: 3.3 – 5.5V
 - Corriente promedio: 19 mA
 - Corriente máxima: 75 mA
-- Rango de temperatura de operación: 0 – 50 °C
+- Rango de temperatura de operación: 0 – 50°C
 - Interfaces: I2C, ModBus, PWM
 - Dimensiones: 35 × 23 × 7 mm
 
@@ -288,5 +288,3 @@ La @tbl-materiales muestra la lista de materiales necesarios para la construcci�
 : Lista de materiales para la construcción del DTHIS-C. {#tbl-materiales .hover .sm}
 
 *Nota: Los precios no incluyen envío y pueden estar sujetos a cambios según el destino del producto.*
-
-

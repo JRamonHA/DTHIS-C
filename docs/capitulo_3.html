@@ -534,16 +534,16 @@ Tabla&nbsp;3.3: Especificaciones del Raspberry Pi 4 Model B.
 <p>A continuación, se presentan sus especificaciones según <span class="citation" data-cites="omega">OMEGA (<a href="referencias.html#ref-omega" role="doc-biblioref">s.&nbsp;f.b</a>)</span>:</p>
 <p><strong>Rangos de Temperatura</strong></p>
 <ul>
-<li><p><strong>Grado de termopar:</strong> -200 a 350 °C (-328 a 662 °F).</p>
+<li><p><strong>Grado de termopar:</strong> -200 a 350°C (-328 a 662°F).</p>
 <p>Este es el rango operativo del sensor principal. Dentro de estos límites, el termopar puede medir temperaturas con exactitud.</p></li>
-<li><p><strong>Grado de extensión:</strong> -60 a 100 °C (-76 a 212 °F).</p>
+<li><p><strong>Grado de extensión:</strong> -60 a 100°C (-76 a 212°F).</p>
 <p>Este rango se refiere al cable de extensión, que conecta el termopar al instrumento de medición. Estos cables están diseñados para mantener la integridad de la señal dentro de este rango de temperatura.</p></li>
 </ul>
 <p><strong>Límites de Error</strong></p>
 <ul>
-<li><p>±1.0 °C o ±0.75% por encima de 0 °C.</p></li>
-<li><p>±1.0 °C o ±1.5% por debajo de 0 °C.</p>
-<p>Esto significa que la lectura del termopar puede variar en ±1.0 °C o en un porcentaje del valor medido, dependiendo de cuál sea mayor.</p></li>
+<li><p>±1.0°C o ±0.75% por encima de 0°C.</p></li>
+<li><p>±1.0°C o ±1.5% por debajo de 0°C.</p>
+<p>Esto significa que la lectura del termopar puede variar en ±1.0°C o en un porcentaje del valor medido, dependiendo de cuál sea mayor.</p></li>
 </ul>
 </section>
 <section id="pwfusion-max31856-sen-30007" class="level4">
@@ -563,7 +563,7 @@ Figura&nbsp;3.1: Imagen demostrativa de conexión para el shield MAX31856 SEN-30
 <ul>
 <li>Conversión de señal analógica a digital con resolución de 19 bits.</li>
 <li>Interfaz ICSP de 4 hilos.</li>
-<li>Rango de voltaje de alimentación: 3.3 V a 5.0 V.</li>
+<li>Rango de voltaje de alimentación: 3.3V a 5.0V.</li>
 </ul>
 </section>
 </section>
@@ -571,14 +571,14 @@ Figura&nbsp;3.1: Imagen demostrativa de conexión para el shield MAX31856 SEN-30
 <h2 data-number="3.4" class="anchored" data-anchor-id="sec-trad-a"><span class="header-section-number">3.4</span> Temperatura radiante</h2>
 <section id="fuehler-systeme-tpf1e-20-pt1000" class="level4">
 <h4 class="anchored" data-anchor-id="fuehler-systeme-tpf1e-20-pt1000">Fuehler Systeme TPF1/E-20 PT1000</h4>
-<p>Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30 °C a +75 °C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones precisas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. <span class="citation" data-cites="fuehler">FuehlerSysteme (<a href="referencias.html#ref-fuehler" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
+<p>Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30°C a +75°C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones exactas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. <span class="citation" data-cites="fuehler">FuehlerSysteme (<a href="referencias.html#ref-fuehler" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
 <p><strong>Especificaciones</strong></p>
 <ul>
 <li>Tipo de circuito: Conexión de 2 hilos.</li>
-<li>Corriente de medición: Aproximadamente 1 mA.</li>
+<li>Corriente de medición: Aproximadamente 1mA.</li>
 <li>Conexión eléctrica: Extremos pelados con terminales.</li>
-<li>Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105 °C) con extremos de cable núcleo disponibles en diferentes longitudes.</li>
-<li>Resistencia de fuga: Mayor a 100 M<span class="math inline">\(\Omega\)</span> a +20 °C (500 V DC).</li>
+<li>Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105°C) con extremos de cable núcleo disponibles en diferentes longitudes.</li>
+<li>Resistencia de fuga: Mayor a 100 M<span class="math inline">\(\Omega\)</span> a +20°C (500V DC).</li>
 <li>Material del globo: Aluminio (negro).</li>
 <li>Dimensiones del globo: Diámetro de 70 mm.</li>
 </ul>
@@ -599,10 +599,10 @@ Figura&nbsp;3.2: Diagrama de conexión para el PT1000 RTD-MAX31865.
 <p><span class="citation" data-cites="adafruit">Adafruit (<a href="referencias.html#ref-adafruit" role="doc-biblioref">s.&nbsp;f.</a>)</span> describe las siguientes características:</p>
 <ul>
 <li>Realiza la conversión de la resistencia de sensores RTD de platino a un valor digital de forma sencilla.</li>
-<li>Soporte con RTD de platino con valores de 100 <span class="math inline">\(\Omega\)</span> a 1 k<span class="math inline">\(\Omega\)</span> (a 0 °C), abarcando desde PT100 hasta PT1000.</li>
+<li>Soporte con RTD de platino con valores de 100 <span class="math inline">\(\Omega\)</span> a 1 k<span class="math inline">\(\Omega\)</span> (a 0°C), abarcando desde PT100 hasta PT1000.</li>
 <li>Compatible con configuraciones de 2, 3 y 4 hilos para la conexión de sensores.</li>
 <li>Incorpora una interfaz ICSP, facilitando su integración en sistemas basados en microcontroladores.</li>
-<li>Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125 °C (valor variable debido a la no linealidad del RTD) y una exactitud total de hasta 0.5 °C (0.05% de la escala completa) en todas las condiciones operativas.</li>
+<li>Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125°C (valor variable debido a la no linealidad del RTD) y una exactitud total de hasta 0.5°C (0.05% de la escala completa) en todas las condiciones operativas.</li>
 <li>Tiempo máximo de conversión es de 21 ms.</li>
 </ul>
 </section>
@@ -611,7 +611,7 @@ Figura&nbsp;3.2: Diagrama de conexión para el PT1000 RTD-MAX31865.
 <h2 data-number="3.5" class="anchored" data-anchor-id="sec-viento-a"><span class="header-section-number">3.5</span> Velocidad del viento</h2>
 <section id="modern-device-wind-sensor-rev.-p6" class="level4">
 <h4 class="anchored" data-anchor-id="modern-device-wind-sensor-rev.-p6">Modern Device Wind Sensor Rev.&nbsp;P6</h4>
-<p>El Wind Sensor Rev.&nbsp;P6 (<a href="#fig-WindSensor" class="quarto-xref">Figura&nbsp;<span>3.3</span></a>) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12 V (idealmente 12 V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3 V y una señal de viento ajustada a un máximo de 3.3 V mediante resistencias de alta precisión. <span class="citation" data-cites="modern">Modern Device (<a href="referencias.html#ref-modern" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
+<p>El Wind Sensor Rev.&nbsp;P6 (<a href="#fig-WindSensor" class="quarto-xref">Figura&nbsp;<span>3.3</span></a>) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12V (idealmente 12V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3V y una señal de viento ajustada a un máximo de 3.3V mediante resistencias de alta precisión. <span class="citation" data-cites="modern">Modern Device (<a href="referencias.html#ref-modern" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
 <div id="fig-WindSensor" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-WindSensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -624,8 +624,8 @@ Figura&nbsp;3.3: Diagrama de conexión para el Wind Sensor Rev.&nbsp;P6.
 </div>
 <p><strong>Especificaciones</strong></p>
 <ul>
-<li>Voltaje de alimentación: 9–12 V.</li>
-<li>Corriente: Aproximadamente 40 mA.</li>
+<li>Voltaje de alimentación: 9–12V.</li>
+<li>Corriente: Aproximadamente 40mA.</li>
 <li>Velocidades de viento medidas: 0–150 mph.</li>
 <li>Compensación de temperatura ambiente.</li>
 </ul>
@@ -649,8 +649,8 @@ Figura&nbsp;3.4: Diagrama de conexión para el SCD30.
 <p><strong>Especificaciones</strong></p>
 <p><strong>Humedad</strong></p>
 <ul>
-<li>Precisión típica: ±3 %RH</li>
-<li>Rango de operación: 0 – 95 %RH</li>
+<li>Precisión típica: ±3% RH</li>
+<li>Rango de operación: 0 – 95% RH</li>
 <li>Tiempo de respuesta (τ63%): 8 s</li>
 <li>Calibrado de fábrica</li>
 </ul>
@@ -663,15 +663,15 @@ Figura&nbsp;3.4: Diagrama de conexión para el SCD30.
 </ul>
 <p><strong>Temperatura</strong></p>
 <ul>
-<li>Rango de error: ±0.4 °C</li>
+<li>Rango de error: ±0.4°C</li>
 <li>Tiempo de respuesta (τ63%): 10 s</li>
 </ul>
 <p><strong>Características generales</strong></p>
 <ul>
-<li>Voltaje de alimentación: 3.3 – 5.5 V</li>
+<li>Voltaje de alimentación: 3.3 – 5.5V</li>
 <li>Corriente promedio: 19 mA</li>
 <li>Corriente máxima: 75 mA</li>
-<li>Rango de temperatura de operación: 0 – 50 °C</li>
+<li>Rango de temperatura de operación: 0 – 50°C</li>
 <li>Interfaces: I2C, ModBus, PWM</li>
 <li>Dimensiones: 35 × 23 × 7 mm</li>
 </ul>
