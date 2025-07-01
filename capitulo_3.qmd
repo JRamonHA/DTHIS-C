@@ -23,12 +23,12 @@ La arquitectura del DTHIS-C se ha fundamentado en el uso combinado de la Raspber
 El DTHIS-C se ha diseñado para medir temperatura del aire, temperatura radiante, velocidad del viento, humedad relativa, niveles de CO<sub>2</sub>, iluminancia y niveles de presión sonora. El dispositivo está compuesto por seis sensores, dos microcontroladores y dos acondicionadores de señal. 
 
 - **Sensor:**
-    Un sensor es un dispositivo que detecta una señal o estímulo del entorno y responde generando una señal eléctrica proporcional, generalmente en forma de corriente o voltaje. Su función principal es convertir señales físicas, químicas o biológicas en señales eléctricas que puedan ser interpretadas por sistemas electrónicos. [Patel, Dr. et al. , -@sensors]
+    Un sensor es un dispositivo que detecta una señal o estímulo del entorno y responde generando una señal eléctrica proporcional, generalmente en forma de corriente o voltaje. Su función principal es convertir señales físicas, químicas o biológicas en señales eléctricas que puedan ser interpretadas por sistemas electrónicos [Patel et al., -@sensors].
 
     En el caso del DTHIS-C, los sensores utilizados permiten medir variables físicas específicas del ambiente, y sus señales son acondicionadas y digitalizadas para su procesamiento y transmisión.
 
 - **Microcontrolador:**
-    Un microcontrolador es una pequeña computadora integrada en un solo chip, se usa en sistemas integrados como sensores de temperatura. Incluye una CPU, memoria RAM, memorias de solo lectura, múltiples puertos de entrada/salida y y periféricos como convertidores analógico-digital (ADC), convertidores digital-analógico (DAC), temporizadores e interfaces seriales (USB, Ethernet, etc.). Su bajo consumo energético lo hace ideal para dispositivos alimentados por batería y aplicaciones específicas. [Hodgson, D. , -@hodgson]
+    Un microcontrolador es una pequeña computadora integrada en un solo chip, se usa en sistemas integrados como sensores de temperatura. Incluye una CPU, memoria RAM, memorias de solo lectura, múltiples puertos de entrada/salida y y periféricos como convertidores analógico-digital (ADC), convertidores digital-analógico (DAC), temporizadores e interfaces seriales (USB, Ethernet, etc.). Su bajo consumo energético lo hace ideal para dispositivos alimentados por batería y aplicaciones específicas [Hodgson, -@hodgson].
 
     En el DTHIS-C, el microcontrolador es fundamental para gestionar y procesar las señales de los sensores, convirtiendo las salidas analógicas en datos digitales precisos mediante el ADC. Estos datos se utilizan para medir las condiciones ambientales y se transmiten a una plataforma IoT para su visualización en tiempo real.
 
@@ -53,7 +53,7 @@ En la tabla @tbl-componentes se presentan los sensores y componentes electrónic
 
 **Arduino UNO WiFi Rev2**
 
-El Arduino UNO WiFi Rev2 es una placa de microcontrolador diseñada para proyectos de Internet de las Cosas (IoT), integrando conectividad WiFi y Bluetooth mediante el módulo u-blox NINA-W102 y un sensor IMU de 6 ejes (LSM6DS3TR) para detección de movimientos. Equipada con el microcontrolador ATmega4809, mantiene compatibilidad con el formato estándar UNO, facilitando su uso con shields existentes. @arduino
+El Arduino UNO WiFi Rev2 es una placa de microcontrolador diseñada para proyectos de Internet de las Cosas (IoT), integrando conectividad WiFi y Bluetooth mediante el módulo u-blox NINA-W102 y un sensor IMU de 6 ejes (LSM6DS3TR) para detección de movimientos. Equipada con el microcontrolador ATmega4809, mantiene compatibilidad con el formato estándar UNO, facilitando su uso con shields existentes [Arduino, -@arduino].
 
 En la @tbl-arduino se muestran las especificaciones del Arduino UNO WiFi Rev2.
 
@@ -75,7 +75,7 @@ En la @tbl-arduino se muestran las especificaciones del Arduino UNO WiFi Rev2.
 
 **Raspberry Pi 4 Model B**
 
-La Raspberry Pi 4 Model B es una computadora de placa única de alto rendimiento, diseñada para tareas de procesamiento avanzado y conectividad eficiente en un formato compacto. Equipada con un procesador de 64 bits de cuatro núcleos y opciones de RAM de hasta 8 GB, ofrece soporte para salida de video dual 4K y conectividad avanzada mediante Wi-Fi de doble banda, Bluetooth 5.0, Ethernet Gigabit y puertos USB 3.0, con capacidad para Power over Ethernet (PoE) mediante un accesorio adicional. Su diseño versátil y eficiente la hace ideal para la integración y gestión de datos en el sistema DTHIS-C. @raspberry
+La Raspberry Pi 4 Model B es una computadora de placa única de alto rendimiento, diseñada para tareas de procesamiento avanzado y conectividad eficiente en un formato compacto. Equipada con un procesador de 64 bits de cuatro núcleos y opciones de RAM de hasta 8 GB, ofrece soporte para salida de video dual 4K y conectividad avanzada mediante Wi-Fi de doble banda, Bluetooth 5.0, Ethernet Gigabit y puertos USB 3.0, con capacidad para Power over Ethernet (PoE) mediante un accesorio adicional. Su diseño versátil y eficiente la hace ideal para la integración y gestión de datos en el sistema DTHIS-C [Raspberry, -@raspberry].
 
 En la @tbl-raspberry se muestran las especificaciones de la Raspberry Pi 4 Model B.
 
@@ -100,7 +100,7 @@ En la @tbl-raspberry se muestran las especificaciones de la Raspberry Pi 4 Model
 
 En la construcción del DTHIS se emplea un termopar tipo T, un sensor de temperatura compuesto por la unión de cobre y cobre-níquel (constantán). Su uso es ideal para entornos con humedad.  
 
-A continuación, se presentan sus especificaciones según @omega:  
+A continuación, se presentan sus especificaciones acorde a @omega:  
 
 **Rangos de Temperatura** 
 
@@ -135,7 +135,7 @@ Acorde a @pwf sus específicaciones son las siguientes:
 ## Temperatura radiante {#sec-trad-a}
 
 #### Fuehler Systeme TPF1/E-20 PT1000
-Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30°C a +75°C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones exactas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados. @fuehler
+Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30°C a +75°C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones exactas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados [FuehlerSysteme, -@fuehler].
 
 **Especificaciones**
 
@@ -166,7 +166,7 @@ El PT1000 RTD-MAX31865 es un convertidor de resistencia a digital. La @fig-MAX31
 
 #### Modern Device Wind Sensor Rev. P6
 
-El Wind Sensor Rev. P6 (@fig-WindSensor) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12V (idealmente 12V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3V y una señal de viento ajustada a un máximo de 3.3V mediante resistencias de alta precisión. @modern
+El Wind Sensor Rev. P6 (@fig-WindSensor) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12V (idealmente 12V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3V y una señal de viento ajustada a un máximo de 3.3V mediante resistencias de alta precisión [Modern Device, -@modern]. 
 
 ![Diagrama de conexión para el Wind Sensor Rev. P6.](/images/windsensor_bb.png){.lightbox #fig-WindSensor width=50%}
 
@@ -181,7 +181,7 @@ El Wind Sensor Rev. P6 (@fig-WindSensor) es un anemómetro de hilo caliente. Inc
 
 #### Sensirion SCD30
 
-El SCD30 (@fig-SCD30) es un sensor de CO<sub>2</sub> basado en tecnología de detección por infrarrojos. Incorpora un sensor de humedad y temperatura. Cuenta con un diseño de doble canal. @scd30
+El SCD30 (@fig-SCD30) es un sensor de CO<sub>2</sub> basado en tecnología de detección por infrarrojos. Incorpora un sensor de humedad y temperatura. Cuenta con un diseño de doble canal [Sensirion, -@scd30].
 
 ![Diagrama de conexión para el SCD30.](/images/scd30_bb.png){.lightbox #fig-SCD30 width=70%}
 
@@ -219,7 +219,7 @@ El SCD30 (@fig-SCD30) es un sensor de CO<sub>2</sub> basado en tecnología de de
 
 #### Micrófono ambiental USB
 
-El micrófono (@fig-Microfono) incorpora un filtro que atenúa eficazmente los ruidos producidos por el viento o la respiración. Su patrón de captación direccional optimiza la focalización de la fuente sonora. @steren
+El micrófono (@fig-Microfono) incorpora un filtro que atenúa eficazmente los ruidos producidos por el viento o la respiración. Su patrón de captación direccional optimiza la focalización de la fuente sonora [Steren, -@steren].
 
 ![Diagrama de conexión para el micrófono.](/images/micro_bb.png){.lightbox #fig-Microfono width=70%}
 
@@ -233,7 +233,7 @@ El micrófono (@fig-Microfono) incorpora un filtro que atenúa eficazmente los r
 
 #### Arducam 5MP OV5647 Ultra Wide Angle
 
-La cámara Arducam Ultra Wide Angle (@fig-Camara) cuenta con un objetivo ojo de pez M12 que ofrece un campo de visión horizontal de 220°. @arducam
+La cámara Arducam Ultra Wide Angle (@fig-Camara) cuenta con un objetivo ojo de pez M12 que ofrece un campo de visión horizontal de 220° [Arducam, -@arducam].
 
 ![Diagrama de conexión para la cámara OV5647.](/images/camera_bb.png){.lightbox #fig-Camara width=70%}
 
