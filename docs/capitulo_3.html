@@ -251,11 +251,17 @@ window.Quarto = {
   <ul>
   <li><a href="#arducam-5mp-ov5647-ultra-wide-angle" id="toc-arducam-5mp-ov5647-ultra-wide-angle" class="nav-link" data-scroll-target="#arducam-5mp-ov5647-ultra-wide-angle">Arducam 5MP OV5647 Ultra Wide Angle</a></li>
   </ul></li>
-  <li><a href="#sec-codigos" id="toc-sec-codigos" class="nav-link" data-scroll-target="#sec-codigos"><span class="header-section-number">3.9</span> Programas y códigos</a>
+  <li><a href="#sec-dispositivo" id="toc-sec-dispositivo" class="nav-link" data-scroll-target="#sec-dispositivo"><span class="header-section-number">3.9</span> Dispositivo final</a>
   <ul>
-  <li><a href="#repositorio-de-github" id="toc-repositorio-de-github" class="nav-link" data-scroll-target="#repositorio-de-github">Repositorio de GitHub</a></li>
+  <li><a href="#diseño-3d" id="toc-diseño-3d" class="nav-link" data-scroll-target="#diseño-3d">Diseño 3D</a></li>
+  <li><a href="#ensamblado" id="toc-ensamblado" class="nav-link" data-scroll-target="#ensamblado">Ensamblado</a></li>
+  <li><a href="#tablero-interactivo" id="toc-tablero-interactivo" class="nav-link" data-scroll-target="#tablero-interactivo">Tablero interactivo</a></li>
   </ul></li>
-  <li><a href="#sec-materiales" id="toc-sec-materiales" class="nav-link" data-scroll-target="#sec-materiales"><span class="header-section-number">3.10</span> Lista de materiales</a></li>
+  <li><a href="#sec-repositorio" id="toc-sec-repositorio" class="nav-link" data-scroll-target="#sec-repositorio"><span class="header-section-number">3.10</span> Repositorio de GitHub</a>
+  <ul>
+  <li><a href="#archivos-relevantes" id="toc-archivos-relevantes" class="nav-link" data-scroll-target="#archivos-relevantes">Archivos relevantes</a></li>
+  </ul></li>
+  <li><a href="#sec-materiales" id="toc-sec-materiales" class="nav-link" data-scroll-target="#sec-materiales"><span class="header-section-number">3.11</span> Lista de materiales</a></li>
   </ul>
 </nav>
     </div>
@@ -281,7 +287,7 @@ window.Quarto = {
 </header>
 
 
-<p>En este capítulo se presenta una descripción detallada del DTHIS-C, incluyendo sus componentes y especificaciones técnicas. Además, se proporcionan los diagramas de conexión y los códigos necesarios para la configuración de cada sensor, facilitando tanto la reproducción completa del DTHIS-C como la implementación individual de sus sensores.</p>
+<p>En este capítulo se presenta una descripción detallada del DTHIS-C, incluyendo sus componentes y especificaciones técnicas. Además, se proporcionan los diagramas de conexión y los códigos necesarios para la configuración de cada sensor, facilitando tanto la reproducción completa del DTHIS-C como la implementación individual de sus sensores. Y finalmente se presenta el diseño final del DTHIS-C, donde se muestran los diseños CAD para su impresión en 3D y el ensamblaje de la carcasa, así como el tablero interactivo donde se visualizan las mediciones en tiempo real del DTHIS-C.</p>
 <section id="sec-diseno" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-diseno"><span class="header-section-number">3.1</span> Diseño</h2>
 <p>La arquitectura del DTHIS-C se ha fundamentado en el uso combinado de la Raspberry Pi 4 y el Arduino Uno WiFi Rev2, microcontroladores seleccionados por las siguientes características y ventajas:</p>
@@ -439,7 +445,7 @@ Tabla&nbsp;3.2: Especificaciones del Arduino UNO WiFi Rev2.
 </tr>
 <tr class="even">
 <td>Voltaje de operación</td>
-<td>5V</td>
+<td>5 V</td>
 </tr>
 <tr class="odd">
 <td>Consumo máximo total</td>
@@ -509,11 +515,11 @@ Tabla&nbsp;3.3: Especificaciones del Raspberry Pi 4 Model B.
 </tr>
 <tr class="odd">
 <td>Voltaje de operación</td>
-<td>5V</td>
+<td>5 V</td>
 </tr>
 <tr class="even">
 <td>Consumo energético</td>
-<td>Eficiente, sin ventilador (~3A recomendado)</td>
+<td>Eficiente, sin ventilador (~3 A recomendado)</td>
 </tr>
 <tr class="odd">
 <td>Dimensiones</td>
@@ -563,7 +569,7 @@ Figura&nbsp;3.1: Imagen demostrativa de conexión para el shield MAX31856 SEN-30
 <ul>
 <li>Conversión de señal analógica a digital con resolución de 19 bits.</li>
 <li>Interfaz ICSP de 4 hilos.</li>
-<li>Rango de voltaje de alimentación: 3.3V a 5.0V.</li>
+<li>Rango de voltaje de alimentación: 3.3 V a 5.0 V.</li>
 </ul>
 </section>
 </section>
@@ -575,10 +581,10 @@ Figura&nbsp;3.1: Imagen demostrativa de conexión para el shield MAX31856 SEN-30
 <p><strong>Especificaciones</strong></p>
 <ul>
 <li>Tipo de circuito: Conexión de 2 hilos.</li>
-<li>Corriente de medición: Aproximadamente 1mA.</li>
+<li>Corriente de medición: Aproximadamente 1 mA.</li>
 <li>Conexión eléctrica: Extremos pelados con terminales.</li>
 <li>Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105°C) con extremos de cable núcleo disponibles en diferentes longitudes.</li>
-<li>Resistencia de fuga: Mayor a 100 M<span class="math inline">\(\Omega\)</span> a +20°C (500V DC).</li>
+<li>Resistencia de fuga: Mayor a 100 M<span class="math inline">\(\Omega\)</span> a +20°C (500 V DC).</li>
 <li>Material del globo: Aluminio (negro).</li>
 <li>Dimensiones del globo: Diámetro de 70 mm.</li>
 </ul>
@@ -611,7 +617,7 @@ Figura&nbsp;3.2: Diagrama de conexión para el PT1000 RTD-MAX31865.
 <h2 data-number="3.5" class="anchored" data-anchor-id="sec-viento-a"><span class="header-section-number">3.5</span> Velocidad del viento</h2>
 <section id="modern-device-wind-sensor-rev.-p6" class="level4">
 <h4 class="anchored" data-anchor-id="modern-device-wind-sensor-rev.-p6">Modern Device Wind Sensor Rev.&nbsp;P6</h4>
-<p>El Wind Sensor Rev.&nbsp;P6 (<a href="#fig-WindSensor" class="quarto-xref">Figura&nbsp;<span>3.3</span></a>) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12V (idealmente 12V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3V y una señal de viento ajustada a un máximo de 3.3V mediante resistencias de alta precisión <span class="citation" data-cites="modern">(Modern Device, <a href="referencias.html#ref-modern" role="doc-biblioref">s.&nbsp;f.</a>)</span>.</p>
+<p>El Wind Sensor Rev.&nbsp;P6 (<a href="#fig-WindSensor" class="quarto-xref">Figura&nbsp;<span>3.3</span></a>) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12 V (idealmente 12 V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3 V y una señal de viento ajustada a un máximo de 3.3 V mediante resistencias de alta precisión <span class="citation" data-cites="modern">(Modern Device, <a href="referencias.html#ref-modern" role="doc-biblioref">s.&nbsp;f.</a>)</span>.</p>
 <div id="fig-WindSensor" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-WindSensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -624,8 +630,8 @@ Figura&nbsp;3.3: Diagrama de conexión para el Wind Sensor Rev.&nbsp;P6.
 </div>
 <p><strong>Especificaciones</strong></p>
 <ul>
-<li>Voltaje de alimentación: 9–12V.</li>
-<li>Corriente: Aproximadamente 40mA.</li>
+<li>Voltaje de alimentación: 9–12 V.</li>
+<li>Corriente: Aproximadamente 40 mA.</li>
 <li>Velocidades de viento medidas: 0–150 mph.</li>
 <li>Compensación de temperatura ambiente.</li>
 </ul>
@@ -668,7 +674,7 @@ Figura&nbsp;3.4: Diagrama de conexión para el SCD30.
 </ul>
 <p><strong>Características generales</strong></p>
 <ul>
-<li>Voltaje de alimentación: 3.3 – 5.5V</li>
+<li>Voltaje de alimentación: 3.3 – 5.5 V</li>
 <li>Corriente promedio: 19 mA</li>
 <li>Corriente máxima: 75 mA</li>
 <li>Rango de temperatura de operación: 0 – 50°C</li>
@@ -737,20 +743,268 @@ Figura&nbsp;3.6: Diagrama de conexión para la cámara OV5647.
 </ul>
 </section>
 </section>
-<section id="sec-codigos" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="sec-codigos"><span class="header-section-number">3.9</span> Programas y códigos</h2>
-<section id="repositorio-de-github" class="level4">
-<h4 class="anchored" data-anchor-id="repositorio-de-github">Repositorio de GitHub</h4>
-<p>Todos los scripts para la configuración de los sensores en Arduino y Raspberry Pi, así como la documentación técnica del DTHIS-C, se encuentran disponibles en el repositorio de GitHub: <a href="https://github.com/lata-mas/DTHIS-C_JoseRra">https://github.com/lata-mas/DTHIS-C_JoseRra</a></p>
+<section id="sec-dispositivo" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="sec-dispositivo"><span class="header-section-number">3.9</span> Dispositivo final</h2>
+<p>Para el diseño final del DTHIS‑C se optó por una carcasa modular que alberga de forma ordenada y protegida todos los componentes electrónicos, sensores y microcontroladores. Al tratarse de un dispositivo de campaña, resultaba imprescindible un diseño ligero y robusto que permitiera un transporte sencillo y un montaje rápido sobre un trípode.</p>
+<section id="diseño-3d" class="level4">
+<h4 class="anchored" data-anchor-id="diseño-3d">Diseño 3D</h4>
+<p>El modelado de la carcasa se llevó a cabo en <code>Autodesk Fusion</code>, atendiendo a tres objetivos principales:</p>
+<ul>
+<li>Protección: Cada componente (sensores, electrónica y microcontroladores) se ubica en su propio compartimento para evitar impactos y vibraciones.</li>
+<li>Montaje: La pieza principal incorpora un anclaje rápido al trípode, así como acoples para el tubo de PVC que sostiene los termopares a alturas de 1.7 m, 1.1 m, 0.6 m y 0.1 m, y los aros de sujeción para el Wind Sensor Rev P6 y el TPF1/E‑20.</li>
+<li>Mantenimiento: La geometría de la tapa y los soportes permite un acceso ágil para reemplazar o ajustar cualquier sensor sin desmontar todo el conjunto.</li>
+</ul>
+<p>Además de la carcasa principal, se diseñaron fundas individuales para:</p>
+<ul>
+<li>Cámara fisheye<br>
+</li>
+<li>Regulador de voltaje</li>
+<li>Wind Sensor Rev P6 (aros de sujeción al tubo)<br>
+</li>
+<li>TPF1/E‑20 (aros de sujeción al tubo)</li>
+</ul>
+<p>La <a href="#fig-diseno-3d" class="quarto-xref">Figura&nbsp;<span>3.7</span></a> muestra la carcasa principal y las piezas complementarias que protegen cada módulo y simplifican su fijación al soporte de PVC.</p>
+<div id="fig-diseno-3d" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diseno-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-3d" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-carcasa-exterior" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-3d">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-carcasa-exterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/case.png" class="lightbox" data-gallery="diseno-3d" title="Figura&nbsp;3.7&nbsp;(a): Exterior"><img src="images/case.png" class="img-fluid figure-img" data-ref-parent="fig-diseno-3d"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-carcasa-exterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Exterior
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-3d" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-carcasa-interior" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-3d">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-carcasa-interior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/case_full.png" class="lightbox" data-gallery="diseno-3d" title="Figura&nbsp;3.7&nbsp;(b): Interior"><img src="images/case_full.png" class="img-fluid figure-img" data-ref-parent="fig-diseno-3d"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-carcasa-interior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Interior
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-3d" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-carcasa-camara" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-3d">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-carcasa-camara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/camera.png" class="lightbox" data-gallery="diseno-3d" title="Figura&nbsp;3.7&nbsp;(c): Cámara"><img src="images/camera.png" class="img-fluid figure-img" data-ref-parent="fig-diseno-3d"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-carcasa-camara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Cámara
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-3d" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-carcasa-voltaje" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-3d">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-carcasa-voltaje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/power_supply.png" class="lightbox" data-gallery="diseno-3d" title="Figura&nbsp;3.7&nbsp;(d): Regulador de voltaje"><img src="images/power_supply.png" class="img-fluid figure-img" data-ref-parent="fig-diseno-3d"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-carcasa-voltaje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Regulador de voltaje
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-3d" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-carcasa-tpf1" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-3d">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-carcasa-tpf1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/t_rad.png" class="lightbox" data-gallery="diseno-3d" title="Figura&nbsp;3.7&nbsp;(e): TPF1"><img src="images/t_rad.png" class="img-fluid figure-img" data-ref-parent="fig-diseno-3d"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-carcasa-tpf1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(e) TPF1
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-3d" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-carcasa-wind" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-3d">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-carcasa-wind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/wind_sensor.png" class="lightbox" data-gallery="diseno-3d" title="Figura&nbsp;3.7&nbsp;(f): Wind Sensor"><img src="images/wind_sensor.png" class="img-fluid figure-img" data-ref-parent="fig-diseno-3d"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-carcasa-wind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(f) Wind Sensor
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diseno-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.7: Diseño 3D de la carcasa y componentes asociados.
+</figcaption>
+</figure>
+</div>
+<p>Para su impresión se empleó el filamento ASA por su alta resistencia a los rayos UV, garantizando durabilidad. Para la impresión se utilizó un infill del 10%, patrón cúbico y giroide (acorde a la pieza) y 4 perímetros.</p>
+</section>
+<section id="ensamblado" class="level4">
+<h4 class="anchored" data-anchor-id="ensamblado">Ensamblado</h4>
+<p>Para garantizar un sistema modular, fácil de transportar y sencillo de mantener, se integró la electrónica complementaria (<a href="#tbl-electronica" class="quarto-xref">Tabla&nbsp;<span>3.4</span></a>) dentro de la carcasa principal de la siguiente manera:</p>
+<ul>
+<li><p>Reguladores de voltaje: Se instalaron dos convertidores buck. Uno con entrada y salida a 5 V para alimentar la Raspberry y el Arduino; y otro con entrada a 5 V y salida a 12 V específicamente para el Wind Sensor, que requiere 12 V para un funcionamiento correcto.</p></li>
+<li><p>Conectores banana hembra: Se emplearon dos conectores banana hembra para la conexión desmontable del TPF1 al amplificador PT1000, facilitando el montaje y desmontaje rápido del sensor.</p></li>
+<li><p>Perfboard y pines macho: El Wind Sensor se conecta a un perfboard de 4 canales al que se soldaron cuatro pines macho de 5 × 2.54 mm. Desde allí, un cable con pines hembra permite enchufar directamente el sensor al regulador de 12 V.</p></li>
+<li><p>Conexiones directas: El resto de los sensores y módulos se conectan mediante cables al propio puerto USB (micrófono), al bus I<sup>2</sup>C (SCD30) o al conector CSI (cámara), según corresponda.</p></li>
+</ul>
+<div id="tbl-electronica" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-electronica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.4: Componentes utilizados para la electrónica complementaria del DTHIS-C.
+</figcaption>
+<div aria-describedby="tbl-electronica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-hover table-sm small caption-top table">
+<thead>
+<tr class="header">
+<th>Cantidad</th>
+<th>Componente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Convertidor buck 10 W, 5 V DC</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Convertidor buck 5 V → 12 V DC</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Conectores banana hembra</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Conector XT30 hembra</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>Perfboard de 4 canales (5 pines)</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Pines macho 5 × 2.54 mm</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>Ventilador de 5 V</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>La <a href="#fig-diseno-final" class="quarto-xref">Figura&nbsp;<span>3.8</span></a> ilustra el montaje completo del DTHIS‑C: la carcasa principal fijada al trípode, la extensión de altura realizada con un tubo de PVC y los termopares distribuidos a sus respectivas alturas. En la <a href="#fig-dthis-4" class="quarto-xref">Figura&nbsp;<span>3.8 (d)</span></a> se aprecia, en la parte superior del tubo, el Wind Sensor a la izquierda y el TPF1 a la derecha, ambos asegurados mediante sus aros de sujeción.</p>
+<div id="fig-diseno-final" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diseno-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-final" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-dthis-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-final">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-dthis-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/dthis-1.jpg" class="lightbox" data-gallery="diseno-final" title="Figura&nbsp;3.8&nbsp;(a): Electrónica"><img src="images/dthis-1.jpg" class="img-fluid figure-img" data-ref-parent="fig-diseno-final"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-dthis-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Electrónica
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-final" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-dthis-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-final">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-dthis-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/dthis-2.jpg" class="lightbox" data-gallery="diseno-final" title="Figura&nbsp;3.8&nbsp;(b): Exterior 1"><img src="images/dthis-2.jpg" class="img-fluid figure-img" data-ref-parent="fig-diseno-final"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-dthis-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Exterior 1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-final" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-dthis-3" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-final">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-dthis-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/dthis-3.jpg" class="lightbox" data-gallery="diseno-final" title="Figura&nbsp;3.8&nbsp;(c): Exterior 2"><img src="images/dthis-3.jpg" class="img-fluid figure-img" data-ref-parent="fig-diseno-final"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-dthis-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Exterior 2
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-diseno-final" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-dthis-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-group="diseno-final">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-dthis-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/dthis-4.jpg" class="lightbox" data-gallery="diseno-final" title="Figura&nbsp;3.8&nbsp;(d): Wind Sensor y TPF1"><img src="images/dthis-4.jpg" class="img-fluid figure-img" data-ref-parent="fig-diseno-final"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-dthis-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Wind Sensor y TPF1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diseno-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.8: Diseño final del DTHIS-C tras haber impreso y ensamblado todos los componentes.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="tablero-interactivo" class="level4">
+<h4 class="anchored" data-anchor-id="tablero-interactivo">Tablero interactivo</h4>
+<p>Para facilitar el seguimiento y análisis de las campañas de medición, el DTHIS‑C se integra con la plataforma IoT, <code>ThingsBoard</code>, que actúa como repositorio central de todos los datos ambientales capturados. Cada lectura (temperatura, humedad, CO<sub>2</sub>, luminancia, velocidad del viento o nivel de sonido) se publica en tiempo real, donde puede filtrarse y descargarse según el intervalo temporal, la variable o el volumen de datos requerido.</p>
+<p>Con el fin de ofrecer una supervisión inmediata en campo, se ha diseñado un tablero interactivo (fig.&nbsp;<a href="#fig-tablero" class="quarto-xref">Figura&nbsp;<span>3.9</span></a>) que combina:</p>
+<ul>
+<li><p>Tarjetas de valores instantáneos, que muestran al momento la última lectura de cada variable.</p></li>
+<li><p>Gráficos de series temporales, que permiten visualizar la evolución histórica de las mediciones y detectar tendencias o anomalías.</p></li>
+</ul>
+<p>Este entorno visual garantiza una rápida interpretación de la información y podría apoyar a la toma de decisiones durante las campañas de confort interior.</p>
+<div id="fig-tablero" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tablero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href=".\images/dashboard.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figura&nbsp;3.9: Tablero en ThingsBoard."><img src=".\images/dashboard.png" class="img-fluid figure-img" style="width:80.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tablero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.9: Tablero en ThingsBoard.
+</figcaption>
+</figure>
+</div>
 </section>
 </section>
-<section id="sec-materiales" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="sec-materiales"><span class="header-section-number">3.10</span> Lista de materiales</h2>
-<p>La <a href="#tbl-materiales" class="quarto-xref">Tabla&nbsp;<span>3.4</span></a> muestra la lista de materiales necesarios para la construcción del DTHIS-C, detallando la cantidad de cada componente, los costos y la fuente de venta.</p>
+<section id="sec-repositorio" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="sec-repositorio"><span class="header-section-number">3.10</span> Repositorio de GitHub</h2>
+<section id="archivos-relevantes" class="level4">
+<h4 class="anchored" data-anchor-id="archivos-relevantes">Archivos relevantes</h4>
+<p>Todos los scripts para la configuración de los sensores en Arduino y Raspberry Pi, así como archivos de diseño CAD, archivos STL para impresión 3D y la documentación técnica del DTHIS-C, se encuentran disponibles en el repositorio de GitHub: <a href="https://github.com/lata-mas/DTHIS-C_JoseRra">https://github.com/lata-mas/DTHIS-C_JoseRra</a></p>
+</section>
+</section>
+<section id="sec-materiales" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="sec-materiales"><span class="header-section-number">3.11</span> Lista de materiales</h2>
+<p>La <a href="#tbl-materiales" class="quarto-xref">Tabla&nbsp;<span>3.5</span></a> muestra la lista de materiales necesarios para la construcción del DTHIS-C, detallando la cantidad de cada componente, los costos y la fuente de venta.</p>
 <div id="tbl-materiales" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-materiales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;3.4: Lista de materiales para la construcción del DTHIS-C.
+Tabla&nbsp;3.5: Lista de materiales para la construcción del DTHIS-C.
 </figcaption>
 <div aria-describedby="tbl-materiales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-hover table-sm small caption-top table">

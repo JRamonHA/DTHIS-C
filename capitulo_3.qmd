@@ -1,6 +1,10 @@
+---
+lightbox: true
+---
+
 # Diseño y construcción del DTHIS-C {#cap-construccion}
 
-En este capítulo se presenta una descripción detallada del DTHIS-C, incluyendo sus componentes y especificaciones técnicas. Además, se proporcionan los diagramas de conexión y los códigos necesarios para la configuración de cada sensor, facilitando tanto la reproducción completa del DTHIS-C como la implementación individual de sus sensores.
+En este capítulo se presenta una descripción detallada del DTHIS-C, incluyendo sus componentes y especificaciones técnicas. Además, se proporcionan los diagramas de conexión y los códigos necesarios para la configuración de cada sensor, facilitando tanto la reproducción completa del DTHIS-C como la implementación individual de sus sensores. Y finalmente se presenta el diseño final del DTHIS-C, donde se muestran los diseños CAD para su impresión en 3D y el ensamblaje de la carcasa, así como el tablero interactivo donde se visualizan las mediciones en tiempo real del DTHIS-C.
 
 ## Diseño {#sec-diseno}
 
@@ -68,7 +72,7 @@ En la @tbl-arduino se muestran las especificaciones del Arduino UNO WiFi Rev2.
 | Sensor IMU                 | Sí, LSM6DS3TR (6 ejes)                        |
 | Pines digitales I/O        | 14 (5 PWM)                                    |
 | Pines analógicos           | 6                                             |
-| Voltaje de operación       | 5V                                            |
+| Voltaje de operación       | 5 V                                            |
 | Consumo máximo total       | 200 mA                                        |
 | Dimensiones                | 68.6 mm x 53.4 mm                             |
 : Especificaciones del Arduino UNO WiFi Rev2. {#tbl-arduino .hover .sm}
@@ -89,8 +93,8 @@ En la @tbl-raspberry se muestran las especificaciones de la Raspberry Pi 4 Model
 | Salida de video            | 2 micro HDMI, soporte dual 4K 60 fps            |
 | Ethernet                   | Gigabit                                         |
 | Almacenamiento             | Tarjeta microSD                                 |
-| Voltaje de operación       | 5V                                              |
-| Consumo energético         | Eficiente, sin ventilador (~3A recomendado)     |
+| Voltaje de operación       | 5 V                                              |
+| Consumo energético         | Eficiente, sin ventilador (~3 A recomendado)     |
 | Dimensiones                | 85.6 mm x 56.5 mm x 17 mm                       |
 : Especificaciones del Raspberry Pi 4 Model B. {#tbl-raspberry .hover .sm}
 
@@ -130,7 +134,7 @@ Acorde a @pwf sus específicaciones son las siguientes:
 
 - Conversión de señal analógica a digital con resolución de 19 bits.
 - Interfaz ICSP de 4 hilos.
-- Rango de voltaje de alimentación: 3.3V a 5.0V.  
+- Rango de voltaje de alimentación: 3.3 V a 5.0 V.  
 
 ## Temperatura radiante {#sec-trad-a}
 
@@ -140,10 +144,10 @@ Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en 
 **Especificaciones**
 
 - Tipo de circuito: Conexión de 2 hilos.
-- Corriente de medición: Aproximadamente 1mA.
+- Corriente de medición: Aproximadamente 1 mA.
 - Conexión eléctrica: Extremos pelados con terminales.
 - Cable: Cable de PVC (2×0,25 mm<sup>2</sup>, temperatura máxima +105°C) con extremos de cable núcleo disponibles en diferentes longitudes.
-- Resistencia de fuga: Mayor a 100 M$\Omega$ a +20°C (500V DC).
+- Resistencia de fuga: Mayor a 100 M$\Omega$ a +20°C (500 V DC).
 - Material del globo: Aluminio (negro).
 - Dimensiones del globo: Diámetro de 70 mm.
 
@@ -166,14 +170,14 @@ El PT1000 RTD-MAX31865 es un convertidor de resistencia a digital. La @fig-MAX31
 
 #### Modern Device Wind Sensor Rev. P6
 
-El Wind Sensor Rev. P6 (@fig-WindSensor) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12V (idealmente 12V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3V y una señal de viento ajustada a un máximo de 3.3V mediante resistencias de alta precisión [Modern Device, -@modern]. 
+El Wind Sensor Rev. P6 (@fig-WindSensor) es un anemómetro de hilo caliente. Incorpora un potenciómetro de alta precisión para facilitar la calibración (realizada en fábrica) y utilizar termistores de coeficiente de temperatura positivo, que aseguran mediciones más estables incluso ante variaciones de temperatura ambiente. Requiere una fuente de alimentación de 9 a 12 V (idealmente 12 V) para garantizar el adecuado calentamiento de los termistores y evitar la saturación en condiciones de viento intenso. Integra un sensor de temperatura ambiental con salida escalada a 3.3 V y una señal de viento ajustada a un máximo de 3.3 V mediante resistencias de alta precisión [Modern Device, -@modern]. 
 
 ![Diagrama de conexión para el Wind Sensor Rev. P6.](/images/windsensor_bb.png){.lightbox #fig-WindSensor width=50%}
 
 **Especificaciones**
 
-- Voltaje de alimentación: 9–12V.
-- Corriente: Aproximadamente 40mA.
+- Voltaje de alimentación: 9–12 V.
+- Corriente: Aproximadamente 40 mA.
 - Velocidades de viento medidas: 0–150 mph.
 - Compensación de temperatura ambiente.
 
@@ -208,7 +212,7 @@ El SCD30 (@fig-SCD30) es un sensor de CO<sub>2</sub> basado en tecnología de de
 
 **Características generales**
 
-- Voltaje de alimentación: 3.3 – 5.5V
+- Voltaje de alimentación: 3.3 – 5.5 V
 - Corriente promedio: 19 mA
 - Corriente máxima: 75 mA
 - Rango de temperatura de operación: 0 – 50°C
@@ -255,11 +259,101 @@ La cámara Arducam Ultra Wide Angle (@fig-Camara) cuenta con un objetivo ojo de 
 - Dimensiones: 36 mm × 36 mm
 - Corriente pico: 300 mA
 
-## Programas y códigos {#sec-codigos}
+## Dispositivo final {#sec-dispositivo}
 
-#### Repositorio de GitHub
+Para el diseño final del DTHIS‑C se optó por una carcasa modular que alberga de forma ordenada y protegida todos los componentes electrónicos, sensores y microcontroladores. Al tratarse de un dispositivo de campaña, resultaba imprescindible un diseño ligero y robusto que permitiera un transporte sencillo y un montaje rápido sobre un trípode.
 
-Todos los scripts para la configuración de los sensores en Arduino y Raspberry Pi, así como la documentación técnica del DTHIS-C, se encuentran disponibles en el repositorio de GitHub: [https://github.com/lata-mas/DTHIS-C_JoseRra](https://github.com/lata-mas/DTHIS-C_JoseRra)
+#### Diseño 3D
+
+El modelado de la carcasa se llevó a cabo en `Autodesk Fusion`, atendiendo a tres objetivos principales:
+
+- Protección: Cada componente (sensores, electrónica y microcontroladores) se ubica en su propio compartimento para evitar impactos y vibraciones.
+- Montaje: La pieza principal incorpora un anclaje rápido al trípode, así como acoples para el tubo de PVC que sostiene los termopares a alturas de 1.7 m, 1.1 m, 0.6 m y 0.1 m, y los aros de sujeción para el Wind Sensor Rev P6 y el TPF1/E‑20.
+- Mantenimiento: La geometría de la tapa y los soportes permite un acceso ágil para reemplazar o ajustar cualquier sensor sin desmontar todo el conjunto.
+
+Además de la carcasa principal, se diseñaron fundas individuales para:
+
+- Cámara fisheye  
+- Regulador de voltaje
+- Wind Sensor Rev P6 (aros de sujeción al tubo)  
+- TPF1/E‑20 (aros de sujeción al tubo)  
+
+La @fig-diseno-3d muestra la carcasa principal y las piezas complementarias que protegen cada módulo y simplifican su fijación al soporte de PVC.
+
+::: {#fig-diseno-3d layout-ncol=3 layout-nrow=2}
+![Exterior](images/case.png){group="diseno-3d" #fig-carcasa-exterior}
+
+![Interior](images/case_full.png){group="diseno-3d" #fig-carcasa-interior}
+
+![Cámara](images/camera.png){group="diseno-3d" #fig-carcasa-camara}
+
+![Regulador de voltaje](images/power_supply.png){group="diseno-3d" #fig-carcasa-voltaje}
+
+![TPF1](images/t_rad.png){group="diseno-3d" #fig-carcasa-tpf1}
+
+![Wind Sensor](images/wind_sensor.png){group="diseno-3d" #fig-carcasa-wind}
+
+Diseño 3D de la carcasa y componentes asociados.
+:::
+
+Para su impresión se empleó el filamento ASA por su alta resistencia a los rayos UV, garantizando durabilidad. Para la impresión se utilizó un infill del 10%, patrón cúbico y giroide (acorde a la pieza) y 4 perímetros.
+
+#### Ensamblado
+
+Para garantizar un sistema modular, fácil de transportar y sencillo de mantener, se integró la electrónica complementaria (@tbl-electronica) dentro de la carcasa principal de la siguiente manera:
+
+- Reguladores de voltaje: Se instalaron dos convertidores buck. Uno con entrada y salida a 5 V para alimentar la Raspberry y el Arduino; y otro con entrada a 5 V y salida a 12 V específicamente para el Wind Sensor, que requiere 12 V para un funcionamiento correcto.
+
+- Conectores banana hembra: Se emplearon dos conectores banana hembra para la conexión desmontable del TPF1 al amplificador PT1000, facilitando el montaje y desmontaje rápido del sensor.
+
+- Perfboard y pines macho: El Wind Sensor se conecta a un perfboard de 4 canales al que se soldaron cuatro pines macho de 5 × 2.54 mm. Desde allí, un cable con pines hembra permite enchufar directamente el sensor al regulador de 12 V.
+
+- Conexiones directas: El resto de los sensores y módulos se conectan mediante cables al propio puerto USB (micrófono), al bus I<sup>2</sup>C (SCD30) o al conector CSI (cámara), según corresponda.
+
+| Cantidad | Componente                       |
+| ---------| -------------------------------- |
+| 1        | Convertidor buck 10 W, 5 V DC    |
+| 1        | Convertidor buck 5 V → 12 V DC   |
+| 2        | Conectores banana hembra         |
+| 1        | Conector XT30 hembra             |
+| 1        | Perfboard de 4 canales (5 pines) |
+| 4        | Pines macho 5 × 2.54 mm          |
+| 1        | Ventilador de 5 V                |
+: Componentes utilizados para la electrónica complementaria del DTHIS-C. {#tbl-electronica .hover .sm}
+
+La @fig-diseno-final ilustra el montaje completo del DTHIS‑C: la carcasa principal fijada al trípode, la extensión de altura realizada con un tubo de PVC y los termopares distribuidos a sus respectivas alturas. En la @fig-dthis-4 se aprecia, en la parte superior del tubo, el Wind Sensor a la izquierda y el TPF1 a la derecha, ambos asegurados mediante sus aros de sujeción.
+
+::: {#fig-diseno-final layout-ncol=2 layout-nrow=2}
+![Electrónica](images/dthis-1.jpg){group="diseno-final" #fig-dthis-1}
+
+![Exterior 1](images/dthis-2.jpg){group="diseno-final" #fig-dthis-2}
+
+![Exterior 2](images/dthis-3.jpg){group="diseno-final" #fig-dthis-3}
+
+![Wind Sensor y TPF1](images/dthis-4.jpg){group="diseno-final" #fig-dthis-4}
+
+Diseño final del DTHIS-C tras haber impreso y ensamblado todos los componentes.
+:::
+
+#### Tablero interactivo
+
+Para facilitar el seguimiento y análisis de las campañas de medición, el DTHIS‑C se integra con la plataforma IoT, `ThingsBoard`, que actúa como repositorio central de todos los datos ambientales capturados. Cada lectura (temperatura, humedad, CO<sub>2</sub>, luminancia, velocidad del viento o nivel de sonido) se publica en tiempo real, donde puede filtrarse y descargarse según el intervalo temporal, la variable o el volumen de datos requerido.
+
+Con el fin de ofrecer una supervisión inmediata en campo, se ha diseñado un tablero interactivo (fig. @fig-tablero) que combina:
+
+- Tarjetas de valores instantáneos, que muestran al momento la última lectura de cada variable.
+
+- Gráficos de series temporales, que permiten visualizar la evolución histórica de las mediciones y detectar tendencias o anomalías.
+
+Este entorno visual garantiza una rápida interpretación de la información y podría apoyar a la toma de decisiones durante las campañas de confort interior.
+
+![Tablero en ThingsBoard.](/images/dashboard.png){.lightbox #fig-tablero width=80%}
+
+## Repositorio de GitHub {#sec-repositorio}
+
+#### Archivos relevantes
+
+Todos los scripts para la configuración de los sensores en Arduino y Raspberry Pi, así como archivos de diseño CAD, archivos STL para impresión 3D y la documentación técnica del DTHIS-C, se encuentran disponibles en el repositorio de GitHub: [https://github.com/lata-mas/DTHIS-C_JoseRra](https://github.com/lata-mas/DTHIS-C_JoseRra)
 
 ## Lista de materiales {#sec-materiales}
 
