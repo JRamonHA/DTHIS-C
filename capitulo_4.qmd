@@ -376,7 +376,7 @@ tt.scatter_plot('data/cal_ws.parquet',
                 legend_labels=['WindMaster', 'Wind Sensor'])
 ```
 
-En la tabla @tbl-error-wind se observa que, antes de calibrar, el Wind Sensor Rev. P6 presentaba un EM de -0.01 m/s, indicando un sesgo sistemático que subestimaba la velocidad del viento frente al WindMaster. Tras aplicar la ecuación de calibración, el error se reduce a -0.00 m/s, eliminando prácticamente el sesgo. Además, el EAM baja de 0.06 m/s a 0.05 m/s, mejorando la exactitud de las mediciones. Estos resultados demuestran que la calibración ha corregido tanto el sesgo de los datos, asegurando mediciones con mayor exactitud respecto al WindMaster.
+En la @tbl-error-wind se observa que, antes de calibrar, el Wind Sensor Rev. P6 presentaba un EM de -0.01 m/s, indicando un sesgo sistemático que subestimaba la velocidad del viento frente al WindMaster. Tras aplicar la ecuación de calibración, el error se reduce a -0.00 m/s, eliminando prácticamente el sesgo. Además, el EAM baja de 0.06 m/s a 0.05 m/s, mejorando la exactitud de las mediciones. Estos resultados demuestran que la calibración ha corregido tanto el sesgo de los datos, asegurando mediciones con mayor exactitud respecto al WindMaster.
 
 | Fase                | EM [m/s]  | EAM [m/s] |
 |---------------------|-----------|-----------|
@@ -414,7 +414,7 @@ subplot_configs = [
 tt.scatter_subplots('data/scd30.parquet', subplot_configs)
 ```
 
-Se obtuvieron el EM y el EAM para evaluar la discrepancia entre las mediciones del SCD30 y el Fluke. La tabla @tbl-error-scd30 muestra que, en el caso de la humedad relativa, el SCD30 subestima en promedio 2.17 puntos porcentuales respecto al Fluke. En contraste, para la concentración de CO<sub>2</sub> se observa una sobreestimación promedio de 9.65 ppm. Además, el hecho de que el EAM para el CO<sub>2</sub> sea mayor que el EM indica una mayor dispersión en las mediciones de este parámetro.
+Se obtuvieron el EM y el EAM para evaluar la discrepancia entre las mediciones del SCD30 y el Fluke. La @tbl-error-scd30 muestra que, en el caso de la humedad relativa, el SCD30 subestima en promedio 2.17 puntos porcentuales respecto al Fluke. En contraste, para la concentración de CO<sub>2</sub> se observa una sobreestimación promedio de 9.65 ppm. Además, el hecho de que el EAM para el CO<sub>2</sub> sea mayor que el EM indica una mayor dispersión en las mediciones de este parámetro.
 
 | Variable          | EM        | EAM       |
 |-------------------|-----------|-----------|

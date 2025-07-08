@@ -43,7 +43,7 @@ El DTHIS-C se ha diseñado para medir temperatura del aire, temperatura radiante
 
 #### Componentes
 
-En la tabla @tbl-componentes se presentan los sensores y componentes electrónicos que conforman el DTHIS-C, detallándose la variable que mide cada sensor, el modo de comunicación, la conexión al microcontrolador correspondiente y si requieren acondicionadores de señal.
+En la @tbl-componentes se presentan los sensores y componentes electrónicos que conforman el DTHIS-C, detallándose la variable que mide cada sensor, el modo de comunicación, la conexión al microcontrolador correspondiente y si requieren acondicionadores de señal.
 
 | **Sensor**                                    | **Variable**                       | **Comunicación** | **Microcontrolador**     | **Acondicionador de señal**  |
 |-----------------------------------------------|------------------------------------|------------------|--------------------------|------------------------------|
