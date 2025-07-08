@@ -41,8 +41,7 @@ format:
     toc-title: Contenido
     toc-depth: 4
     number-depth: 3
-    theme:
-      light: cosmo
+    theme: cosmo
     smooth-scroll: true
     code-link: true
 
