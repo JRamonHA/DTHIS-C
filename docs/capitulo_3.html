@@ -303,15 +303,6 @@ La adopción de tecnologías abiertas facilita la integración y reproducibilida
 </section>
 <section id="sec-especificaciones" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-especificaciones"><span class="header-section-number">3.2</span> Especificaciones</h2>
-<p>El DTHIS-C se ha diseñado para medir temperatura del aire, temperatura radiante, velocidad del viento, humedad relativa, niveles de CO<sub>2</sub>, iluminancia y niveles de presión sonora. El dispositivo está compuesto por seis sensores, dos microcontroladores y dos acondicionadores de señal.</p>
-<ul>
-<li><p><strong>Sensor:</strong> Un sensor es un dispositivo que detecta una señal o estímulo del entorno y responde generando una señal eléctrica proporcional, generalmente en forma de corriente o voltaje. Su función principal es convertir señales físicas, químicas o biológicas en señales eléctricas que puedan ser interpretadas por sistemas electrónicos <span class="citation" data-cites="sensors">(Patel et al., <a href="referencias.html#ref-sensors" role="doc-biblioref">2020</a>)</span>.</p>
-<p>En el caso del DTHIS-C, los sensores utilizados permiten medir variables físicas específicas del ambiente, y sus señales son acondicionadas y digitalizadas para su procesamiento y transmisión.</p></li>
-<li><p><strong>Microcontrolador:</strong> Un microcontrolador es una pequeña computadora integrada en un solo chip, se usa en sistemas integrados como sensores de temperatura. Incluye una CPU, memoria RAM, memorias de solo lectura, múltiples puertos de entrada/salida y y periféricos como convertidores analógico-digital (ADC), convertidores digital-analógico (DAC), temporizadores e interfaces seriales (USB, Ethernet, etc.). Su bajo consumo energético lo hace ideal para dispositivos alimentados por batería y aplicaciones específicas <span class="citation" data-cites="hodgson">(Hodgson, <a href="referencias.html#ref-hodgson" role="doc-biblioref">2021</a>)</span>.</p>
-<p>En el DTHIS-C, el microcontrolador es fundamental para gestionar y procesar las señales de los sensores, convirtiendo las salidas analógicas en datos digitales precisos mediante el ADC. Estos datos se utilizan para medir las condiciones ambientales y se transmiten a una plataforma IoT para su visualización en tiempo real.</p></li>
-<li><p><strong>Acondicionador de señal:</strong> Un acondicionador de señal es un dispositivo diseñado para transformar una señal electrónica de un formato a otro, facilitando su lectura y procesamiento mediante instrumentación convencional. Entre sus funciones se destacan la amplificación (aumentar la magnitud de señales débiles), la linealización (corregir respuestas no lineales, como ocurre comúnmente en señales de termopar), la compensación de unión fría (ajustar la señal de un termopar para corregir variaciones de temperatura ambiente), la excitación (proporcionar la energía necesaria para el funcionamiento de ciertos sensores, por ejemplo los RTD). Estas funciones combinadas permiten que la señal analógica, que puede ser difícil de interpretar directamente, se convierta en una forma adecuada para su procesamiento <span class="citation" data-cites="omega-2">(Omega, <a href="referencias.html#ref-omega-2" role="doc-biblioref">s.&nbsp;f.a</a>)</span>.</p>
-<p>En el caso del DTHIS-C, el acondicionador de señal se utiliza para preparar la salida analógica de sensores como los termopares o el sensor de temperatura radiante, asegurando que la señal se encuentre en un rango adecuado y libre de interferencias. Una vez acondicionada, la señal es convertida a digital mediante el convertidor analógico-digital (ADC) integrado en el microcontrolador.</p></li>
-</ul>
 <section id="componentes" class="level4">
 <h4 class="anchored" data-anchor-id="componentes">Componentes</h4>
 <p>En la <a href="#tbl-componentes" class="quarto-xref">Tabla&nbsp;<span>3.1</span></a> se presentan los sensores y componentes electrónicos que conforman el DTHIS-C, detallándose la variable que mide cada sensor, el modo de comunicación, la conexión al microcontrolador correspondiente y si requieren acondicionadores de señal.</p>
@@ -537,7 +528,7 @@ Tabla&nbsp;3.3: Especificaciones del Raspberry Pi 4 Model B.
 <section id="termopar-tipo-t" class="level4">
 <h4 class="anchored" data-anchor-id="termopar-tipo-t">Termopar Tipo T</h4>
 <p>En la construcción del DTHIS se emplea un termopar tipo T, un sensor de temperatura compuesto por la unión de cobre y cobre-níquel (constantán). Su uso es ideal para entornos con humedad.</p>
-<p>A continuación, se presentan sus especificaciones acorde a <span class="citation" data-cites="omega">OMEGA (<a href="referencias.html#ref-omega" role="doc-biblioref">s.&nbsp;f.b</a>)</span>:</p>
+<p>A continuación, se presentan sus especificaciones acorde a <span class="citation" data-cites="omega">OMEGA (<a href="referencias.html#ref-omega" role="doc-biblioref">s.&nbsp;f.</a>)</span>:</p>
 <p><strong>Rangos de Temperatura</strong></p>
 <ul>
 <li><p><strong>Grado de termopar:</strong> -200 a 350°C (-328 a 662°F).</p>
@@ -1184,20 +1175,11 @@ Arduino. 2023. <span>«Arduino UNO WiFi Rev2»</span>. <a href="https://store.ar
 <div id="ref-fuehler" class="csl-entry" role="listitem">
 FuehlerSysteme. s.&nbsp;f. <span>«Radiation Pendulum Temperature Sensor»</span>. <a href="https://www.fuehlersysteme.de/Radiation-Pendulum-Temperature-Sensor_1#70bd/embedded/">https://www.fuehlersysteme.de/Radiation-Pendulum-Temperature-Sensor_1#70bd/embedded/</a>.
 </div>
-<div id="ref-hodgson" class="csl-entry" role="listitem">
-Hodgson, David. 2021. <span>«Chapter 20 - Mechatronics and Physical Computing»</span>. En <em>Exploring Engineering (Fifth Edition)</em>, editado por Philip Kosky, Robert Balmer, William Keat, y George Wise, Fifth Edition, 453-77. Academic Press. <a href="https://doi.org/10.1016/B978-0-12-815073-3.00020-X">https://doi.org/10.1016/B978-0-12-815073-3.00020-X</a>.
-</div>
 <div id="ref-modern" class="csl-entry" role="listitem">
 Modern Device. s.&nbsp;f. <span>«Wind Sensor Rev. P»</span>. <a href="https://moderndevice.com/products/wind-sensor-rev-p">https://moderndevice.com/products/wind-sensor-rev-p</a>.
 </div>
-<div id="ref-omega-2" class="csl-entry" role="listitem">
-OMEGA. s.&nbsp;f.a. <span>«Introducción a los acondicionadores de señales»</span>. <a href="https://mx.omega.com/prodinfo/acondicionadores-de-senales.html">https://mx.omega.com/prodinfo/acondicionadores-de-senales.html</a>.
-</div>
 <div id="ref-omega" class="csl-entry" role="listitem">
-———. s.&nbsp;f.b. <span>«¿Qué es un sensor termopar?»</span> <a href="https://es.omega.com/prodinfo/termopares.html#">https://es.omega.com/prodinfo/termopares.html#</a>.
-</div>
-<div id="ref-sensors" class="csl-entry" role="listitem">
-Patel, Dr. Bhagwati, Professor G Sinha, y Naveen Goel. 2020. <span>«Introduction to sensors»</span>. En. <a href="https://doi.org/10.1088/978-0-7503-2707-7ch1">https://doi.org/10.1088/978-0-7503-2707-7ch1</a>.
+OMEGA. s.&nbsp;f. <span>«¿Qué es un sensor termopar?»</span> <a href="https://es.omega.com/prodinfo/termopares.html#">https://es.omega.com/prodinfo/termopares.html#</a>.
 </div>
 <div id="ref-pwf" class="csl-entry" role="listitem">
 PWFusion. s.&nbsp;f. <span>«4-Channel T-Type Thermocouple MAX31856 SPI Digital Arduino Shield»</span>. <a href="https://www.playingwithfusion.com/productview.php?pdid=71&amp;catid=1008">https://www.playingwithfusion.com/productview.php?pdid=71&amp;catid=1008</a>.

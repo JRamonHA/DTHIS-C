@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -188,14 +168,14 @@ div.csl-indent {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#sec-importancia" id="toc-sec-importancia" class="nav-link active" data-scroll-target="#sec-importancia"><span class="header-section-number">1.1</span> Importancia del confort en espacios interiores</a>
+  <li><a href="#sec-problema" id="toc-sec-problema" class="nav-link active" data-scroll-target="#sec-problema"><span class="header-section-number">1.1</span> Planteamiento del problema</a></li>
+  <li><a href="#sec-justificacion" id="toc-sec-justificacion" class="nav-link" data-scroll-target="#sec-justificacion"><span class="header-section-number">1.2</span> Justificación</a></li>
+  <li><a href="#sec-arte" id="toc-sec-arte" class="nav-link" data-scroll-target="#sec-arte"><span class="header-section-number">1.3</span> Estado del arte</a></li>
+  <li><a href="#sec-alcances" id="toc-sec-alcances" class="nav-link" data-scroll-target="#sec-alcances"><span class="header-section-number">1.4</span> Alcances</a></li>
+  <li><a href="#sec-objetivos" id="toc-sec-objetivos" class="nav-link" data-scroll-target="#sec-objetivos"><span class="header-section-number">1.5</span> Objetivos</a>
   <ul>
-  <li><a href="#confort-térmico-acústico-lumínico-y-calidad-del-aire" id="toc-confort-térmico-acústico-lumínico-y-calidad-del-aire" class="nav-link" data-scroll-target="#confort-térmico-acústico-lumínico-y-calidad-del-aire">Confort térmico, acústico, lumínico y calidad del aire</a></li>
-  </ul></li>
-  <li><a href="#sec-objetivos" id="toc-sec-objetivos" class="nav-link" data-scroll-target="#sec-objetivos"><span class="header-section-number">1.2</span> Objetivos</a>
-  <ul>
-  <li><a href="#objetivo-general" id="toc-objetivo-general" class="nav-link" data-scroll-target="#objetivo-general">Objetivo general</a></li>
-  <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos">Objetivos específicos</a></li>
+  <li><a href="#objetivo-general" id="toc-objetivo-general" class="nav-link" data-scroll-target="#objetivo-general"><span class="header-section-number">1.5.1</span> Objetivo general</a></li>
+  <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos"><span class="header-section-number">1.5.2</span> Objetivos específicos</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -222,30 +202,154 @@ div.csl-indent {
 </header>
 
 
-<p>En este capítulo se examina la importancia del confort en espacios interiores, abordando los aspectos fundamentales que influyen en la calidad de vida de los ocupantes. Se analizan los conceptos de confort térmico, acústico, lumínico y calidad del aire, conforme a normativas internacionales como <span class="citation" data-cites="ashrae55">ASHRAE-55 (<a href="referencias.html#ref-ashrae55" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="light">British Standard (<a href="referencias.html#ref-light" role="doc-biblioref">2011</a>)</span> y <span class="citation" data-cites="air">ASHRAE-62 (<a href="referencias.html#ref-air" role="doc-biblioref">2001</a>)</span>. Además, se presentan los objetivos generales y específicos del proyecto, que incluyen el desarrollo de un dispositivo de confort móvil basado en tecnologías de hardware y software libre, con integración a un sistema de Internet de las Cosas (IoT).</p>
-<section id="sec-importancia" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="sec-importancia"><span class="header-section-number">1.1</span> Importancia del confort en espacios interiores</h2>
-<p>El confort en espacios interiores es fundamental para garantizar el bienestar y la calidad de vida de los ocupantes, ya que entornos confortables promueven percepciones positivas, mientras que condiciones inadecuadas, como niveles elevados de ruido, temperaturas y humedad inapropiadas, iluminación insuficiente, mala calidad del aire y olores desagradables, pueden generar experiencias negativas y afectar la salud a largo plazo <span class="citation" data-cites="wuindoor">(Wu, Y. and Liu, Z. and Kong, Z., <a href="referencias.html#ref-wuindoor" role="doc-biblioref">2023</a>)</span>.</p>
-<section id="confort-térmico-acústico-lumínico-y-calidad-del-aire" class="level4">
-<h4 class="anchored" data-anchor-id="confort-térmico-acústico-lumínico-y-calidad-del-aire">Confort térmico, acústico, lumínico y calidad del aire</h4>
-<p>El confort térmico, acústico, lumínico y la calidad del aire son aspectos clave que influyen directamente en la calidad de vida, ya que afectan la salud, el bienestar y el desempeño de las personas en espacios interiores.</p>
-<p>El confort térmico, se define como una condición mental de satisfacción con el entorno térmico, en la cual las respuestas térmicas del cuerpo (pérdida y ganancia de calor) se encuentran equilibradas de modo que la mayoría de los ocupantes no experimentan ni frío ni calor desagradables <span class="citation" data-cites="ashrae55">(ASHRAE-55, <a href="referencias.html#ref-ashrae55" role="doc-biblioref">2021</a>)</span>.</p>
-<p>El confort acústico se define como la condición en la que los niveles de presión sonora, la distribución espacial del sonido y la calidad acústica de un espacio permiten la realización adecuada de las actividades previstas, sin causar molestia, distracción o riesgo para la salud <span class="citation" data-cites="antoniadou">(Panagiota Antoniadou and Agis M. Papadopoulos, <a href="referencias.html#ref-antoniadou" role="doc-biblioref">2017</a>)</span>. Esta condición implica un control efectivo del ruido aéreo y estructural, así como una adecuada absorción, aislamiento y reverberación, conforme a parámetros establecidos por normas como ISO 3382, ISO 1996.</p>
-<p>El confort lumínico, según la norma ISO EN 12464-1, se define como el grado de bienestar visual de los ocupantes de un espacio, conseguido mediante condiciones de iluminación que satisfacen las exigencias de las tareas visuales, minimizan el deslumbramiento y garantizan una uniformidad adecuada de iluminancia. En concreto, la norma establece niveles mínimos de iluminancia, criterios de uniformidad y límites de deslumbramiento para diferentes tipos de actividad, con el fin de asegurar comodidad, seguridad y eficiencia en el entorno interior <span class="citation" data-cites="light">(British Standard, <a href="referencias.html#ref-light" role="doc-biblioref">2011</a>)</span>.</p>
-<p>Por último, la calidad del aire interior, se define como aquel estado en el que las concentraciones de contaminantes conocidos se mantienen por debajo de los niveles nocivos establecidos por las autoridades competentes y en el que al menos el 80 % de los ocupantes expuestos no manifiestan insatisfacción con las condiciones de ventilación y pureza del aire <span class="citation" data-cites="air">(ASHRAE-62, <a href="referencias.html#ref-air" role="doc-biblioref">2001</a>)</span>. Esto se logra mediante tasas de ventilación mínimas específicas para distintos tipos de espacios y actividades, garantizando un suministro adecuado de aire exterior fresco y el control de contaminantes generados en el interior.</p>
-<p>En las secciones <a href="capitulo_2.html#sec-termico" class="quarto-xref"><span>Sección 2.1</span></a>, <a href="capitulo_2.html#sec-acustico" class="quarto-xref"><span>Sección 2.2</span></a>, <a href="capitulo_2.html#sec-luminico" class="quarto-xref"><span>Sección 2.3</span></a> y <a href="capitulo_2.html#sec-calidad" class="quarto-xref"><span>Sección 2.4</span></a> se definen detalladamente estos conceptos y se abordan los aspectos fundamentales asociados a cada uno, junto con el análisis de su impacto en la calidad de vida y el bienestar de los ocupantes. Esta base teórica respalda la importancia de optimizar dichas condiciones en el diseño de entornos interiores saludables y habitables.</p>
+<p>El confort en espacios interiores es esencial para garantizar el bienestar, la salud y el desempeño de los ocupantes. Entre los factores que lo determinan se encuentran el confort térmico, acústico, lumínico y la calidad del aire, los cuales influyen directamente en la percepción del entorno y en la calidad de vida. Condiciones inadecuadas, como temperaturas extremas, ruidos excesivos, iluminación deficiente o mala ventilación, pueden generar incomodidad, distracción e incluso afectar la salud a largo plazo.</p>
+<p>Estos conceptos se definen con mayor detalle en la <a href="capitulo_2.html#sec-termico" class="quarto-xref"><span>Sección 2.1</span></a>, <a href="capitulo_2.html#sec-acustico" class="quarto-xref"><span>Sección 2.2</span></a>, <a href="capitulo_2.html#sec-luminico" class="quarto-xref"><span>Sección 2.3</span></a> y <a href="capitulo_2.html#sec-calidad" class="quarto-xref"><span>Sección 2.4</span></a>, que constituyen la base teórica para comprender la importancia de optimizar las condiciones de habitabilidad en los espacios interiores.</p>
+<section id="sec-problema" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-problema"><span class="header-section-number">1.1</span> Planteamiento del problema</h2>
+<p>En la actualidad, gran parte de las actividades de la sociedad se desarrollan en espacios interiores como aulas, oficinas y recintos de trabajo. Sin embargo, el diseño y acondicionamiento de estos espacios no siempre consideran de manera adecuada las necesidades de confort de los ocupantes, lo que puede tener repercusiones tanto en su bienestar como en su salud.</p>
+<p>Por ejemplo, una iluminación deficiente puede afectar la concentración de los estudiantes en el aula e incrementar el riesgo de problemas visuales. De manera similar, una ventilación inadecuada compromete la calidad del aire interior y puede favorecer la propagación de enfermedades, tal como se evidenció durante la pandemia de COVID-19, donde la ventilación se convirtió en un factor importante de prevención.</p>
+<p>A estas condiciones se suman otros factores como temperaturas extremas, humedad inadecuada o niveles elevados de ruido, que no solo generan incomodidad, sino que también disminuyen el desempeño y productividad de las personas. En consecuencia, surge la necesidad de contar con herramientas accesibles que permitan medir y evaluar las variables ambientales relacionadas con el confort en espacios interiores, de modo que se puedan identificar y corregir deficiencias en el diseño y operación de los espacios.</p>
 </section>
+<section id="sec-justificacion" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-justificacion"><span class="header-section-number">1.2</span> Justificación</h2>
+<p>La evaluación del confort en espacios interiores requiere instrumentos capaces de medir de forma precisa variables como temperatura del aire, humedad relativa, calidad del aire, niveles de ruido e iluminación. Sin embargo, los dispositivos disponibles en el mercado suelen tener costos elevados, lo que restringe su acceso para algunas personas, instituciones, e incluso proyectos de pequeña escala. Esta situación genera una limitante para el análisis detallado de las condiciones de habitabilidad en entornos cotidianos como aulas, oficinas y recintos de trabajo.</p>
+<p>Frente a esta necesidad, el desarrollo del Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS-C) representa una alternativa viable. Su construcción con componentes de precio accesible y el uso de plataformas de software de código abierto permiten no solo reducir los costos, sino también garantizar su documentación, reproducción y adaptación en diferentes contextos.</p>
+<p>El DTHIS-C integra sensores caracterizados frente a dispositivos de referencia profesionales, como el Fluke 975 Airmeter, QUESTemp 36 y WindMaster. Además, su conexión a una plataforma de Internet de las Cosas (IoT) mediante ThingsBoard posibilita la visualización y análisis de datos en tiempo real, lo que facilita la identificación y corrección de condiciones inadecuadas de confort.</p>
+<p>De esta manera, el DTHIS-C aporta una solución accesible para la evaluación de entornos interiores, contribuyendo al diseño de espacios más saludables, confortables y adecuados para el desarrollo de actividades académicas, laborales y sociales.</p>
 </section>
-<section id="sec-objetivos" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="sec-objetivos"><span class="header-section-number">1.2</span> Objetivos</h2>
-<section id="objetivo-general" class="level4">
-<h4 class="anchored" data-anchor-id="objetivo-general">Objetivo general</h4>
+<section id="sec-arte" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-arte"><span class="header-section-number">1.3</span> Estado del arte</h2>
+<div id="tbl-proyectos" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-proyectos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;1.1: Comparativa de proyectos de monitoreo ambiental a nivel nacional e internacional.
+</figcaption>
+<div aria-describedby="tbl-proyectos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-hover table-sm small caption-top table">
+<thead>
+<tr class="header">
+<th>Proyecto</th>
+<th>Institución / Año</th>
+<th>Autor(es)</th>
+<th>Variables medidas</th>
+<th>Tecnologías empleadas</th>
+<th>Limitaciones / Alcance</th>
+<th>Comparación con el DTHIS-C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://rinacional.tecnm.mx/jspui/handle/TecNM/8039">Sistema de monitoreo higrotérmico de espacios arquitectónicos</a></td>
+<td>ITQ, México (2020)</td>
+<td>Martha P. Bocanegra</td>
+<td>T, HR, T superficial</td>
+<td>Arduino + microSD</td>
+<td>Solo térmico/higro, sin IoT</td>
+<td>DTHIS-C añade iluminancia, sonido, CO<sub>2</sub>, IoT</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/AltamarMx/co2">Monitores de CO<sub>2</sub> para ventilación (COVID-19)</a></td>
+<td>UNAM, México (2022)</td>
+<td>G. Barrios et al.</td>
+<td>CO<sub>2</sub></td>
+<td>Sensores NDIR, registro simple</td>
+<td>Una sola variable</td>
+<td>DTHIS-C amplía confort térmico, lumínico y acústico</td>
+</tr>
+<tr class="odd">
+<td><a href="http://hdl.handle.net/11522/3980">Metodología de confort en aulas</a></td>
+<td>PU Javeriana, Colombia (2021)</td>
+<td>G. D. Laguado et al.</td>
+<td>T, HR, CO<sub>2</sub>, CO, PM</td>
+<td>Arduino + sensores MQ y PM</td>
+<td>Sin acústica ni iluminación</td>
+<td>DTHIS-C incluye confort lumínico y acústico</td>
+</tr>
+<tr class="even">
+<td><a href="https://revistas.udistrital.edu.co/index.php/Tecnura/article/view/19522">Monitor flexible de CO<sub>2</sub></a></td>
+<td>UTN-CNEA, Argentina (2023)</td>
+<td>J. Vorobioff et al.</td>
+<td>CO<sub>2</sub></td>
+<td>Sensores NDIR + software</td>
+<td>Focalizado en ventilación</td>
+<td>DTHIS-C evalúa múltiples parámetros</td>
+</tr>
+<tr class="odd">
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/39618722/">AQuality32</a></td>
+<td>UNAL Medellín, Colombia (2024)</td>
+<td>D. Pineda-Tobón et al.</td>
+<td>CO<sub>2</sub>, T, HR, PM</td>
+<td>ESP32 + Sensirion + IoT</td>
+<td>Solo IAQ, sin acústica ni iluminación</td>
+<td>DTHIS-C suma ruido e iluminación</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.mdpi.com/2689814">Multisensor IoT de IEQ</a></td>
+<td>Polonia (2024)</td>
+<td>A. Szczurek et al.</td>
+<td>T, HR, luz, presión, CO<sub>2</sub>, VOCs, PM</td>
+<td>IoT, microSD, WiFi</td>
+<td>Sin ruido ni T radiante</td>
+<td>DTHIS-C mide acústica y T radiante</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.mdpi.com/2774630">PROMET&amp;O</a></td>
+<td>Politecnico di Torino, Italia (2023)</td>
+<td>G. Arcamone et al.</td>
+<td>T, HR, CO<sub>2</sub>, luz, ruido, PM, formaldehído</td>
+<td>Multisensor + dashboard IoT</td>
+<td>No mide viento ni T radiante</td>
+<td>DTHIS-C sí incluye viento y T radiante</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Los proyectos revisados reflejan un esfuerzo académico constante por diseñar dispositivos de bajo costo que permitan evaluar distintas dimensiones del confort interior o de la calidad ambiental en espacios cerrados.</p>
+<p>Algunos trabajos se enfocan en variables térmicas e higrométricas, como el sistema de monitoreo higrotérmico del ITQ, mientras que otros se limitan a calidad del aire, como los monitores de CO<sub>2</sub> desarrollados en la UNAM y la UTN-CNEA. Existen proyectos más completos, como la propuesta de la Javeriana en Colombia, que incluyen contaminantes adicionales como PM y CO, aunque todavía sin abordar acústica ni luminancia.</p>
+<p>Por otra parte, desarrollos más recientes como AQuality32 en Colombia, el multisensor IoT polaco y el sistema PROMET&amp;O en Italia demuestran la tendencia a integrar plataformas IoT, con mediciones múltiples en tiempo real. Sin embargo, incluso estos trabajos presentan limitaciones: no consideran variables como la temperatura radiante ni la velocidad del aire, que son fundamentales para índices de confort como el PMV.</p>
+<p>El DTHIS-C se distingue de los proyectos revisados porque:</p>
 <ul>
-<li>Desarrollar un dispositivo de confort móvil usando software y hardware libre.</li>
+<li><p>Integra en un único dispositivo portátil las cuatro dimensiones del confort interior: térmico, acústico, lumínico y calidad del aire.</p></li>
+<li><p>Mide variables que otros no incluyen simultáneamente: temperatura radiante y velocidad del aire, claves para un análisis más robusto del confort térmico.</p></li>
+<li><p>Incluye ruido e iluminación, parámetros generalmente omitidos en proyectos académicos de bajo costo.</p></li>
+<li><p>Fue calibrado y referenciado rigurosamente con instrumentos profesionales (Fluke 975 Airmeter, QUESTemp 36 y WindMaster), garantizando precisión y confiabilidad.</p></li>
+<li><p>Se conecta a una plataforma IoT (ThingsBoard) que permite la visualización y análisis en tiempo real de todas las variables.</p></li>
+<li><p>Está documentado en un repositorio abierto, lo que facilita su reproducción.</p></li>
+</ul>
+<p>En conclusión, el DTHIS-C logra un nivel de integración, exactitud y accesibilidad en comparación con los proyectos académicos de pequeña escala que han sido presentados.</p>
+</section>
+<section id="sec-alcances" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-alcances"><span class="header-section-number">1.4</span> Alcances</h2>
+<p>El desarrollo del DTHIS-C se centra en la construcción, calibración y validación de un prototipo funcional capaz de medir las principales variables ambientales relacionadas con el confort en espacios interiores: temperatura del aire, temperatura radiante, humedad relativa, velocidad del viento, concentración de CO<sub>2</sub>, iluminancia y niveles de sonido.</p>
+<p>El alcance del proyecto incluye:</p>
+<ul>
+<li><p>Selección y caracterización de sensores adecuados para cada variable de confort.</p></li>
+<li><p>Calibración y referenciación de los sensores frente a dispositivos de referencia profesionales.</p></li>
+<li><p>Integración de los sensores en un dispositivo portátil de bajo costo.</p></li>
+<li><p>Desarrollo de la conexión del dispositivo a una plataforma de Internet de las Cosas (IoT) mediante ThingsBoard para la visualización y análisis de datos en tiempo real.</p></li>
+<li><p>Documentación del proceso de desarrollo en un repositorio.</p></li>
+</ul>
+<p>Por otro lado, el proyecto no contempla:</p>
+<ul>
+<li><p>El diseño de una versión comercial o industrial del dispositivo.</p></li>
+<li><p>La validación en diferentes climas o contextos geográficos más allá de las pruebas realizadas.</p></li>
+<li><p>La certificación del dispositivo ante normas nacionales o internacionales.</p></li>
+<li><p>El análisis económico a gran escala para su producción masiva.</p></li>
+</ul>
+<p>En este sentido, los alcances de la tesis se limitan al diseño, implementación y validación del prototipo DTHIS-C, dejando abiertas futuras oportunidades de mejora y adaptación en investigaciones posteriores.</p>
+</section>
+<section id="sec-objetivos" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sec-objetivos"><span class="header-section-number">1.5</span> Objetivos</h2>
+<section id="objetivo-general" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="objetivo-general"><span class="header-section-number">1.5.1</span> Objetivo general</h3>
+<ul>
+<li>Desarrollar un dispositivo de confort móvil usando hardware accesible y software libre.</li>
 </ul>
 </section>
-<section id="objetivos-específicos" class="level4">
-<h4 class="anchored" data-anchor-id="objetivos-específicos">Objetivos específicos</h4>
+<section id="objetivos-específicos" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="objetivos-específicos"><span class="header-section-number">1.5.2</span> Objetivos específicos</h3>
 <ul>
 <li><p>Selección de variables a medir.</p></li>
 <li><p>Identificación y selección de sensores apropiados.</p></li>
@@ -256,23 +360,6 @@ div.csl-indent {
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-antoniadou" class="csl-entry" role="listitem">
-Antoniadou, Panagiota, y Agis M. Papadopoulos. 2017. <span>«Occupants’ thermal comfort: State of the art and the prospects of personalized assessment in office buildings»</span>. <em>Energy and Buildings</em> 153: 136-49. <a href="https://doi.org/10.1016/j.enbuild.2017.08.001">https://doi.org/10.1016/j.enbuild.2017.08.001</a>.
-</div>
-<div id="ref-ashrae55" class="csl-entry" role="listitem">
-ASHRAE-55. 2021. <em>ANSI/ASHRAE Standard 55-2020: Thermal Environmental Conditions for Human Occupancy</em>. Atlanta, GA: American Society of Heating, Refrigerating; Air-Conditioning Engineers (ASHRAE).
-</div>
-<div id="ref-air" class="csl-entry" role="listitem">
-ASHRAE-62. 2001. <em>ANSI/ASHRAE Standard 62-2001: Ventilation for acceptable indoor air quality</em>. Vol. 62. 2001. American Society of Heating, Refrigerating; Air-Conditioning Engineers.
-</div>
-<div id="ref-light" class="csl-entry" role="listitem">
-British Standard. 2011. <span>«Light and lighting: Lighting of work places: Part 1: Indoor work places»</span>. <em>NS-EN 12464-1: 2011</em>.
-</div>
-<div id="ref-wuindoor" class="csl-entry" role="listitem">
-Wu, Y., Z. Liu, y Z. Kong. 2023. <span>«Indoor Environmental Quality and Occupant Comfort»</span>. <em>Buildings</em> 13 (6): 1400. <a href="https://doi.org/10.3390/buildings13061400">https://doi.org/10.3390/buildings13061400</a>.
-</div>
-</div>
 </section>
 </section>
 

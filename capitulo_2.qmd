@@ -1,6 +1,8 @@
 # Confort térmico, acústico, lumínico, calidad del aire e implementación del DTHIS-C {#cap-confort}
 
-En este capítulo se abordan los conceptos de confort térmico, acústico, lumínico y calidad del aire en espacios cerrados, con énfasis en las principales variables físicas que inciden en cada uno de ellos. Asimismo, se introduce el dispositivo de temperatura, humedad, iluminación y sonido de campaña (DTHIS-C) y se analiza el modelo de confort PMV, que permite entender cómo las expectativas de los usuarios varían según el clima y el contexto, y que ha servido como marco conceptual para seleccionar los parámetros ambientales que monitorea el DTHIS-C.
+El confort en espacios interiores depende de distintos tipos de confort: térmico, acústico, lumínico y de calidad del aire, cada uno definido por variables físicas específicas y regulado por normas internacionales. En este capítulo se presentan los fundamentos teóricos de estos tipos de confort, junto con los conceptos básicos de instrumentación necesarios para su medición, lo que permite establecer la relación entre la teoría del confort y las tecnologías empleadas para evaluarlo.
+
+Sobre esta base se introduce el Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS-C), desarrollado para integrar en un solo sistema la captura y transmisión en tiempo real de las principales variables ambientales. Finalmente, se aborda el modelo Predicted Mean Vote (PMV), que constituye un referente conceptual para comprender cómo las condiciones físicas del entorno influyen en la percepción térmica de los ocupantes y que ha servido como marco para la selección de los parámetros que mide el DTHIS-C.
 
 ## Confort térmico {#sec-termico}
 
@@ -8,7 +10,7 @@ De acuerdo con la Sociedad Estadounidense de Ingenieros de Calefacción, Refrige
 
 En efecto, la percepción del confort no depende únicamente de la temperatura, la humedad, la velocidad del aire y otros parámetros físicos, sino también de variables como el tipo de vestimenta, la intensidad y duración de la actividad física, y la variación en la postura o ubicación del individuo. Por ejemplo, en condiciones de frío, abrir una ventana puede resultar contraproducente, mientras que en ambientes cálidos, una ventilación adecuada puede mejorar significativamente la sensación térmica. Cada uno de estos factores influye en la percepción individual del confort y debe considerarse para lograr un entorno interior confortable [ASHRAE-55, -@ashrae55]. 
 
-#### Variables físicas del confort térmico
+### Variables físicas del confort térmico
 
 @macpherson identificó seis factores determinantes que afectan la sensación térmica en los espacios cerrados. Entre ellos, cuatro son variables físicas: temperatura del aire, velocidad del aire, humedad relativa y temperatura media radiante; y dos son variables personales: el aislamiento térmico de la ropa y el nivel de actividad física, también conocido como tasa metabólica. Estos factores constituyen la base para el análisis y predicción del confort térmico.  
 
@@ -30,7 +32,7 @@ Acorde a @ashrae55, dichas variables se definen de la siguiente manera:
 
 El confort acústico se define como un estado de satisfacción con las condiciones acústicas, representa el bienestar y la percepción positiva de un entorno en términos sonoros. Sin embargo, este confort es altamente subjetivo, ya que fuentes de ruido con características físicas similares pueden percibirse de manera distinta dependiendo de la persona [Antoniadou & Papadopoulos, -@antoniadou] [Azar et al., -@azar]. 
 
-#### Variables físicas del confort acústico
+### Variables físicas del confort acústico
 
 La principal variable utilizada para evaluar el confort acústico es el nivel de presión sonora, ya que permite cuantificar la intensidad del sonido percibido y relacionarla con los efectos que este puede generar en las personas. Esta medida permite distinguir componentes clave como el sonido y el ruido, cuya comprensión es esencial para interpretar el fenómeno acústico. A partir de ello, se consideran otros factores que también afectan la percepción del confort, como la frecuencia, duración, variación temporal y fuente del sonido.
 
@@ -111,7 +113,7 @@ Asimismo @berglund, enumera ciertos factores acústicos que impactan el confort 
 
 El confort lumínico se refiere a la percepción de bienestar visual en un espacio, permitiendo que las personas realicen sus actividades cotidianas de manera efectiva y cómoda bajo condiciones de iluminación adecuadas [Vásquez et al., -@vasquez]. 
 
-#### Variables físicas del confort lumínico
+### Variables físicas del confort lumínico
 
 La luz es una radiación electromagnética que el ojo humano puede percibir en longitudes de onda que van desde los 380 nm hasta los 760 nm. Estas longitudes de onda, o frecuencias, corresponden a los diferentes colores del espectro visible [Bluyssen, -@bluyssen].
 
@@ -127,15 +129,15 @@ La @nom025 recomienda una iluminancia mínima de 300 lux en aulas y 500 lux para
 
 De acuerdo con el estándar @air, se considera que el aire interior tiene una calidad aceptable cuando "no contiene contaminantes conocidos en concentraciones nocivas según lo establecido por las autoridades competentes y la mayoría sustancial de las personas expuestas (80% o más) no expresa insatisfacción".
 
-#### Variables físicas de la calidad del aire
+### Variables físicas de la calidad del aire
 
 La calidad del aire interior se evalúa monitoreando la concentración de CO<sub>2</sub>, comparándola con los niveles exteriores (300-500 ppm). @air recomienda mantener concentraciones interiores entre 1000 y 1200 ppm para garantizar un ambiente adecuado y regular los sistemas de ventilación. Sin embargo, concentraciones superiores a 5000 ppm son peligrosas, ya que indican una ausencia total de aire fresco.
 
 Durante la pandemia de COVID-19 se evidenció que la concentración de CO<sub>2</sub> puede servir como un indicador indirecto del riesgo de transmisión aérea del virus. En espacios cerrados, niveles elevados de CO<sub>2</sub> señalan una ventilación insuficiente, lo que implica que una mayor proporción del aire inhalado ha sido exhalada por otros, y por lo tanto, puede contener aerosoles potencialmente virales. Modelos basados en la ecuación de Wells-Riley han demostrado que, a medida que aumenta la concentración de CO<sub>2</sub>, también se incrementa el riesgo de contagio, especialmente en ambientes mal ventilados y sin el uso adecuado de mascarillas. Por ello, se ha recomendado mantener los niveles de CO<sub>2</sub> por debajo de 700–800 ppm en espacios para minimizar este riesgo y asegurar una adecuada calidad del aire interior [Luna & Barrios, -@luna-gbv].
 
-## Implementación del DTHIS-C {#sec-dthis-c}
+## DTHIS-C {#sec-dthis-c}
  
-El Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS-C) es un equipo portátil desarrollado para medir, de forma simultánea y en tiempo real, diversas variables físicas que inciden directamente en el confort de los espacios interiores. Las variables evaluadas son las siguientes:
+El Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS-C) es un dispositivo portátil desarrollado para medir, de forma simultánea y en tiempo real, diversas variables físicas que inciden directamente en el confort de los espacios interiores. Las variables evaluadas son:
 
 - Temperatura del aire
 - Temperatura radiante
@@ -145,9 +147,26 @@ El Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS
 - Luminancia
 - Niveles de sonido
 
-La versatilidad del DTHIS-C radica en su capacidad para integrar múltiples sensores en un solo dispositivo, lo que facilita el análisis y el monitoreo continuo de las variables físicas involucradas. Su desarrollo se basa en tecnologías libres y de bajo costo, posicionándolo como una alternativa viable a los equipos de medición tradicionales, que suelen ser más costosos y exclusivos. Esta herramienta podría contribuir a la evaluación de espacios interiores confortables mediante la recopilación de datos.
+El DTHIS-C está conformado por seis sensores, dos microcontroladores y dos acondicionadores de señal. Para comprender su funcionamiento, es necesario introducir algunos conceptos básicos de instrumentación electrónica, tales como sensores, microcontroladores y acondicionadores de señal, los cuales constituyen la base tecnológica de su diseño.
 
-#### Modelo de confort PMV
+- **Sensor:**
+    Un sensor es un dispositivo que detecta una señal o estímulo del entorno y responde generando una señal eléctrica proporcional, generalmente en forma de corriente o voltaje. Su función principal es convertir señales físicas, químicas o biológicas en señales eléctricas que puedan ser interpretadas por sistemas electrónicos [Patel et al., -@sensors].
+
+    En el DTHIS-C, los sensores permiten medir variables físicas específicas del ambiente, cuyas señales son posteriormente acondicionadas y digitalizadas para su procesamiento y transmisión.
+
+- **Microcontrolador:**
+    Un microcontrolador es una pequeña computadora integrada en un solo chip, se usa en sistemas integrados como sensores de temperatura. Incluye una CPU, memoria RAM, memorias de solo lectura, múltiples puertos de entrada/salida y y periféricos como convertidores analógico-digital (ADC), convertidores digital-analógico (DAC), temporizadores e interfaces seriales (USB, Ethernet, etc.). Su bajo consumo energético lo hace ideal para dispositivos alimentados por batería y aplicaciones específicas [Hodgson, -@hodgson].
+
+    En el DTHIS-C, los microcontroladores gestionan y procesan las señales de los sensores, convirtiendo las salidas analógicas en datos digitales precisos mediante los ADC. Estos datos son empleados para evaluar las condiciones ambientales y transmitidos a una plataforma IoT para su visualización en tiempo real.
+
+- **Acondicionador de señal:**
+    Un acondicionador de señal es un dispositivo diseñado para transformar una señal electrónica de un formato a otro, facilitando su lectura y procesamiento mediante instrumentación convencional. Entre sus funciones se destacan la amplificación (aumentar la magnitud de señales débiles), la linealización (corregir respuestas no lineales, como ocurre comúnmente en señales de termopar), la compensación de unión fría (ajustar la señal de un termopar para corregir variaciones de temperatura ambiente), la excitación (proporcionar la energía necesaria para el funcionamiento de ciertos sensores, por ejemplo los RTD). Estas funciones combinadas permiten que la señal analógica, que puede ser difícil de interpretar directamente, se convierta en una forma adecuada para su procesamiento [Omega, -@omega-2].
+
+    En el DTHIS-C, los acondicionadores de señal se emplean para preparar la salida analógica de sensores como los termopares y el sensor de temperatura radiante, asegurando que la señal se encuentre dentro de un rango adecuado y libre de interferencias antes de ser digitalizada por el microcontrolador.
+
+La versatilidad del DTHIS-C radica en su capacidad para integrar múltiples sensores en un solo dispositivo, lo que facilita el análisis y monitoreo continuo de las variables físicas involucradas. Su desarrollo se basa en tecnologías libres y de bajo costo, lo que lo posiciona como una alternativa viable frente a dispositivos de medición tradicionales, generalmente mucho más costosos.
+
+### Modelo de confort PMV
  
 El modelo de confort térmico PMV (Predicted Mean Vote) es una herramienta predictiva ampliamente reconocida para evaluar la sensación térmica promedio de un grupo de personas en un ambiente interior. Este modelo estima la percepción térmica en una escala que va desde -3 (frío) hasta +3 (caliente), donde 0 representa una sensación térmica neutral, considerada ideal para el confort [Fanger, -@fanger]. El PMV se fundamenta en el balance de calor del cuerpo humano y toma en cuenta seis variables principales:
 
@@ -213,5 +232,5 @@ $v_{air}$  :  Velocidad del aire (m/s)
 $h_c$  :  Coeficiente de transferencia de calor por convección ($W/m^2 \cdot °C$)  
 $t_{cl}$  :  Temperatura de la superficie de la ropa (°C)  
 
-#### Relevancia del modelo PMV en el DTHIS-C
+### Relevancia del modelo PMV en el DTHIS-C
 El modelo PMV es fundamental en el diseño de espacios interiores confortables y eficientes, ya que proporciona un marco cuantitativo para evaluar cómo las condiciones ambientales y personales afectan la percepción térmica de los ocupantes. Su adopción en estándares como ASHRAE 55 lo posiciona como una referencia clave para el diseño de sistemas de calefacción, ventilación y aire acondicionado (HVAC, por sus siglas en inglés *Heating, ventilation, and air conditioning*). En el contexto de esta tesis, el PMV sirve como base teórica para comprender cómo optimizar las condiciones térmicas en entornos habitables, alineándose con el objetivo de garantizar el bienestar y la calidad de vida de los usuarios.

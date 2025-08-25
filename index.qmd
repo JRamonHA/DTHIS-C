@@ -6,7 +6,7 @@ El DTHIS-C integra sensores para medir variables ambientales clave: temperatura 
 
 Además, el dispositivo se conecta a una plataforma de Internet de las Cosas (IoT) mediante ThingsBoard, lo que facilita la visualización y el análisis en tiempo real de las condiciones ambientales durante las campañas de medición.
 
-En comparación con equipos como el Fluke 975 Airmeter y la serie QUESTemp 32-34-36, el DTHIS-C constituye una alternativa accesible y versátil para la evaluación de confort en entornos interiores, alcanzando un desempeño satisfactorio y validando su utilidad como herramienta práctica de monitoreo ambiental.
+En comparación con equipos como el Fluke 975 Airmeter, QUESTemp 36 y WindMaster de Gill Instruments, el DTHIS-C constituye una alternativa accesible para la evaluación de confort en entornos interiores, alcanzando un desempeño satisfactorio y validando su utilidad como herramienta práctica de monitoreo ambiental.
 
 # Abstract {.unnumbered}
 
@@ -16,7 +16,7 @@ The DTHIS-C integrates sensors to measure key environmental variables: air tempe
 
 Furthermore, the device connects to an Internet of Things (IoT) platform through ThingsBoard, facilitating real-time visualization and analysis of environmental conditions during measurement campaigns.
 
-When compared with instruments such as the Fluke 975 Airmeter and the QUESTemp 32-34-36 series, the DTHIS-C emerges as an accessible and versatile alternative for indoor comfort evaluation, achieving satisfactory performance and demonstrating its utility as a practical tool for environmental monitoring.
+When compared with instruments such as the Fluke 975 Airmeter, QUESTemp 36 and Gill Instruments' WindMaster, the DTHIS-C emerges as an accessible and versatile alternative for indoor comfort evaluation, achieving satisfactory performance and demonstrating its utility as a practical tool for environmental monitoring.
 
 # Agradecimientos {.unnumbered}
 

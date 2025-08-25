@@ -24,23 +24,6 @@ La arquitectura del DTHIS-C se ha fundamentado en el uso combinado de la Raspber
 
 ## Especificaciones {#sec-especificaciones}
 
-El DTHIS-C se ha diseñado para medir temperatura del aire, temperatura radiante, velocidad del viento, humedad relativa, niveles de CO<sub>2</sub>, iluminancia y niveles de presión sonora. El dispositivo está compuesto por seis sensores, dos microcontroladores y dos acondicionadores de señal. 
-
-- **Sensor:**
-    Un sensor es un dispositivo que detecta una señal o estímulo del entorno y responde generando una señal eléctrica proporcional, generalmente en forma de corriente o voltaje. Su función principal es convertir señales físicas, químicas o biológicas en señales eléctricas que puedan ser interpretadas por sistemas electrónicos [Patel et al., -@sensors].
-
-    En el caso del DTHIS-C, los sensores utilizados permiten medir variables físicas específicas del ambiente, y sus señales son acondicionadas y digitalizadas para su procesamiento y transmisión.
-
-- **Microcontrolador:**
-    Un microcontrolador es una pequeña computadora integrada en un solo chip, se usa en sistemas integrados como sensores de temperatura. Incluye una CPU, memoria RAM, memorias de solo lectura, múltiples puertos de entrada/salida y y periféricos como convertidores analógico-digital (ADC), convertidores digital-analógico (DAC), temporizadores e interfaces seriales (USB, Ethernet, etc.). Su bajo consumo energético lo hace ideal para dispositivos alimentados por batería y aplicaciones específicas [Hodgson, -@hodgson].
-
-    En el DTHIS-C, el microcontrolador es fundamental para gestionar y procesar las señales de los sensores, convirtiendo las salidas analógicas en datos digitales precisos mediante el ADC. Estos datos se utilizan para medir las condiciones ambientales y se transmiten a una plataforma IoT para su visualización en tiempo real.
-
-- **Acondicionador de señal:**
-    Un acondicionador de señal es un dispositivo diseñado para transformar una señal electrónica de un formato a otro, facilitando su lectura y procesamiento mediante instrumentación convencional. Entre sus funciones se destacan la amplificación (aumentar la magnitud de señales débiles), la linealización (corregir respuestas no lineales, como ocurre comúnmente en señales de termopar), la compensación de unión fría (ajustar la señal de un termopar para corregir variaciones de temperatura ambiente), la excitación (proporcionar la energía necesaria para el funcionamiento de ciertos sensores, por ejemplo los RTD). Estas funciones combinadas permiten que la señal analógica, que puede ser difícil de interpretar directamente, se convierta en una forma adecuada para su procesamiento [Omega, -@omega-2].
-
-    En el caso del DTHIS-C, el acondicionador de señal se utiliza para preparar la salida analógica de sensores como los termopares o el sensor de temperatura radiante, asegurando que la señal se encuentre en un rango adecuado y libre de interferencias. Una vez acondicionada, la señal es convertida a digital mediante el convertidor analógico-digital (ADC) integrado en el microcontrolador.
-
 #### Componentes
 
 En la @tbl-componentes se presentan los sensores y componentes electrónicos que conforman el DTHIS-C, detallándose la variable que mide cada sensor, el modo de comunicación, la conexión al microcontrolador correspondiente y si requieren acondicionadores de señal.
