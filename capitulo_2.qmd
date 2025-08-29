@@ -4,6 +4,8 @@ El confort en espacios interiores depende de distintos tipos de confort: térmic
 
 Sobre esta base se introduce el Dispositivo de Temperatura, Humedad, Iluminación y Sonido de Campaña (DTHIS-C), desarrollado para integrar en un solo sistema la captura y transmisión en tiempo real de las principales variables ambientales. Finalmente, se aborda el modelo Predicted Mean Vote (PMV), que constituye un referente conceptual para comprender cómo las condiciones físicas del entorno influyen en la percepción térmica de los ocupantes y que ha servido como marco para la selección de los parámetros que mide el DTHIS-C.
 
+La siguiente etapa corresponde al diseño y construcción del DTHIS-C, donde se detallan los criterios técnicos, la integración de los componentes y el desarrollo físico del dispositivo que hacen posible su implementación práctica.
+
 ## Confort térmico {#sec-termico}
 
 De acuerdo con la Sociedad Estadounidense de Ingenieros de Calefacción, Refrigeración y Aire Acondicionado (ASHRAE, por sus iniciales en inglés *American Society of Heating, Refrigerating and Air-Conditioning Engineers*) en el estándar @ashrae55, el confort térmico se define como una condición mental que refleja la satisfacción con el entorno térmico. A partir de esta definición, según @castilla, se deduce que el juicio del confort es un proceso cognitivo influido tanto por factores ambientales como por aspectos personales y comportamentales. 
