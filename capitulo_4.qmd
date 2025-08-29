@@ -5,21 +5,19 @@ import thesis_tools as tt
 
 # Calibración y referenciación del DTHIS-C {#cap-calibracion}
 
-En este capítulo se detalla el proceso de calibración y referenciación del DTHIS-C. Se presenta la herramienta para la recuperación y visualización de los datos recopilados junto con sus debidos procedimientos. Asimismo, se describen las metodologías experimentales utilizadas para determinar el error de cada sensor, se exponen las pruebas realizadas en distintos escenarios y se presenta el proceso de caracterización de los sensores, que componen al dispositivo:
+La confiabilidad de un dispositivo de medición depende en gran medida de la exactitud de los sensores que lo conforman. Para garantizar esta precisión, es necesario someterlos a procesos de calibración y referenciación, de acuerdo con las características de cada uno y con las condiciones en las que serán utilizados. La calibración permite ajustar y verificar los sensores frente a estándares en condiciones controladas de laboratorio, mientras que la referenciación se centra en contrastar sus lecturas con instrumentos de referencia en escenarios reales de operación, especialmente cuando los sensores ya vienen calibrados de fábrica.
 
-- Termopar tipo T: Temperatura del aire.
+En este capítulo se describen los procedimientos empleados para asegurar la exactitud del DTHIS-C, incluyendo las metodologías experimentales, las herramientas utilizadas para la adquisición y recuperación de datos, y las pruebas realizadas en distintos contextos de medición. Asimismo, se presentan los resultados del proceso de caracterización de cada sensor, con el fin de identificar sus errores sistemáticos y validar su desempeño dentro del dispositivo.
 
-- TPF1/E-20 PT1000: Temperatura radiante.
-
-- Wind Sensor Rev P6: Velocidad del viento.
-
-- SCD30 Sensirion: Temperatura del aire, la humedad relativa y la concentración de CO<sub>2</sub>.
-
-- Micrófono ambiental USB: Niveles de sonido.
+Los resultados obtenidos en este capítulo sirven de fundamento para las conclusiones del trabajo, donde se discuten los principales hallazgos y el valor agregado del DTHIS-C, y se reconocen tanto sus limitaciones como las oportunidades de mejora.
 
 ## Metodología experimental {#sec-metodologia}
 
-La calibración consiste en verificar la exactitud de un sensor, comparándolo con un estándar de referencia, de modo que sus mediciones reflejen correctamente el valor real bajo condiciones controladas. En contraste, la referenciación implica comparar directamente las lecturas del sensor con las de un instrumento de referencia en condiciones reales, evaluando su desempeño en situaciones prácticas.
+La calibración consiste en verificar y ajustar la exactitud de un sensor comparándolo con un estándar de referencia bajo condiciones controladas de laboratorio. Este procedimiento se utiliza principalmente cuando el fabricante no proporciona una calibración previa o cuando se requiere garantizar que las mediciones cumplan con un nivel de exactitud determinado. Su propósito es corregir errores sistemáticos de los sensores, asegurando que las lecturas reflejen de manera confiable el valor real de la magnitud medida.
+
+Por otro lado, la referenciación implica comparar directamente las lecturas del sensor con las de un instrumento de referencia en condiciones reales de operación. A diferencia de la calibración, no busca ajustar el sensor en sí, sino evaluar su desempeño en el entorno de uso y determinar la validez práctica de sus mediciones. Este procedimiento resulta útil para identificar desviaciones que pueden surgir por factores como la instalación, la ventilación o la interacción con otras variables ambientales.
+
+En el caso de sensores que ya vienen calibrados de fábrica, como el SCD30, no es necesario realizar un proceso de calibración formal. Estos sensores incluyen ajustes internos que garantizan su exactitud dentro del rango especificado por el fabricante. Para ellos, basta con llevar a cabo una referenciación, es decir, comparar sus lecturas con las de un equipo de referencia para confirmar su confiabilidad en condiciones reales de uso.
 
 Cada sensor empleado en este estudio mide variables físicas distintas utilizando métodos de medición específicos. Por ello, se diseñaron campañas de calibración y referenciación adaptadas a las características únicas de cada instrumento, procesos fundamentales para asegurar tanto la exactitud como la confiabilidad de los datos recopilados, para detectar y corregir posibles desviaciones.
 

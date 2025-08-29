@@ -312,17 +312,14 @@ window.Quarto = {
 </header>
 
 
-<p>En este capítulo se detalla el proceso de calibración y referenciación del DTHIS-C. Se presenta la herramienta para la recuperación y visualización de los datos recopilados junto con sus debidos procedimientos. Asimismo, se describen las metodologías experimentales utilizadas para determinar el error de cada sensor, se exponen las pruebas realizadas en distintos escenarios y se presenta el proceso de caracterización de los sensores, que componen al dispositivo:</p>
-<ul>
-<li><p>Termopar tipo T: Temperatura del aire.</p></li>
-<li><p>TPF1/E-20 PT1000: Temperatura radiante.</p></li>
-<li><p>Wind Sensor Rev P6: Velocidad del viento.</p></li>
-<li><p>SCD30 Sensirion: Temperatura del aire, la humedad relativa y la concentración de CO<sub>2</sub>.</p></li>
-<li><p>Micrófono ambiental USB: Niveles de sonido.</p></li>
-</ul>
+<p>La confiabilidad de un dispositivo de medición depende en gran medida de la exactitud de los sensores que lo conforman. Para garantizar esta precisión, es necesario someterlos a procesos de calibración y referenciación, de acuerdo con las características de cada uno y con las condiciones en las que serán utilizados. La calibración permite ajustar y verificar los sensores frente a estándares en condiciones controladas de laboratorio, mientras que la referenciación se centra en contrastar sus lecturas con instrumentos de referencia en escenarios reales de operación, especialmente cuando los sensores ya vienen calibrados de fábrica.</p>
+<p>En este capítulo se describen los procedimientos empleados para asegurar la exactitud del DTHIS-C, incluyendo las metodologías experimentales, las herramientas utilizadas para la adquisición y recuperación de datos, y las pruebas realizadas en distintos contextos de medición. Asimismo, se presentan los resultados del proceso de caracterización de cada sensor, con el fin de identificar sus errores sistemáticos y validar su desempeño dentro del dispositivo.</p>
+<p>Los resultados obtenidos en este capítulo sirven de fundamento para las conclusiones del trabajo, donde se discuten los principales hallazgos y el valor agregado del DTHIS-C, y se reconocen tanto sus limitaciones como las oportunidades de mejora.</p>
 <section id="sec-metodologia" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sec-metodologia"><span class="header-section-number">4.1</span> Metodología experimental</h2>
-<p>La calibración consiste en verificar la exactitud de un sensor, comparándolo con un estándar de referencia, de modo que sus mediciones reflejen correctamente el valor real bajo condiciones controladas. En contraste, la referenciación implica comparar directamente las lecturas del sensor con las de un instrumento de referencia en condiciones reales, evaluando su desempeño en situaciones prácticas.</p>
+<p>La calibración consiste en verificar y ajustar la exactitud de un sensor comparándolo con un estándar de referencia bajo condiciones controladas de laboratorio. Este procedimiento se utiliza principalmente cuando el fabricante no proporciona una calibración previa o cuando se requiere garantizar que las mediciones cumplan con un nivel de exactitud determinado. Su propósito es corregir errores sistemáticos de los sensores, asegurando que las lecturas reflejen de manera confiable el valor real de la magnitud medida.</p>
+<p>Por otro lado, la referenciación implica comparar directamente las lecturas del sensor con las de un instrumento de referencia en condiciones reales de operación. A diferencia de la calibración, no busca ajustar el sensor en sí, sino evaluar su desempeño en el entorno de uso y determinar la validez práctica de sus mediciones. Este procedimiento resulta útil para identificar desviaciones que pueden surgir por factores como la instalación, la ventilación o la interacción con otras variables ambientales.</p>
+<p>En el caso de sensores que ya vienen calibrados de fábrica, como el SCD30, no es necesario realizar un proceso de calibración formal. Estos sensores incluyen ajustes internos que garantizan su exactitud dentro del rango especificado por el fabricante. Para ellos, basta con llevar a cabo una referenciación, es decir, comparar sus lecturas con las de un equipo de referencia para confirmar su confiabilidad en condiciones reales de uso.</p>
 <p>Cada sensor empleado en este estudio mide variables físicas distintas utilizando métodos de medición específicos. Por ello, se diseñaron campañas de calibración y referenciación adaptadas a las características únicas de cada instrumento, procesos fundamentales para asegurar tanto la exactitud como la confiabilidad de los datos recopilados, para detectar y corregir posibles desviaciones.</p>
 <p>En la <a href="#tbl-instrumentos" class="quarto-xref">Tabla&nbsp;<span>4.1</span></a> se presenta la lista de los sensores y sus respectivos instrumentos de referencia utilizados en los procesos de calibración y referenciación.</p>
 <div id="tbl-instrumentos" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
@@ -400,12 +397,12 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <p>ThingsBoard es una plataforma IoT de código abierto diseñada para la recopilación, procesamiento, visualización y gestión de dispositivos, <span class="citation" data-cites="thingsboard">(ThingsBoard , <a href="referencias.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En el contexto de esta tesis, se utiliza para transmitir en tiempo real las mediciones obtenidas de los distintos sensores del DTHIS-C hacia un servidor central, donde se alojan y resguardan los datos en una base de datos dedicada a Internet de las Cosas.</p>
 <p>Según la documentación oficial de ThingsBoard, la plataforma admite la conectividad mediante protocolos estándares como MQTT, CoAP y HTTP, lo que facilita la integración de diversos dispositivos y sensores <span class="citation" data-cites="thingsboard">(ThingsBoard , <a href="referencias.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En este caso, las mediciones de los sensores se envían desde el DTHIS-C a ThingsBoard, que actúa como una base de datos. La plataforma no solo almacena la información, sino que también permite la creación de tableros interactivos y personalizables que posibilitan la visualización en tiempo real de las mediciones. Esto es fundamental durante las campañas de medición, ya que permite monitorear de forma inmediata el funcionamiento de los sensores, identificar tendencias y detectar posibles anomalías en los datos.</p>
 <p>Para facilitar la obtención de datos directamente desde la plataforma ThingsBoard, el Grupo de Energía en Edificaciones del IER-UNAM desarrolló el paquete instalable de Python <code>iertools</code>. Una vez configurado un entorno Python y Git instalado, puede integrarse a al sistema ejecutando en la terminal el siguiente comando:</p>
-<div id="694f35dd" class="cell" data-execution_count="2">
+<div id="065fee8d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>AltamarMx<span class="op">/</span>iertools.git</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Es importante señalar que, antes de proceder a la obtención y descarga de datos desde ThingsBoard, es necesario crear un archivo de configuración con extensión <code>.ini</code>. Un archivo .ini es un documento de texto plano que almacena parámetros y opciones en formato clave-valor, y se utiliza para definir la configuración necesaria (como la URL del servidor y el token de acceso) que el paquete <code>iertools</code> requiere para conectarse a ThingsBoard.</p>
 <p>A continuación, se presenta un ejemplo de cómo estructurar dicho archivo:</p>
-<div id="ebfcb6db" class="cell" data-execution_count="3">
+<div id="fd831f2c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[dthisc]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>token     <span class="op">=</span> token</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>device_id <span class="op">=</span> device_id</span>
@@ -415,7 +412,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>port      <span class="op">=</span> <span class="dv">8080</span> </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez instalado <code>iertools</code>, es posible recuperar datos desde un script o notebook. El siguiente fragmento de código ilustra cómo obtener los datos de medición de los termopares del DTHIS-C a partir de ThingsBoard; este ejemplo puede ser ajustado según las necesidades específicas, permitiendo extraer distintos conjuntos de datos conforme a los requerimientos del estudio:</p>
-<div id="b7bf8d43" class="cell" data-execution_count="4">
+<div id="4a3238ff" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> iertools.tb <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.parser <span class="im">import</span> parse</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -500,7 +497,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 </div>
 </div>
 <p>Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente comando para exportarlos a un archivo CSV:</p>
-<div id="f8b73c49" class="cell" data-execution_count="5">
+<div id="57e4417b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"ruta/de/su/preferencia.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -1025,14 +1022,14 @@ dB = 20 \log_{10}(A) + 120
 <ol type="1">
 <li>Grabación: Se capturó un tono constante (por ejemplo, 94 <span class="math inline">\(dB\)</span> @ 1,000 <span class="math inline">\(Hz\)</span>) durante 15 segundos a 44.1 <span class="math inline">\(kHz\)</span>, con el micrófono acoplado al calibrador en un entorno silencioso:</li>
 </ol>
-<div id="161abbcf" class="cell" data-execution_count="16">
+<div id="d7b8b715" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>arecord <span class="op">-</span>D plughw:<span class="dv">3</span>,<span class="dv">0</span> <span class="op">-</span>f cd <span class="op">-</span>t wav <span class="op">-</span>d <span class="dv">15</span> <span class="op">-</span>r <span class="dv">44100</span> audio.wav</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Extracción de amplitud RMS, máxima y mínima mediante el programa <code>sox</code>:</li>
 </ol>
-<div id="4977662c" class="cell" data-execution_count="17">
+<div id="8953aa6e" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sox audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">\</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> grep <span class="st">"RMS     amplitude:"</span> \</span>
@@ -1043,7 +1040,7 @@ dB = 20 \log_{10}(A) + 120
 <ol start="3" type="1">
 <li>Cálculo en Python:</li>
 </ol>
-<div id="ba9e63f2" class="cell" data-execution_count="18">
+<div id="9d30ba0c" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'rms.txt'</span>)    <span class="im">as</span> f: rms_x    <span class="op">=</span> <span class="bu">float</span>(f.read().strip())</span>
