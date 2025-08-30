@@ -377,9 +377,6 @@ Tabla&nbsp;3.1: Sensores y componentes electrónicos que constituyen al DTHIS-C.
 <section id="diseño" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="diseño"><span class="header-section-number">3.1.1</span> Diseño</h3>
 <p>En la <a href="#fig-bloques" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> se presenta el diagrama de bloques del DTHIS-C, el cual integra los diferentes sensores, microcontroladores y acondicionadores de señal que permiten la adquisición de las variables ambientales.</p>
-<p>El sistema se organiza en torno a dos microcontroladores: Arduino UNO WiFi Rev2 y Raspberry Pi 4 Model B. El primero se encarga de la adquisición de las señales analógicas y digitales provenientes de los termopares tipo T (para temperatura del aire), el TPF1/E-20 PT1000 (para temperatura radiante) y el Wind Sensor Rev.&nbsp;P6 (para velocidad del viento). En el caso de los termopares y del PT1000, las señales requieren acondicionamiento, por lo que se emplean los módulos MAX31856 y MAX31865, respectivamente, que realizan funciones de linealización, compensación y conversión de las señales.</p>
-<p>La Raspberry Pi 4 se destina a la gestión de sensores que utilizan protocolos de comunicación digitales. A través de I2C se conecta el sensor SCD30, encargado de medir la concentración de CO<sub>2</sub> y humedad relativa. Por medio del puerto USB se incorpora el micrófono ambiental, que registra los niveles de sonido. Asimismo, mediante la interfaz CSI se integra la cámara Arducam 5MP OV5647 Fisheye, utilizada para estimar la iluminancia.</p>
-<p>Ambos microcontroladores reciben energía mediante un regulador DC-DC de 10 W, que convierte la entrada de 5 V de corriente directa desde el cable de alimentación en la tensión necesaria para el funcionamiento de cada microcontrolador y de igual manera otro con entrada a 5 V y salida a 12 V, instalado específicamente para el Wind Sensor Rev.&nbsp;P6, que requiere dicho voltaje para su correcto funcionamiento.</p>
 <div id="fig-bloques" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bloques-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -390,6 +387,9 @@ Figura&nbsp;3.1: Diagrama de bloques del DTHIS-C.
 </figcaption>
 </figure>
 </div>
+<p>El sistema se organiza en torno a dos microcontroladores: Arduino UNO WiFi Rev2 y Raspberry Pi 4 Model B. El primero se encarga de la adquisición de las señales analógicas y digitales provenientes de los termopares tipo T (para temperatura del aire), el TPF1/E-20 PT1000 (para temperatura radiante) y el Wind Sensor Rev.&nbsp;P6 (para velocidad del viento). En el caso de los termopares y del PT1000, las señales requieren acondicionamiento, por lo que se emplean los módulos MAX31856 y MAX31865, respectivamente, que realizan funciones de linealización, compensación y conversión de las señales.</p>
+<p>La Raspberry Pi 4 se destina a la gestión de sensores que utilizan protocolos de comunicación digitales. A través de I2C se conecta el sensor SCD30, encargado de medir la concentración de CO<sub>2</sub> y humedad relativa. Por medio del puerto USB se incorpora el micrófono ambiental, que registra los niveles de sonido. Asimismo, mediante la interfaz CSI se integra la cámara Arducam 5MP OV5647 Fisheye, utilizada para estimar la iluminancia.</p>
+<p>Ambos microcontroladores reciben energía mediante un regulador DC-DC de 10 W, que convierte la entrada de 5 V de corriente directa desde el cable de alimentación en la tensión necesaria para el funcionamiento de cada microcontrolador y de igual manera otro con entrada a 5 V y salida a 12 V, instalado específicamente para el Wind Sensor Rev.&nbsp;P6, que requiere dicho voltaje para su correcto funcionamiento.</p>
 </section>
 <section id="carcasa" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="carcasa"><span class="header-section-number">3.1.2</span> Carcasa</h3>
@@ -631,7 +631,7 @@ Figura&nbsp;3.4: Diseño final del DTHIS-C tras haber impreso y ensamblado todos
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="lógica-de-programación"><span class="header-section-number">3.1.4</span> Lógica de programación</h3>
 <p>En la <a href="#fig-flujo" class="quarto-xref">Figura&nbsp;<span>3.5</span></a> se muestra la lógica de programación implementada en el DTHIS-C. El flujo comienza con la acción del usuario, quien inicia la campaña de medición a través del dispositivo. Una vez activado, el DTHIS-C ejecuta de manera continua la medición de variables ambientales (temperatura del aire, temperatura radiante, humedad relativa, velocidad del viento, concentración de CO<sub>2</sub>, iluminancia y niveles de sonido) a partir de los sensores integrados.</p>
 <p>Posteriormente, el dispositivo procede al envío de los datos obtenidos hacia la plataforma IoT ThingsBoard, donde estos son almacenados en una base de datos para su gestión y análisis posterior. Una vez registrados, la plataforma actualiza el tablero de visualización, mostrando en tiempo real las condiciones del entorno monitoreado.</p>
-<p>Finalmente, el usuario tiene la posibilidad de finalizar la campaña, con lo cual el dispositivo detiene el envío de información y concluye el proceso. Esta lógica asegura un ciclo de medición y transmisión continua durante todo el tiempo en que la campaña permanezca activa..</p>
+<p>Finalmente, el usuario tiene la posibilidad de finalizar la campaña, con lo cual el dispositivo detiene el envío de información y concluye el proceso. Esta lógica asegura un ciclo de medición y transmisión continua durante todo el tiempo en que la campaña permanezca activa.</p>
 <div id="fig-flujo" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-flujo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -873,7 +873,7 @@ Figura&nbsp;3.7: Imagen demostrativa de conexión para el shield MAX31856 SEN-30
 <p>Acorde a <span class="citation" data-cites="pwf">PWFusion (<a href="referencias.html#ref-pwf" role="doc-biblioref">s.&nbsp;f.</a>)</span> sus específicaciones son las siguientes:</p>
 <ul>
 <li>Conversión de señal analógica a digital con resolución de 19 bits.</li>
-<li>Interfaz ICSP de 4 hilos.</li>
+<li>Interfaz SPI de 4 hilos.</li>
 <li>Rango de voltaje de alimentación: 3.3 V a 5.0 V.</li>
 </ul>
 </section>
@@ -883,7 +883,7 @@ Figura&nbsp;3.7: Imagen demostrativa de conexión para el shield MAX31856 SEN-30
 <section id="fuehler-systeme-tpf1e-20-pt1000" class="level4">
 <h4 class="anchored" data-anchor-id="fuehler-systeme-tpf1e-20-pt1000">Fuehler Systeme TPF1/E-20 PT1000</h4>
 <p>Se empleó el TPF1/E-20 PT1000, diseñado para medir la temperatura radiante en un rango de temperaturas de -30°C a +75°C. Su sonda de temperatura, basada en la tecnología PT1000, se puede montar como un péndulo libremente suspendido, lo que permite obtener mediciones exactas de la temperatura de sensación térmica en entornos donde la convección natural y la estratificación del aire pueden influir en los resultados <span class="citation" data-cites="fuehler">(FuehlerSysteme, <a href="referencias.html#ref-fuehler" role="doc-biblioref">s.&nbsp;f.</a>)</span>.</p>
-<p>En la <a href="#tbl-pt1000" class="quarto-xref">Tabla&nbsp;<span>3.6</span></a> se muestran las especificaciones del sensorTPF1/E-20 PT1000.</p>
+<p>En la <a href="#tbl-pt1000" class="quarto-xref">Tabla&nbsp;<span>3.6</span></a> se muestran las especificaciones del sensor TPF1/E-20 PT1000.</p>
 <div id="tbl-pt1000" class="hover sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pt1000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -958,7 +958,7 @@ Figura&nbsp;3.8: Diagrama de conexión para el PT1000 RTD-MAX31865.
 <li>Realiza la conversión de la resistencia de sensores RTD de platino a un valor digital de forma sencilla.</li>
 <li>Soporte con RTD de platino con valores de 100 <span class="math inline">\(\Omega\)</span> a 1 k<span class="math inline">\(\Omega\)</span> (a 0°C), abarcando desde PT100 hasta PT1000.</li>
 <li>Compatible con configuraciones de 2, 3 y 4 hilos para la conexión de sensores.</li>
-<li>Incorpora una interfaz ICSP, facilitando su integración en sistemas basados en microcontroladores.</li>
+<li>Incorpora una interfaz SPI, facilitando su integración en sistemas basados en microcontroladores.</li>
 <li>Cuenta con un ADC de 15 bits que proporciona una resolución nominal de temperatura de 0.03125°C (valor variable debido a la no linealidad del RTD) y una exactitud total de hasta 0.5°C (0.05% de la escala completa) en todas las condiciones operativas.</li>
 <li>Tiempo máximo de conversión es de 21 ms.</li>
 </ul>
@@ -1045,8 +1045,8 @@ Tabla&nbsp;3.8: Especificaciones del sensor SCD30.
 <div aria-describedby="tbl-scd30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-hover table-sm small caption-top table">
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 20%">
+<col style="width: 79%">
 </colgroup>
 <thead>
 <tr class="header">
