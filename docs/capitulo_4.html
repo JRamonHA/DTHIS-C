@@ -330,47 +330,55 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <div aria-describedby="tbl-instrumentos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-hover table-sm small caption-top table">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 31%">
-<col style="width: 36%">
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 28%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
 <th><strong>Variable</strong></th>
 <th><strong>Sensor</strong></th>
-<th><strong>Instrumento/Procedimiento</strong></th>
+<th><strong>Instrumento</strong></th>
+<th><strong>Procedimiento</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Temperatura ambiente</td>
 <td>Termopar tipo T</td>
-<td>AMETEK Jofra PTC-155/Calibración</td>
+<td>AMETEK Jofra PTC-155</td>
+<td>Calibración</td>
 </tr>
 <tr class="even">
 <td>Temperatura radiante</td>
 <td>TPF1/E-20 PT1000</td>
-<td>Quest Technologies QUESTemp 36/Calibración</td>
+<td>Quest Technologies QUESTemp 36</td>
+<td>Calibración</td>
 </tr>
 <tr class="odd">
 <td>Velocidad del viento</td>
 <td>Wind Sensor Rev P6</td>
-<td>Gill Instruments WindMaster/Calibración</td>
+<td>Gill Instruments WindMaster</td>
+<td>Calibración</td>
 </tr>
 <tr class="even">
 <td>CO<sub>2</sub> y humedad relativa</td>
 <td>SCD30 Sensirion</td>
-<td>Fluke 975 AirMeter/Referenciación</td>
+<td>Fluke 975 AirMeter</td>
+<td>Referenciación</td>
 </tr>
 <tr class="odd">
 <td>Sonido</td>
 <td>Micrófono ambiental USB</td>
-<td>TES-1356 Sound Level Calibrator/Calibración</td>
+<td>TES-1356 Sound Level Calibrator</td>
+<td>Calibración</td>
 </tr>
 <tr class="even">
 <td>Luminancia</td>
 <td>5MP OV5647 Wide Angle Fisheye Camera</td>
-<td>No aplica/No aplica</td>
+<td>No aplica</td>
+<td>No aplica</td>
 </tr>
 </tbody>
 </table>
@@ -397,12 +405,12 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <p>ThingsBoard es una plataforma IoT de código abierto diseñada para la recopilación, procesamiento, visualización y gestión de dispositivos, <span class="citation" data-cites="thingsboard">(ThingsBoard , <a href="referencias.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En el contexto de esta tesis, se utiliza para transmitir en tiempo real las mediciones obtenidas de los distintos sensores del DTHIS-C hacia un servidor central, donde se alojan y resguardan los datos en una base de datos dedicada a Internet de las Cosas.</p>
 <p>Según la documentación oficial de ThingsBoard, la plataforma admite la conectividad mediante protocolos estándares como MQTT, CoAP y HTTP, lo que facilita la integración de diversos dispositivos y sensores <span class="citation" data-cites="thingsboard">(ThingsBoard , <a href="referencias.html#ref-thingsboard" role="doc-biblioref">2023</a>)</span>. En este caso, las mediciones de los sensores se envían desde el DTHIS-C a ThingsBoard, que actúa como una base de datos. La plataforma no solo almacena la información, sino que también permite la creación de tableros interactivos y personalizables que posibilitan la visualización en tiempo real de las mediciones. Esto es fundamental durante las campañas de medición, ya que permite monitorear de forma inmediata el funcionamiento de los sensores, identificar tendencias y detectar posibles anomalías en los datos.</p>
 <p>Para facilitar la obtención de datos directamente desde la plataforma ThingsBoard, el Grupo de Energía en Edificaciones del IER-UNAM desarrolló el paquete instalable de Python <code>iertools</code>. Una vez configurado un entorno Python y Git instalado, puede integrarse a al sistema ejecutando en la terminal el siguiente comando:</p>
-<div id="065fee8d" class="cell" data-execution_count="2">
+<div id="b551df09" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>AltamarMx<span class="op">/</span>iertools.git</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Es importante señalar que, antes de proceder a la obtención y descarga de datos desde ThingsBoard, es necesario crear un archivo de configuración con extensión <code>.ini</code>. Un archivo .ini es un documento de texto plano que almacena parámetros y opciones en formato clave-valor, y se utiliza para definir la configuración necesaria (como la URL del servidor y el token de acceso) que el paquete <code>iertools</code> requiere para conectarse a ThingsBoard.</p>
 <p>A continuación, se presenta un ejemplo de cómo estructurar dicho archivo:</p>
-<div id="fd831f2c" class="cell" data-execution_count="3">
+<div id="2809cf89" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[dthisc]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>token     <span class="op">=</span> token</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>device_id <span class="op">=</span> device_id</span>
@@ -412,7 +420,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>port      <span class="op">=</span> <span class="dv">8080</span> </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez instalado <code>iertools</code>, es posible recuperar datos desde un script o notebook. El siguiente fragmento de código ilustra cómo obtener los datos de medición de los termopares del DTHIS-C a partir de ThingsBoard; este ejemplo puede ser ajustado según las necesidades específicas, permitiendo extraer distintos conjuntos de datos conforme a los requerimientos del estudio:</p>
-<div id="4a3238ff" class="cell" data-execution_count="4">
+<div id="bd3ee8d6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> iertools.tb <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutil.parser <span class="im">import</span> parse</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -497,7 +505,7 @@ Tabla&nbsp;4.1: Instrumentos de calibración y referenciación para los sensores
 </div>
 </div>
 <p>Finalmente, para almacenar los datos recuperados, se puede utilizar el siguiente comando para exportarlos a un archivo CSV:</p>
-<div id="57e4417b" class="cell" data-execution_count="5">
+<div id="9c3e685e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"ruta/de/su/preferencia.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -824,7 +832,18 @@ Figura&nbsp;4.10: Gill Instruments WindMaster.
 </figcaption>
 </figure>
 </div>
-<p>La campaña de calibración tuvo una duración de 1 hora, durante la cual se capturaron datos a una frecuencia de 1 Hz. Aprovechando las dimensiones del WindSensor (2230 x 680 mm), se posicionó estratégicamente en la parte superior central del WindMaster, previa verificación de que su presencia no interfiriera con las mediciones del anemómetro. En un entorno abierto, el WindSensor registró datos de voltaje, los cuales se utilizaron junto con los datos de velocidad del viento obtenidos del WindMaster para desarrollar una ecuación de calibración que permitiera convertir el voltaje medido a m/s. Los resultados de la campaña se pueden visualizar en la <a href="#fig-viento" class="quarto-xref">Figura&nbsp;<span>4.11</span></a>.</p>
+<p>La campaña de calibración tuvo una duración de 1 hora, durante la cual se registraron datos a una frecuencia de 1 Hz. Como se muestra en la <a href="#fig-wtest" class="quarto-xref">Figura&nbsp;<span>4.11</span></a>, el Wind Sensor fue colocado estratégicamente en la parte superior central del WindMaster, asegurándose previamente de que su ubicación no afectara las mediciones del anemómetro.</p>
+<div id="fig-wtest" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wtest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href=".\images/wind_test.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;4.11: Posición del Wind Sensor sobre el WindMaster durante su calibración."><img src=".\images/wind_test.png" class="img-fluid figure-img" style="width:38.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wtest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.11: Posición del Wind Sensor sobre el WindMaster durante su calibración.
+</figcaption>
+</figure>
+</div>
+<p>En un entorno abierto, el WindSensor registró datos de voltaje, los cuales se utilizaron junto con los datos de velocidad del viento obtenidos del WindMaster para desarrollar una ecuación de calibración que permitiera convertir el voltaje medido a m/s. Los resultados de la campaña se pueden visualizar en la <a href="#fig-viento" class="quarto-xref">Figura&nbsp;<span>4.12</span></a>.</p>
 <div id="cell-fig-viento" class="cell" data-execution_count="12">
 <div id="fig-viento" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -832,7 +851,7 @@ Figura&nbsp;4.10: Gill Instruments WindMaster.
 <iframe scrolling="no" width="100%" height="545px" src="iframe_figures/figure_9.html" frameborder="0" allowfullscreen=""></iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-viento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.11: Comparación de la velocidad del viento registrada por el WindMaster y el voltaje del Wind Sensor durante la campaña de calibración.
+Figura&nbsp;4.12: Comparación de la velocidad del viento registrada por el WindMaster y el voltaje del Wind Sensor durante la campaña de calibración.
 </figcaption>
 </figure>
 </div>
@@ -889,7 +908,7 @@ Tabla&nbsp;4.6: Coeficientes de correlación para los distinto remuestreos.
 <p><span id="eq-cal-viento"><span class="math display">\[
 WS = 26.3431 \times (\text{Voltaje})^{1.4273} \times (\text{Temperatura})^{-0.7631}
 \tag{4.8}\]</span></span></p>
-<p>Esta ecuación se empleó para convertir las mediciones de voltaje (tras aplicar la corrección) y de temperatura en valores precisos de velocidad del viento (m/s) con respecto al WindMaster y pueden observarse en la <a href="#fig-cviento" class="quarto-xref">Figura&nbsp;<span>4.12</span></a>.</p>
+<p>Esta ecuación se empleó para convertir las mediciones de voltaje (tras aplicar la corrección) y de temperatura en valores precisos de velocidad del viento (m/s) con respecto al WindMaster y pueden observarse en la <a href="#fig-cviento" class="quarto-xref">Figura&nbsp;<span>4.13</span></a>.</p>
 <div id="cell-fig-cviento" class="cell" data-execution_count="13">
 <div id="fig-cviento" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -897,7 +916,7 @@ WS = 26.3431 \times (\text{Voltaje})^{1.4273} \times (\text{Temperatura})^{-0.76
 <iframe scrolling="no" width="100%" height="545px" src="iframe_figures/figure_10.html" frameborder="0" allowfullscreen=""></iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cviento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.12: Comparación de las mediciones de velocidad del viento registradas por el WindMaster y el Wind Sensor tras su calibración.
+Figura&nbsp;4.13: Comparación de las mediciones de velocidad del viento registradas por el WindMaster y el Wind Sensor tras su calibración.
 </figcaption>
 </figure>
 </div>
@@ -939,7 +958,7 @@ Tabla&nbsp;4.7: EM y EAM del Wind Sensor antes y después de la calibración.
 <h2 data-number="4.6" class="anchored" data-anchor-id="sec-hrco-b"><span class="header-section-number">4.6</span> Humedad relativa y CO<sub>2</sub></h2>
 <section id="scd30-1" class="level4">
 <h4 class="anchored" data-anchor-id="scd30-1">SCD30</h4>
-<p>Al igual que en el caso de la temperatura del aire, el SCD30 se utilizó para obtener mediciones de humedad relativa y concentraciones de CO<sub>2</sub>, empleándose nuevamente el Fluke 975 AirMeter (<a href="#fig-fluke" class="quarto-xref">Figura&nbsp;<span>4.4</span></a>) como instrumento de referencia. La recolección de datos se realizó durante la misma campaña, por lo que las condiciones ambientales y los procedimientos fueron idénticos a las descritas en la <a href="#sec-taire-b" class="quarto-xref"><span>Sección 4.3</span></a>. Los resultados obtenidos se muestran en la <a href="#fig-scd30" class="quarto-xref">Figura&nbsp;<span>4.13</span></a>.</p>
+<p>Al igual que en el caso de la temperatura del aire, el SCD30 se utilizó para obtener mediciones de humedad relativa y concentraciones de CO<sub>2</sub>, empleándose nuevamente el Fluke 975 AirMeter (<a href="#fig-fluke" class="quarto-xref">Figura&nbsp;<span>4.4</span></a>) como instrumento de referencia. La recolección de datos se realizó durante la misma campaña, por lo que las condiciones ambientales y los procedimientos fueron idénticos a las descritas en la <a href="#sec-taire-b" class="quarto-xref"><span>Sección 4.3</span></a>. Los resultados obtenidos se muestran en la <a href="#fig-scd30" class="quarto-xref">Figura&nbsp;<span>4.14</span></a>.</p>
 <div id="cell-fig-scd30" class="cell" data-execution_count="14">
 <div id="fig-scd30" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -947,7 +966,7 @@ Tabla&nbsp;4.7: EM y EAM del Wind Sensor antes y después de la calibración.
 <iframe scrolling="no" width="100%" height="545px" src="iframe_figures/figure_11.html" frameborder="0" allowfullscreen=""></iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scd30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.13: Comparación de las mediciones de humedad relativa y CO<sub>2</sub> del Fluke y el SCD30 durante su campaña de referenciación.
+Figura&nbsp;4.14: Comparación de las mediciones de humedad relativa y CO<sub>2</sub> del Fluke y el SCD30 durante su campaña de referenciación.
 </figcaption>
 </figure>
 </div>
@@ -983,7 +1002,7 @@ Tabla&nbsp;4.8: EM y EAM para la humedad relativa y el CO<sub>2</sub> del SCD30 
 </div>
 </figure>
 </div>
-<p>La correlación entre las mediciones de ambos instrumentos se visualiza en la <a href="#fig-cscd30" class="quarto-xref">Figura&nbsp;<span>4.14</span></a>.</p>
+<p>La correlación entre las mediciones de ambos instrumentos se visualiza en la <a href="#fig-cscd30" class="quarto-xref">Figura&nbsp;<span>4.15</span></a>.</p>
 <div id="cell-fig-cscd30" class="cell" data-execution_count="15">
 <div id="fig-cscd30" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -991,7 +1010,7 @@ Tabla&nbsp;4.8: EM y EAM para la humedad relativa y el CO<sub>2</sub> del SCD30 
 <iframe scrolling="no" width="100%" height="820" src="iframe_figures/figure_12.html" frameborder="0" allowfullscreen=""></iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cscd30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.14: Correlación de las mediciones de humedad relativa y CO<sub>2</sub> entre el Fluke y el SCD30.
+Figura&nbsp;4.15: Correlación de las mediciones de humedad relativa y CO<sub>2</sub> entre el Fluke y el SCD30.
 </figcaption>
 </figure>
 </div>
@@ -1002,14 +1021,14 @@ Figura&nbsp;4.14: Correlación de las mediciones de humedad relativa y CO<sub>2<
 <h2 data-number="4.7" class="anchored" data-anchor-id="sec-sonido-b"><span class="header-section-number">4.7</span> Sonido</h2>
 <section id="micrófono" class="level4">
 <h4 class="anchored" data-anchor-id="micrófono">Micrófono</h4>
-<p>El TES-1356 Sound Level Calibrator (<a href="#fig-tes" class="quarto-xref">Figura&nbsp;<span>4.15</span></a>) es un calibrador de nivel de sonido capaz de generar tonos de referencia estándar de 94 <span class="math inline">\(dB\)</span> y 114 <span class="math inline">\(dB\)</span> a 1,000 <span class="math inline">\(Hz\)</span>, con un margen de error de ±0.5 <span class="math inline">\(dB\)</span>.</p>
+<p>El TES-1356 Sound Level Calibrator (<a href="#fig-tes" class="quarto-xref">Figura&nbsp;<span>4.16</span></a>) es un calibrador de nivel de sonido capaz de generar tonos de referencia estándar de 94 <span class="math inline">\(dB\)</span> y 114 <span class="math inline">\(dB\)</span> a 1,000 <span class="math inline">\(Hz\)</span>, con un margen de error de ±0.5 <span class="math inline">\(dB\)</span>.</p>
 <div id="fig-tes" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href=".\images/tes.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;4.15: TES-1356 Sound Level Calibrator."><img src=".\images/tes.jpg" class="img-fluid figure-img" style="width:30.0%"></a>
+<a href=".\images/tes.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;4.16: TES-1356 Sound Level Calibrator."><img src=".\images/tes.jpg" class="img-fluid figure-img" style="width:30.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.15: TES-1356 Sound Level Calibrator.
+Figura&nbsp;4.16: TES-1356 Sound Level Calibrator.
 </figcaption>
 </figure>
 </div>
@@ -1022,14 +1041,14 @@ dB = 20 \log_{10}(A) + 120
 <ol type="1">
 <li>Grabación: Se capturó un tono constante (por ejemplo, 94 <span class="math inline">\(dB\)</span> @ 1,000 <span class="math inline">\(Hz\)</span>) durante 15 segundos a 44.1 <span class="math inline">\(kHz\)</span>, con el micrófono acoplado al calibrador en un entorno silencioso:</li>
 </ol>
-<div id="d7b8b715" class="cell" data-execution_count="16">
+<div id="c898e97c" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>arecord <span class="op">-</span>D plughw:<span class="dv">3</span>,<span class="dv">0</span> <span class="op">-</span>f cd <span class="op">-</span>t wav <span class="op">-</span>d <span class="dv">15</span> <span class="op">-</span>r <span class="dv">44100</span> audio.wav</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Extracción de amplitud RMS, máxima y mínima mediante el programa <code>sox</code>:</li>
 </ol>
-<div id="8953aa6e" class="cell" data-execution_count="17">
+<div id="461b06f4" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sox audio.wav <span class="op">-</span>n stat <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="op">\</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> grep <span class="st">"RMS     amplitude:"</span> \</span>
@@ -1040,7 +1059,7 @@ dB = 20 \log_{10}(A) + 120
 <ol start="3" type="1">
 <li>Cálculo en Python:</li>
 </ol>
-<div id="9d30ba0c" class="cell" data-execution_count="18">
+<div id="883af6c4" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'rms.txt'</span>)    <span class="im">as</span> f: rms_x    <span class="op">=</span> <span class="bu">float</span>(f.read().strip())</span>
@@ -1058,18 +1077,19 @@ dB = 20 \log_{10}(A) + 120
 <h2 data-number="4.8" class="anchored" data-anchor-id="sec-ilum-b"><span class="header-section-number">4.8</span> Iluminancia</h2>
 <section id="fisheye" class="level4">
 <h4 class="anchored" data-anchor-id="fisheye">Fisheye</h4>
-<p>En el caso de la iluminancia, no se realizó ningún proceso de calibración o referenciación. Se empleó la cámara Arducam 5MP OV5647 Ultra Wide Angle en conjunto con el software <code>Radiance</code>. Se desarrolló un script que calcula la iluminancia total mediante el cálculo de la integral de los valores de luminancia que conforman al mapa de luminancia (<a href="#fig-ilum" class="quarto-xref">Figura&nbsp;<span>4.16</span></a>) generado a partir de las imágenes capturadas. El proceso inicia con la creación de una imagen HDR a partir de la fusión de fotografías tomadas a diferentes exposiciones, lo que permite capturar la mayor cantidad de información posible sobre la intensidad luminosa. Posteriormente, a esta imagen HDR se le aplica una escala de <em>false color</em> para identificar los valores de iluminancia en cada punto de la imagen. El cálculo de la integral para el mapa generado facilita la determinación de la iluminancia total del espacio interior en el momento de la captura. Además, el mismo script se encarga de enviar el valor de la iluminancia total a <code>ThingsBoard</code>, conforme se detalla en la <a href="#sec-obtencion" class="quarto-xref"><span>Sección 4.2</span></a>.</p>
+<p>En el caso de la iluminancia, no se realizó ningún proceso de calibración o referenciación. La calibración no aplica en este caso, ya que el método no depende de la respuesta espectral absoluta de la cámara, sino de un proceso computacional que transforma imágenes HDR en estimaciones de iluminancia mediante modelos de luminancia integrados en Radiance.</p>
+<p>Se empleó la cámara Arducam 5MP OV5647 Ultra Wide Angle en conjunto con el software <code>Radiance</code> y se desarrolló un script que calcula la iluminancia total mediante la integral de los valores de luminancia que conforman el mapa generado a partir de las imágenes capturadas (<a href="#fig-ilum" class="quarto-xref">Figura&nbsp;<span>4.17</span></a>). El proceso inicia con la creación de una imagen HDR a partir de la fusión de fotografías tomadas a diferentes exposiciones, lo que permite capturar la mayor cantidad de información posible sobre la intensidad luminosa. Posteriormente, a esta imagen HDR se le aplica una escala de false color para identificar los valores de luminancia en cada punto de la imagen. El cálculo de la integral para el mapa generado facilita la determinación de la iluminancia total del espacio interior en el momento de la captura.</p>
 <div id="fig-ilum" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ilum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href=".\images/ilum.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;4.16: Mapa de luminancia generado con una cámara 5MP OV5647 y el software Radiance."><img src=".\images/ilum.jpg" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href=".\images/ilum.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;4.17: Mapa de luminancia generado con una cámara 5MP OV5647 y el software Radiance."><img src=".\images/ilum.jpg" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ilum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.16: Mapa de luminancia generado con una cámara 5MP OV5647 y el software Radiance.
+Figura&nbsp;4.17: Mapa de luminancia generado con una cámara 5MP OV5647 y el software Radiance.
 </figcaption>
 </figure>
 </div>
-<p>En este contexto, los mapas de luminancia generados son de carácter cualitativo, pues su principal objetivo es representar visualmente la distribución espacial de la intensidad luminosa, más que proporcionar valores puntuales de alta precisión. Estos mapas permiten identificar zonas de alta o baja iluminancia y comprender la uniformidad de la luz en el espacio, aunque la cuantificación detallada se basa en el cálculo de la integral de la imagen HDR.</p>
+<p>En este contexto, los mapas de luminancia generados son de carácter cualitativo, pues su principal objetivo es representar visualmente la distribución espacial de la intensidad luminosa más que proporcionar valores puntuales. Estos mapas permiten identificar zonas de alta o baja iluminancia y comprender la uniformidad de la luz en el espacio, mientras que la cuantificación se deriva directamente del cálculo integral aplicado a la imagen HDR.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
