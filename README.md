@@ -1,3 +1,3 @@
 # DTHIS-C
 
-Tesis de José Ramón Hernández Aguilar para obtener el título de Ingenierio en Energía Renovables. 
+Tesis de José Ramón Hernández Aguilar para obtener el título de Ingenierio en Energías Renovables. 
